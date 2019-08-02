@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <record id="inherit_pos_config" model="ir.ui.view">
+            <field name="name">pos.config.form</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                      <field name="related_pos_user" readonly="1" invisible="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="inherit_users" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='barcode']" position="before">
+                      <field name="pos_sessions" widget="many2many_tags"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
