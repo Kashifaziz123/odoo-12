@@ -2,7 +2,7 @@
     "name": "POS User Own Session",
     "version": "12.0.0.0.1",
     "category": "",
-    "author": "Object Synergy",
+    "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
     "license": "OPL-1",
     "depends": [
