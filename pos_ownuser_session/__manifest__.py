@@ -2,6 +2,10 @@
     "name": "POS User Own Session",
     "version": "12.0.0.0.1",
     "category": "",
+     'summary': "POS userwise session",
+    'description': """
+    odoo Pos user can access own sessions.
+    """,
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
     "license": "OPL-1",
