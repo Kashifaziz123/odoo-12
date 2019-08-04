@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		<record id="view_competitor_form" model="ir.ui.view">
+		<record id="view_dr_form" model="ir.ui.view">
 			<field name="name">dr.form</field>
 			<field name="model">dr</field>
 			<field name="arch" type="xml">
-				<form string="Competitor">
+				<form string="Doctor">
 					<sheet>
 						<div class="oe_button_box" name="button_box">
 							<button name="toggle_active" type="object"
@@ -59,11 +59,11 @@
 				</form>
 			</field>
 		</record>
-		<record id="view_competitor_tree" model="ir.ui.view">
+		<record id="view_dr_tree" model="ir.ui.view">
 			<field name="name">competitor.tree</field>
 			<field name="model">dr</field>
 			<field name="arch" type="xml">
-				<tree string="Contacts">
+				<tree string="Doctor">
 					<field name="display_name" string="Name" />
 					<field name="phone" />
 					<field name="email" />
@@ -143,19 +143,15 @@
                 </kanban>
             </field>
         </record>
-		<record id="action_competitor_window"
+		<record id="action_dr_window"
 			model="ir.actions.act_window">
 			<field name="name">Doctor</field>
 			<field name="res_model">dr</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">kanban,tree,form</field>
 		</record>
-
-		<menuitem id="res_partner_menu_competitor" name='Doctor'
-			parent="sale.sale_order_menu" action="action_competitor_window"
-			sequence="6" groups="sales_team.group_sale_salesman" />
-		<menuitem id="crm_menu_competitor" name='Doctor'
-			parent="crm.crm_menu_sales" action="action_competitor_window"
-			sequence="5" />
+		<menuitem id="res_partner_menu_dr" name='Doctor'
+			parent="sale.sale_order_menu" action="action_dr_window"
+			sequence="6" groups="sales_team.group_sale_salesman"/>
 	</data>
 </odoo>
