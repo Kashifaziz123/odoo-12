@@ -6,8 +6,8 @@
     "name": "dr",
     "version": "12.0.0.0.1",
     "category": "dr",
-    "author": "GAPPS",
-    "website": "http://www.gerrys.net",
+    "author": "Kashif Aziz",
+    "website": "https://www.objectsynergy.com/",
     "license": "OPL-1",
     "depends": [
         'base'
