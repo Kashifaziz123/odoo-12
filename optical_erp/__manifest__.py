@@ -12,7 +12,7 @@
     "license": "OPL-1",
     'images': ['static/description/background.jpeg'],
     "depends": [
-        'base','sale',
+        'base','sale','dr',
     ],
 'price': 50, 'currency': 'EUR',
     "data": [
