@@ -14,5 +14,4 @@
         "view/view.xml",
     ],
     "installable": True,
-    'application': True,
 }
