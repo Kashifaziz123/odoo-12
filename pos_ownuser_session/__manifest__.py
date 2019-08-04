@@ -9,6 +9,7 @@
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
     "license": "OPL-1",
+   'images': ['static/description/visible_session.jpg'],
     "depends": [
         'base','point_of_sale',
     ],
