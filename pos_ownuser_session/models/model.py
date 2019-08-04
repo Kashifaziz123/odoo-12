@@ -21,16 +21,7 @@ class InheritUser(models.Model):
 
     pos_sessions = fields.Many2many('pos.config', string='Point of Sale Accessible')
 
-    @api.model
-    def create(self, vals):
-        create_id = super(InheritUser, self).create(vals)
-        if vals['pos_sessions'][0][2]:
-            for pos_session in vals['pos_sessions'][0][2]:
-                pos_session = self.env['pos.config'].browse(pos_session)
-                pos_session.related_pos_user = create_id
-
-        return create_id
-
+    
     @api.multi
     def write(self, vals):
         if 'pos_sessions' in vals:
