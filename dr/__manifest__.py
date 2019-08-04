@@ -8,7 +8,7 @@
     "category": "dr",
     "author": "GAPPS",
     "website": "http://www.gerrys.net",
-    "license": "AGPL-3",
+    "license": "OPL-1",
     "depends": [
         'base'
     ],
