@@ -9,7 +9,8 @@
     """,
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
-    "license": "OPL-1",
+    'license': 'AGPL-3',
+    'sequence': 2,
     'images': ['static/description/background.png'],
     "depends": [
         'base','sale','dr',
