@@ -7,7 +7,7 @@
     "license": "OPL-1",
  'images': ['static/description/dr.jpg'],
     "depends": [
-        'base'
+        'base','sale',
     ],
     "data": [
         "security/ir.model.access.csv",
