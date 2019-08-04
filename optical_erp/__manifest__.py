@@ -10,7 +10,7 @@
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
     "license": "OPL-1",
-    'images': ['static/description/background.jpeg'],
+    'images': ['static/description/background.png'],
     "depends": [
         'base','sale','dr',
     ],
