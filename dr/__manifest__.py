@@ -4,8 +4,7 @@
     "category": "dr",
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com/",
-    'license': 'AGPL-3',
-    'sequence': 2,
+    "license": "OPL-1",
  'images': ['static/description/dr.jpg'],
     "depends": [
         'base'
@@ -15,4 +14,5 @@
         "view/view.xml",
     ],
     "installable": True,
+    'application': True,
 }
