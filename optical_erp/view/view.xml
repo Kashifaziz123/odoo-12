@@ -78,12 +78,14 @@
 						 <td style="text-align:center;">
 							 <field name="sphl"/>
 						 </td>
-						 <td style="text-align:center;">
-							  <field name="cyll"/>
-						 </td>
 						  <td style="text-align:center;">
-							  <field name="axl"/>
+							  <field name="cyll" attrs="{'required': [('axl', '!=', False)]}" />
 						 </td>
+
+						  <td style="text-align:center;">
+							  <field name="axl" attrs="{'required': [('cyll', '!=', False)]}" />
+						 </td>
+ 
 						   <td style="text-align:center;">
 							  <field name="add1l"/>
 						 </td>
@@ -127,11 +129,11 @@
 						 </th>
 					 </tr>
 					 	 <tr>
-							  <td style="text-align:center;">
-							 <field name="pdr"/>
+							   <td style="text-align:center;">
+							 <field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
 							  </td>
 					 	  <td style="text-align:center;">
-							 <field name="pdl"/>
+							 <field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
 						 </td>
 					 </tr>
 				 </table>
@@ -172,6 +174,7 @@
 						 <td>
 							 <span style="text-align:center;">Right</span>
 						 </td>
+
 						 <td style="text-align:center;">
 							 <field name="prism_valr"/>
 						 </td>
