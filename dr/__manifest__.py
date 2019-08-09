@@ -13,5 +13,5 @@
         "security/ir.model.access.csv",
         "view/view.xml",
     ],
-    "installable": True,
+    "installable": False,
 }
