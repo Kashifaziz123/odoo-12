@@ -14,7 +14,6 @@
         'base','point_of_sale',
     ],
     'category': 'Point Of Sale',
-    'price': 10, 'currency': 'EUR',
     "data": [
         "security/ir.model.access.csv",
         "view/rules.xml",
