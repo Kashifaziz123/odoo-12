@@ -6,6 +6,7 @@
     'description': """
     odoo Pos user can access own sessions.
     """,
+    'category': 'Point Of Sale',
     "author": "Kashif Aziz",
     "website": "https://www.objectsynergy.com",
     "license": "OPL-1",
@@ -13,8 +14,7 @@
     "depends": [
         'base','point_of_sale',
     ],
-    'category': 'Point Of Sale',
-    'price': 10, 'currency': 'EUR'.
+    'price': 10, 'currency': 'EUR',
     "data": [
         "security/ir.model.access.csv",
         "view/rules.xml",
