@@ -13,6 +13,8 @@
     "depends": [
         'base','point_of_sale',
     ],
+'price': 10, 'currency': 'EUR',  
+,
     'category': 'Point Of Sale',
     "data": [
         "security/ir.model.access.csv",
