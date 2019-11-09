@@ -8,7 +8,7 @@
     odoo Solution for Optical(EYE) shops and clinics.
     """,
     "author": "Kashif Aziz",
-    "website": "https://www.objectsynergy.com",
+    "website": "alhaditech",
     "license": "OPL-1",
     'images': ['static/description/background.png'],
     "depends": [

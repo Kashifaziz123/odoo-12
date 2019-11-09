@@ -8,7 +8,7 @@
     """,
     'category': 'Point Of Sale',
     "author": "Kashif Aziz",
-    "website": "https://www.objectsynergy.com",
+    "website": "alhaditech",
     "license": "OPL-1",
    'images': ['static/description/visible_session (1).png'],
     "depends": [
