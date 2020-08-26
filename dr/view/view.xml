@@ -147,7 +147,7 @@
 			model="ir.actions.act_window">
 			<field name="name">Doctor</field>
 			<field name="res_model">dr</field>
-			<field name="view_type">form</field>
+<!--			<field name="view_type">form</field>-->
 			<field name="view_mode">kanban,tree,form</field>
 		</record>
 		<menuitem id="res_partner_menu_dr" name='Doctor'
