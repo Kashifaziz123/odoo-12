@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		   <record id="custom_quotation" model="ir.ui.view">
+        <field name="name">Sale Order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[1]" position="after">
+             <page string="EYE CHECKUP DETAILS">
+              <group  colspan="6" col="2">
+				   <field name="dr"/>
+
+					 <field name="checkup_date"/>
+
+					 <field name="test_type"/>
+				 </group>
+
+				 <table colspan="8" col="8" border="1" cellpadding="0" cellspacing="0" class="table table-bordered pp" width="100%">
+
+					 <tr>
+						 <th style="text-align:center;">
+							 R/L
+						 </th>
+						 <th style="text-align:center;">
+							 SPH
+						 </th>
+
+
+						 <th style="text-align:center;">
+							 CYL
+						 </th>
+						  <th style="text-align:center;">
+							 AXIS
+						 </th>
+						  <th style="text-align:center;">
+							 ADD
+						 </th>
+<!--						   <th style="text-align:center;">-->
+<!--							 Dim-->
+<!--						 </th>-->
+<!--						    <th style="text-align:center;">-->
+<!--							 Height-->
+<!--						 </th>-->
+					 </tr>
+					 <tr>
+						 <td>
+							 <span style="text-align:center;">Right</span>
+						 </td>
+						 <td style="text-align:center;">
+							 <field name="sph"/>
+						 </td>
+						 <td style="text-align:center;">
+							  <field name="cyl"/>
+						 </td>
+						  <td style="text-align:center;">
+							  <field name="ax"/>
+						 </td>
+						   <td style="text-align:center;">
+							  <field name="add1"/>
+						 </td>
+
+<!--						   <td style="text-align:center;">-->
+<!--							  <field name="dim"/>-->
+<!--						 </td>-->
+
+
+<!--						   <td style="text-align:center;">-->
+<!--							  <field name="height"/>-->
+<!--						 </td>-->
+
+
+					 </tr>
+					 	 <tr>
+						 <td>
+							 <span style="text-align:center;">Left</span>
+						 </td>
+						 <td style="text-align:center;">
+							 <field name="sphl"/>
+						 </td>
+						  <td style="text-align:center;">
+							  <field name="cyll" attrs="{'required': [('axl', '!=', False)]}" />
+						 </td>
+
+						  <td style="text-align:center;">
+							  <field name="axl" attrs="{'required': [('cyll', '!=', False)]}" />
+						 </td>
+ 
+						   <td style="text-align:center;">
+							  <field name="add1l"/>
+						 </td>
+
+<!--						   <td style="text-align:center;">-->
+<!--							  <field name="diml"/>-->
+<!--						   </td>-->
+
+<!--						   <td style="text-align:center;">-->
+<!--							  <field name="heightl"/>-->
+<!--						 </td>-->
+
+					 </tr>
+				 </table>
+
+            <field name="dual_pd" invisible="1"/>
+
+ <table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', True)]}" cellspacing="0" class="table table-bordered pp" width="100px">
+
+					 <tr>
+						 <th style="text-align:center;">
+							 PD
+						 </th>
+
+					 </tr>
+					 	 <tr>
+							  <td style="text-align:center;">
+							 <field name="pd"/>
+						 </td>
+					 </tr>
+				 </table>
+				 <table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0" class="table table-bordered pp" width="150px">
+
+					 <tr>
+						 <th style="text-align:center;">
+							 RIGHT PD
+						 </th>
+
+						  <th style="text-align:center;">
+							 LEFT PD
+						 </th>
+					 </tr>
+					 	 <tr>
+							   <td style="text-align:center;">
+							 <field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
+							  </td>
+					 	  <td style="text-align:center;">
+							 <field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
+						 </td>
+					 </tr>
+				 </table>
+
+                <div>
+
+					  <field name="dual_pd"/>
+					  <label for="dual_pd"/>
+				 </div>
+
+				 <div>
+
+					  <field name="prism"/>
+					  <label for="prism"/>
+				 </div>
+
+
+
+                 <group>
+
+<table colspan="8" col="8" border="1" cellpadding="0" attrs="{'invisible': [('prism', '=', False)]}" cellspacing="0" class="table table-bordered pp" widht="100%">
+
+					 <tr>
+						 <th style="text-align:center;">
+							 R/L
+						 </th>
+						 <th style="text-align:center;">
+							 Prism Value
+						 </th>
+
+
+						 <th style="text-align:center;">
+							 Base Direction
+						 </th>
+
+					 </tr>
+					 <tr>
+						 <td>
+							 <span style="text-align:center;">Right</span>
+						 </td>
+
+						 <td style="text-align:center;">
+							 <field name="prism_valr"/>
+						 </td>
+						 <td style="text-align:center;">
+							  <field name="baser"/>
+						 </td>
+
+					 </tr>
+					 	 <tr>
+						 <td>
+							 <span style="text-align:center;">Left</span>
+						 </td>
+							  <td style="text-align:center;">
+							 <field name="prism_vall"/>
+						 </td>
+						 <td style="text-align:center;">
+							  <field name="basel"/>
+						 </td>
+
+					 </tr>
+				 </table>
+				 </group>
+
+                 <separator string="Recommendations"/>
+				 <separator string="Note"/>
+				<field name="dr_notes" placeholder="Note"/>
+
+
+			 </page>
+            </xpath>
+        </field>
+    </record>
+	</data>
+</odoo>
