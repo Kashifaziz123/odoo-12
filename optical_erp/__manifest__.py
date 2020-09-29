@@ -14,7 +14,7 @@
     "depends": [
         'base','sale','dr',
     ],
-'price': 50, 'currency': 'EUR',
+'price': 26, 'currency': 'EUR',
     "data": [
         "security/ir.model.access.csv",
         "view/view.xml",
