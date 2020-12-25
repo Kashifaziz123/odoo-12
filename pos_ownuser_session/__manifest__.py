@@ -7,8 +7,8 @@
     odoo Pos user can access own sessions.
     """,
     'category': 'Point Of Sale',
-    "author": "Kashif Aziz",
-    "website": "alhaditech",
+    "author": "Alhaditech",
+    "website": "http://alhaditech.com",
     "license": "OPL-1",
    'images': ['static/description/visible_session (1).png'],
     "depends": [
