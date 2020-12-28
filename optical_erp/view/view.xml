@@ -213,9 +213,9 @@
 		</record>
 
 		<record id="action_config" model="ir.actions.act_window">
-			<field name="name">Configuration</field>
+			<field name="name">Eye Test Type</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="res_model">dr.config</field>
+			<field name="res_model">eye.test.type</field>
 			<field name="view_mode">form</field>
 		</record>
 
@@ -223,6 +223,6 @@
 		<menuitem id="optical_erp_root" name="Optical Erp" sequence="1" web_icon="optical_erp,static/description/icon.png"/>
 		<menuitem id="optical_erp_doctor" name="Doctor" parent="optical_erp_root" action="action_doctor" sequence="1"/>
 		<menuitem id="optical_erp_patient" name="Patient" parent="optical_erp_root" action="action_patient" sequence="2"/>
-		<menuitem id="optical_erp_config" name="Configuration" parent="optical_erp_root" action="action_config" sequence="3"/>
+		<menuitem id="optical_erp_config" name="Eye Test Type" parent="optical_erp_root" action="action_config" sequence="3"/>
 	</data>
 </odoo>
