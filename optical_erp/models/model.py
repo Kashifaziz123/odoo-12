@@ -62,7 +62,7 @@ class DrPrescription(models.Model):
     _rec_name = 'dr'
 
     dr = fields.Many2one('res.partner',string='Doctor',readonly=True)
-    patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=True)
+    patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=False)
     checkup_date = fields.Date('Checkup Date')
     test_type = fields.Many2one('eye.test.type')
     sph = fields.Selection(
