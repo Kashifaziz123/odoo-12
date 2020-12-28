@@ -12,9 +12,9 @@
     "license": "OPL-1",
     'images': ['static/description/background.png'],
     "depends": [
-        'base','sale','dr',
+        'base','sale',
     ],
-    'price': 50, 'currency': 'EUR',
+    'price': 70, 'currency': 'EUR',
     "data": [
         'security/approval_groups.xml',
         "security/ir.model.access.csv",
