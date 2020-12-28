@@ -7,15 +7,16 @@
     'description': """
     odoo Solution for Optical(EYE) shops and clinics.
     """,
-    "author": "Alhaditech",
-    "website": "https://alhaditech.com",
+    "author": "Kashif Aziz",
+    "website": "alhaditech",
     "license": "OPL-1",
     'images': ['static/description/background.png'],
     "depends": [
         'base','sale','dr',
     ],
-'price': 50, 'currency': 'EUR',
+    'price': 50, 'currency': 'EUR',
     "data": [
+        'security/approval_groups.xml',
         "security/ir.model.access.csv",
         "view/view.xml",
     ],
