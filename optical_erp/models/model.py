@@ -54,9 +54,9 @@ class DrPrescription(models.Model):
     _rec_name = 'dr'
 
     dr = fields.Many2one('res.partner',string='Doctor',readonly=True)
-    patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=False)
+    patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=True)
     checkup_date = fields.Date('Checkup Date')
-    test_type = fields.Selection([('Glasses', 'Glasses'), ('Contact Lense', 'Contact Lense')])
+    test_type = fields.Many2one('dr.config')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
             , ('-6.75', '-6.75'), ('-6.50', '-6.50'), ('-6.25', '-6.25'), ('-6.00', '-6.00')
@@ -256,10 +256,12 @@ class DrPrescription(models.Model):
     dr_notes = fields.Text('Notes')
 
 
+
 class DrConfig(models.Model):
     _name ='dr.config'
+    _rec_name = 'name'
 
-    test_type = fields.Selection([('Glasses', 'Glasses'), ('Contact Lense', 'Contact Lense')])
+    name = fields.Char(string='Test_type')
 
 
 
