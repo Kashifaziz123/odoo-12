@@ -48,6 +48,14 @@ class InheritedResPartner(models.Model):
         count = self.env['dr.prescription'].search_count(['|',('dr','=',self.id),('patient','=',self.id)])
         self.prescription_count = count
 
+
+
+class TestType(models.Model):
+    _name ='eye.test.type'
+    _rec_name = 'name'
+
+    name = fields.Char(string='Test_type')
+
 class DrPrescription(models.Model):
     _name ='dr.prescription'
     _description = 'Doctor Prescription'
@@ -56,7 +64,7 @@ class DrPrescription(models.Model):
     dr = fields.Many2one('res.partner',string='Doctor',readonly=True)
     patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=True)
     checkup_date = fields.Date('Checkup Date')
-    test_type = fields.Many2one('dr.config')
+    test_type = fields.Many2one('eye.test.type')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
             , ('-6.75', '-6.75'), ('-6.50', '-6.50'), ('-6.25', '-6.25'), ('-6.00', '-6.00')
@@ -256,12 +264,6 @@ class DrPrescription(models.Model):
     dr_notes = fields.Text('Notes')
 
 
-
-class DrConfig(models.Model):
-    _name ='dr.config'
-    _rec_name = 'name'
-
-    name = fields.Char(string='Test_type')
 
 
 
