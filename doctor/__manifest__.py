@@ -2,8 +2,8 @@
     "name": "doctor",
     "version": "12.0.0.0.1",
     "category": "dr",
-    "author": "Kashif Aziz",
-    "website": "https://www.objectsynergy.com/",
+    "author": "Alhaditech",
+    'support': 'https://alhaditech.com',
     "license": "OPL-1",
     'images': ['static/description/dr.jpg'],
     "depends": [

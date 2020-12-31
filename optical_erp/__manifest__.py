@@ -2,8 +2,8 @@
 {
     'name': 'Optical ERP',
     'version': '13.1.3',
-    'category': 'Point Of Sale',
-    'author': 'D.Jane, Fauniq',
+    'category': 'Optical',
+    'author': 'Alhaditech',
     'price': 70,
     'currency': 'EUR',
     'license': 'OPL-1',
@@ -19,10 +19,10 @@
         "views/prescription.xml",
         'views/patient_inherit.xml',
         'views/doctor_inherit.xml',
+        'views/sales_inherit.xml',
         "views/view.xml",
     ],
     'images': ['static/description/background.png'],
-    'qweb': ['static/src/xml/pos_stock.xml'],
     'installable': True,
     'application': True,
 }
