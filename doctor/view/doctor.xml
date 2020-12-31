@@ -11,6 +11,14 @@
                         A partner with the same <span><span class="o_vat_label">Tax ID</span></span> already exists
                         (<field name="same_vat_partner_id"/>), are you sure to create a new one?
                     </div>
+                    <header>
+                        <button
+                                style="margin-left:10px;"
+                                name="create_doctors"
+                                string="Create User"
+                                class="btn btn-success"
+                                type="object"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box"/>
                         <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
@@ -44,7 +52,6 @@
                                 </button>
                             </div>
                         </div>
-
                         <group>
                             <group>
                                 <field name="type" groups="base.group_no_one"
@@ -106,7 +113,6 @@
                                        placeholder="Tags..."/>
                             </group>
                         </group>
-
                         <notebook colspan="4">
                             <page string="Contacts &amp; Addresses" autofocus="autofocus">
                                 <field name="child_ids" mode="kanban"
