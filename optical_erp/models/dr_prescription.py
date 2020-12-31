@@ -1,68 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from odoo import api, fields, models,_
 
-class InheritedResPartner(models.Model):
-    _inherit = 'res.partner'
-    is_doctor = fields.Boolean()
-    is_patient = fields.Boolean()
-    prescription_count = fields.Integer(compute='get_prescription_count')
-
-
-    def get_prescription_count(self):
-        count = self.env['dr.prescription'].search_count(['|', ('dr', '=', self.id), ('patient', '=', self.id)])
-        self.prescription_count = count
-
-
-
-    # def create_users(self):
-    #     if self.is_doctor==True:
-    #         print('1')
-    #         vals = {
-    #             'company_id': self.env.ref('base.main_company').id,
-    #             'name':self.name,
-    #             'login':self.name,
-    #             'email': "hrofcr@yourcompany.com",
-    #             'groups_id': [(6, 0, [self.env.ref('optical_erp.group_optical_erp_doctors').id])]
-    #         }
-    #         users = self.env['res.users'].create(vals)
-    #         return users
-
-
-
-
-
-
-    def open_doctor_prescriptions(self):
-        for records in self:
-            return {
-                'name':_('Doctor Prescription'),
-                'view_type': 'form',
-                'domain': ['|',('dr', '=',records.id),('patient','=',records.id)],
-                'res_model': 'dr.prescription',
-                'view_id': False,
-                'view_mode':'tree,form',
-                'context':{'default_dr':self.id},
-                'type': 'ir.actions.act_window',
-            }
-
-    def get_prescription_count(self):
-        count = self.env['dr.prescription'].search_count(['|',('dr','=',self.id),('patient','=',self.id)])
-        self.prescription_count = count
-
-
-
-class TestType(models.Model):
-    _name ='eye.test.type'
-    _rec_name = 'name'
-
-    name = fields.Char(string='Test_type',required=True)
 
 class DrPrescription(models.Model):
     _name ='dr.prescription'
     _description = 'Doctor Prescription'
     _rec_name = 'dr'
 
-    dr = fields.Many2one('res.partner',string='Doctor',readonly=True)
-    patient = fields.Many2one('res.partner', domain="[('is_patient','=','True')]", string='Patient',readonly=False)
+    dr = fields.Many2one('optical.dr',string='Doctor',readonly=True)
+    patient = fields.Many2one('optical.patient', string='Patient',readonly=False)
     checkup_date = fields.Date('Checkup Date')
     test_type = fields.Many2one('eye.test.type')
     sph = fields.Selection(
@@ -262,6 +209,8 @@ class DrPrescription(models.Model):
             , ('28.5', '28.5'), ('28', '28')], 'PDR')
 
     dr_notes = fields.Text('Notes')
+
+
 
 
 

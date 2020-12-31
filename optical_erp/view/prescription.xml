@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="dr_prescription" model="ir.ui.view">
+			<field name="name">Doctor Prescription</field>
+			<field name="model">dr.prescription</field>
+			<field name="arch" type="xml">
+				<form string="Doctor Prescription">
+					<group colspan="6" col="2">
+						<field name="dr" options='{"no_open": True, "no_create": True}'   required="1"/>
+						<field name="patient" options='{"no_open": True, "no_create": True}' required="1"/>
+						<field name="checkup_date"  required="1"/>
+						<field name="test_type" options='{"no_open": True, "no_create": True}'  required="1"/>
+					</group>
+					<table colspan="8" col="8" border="1" cellpadding="0" cellspacing="0" class="table table-bordered pp" width="100%">
+
+						<tr>
+							<th style="text-align:center;">
+								R/L
+							</th>
+							<th style="text-align:center;">
+								SPH
+							</th>
+
+
+							<th style="text-align:center;">
+								CYL
+							</th>
+							<th style="text-align:center;">
+								AXIS
+							</th>
+							<th style="text-align:center;">
+								ADD
+							</th>
+							<!--						   <th style="text-align:center;">-->
+							<!--							 Dim-->
+							<!--						 </th>-->
+							<!--						    <th style="text-align:center;">-->
+							<!--							 Height-->
+							<!--						 </th>-->
+						</tr>
+						<tr>
+							<td>
+								<span style="text-align:center;">Right</span>
+							</td>
+							<td style="text-align:center;">
+								<field name="sph"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="cyl"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="ax"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="add1"/>
+							</td>
+
+							<!--						   <td style="text-align:center;">-->
+							<!--							  <field name="dim"/>-->
+							<!--						 </td>-->
+
+
+							<!--						   <td style="text-align:center;">-->
+							<!--							  <field name="height"/>-->
+							<!--						 </td>-->
+
+
+						</tr>
+						<tr>
+							<td>
+								<span style="text-align:center;">Left</span>
+							</td>
+							<td style="text-align:center;">
+								<field name="sphl"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="cyll" attrs="{'required': [('axl', '!=', False)]}" />
+							</td>
+
+							<td style="text-align:center;">
+								<field name="axl" attrs="{'required': [('cyll', '!=', False)]}" />
+							</td>
+
+							<td style="text-align:center;">
+								<field name="add1l"/>
+							</td>
+
+							<!--						   <td style="text-align:center;">-->
+							<!--							  <field name="diml"/>-->
+							<!--						   </td>-->
+
+							<!--						   <td style="text-align:center;">-->
+							<!--							  <field name="heightl"/>-->
+							<!--						 </td>-->
+
+						</tr>
+					</table>
+					<field name="dual_pd" invisible="1"/>
+
+					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', True)]}" cellspacing="0" class="table table-bordered pp" width="100px">
+
+						<tr>
+							<th style="text-align:center;">
+								PD
+							</th>
+
+						</tr>
+						<tr>
+							<td style="text-align:center;">
+								<field name="pd"/>
+							</td>
+						</tr>
+					</table>
+					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0" class="table table-bordered pp" width="150px">
+
+						<tr>
+							<th style="text-align:center;">
+								RIGHT PD
+							</th>
+
+							<th style="text-align:center;">
+								LEFT PD
+							</th>
+						</tr>
+						<tr>
+							<td style="text-align:center;">
+								<field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
+							</td>
+						</tr>
+					</table>
+
+					<separator string="Recommendations"/>
+					<separator string="Note"/>
+					<field name="dr_notes" placeholder="Note"></field>
+
+
+				</form>
+			</field>
+		</record>
+		<record id="dr_prescription_tree" model="ir.ui.view">
+			<field name="name">Doctor Prescription Tree View</field>
+			<field name="model">dr.prescription</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="dr"/>
+					<field name="checkup_date"/>
+					<field name="test_type"/>
+				</tree>
+			</field>
+		</record>
+	</data>
+</odoo>
