@@ -4,7 +4,7 @@
     'version': '13.1.3',
     'category': 'Optical',
     'author': 'Alhaditech',
-    'price': 70,
+    'price': 50,
     'currency': 'EUR',
     'license': 'OPL-1',
     'support': 'https://alhaditech.com',
