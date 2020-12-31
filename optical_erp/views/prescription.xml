@@ -32,12 +32,6 @@
 							<th style="text-align:center;">
 								ADD
 							</th>
-							<!--						   <th style="text-align:center;">-->
-							<!--							 Dim-->
-							<!--						 </th>-->
-							<!--						    <th style="text-align:center;">-->
-							<!--							 Height-->
-							<!--						 </th>-->
 						</tr>
 						<tr>
 							<td>
@@ -146,6 +140,7 @@
 			<field name="model">dr.prescription</field>
 			<field name="arch" type="xml">
 				<tree>
+					<field name="patient"/>
 					<field name="dr"/>
 					<field name="checkup_date"/>
 					<field name="test_type"/>
