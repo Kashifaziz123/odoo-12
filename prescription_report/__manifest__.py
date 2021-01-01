@@ -14,7 +14,7 @@
     "depends": [
         'base','sale','optical_erp'
     ],
-    'price': 10, 'currency': 'EUR',
+    'price': 0, 'currency': 'EUR',
     "data": [
         "report/reports.xml",
         "report/prescription_report.xml",
