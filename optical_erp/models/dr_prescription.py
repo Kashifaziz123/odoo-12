@@ -88,7 +88,7 @@ class DrPrescription(models.Model):
          ('+1.75', '+1.75'), ('+2.00', '+2.00'), ('+2.25', '+2.25'), ('+2.50', '+2.50'), ('+2.75', '+2.75'),
          ('+3.00', '+3.00'), ('+3.25', '+3.25'), ('+3.50', '+3.50')], 'Add')
     lpd = fields.Float('lpd')
-    prism = fields.Boolean('Prism')
+    prism = fields.Boolean(string='I have a prism correction')
     dim = fields.Float('Dim')
     basel = fields.Selection(
         [('Select', 'Select'), ('IN', 'IN'), ('OUT', 'OUT'), ('UP', 'UP'), ('DOWN', 'DOWN'),
