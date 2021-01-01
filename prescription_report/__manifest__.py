@@ -1,7 +1,7 @@
 {
     "name": "Prescription Report",
     "version": "13.0.0.0.1",
-    "category": "Optical",
+    "category": "setting",
     "version": "13.0.0.0.1",
     'summary': "Solution for Optical(EYE) shops and clinics",
     'description': """

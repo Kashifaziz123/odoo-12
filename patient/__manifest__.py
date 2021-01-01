@@ -1,7 +1,7 @@
 {
     "name": "Patient",
     "version": "13.0.0.0.1",
-    "category": "dr hidden",
+    "category": "setting",
     "author": "Alhaditech",
     'support': 'https://alhaditech.com',
     "license": "OPL-1",
