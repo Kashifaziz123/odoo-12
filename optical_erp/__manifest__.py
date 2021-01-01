@@ -21,6 +21,8 @@
         'views/doctor_inherit.xml',
         'views/sales_inherit.xml',
         "views/view.xml",
+        "report/reports.xml",
+        "report/prescription_report.xml",
     ],
     'images': ['static/description/background.png'],
     'installable': True,
