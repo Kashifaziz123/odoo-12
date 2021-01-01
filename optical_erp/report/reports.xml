@@ -8,8 +8,8 @@
                 string="Doctor Prescription"
                 model="dr.prescription"
                 report_type="qweb-pdf"
-                file="prescription_report.doctor_prescription_template"
-                name="prescription_report.doctor_prescription_template"
+                file="optical_erp.doctor_prescription_template"
+                name="optical_erp.doctor_prescription_template"
                 />
     </data>
 </odoo>
