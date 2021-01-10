@@ -1,8 +1,7 @@
 {
     "name": "Partner User",
     "version": "13.0.0.0.1",
-    "category": "",
-    "version": "13.0.0.0.1",
+    "category": "setting",
     'summary': "Create UserFrom Partner",
     'description': """
     odoo Solution dynamic user from partner.
