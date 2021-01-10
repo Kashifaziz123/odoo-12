@@ -1,5 +1,5 @@
 {
-    "name": "Partner User",
+    "name": "Create User From Partner",
     "version": "13.0.0.0.1",
     "category": "",
     "version": "13.0.0.0.1",
