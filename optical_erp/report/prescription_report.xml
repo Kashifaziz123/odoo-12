@@ -40,7 +40,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="headings">PatientAge:</td>
-                                                <td class="text"><span t-field="doc.patient.patient_age"></span></td>
+                                                <td class="text"><span t-field="doc.patient_age"></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">Test Type:</td>
