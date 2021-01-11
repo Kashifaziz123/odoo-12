@@ -36,19 +36,19 @@
                                         <table width="60%">
                                             <tr>
                                                 <td class="headings">Patient Name :</td>
-                                                <td class="text"><span  t-if="doc.patient" t-field="doc.patient" ></span></td>
+                                                <td class="text"><span t-field="doc.patient" ></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">PatientAge:</td>
-                                                <td class="text"><span t-if="doc.patient.patient_age" t-field="doc.patient.patient_age"></span></td>
+                                                <td class="text"><span t-field="doc.patient.patient_age"></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">Test Type:</td>
-                                                <td class="text"><span  t-if="doc.test_type" t-field="doc.test_type"></span></td>
+                                                <td class="text"><span t-field="doc.test_type"></span></td>
                                             </tr>
-                                             <tr>
+                                            <tr>
                                                 <td class="headings">Phone:</td>
-                                                <td class="text"><span t-if="doc.patient.phone" t-field="doc.patient.phone" ></span></td>
+                                                <td class="text"><span t-field="doc.patient.phone" ></span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -56,19 +56,19 @@
                                         <table width="60%">
                                             <tr>
                                                 <td class="headings">Street:</td>
-                                                <td class="text"><span t-if="doc.patient.street" t-field="doc.patient.street" ></span></td>
+                                                <td class="text"><span t-field="doc.patient.street" ></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">City:</td>
-                                                <td class="text"><span t-if="doc.patient.city" t-field="doc.patient.city" ></span></td>
+                                                <td class="text"><span t-field="doc.patient.city" ></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">Zip Code:</td>
-                                                <td class="text"><span t-if="doc.patient.zip" t-field="doc.patient.zip" ></span></td>
+                                                <td class="text"><span t-field="doc.patient.zip" ></span></td>
                                             </tr>
                                             <tr>
                                                 <td class="headings">Email:</td>
-                                                <td class="text"><span t-if="doc.patient.email" t-field="doc.patient.email" ></span></td>
+                                                <td class="text"><span t-field="doc.patient.email" ></span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -92,17 +92,17 @@
                                 <tbody style="border:1px solid black;">
                                     <tr>
                                         <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold; width:10%; border-right:1px solid black; border-bottom:1px solid black;">Right</td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.sph" t-field="doc.sph"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;   width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.cyl" t-field="doc.cyl"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.ax" t-field="doc.ax"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.add1" t-field="doc.add1"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.sph"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;   width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.cyl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.ax"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.add1"></span></td>
                                     </tr>
                                     <tr>
                                         <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; color:green; width:10%; border-right:1px solid black; border-bottom:1px solid black;">Left</td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span  t-if="doc.sphl" t-field="doc.sphl"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.cyll"  t-field="doc.cyll"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.axl" t-field="doc.axl"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.add1l" t-field="doc.add1l"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.sphl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.cyll"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.axl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.add1l"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -115,7 +115,7 @@
                                 </tr>
                                 <tbody style="border:1px solid black;">
                                     <tr>
-                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.pd" t-field="doc.pd"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.pd"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -127,8 +127,8 @@
                                 </tr>
                                 <tbody style="border:1px solid black;">
                                     <tr>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span  t-if="doc.pdr" t-field="doc.pdr"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.pdl" t-field="doc.pdl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.pdr"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.pdl"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -142,23 +142,47 @@
                                 <tbody style="border:1px solid black;">
                                     <tr>
                                         <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold; width:20%; border-right:1px solid black; border-bottom:1px solid black;">Right</td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.prism_valr" t-field="doc.prism_valr"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span  t-if="doc.baser" t-field="doc.baser"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prism_valr"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px; width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.baser"></span></td>
                                     </tr>
                                     <tr>
                                         <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Left</td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.prism_vall" t-field="doc.prism_vall"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-if="doc.basel" t-field="doc.basel"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prism_vall"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.basel"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <table>
-                                <div  style="width:100%; margin-top:30px; font-weight:bold; font-size:16px;" class="headings">REMARKS</div>
-                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"><span t-if="doc.dr_notes" t-field="doc.dr_notes"></span></div>
+
+                            <div  style="width:100%; margin-top:30px; font-weight:bold; font-size:16px;" class="headings">REMARKS</div>
+                            <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"><span t-field="doc.dr_notes"></span></div>
+                            <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+                            <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+
+                            <table style="margin-top:10px;">
+                                <div  style="width:100%; margin-top:30px; font-weight:bold; font-size:16px;" class="headings">Family Eye History</div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"><span t-field="doc.family_eye_history"></span></div>
                                 <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
                                 <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
                             </table>
+
+                            <table style="margin-top:10px;">
+                                <div  style="width:100%; margin-top:30px; font-weight:bold; font-size:16px;" class="headings">Ocular History</div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"><span t-field="doc.ocular_history"></span></div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+                            </table>
+
+                             <table style="margin-top:10px;">
+                                <div  style="width:100%; margin-top:30px; font-weight:bold; font-size:16px;" class="headings">Consultation</div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"><span t-field="doc.consultation"></span></div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+                                <div  style="width:100%; margin-top:30px; border-bottom:2px solid black;"></div>
+                            </table>
+
+
+
+
 
 
 

@@ -9,10 +9,7 @@
             <field name="name">Contact Lense</field>
         </record>
 
-        <record id="eye_test_type" model="dr.prescription">
-            <field name="test_type" ref="eye_test_config_one"/>
-            <field name="test_type" ref="eye_test_config_two"/>
-        </record>
+
     </data>
 
 

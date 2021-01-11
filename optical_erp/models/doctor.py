@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models,_
-
 
 class InheritedDoctor(models.Model):
     _inherit = 'optical.dr'
 
     prescription_count = fields.Integer(compute='get_prescription_count')
+
 
     def open_doctor_prescriptions(self):
         for records in self:

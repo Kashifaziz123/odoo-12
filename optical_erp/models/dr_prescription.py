@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models,_
-
 
 class DrPrescription(models.Model):
     _name ='dr.prescription'
     _description = 'Doctor Prescription'
-    _rec_name = 'dr'
+    _rec_name = 'name'
 
-    dr = fields.Many2one('optical.dr',string='Doctor',readonly=True)
-    patient = fields.Many2one('optical.patient', string='Patient',readonly=False)
+    dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
+    patient = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Patient',readonly=False)
+    patient_age = fields.Integer(related='patient.age')
     checkup_date = fields.Date('Checkup Date')
     test_type = fields.Many2one('eye.test.type')
+    prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
             , ('-6.75', '-6.75'), ('-6.50', '-6.50'), ('-6.25', '-6.25'), ('-6.00', '-6.00')
@@ -79,16 +78,16 @@ class DrPrescription(models.Model):
          ('161', '161'), ('162', '162'), ('163', '163'), ('164', '164'), ('165', '165'), ('1166', '166'),
          ('167', '167'), ('168', '168'),
          ('169', '160'), ('170', '170'),
-         ('171', '171'), ('172', '172'), ('173', '173'), ('174', '174'), ('175', '175'), ('176', '176'), ('177', '177'),
+         ('171', '71'), ('72', '72'), ('73', '73'), ('74', '74'), ('175', '175'), ('176', '176'), ('177', '177'),
          ('178', '178'),
-         ('179', '179'), ('180', '180')], 'Ax')
+         ('179', '79'), ('180', '180')], 'Ax')
     add1 = fields.Selection(
         [('0.00', '0.00'), ('+0.25', '+0.25'), ('+0.50', '+0.50'), ('+0.75', '+0.75'), ('+1.00', '+1.00'),
          ('+1.25', '+1.25'), ('+1.50', '+1.50'),
          ('+1.75', '+1.75'), ('+2.00', '+2.00'), ('+2.25', '+2.25'), ('+2.50', '+2.50'), ('+2.75', '+2.75'),
          ('+3.00', '+3.00'), ('+3.25', '+3.25'), ('+3.50', '+3.50')], 'Add')
     lpd = fields.Float('lpd')
-    prism = fields.Boolean(string='I have a prism correction')
+    prism = fields.Boolean('Prism')
     dim = fields.Float('Dim')
     basel = fields.Selection(
         [('Select', 'Select'), ('IN', 'IN'), ('OUT', 'OUT'), ('UP', 'UP'), ('DOWN', 'DOWN'),
@@ -117,6 +116,7 @@ class DrPrescription(models.Model):
                                 , ('-1.75', '-1.75'), ('-1.50', '-1.50'), ('-1.25', '-1.25'), ('-1.00', '-1.00')
                                 , ('0.75', '-0.75'), ('-0.50', '-0.50'), ('-0.25', '-0.25'), ('-0.00', '-0.00')
                                 , ('+0.25', '+0.25'), ('+0.50', '+0.50'), ('+0.25', '+0.25'), ('+1.00', '+1.00')
+                                , ('+1.25', '+1.25'), ('+1.50', '+1.50'), ('+1.25', '+1.25'), ('+1.00', '+1.00')
                                 , ('+1.25', '+1.25'), ('+1.50', '+1.50'), ('+1.25', '+1.25'), ('+1.00', '+1.00')
                                 , ('+2.25', '+2.25'), ('+2.50', '+2.50'), ('+2.25', '+2.25'), ('+2.00', '+2.00')
                                 , ('+3.25', '+3.25'), ('+3.50', '+3.50'), ('+3.75', '+3.75'), ('+4.00', '+4.00'
@@ -162,9 +162,9 @@ class DrPrescription(models.Model):
         ('161', '161'), ('162', '162'), ('163', '163'), ('164', '164'), ('165', '165'), ('1166', '166'), ('167', '167'),
         ('168', '168'),
         ('169', '160'), ('170', '170'),
-        ('171', '171'), ('172', '172'), ('173', '173'), ('174', '174'), ('175', '175'), ('176', '176'), ('177', '177'),
+        ('171', '71'), ('72', '72'), ('73', '73'), ('74', '74'), ('175', '175'), ('176', '176'), ('177', '177'),
         ('178', '178'),
-        ('179', '179'), ('180', '180')], 'Axl')
+        ('179', '79'), ('180', '180')], 'Axl')
     add1l = fields.Selection(
         [('0.00', '0.00'), ('+0.25', '+0.25'), ('+0.50', '+0.50'), ('+0.75', '+0.75'), ('+1.00', '+1.00'),
          ('+1.25', '+1.25'), ('+1.50', '+1.50'),
@@ -209,6 +209,44 @@ class DrPrescription(models.Model):
             , ('28.5', '28.5'), ('28', '28')], 'PDR')
 
     dr_notes = fields.Text('Notes')
+    name = fields.Char(required=True, copy=False, readonly=True,index=True, default=lambda self: _('New'))
+    family_eye_history = fields.Text()
+    ocular_history = fields.Text()
+    consultation = fields.Text()
+
+    def open_customer(self):
+        sale_order=self.env['sale.order'].search([('prescription_id','=',self.id)],limit=1)
+        if sale_order:
+            return {
+                'name':_('Doctor Prescription'),
+                'view_type': 'form',
+                'res_id':sale_order.id,
+                'res_model': 'sale.order',
+                'view_id': False,
+                'view_mode':'form',
+                # 'context':{'default_dr':self.id},
+                'type': 'ir.actions.act_window',
+            }
+        else:
+            return {
+                'name':_('Doctor Prescription'),
+                'view_type': 'form',
+                'res_model': 'sale.order',
+                'view_id': False,
+                'view_mode':'form',
+                # 'context':{'default_dr':self.id},
+                'type': 'ir.actions.act_window',
+            }
+
+
+
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('optical.prescription.sequence')
+        result = super(DrPrescription,self).create(vals)
+        return result
 
 
 

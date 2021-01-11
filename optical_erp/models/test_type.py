@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models,_
-
 
 class TestType(models.Model):
     _name ='eye.test.type'
