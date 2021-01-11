@@ -24,7 +24,7 @@
 						<field name="prescription_type"   required="1"/>
 						<field name="family_eye_history" string="Family Eye History"/>
 						<field name="ocular_history" string="Ocular History"/>
-						<field name="consultation" string="Consultation"/>
+						<field name="consultation" string="Consultation Reason"/>
 
 					</group>
 					<table colspan="8" col="8" border="1" cellpadding="0" cellspacing="0" class="table table-bordered pp" width="100%">
