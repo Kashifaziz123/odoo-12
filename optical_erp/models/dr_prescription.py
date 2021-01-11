@@ -234,7 +234,7 @@ class DrPrescription(models.Model):
                 'res_model': 'sale.order',
                 'view_id': False,
                 'view_mode':'form',
-                context':{'default_prescription_id':self.id,'default_partner_id':self.patient.id},
+                'context':{'default_prescription_id':self.id,'default_partner_id':self.patient.id},
                 'type': 'ir.actions.act_window',
             }
 
