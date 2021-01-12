@@ -1,4 +1,6 @@
 from odoo import api, fields, models,_
+from odoo.tools import datetime
+
 
 class DrPrescription(models.Model):
     _name ='dr.prescription'
@@ -8,7 +10,7 @@ class DrPrescription(models.Model):
     dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
     customer = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Customer',readonly=False)
     customer_age = fields.Integer(related='customer.age')
-    checkup_date = fields.Date('Checkup Date')
+    checkup_date = fields.Date('Checkup Date',default=fields.Datetime.now())
     test_type = fields.Many2one('eye.test.type')
     prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     sph = fields.Selection(

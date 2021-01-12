@@ -50,17 +50,6 @@
                             <td style="text-align:center;">
                                 <field name="add1"/>
                             </td>
-
-                            <!--						   <td style="text-align:center;">-->
-                            <!--							  <field name="dim"/>-->
-                            <!--						 </td>-->
-
-
-                            <!--						   <td style="text-align:center;">-->
-                            <!--							  <field name="height"/>-->
-                            <!--						 </td>-->
-
-
                         </tr>
                         <tr>
                             <td>
@@ -80,14 +69,6 @@
                             <td style="text-align:center;">
                                 <field name="add1l"/>
                             </td>
-
-                            <!--						   <td style="text-align:center;">-->
-                            <!--							  <field name="diml"/>-->
-                            <!--						   </td>-->
-
-                            <!--						   <td style="text-align:center;">-->
-                            <!--							  <field name="heightl"/>-->
-                            <!--						 </td>-->
 
                         </tr>
                     </table>
