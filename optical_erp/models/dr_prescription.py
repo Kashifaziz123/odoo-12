@@ -6,8 +6,8 @@ class DrPrescription(models.Model):
     _rec_name = 'name'
 
     dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
-    customer = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Customer',readonly=False)
-    customer_age = fields.Integer(related='customer.age')
+    patient = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Patient',readonly=False)
+    patient_age = fields.Integer(related='patient.age')
     checkup_date = fields.Date('Checkup Date')
     test_type = fields.Many2one('eye.test.type')
     prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
@@ -234,7 +234,7 @@ class DrPrescription(models.Model):
                 'res_model': 'sale.order',
                 'view_id': False,
                 'view_mode':'form',
-                'context':{'default_prescription_id':self.id,'default_partner_id':self.customer.id},
+                'context':{'default_prescription_id':self.id,'default_partner_id':self.patient.id},
                 'type': 'ir.actions.act_window',
             }
 

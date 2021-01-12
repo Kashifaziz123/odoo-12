@@ -32,7 +32,7 @@
 			<field name="res_model">eye.test.type</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-<menuitem id="optical_erp_config" name="Eye Test Type" parent="optical_erp_root" action="action_config"  sequence="7"/>
+<menuitem id="optical_erp_config" name="Eye Test Type" parent="optical_erp_root" action="action_config"  sequence="3"/>
 
 	</data>
 </odoo>
