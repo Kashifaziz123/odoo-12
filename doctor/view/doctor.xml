@@ -227,6 +227,7 @@
 					<field name="id"/>
 					<field name="email"/>
 					<field name="image"/>
+					<field name="street"/>
 					<templates>
 						<t t-name="kanban-box">
 							<div class="oe_kanban_global_click o_kanban_record_has_image_fill o_optical_doctor_kanban">
@@ -244,6 +245,7 @@
 									<div class="o_kanban_tags_section"/>
 									<ul>
 										<li>Email : <field name="email"/></li>
+										<li>Street : <field name="street"/></li>
 									</ul>
 								</div>
 

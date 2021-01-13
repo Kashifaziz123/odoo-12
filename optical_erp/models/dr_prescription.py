@@ -1,15 +1,22 @@
 from odoo import api, fields, models,_
+from odoo.tools import datetime
+
 
 class DrPrescription(models.Model):
     _name ='dr.prescription'
     _description = 'Doctor Prescription'
-    _rec_name = 'dr'
+    _rec_name = 'name'
 
-    dr = fields.Many2one('optical.dr',string='Doctor',readonly=True)
-    patient = fields.Many2one('optical.patient', string='Patient',readonly=False)
-    patient_age = fields.Integer(related='patient.patient_age')
-    checkup_date = fields.Date('Checkup Date')
+
+
+
+    dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
+    customer = fields.Many2one('res.partner',domain=[('customer','=','True')],string='Customer',readonly=False)
+    customer_age = fields.Integer(related='customer.age')
+    checkup_date = fields.Date('Checkup Date',default=str(fields.Datetime.now()))
     test_type = fields.Many2one('eye.test.type')
+    is_examination = fields.Boolean()
+    prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
             , ('-6.75', '-6.75'), ('-6.50', '-6.50'), ('-6.25', '-6.25'), ('-6.00', '-6.00')
@@ -208,18 +215,57 @@ class DrPrescription(models.Model):
             , ('28.5', '28.5'), ('28', '28')], 'PDR')
 
     dr_notes = fields.Text('Notes')
-    name_seq = fields.Char(required=True, copy=False, readonly=True,index=True, default=lambda self: _('New'))
+    name = fields.Char(required=True, copy=False, readonly=True,index=True, default=lambda self: _('New'))
     family_eye_history = fields.Text()
     ocular_history = fields.Text()
     consultation = fields.Text()
 
+    def open_customer(self):
+        sale_order=self.env['sale.order'].search([('prescription_id','=',self.id)],limit=1)
+        print('fire',sale_order)
+        if sale_order:
+            return {
+                'name':_('Doctor Prescription'),
+                'view_type': 'form',
+                'res_id':sale_order.id,
+                'res_model': 'sale.order',
+                'view_id': False,
+                'view_mode':'form',
+                # 'context':{'default_dr':self.id},
+                'type': 'ir.actions.act_window',
+            }
+
+
+
+        else:
+            return {
+                'name':_('Doctor Prescription'),
+                'view_type': 'form',
+                'res_model': 'sale.order',
+                'view_id': False,
+                'view_mode':'form',
+                'context':{'default_prescription_id':self.id,'default_partner_id':self.customer.id},
+                'type': 'ir.actions.act_window',
+            }
+
+
+
 
     @api.model
     def create(self, vals):
-        if vals.get('name_seq', _('New')) == _('New'):
-            vals['name_seq'] = self.env['ir.sequence'].next_by_code('optical.prescription.sequence') or _('New')
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('optical.prescription.sequence')
         result = super(DrPrescription,self).create(vals)
         return result
+
+
+    def print_prescription_report(self):
+            return {
+                'type': 'ir.actions.report',
+                'report_name': "optical_erp.doctor_prescription_template",
+                'report_file': "optical_erp.doctor_prescription_template",
+                'report_type': 'qweb-pdf',
+            }
 
 
 

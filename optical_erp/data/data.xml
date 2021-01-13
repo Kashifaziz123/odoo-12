@@ -9,10 +9,14 @@
             <field name="name">Contact Lense</field>
         </record>
 
-        <record id="eye_test_type" model="dr.prescription">
-            <field name="test_type" ref="eye_test_config_one"/>
-            <field name="test_type" ref="eye_test_config_two"/>
+        <record id="optical_erp_product" model="product.product">
+            <field name="name">Eye Examination charges</field>
+            <field name="standard_price">0</field>
+            <field name="list_price">0</field>
+            <field name="type">service</field>
         </record>
+
+
     </data>
 
 
