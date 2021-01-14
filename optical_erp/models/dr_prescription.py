@@ -7,11 +7,15 @@ class DrPrescription(models.Model):
     _description = 'Doctor Prescription'
     _rec_name = 'name'
 
+
+
+
     dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
     customer = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Customer',readonly=False)
     customer_age = fields.Integer(related='customer.age')
     checkup_date = fields.Date('Checkup Date',default=fields.Datetime.now())
     test_type = fields.Many2one('eye.test.type')
+    is_examination = fields.Boolean()
     prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
@@ -218,6 +222,7 @@ class DrPrescription(models.Model):
 
     def open_customer(self):
         sale_order=self.env['sale.order'].search([('prescription_id','=',self.id)],limit=1)
+        print('fire',sale_order)
         if sale_order:
             return {
                 'name':_('Doctor Prescription'),
@@ -229,6 +234,9 @@ class DrPrescription(models.Model):
                 # 'context':{'default_dr':self.id},
                 'type': 'ir.actions.act_window',
             }
+
+
+
         else:
             return {
                 'name':_('Doctor Prescription'),
@@ -249,6 +257,15 @@ class DrPrescription(models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('optical.prescription.sequence')
         result = super(DrPrescription,self).create(vals)
         return result
+
+
+    def print_prescription_report(self):
+            return {
+                'type': 'ir.actions.report',
+                'report_name': "optical_erp.doctor_prescription_template",
+                'report_file': "optical_erp.doctor_prescription_template",
+                'report_type': 'qweb-pdf',
+            }
 
 
 

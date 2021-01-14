@@ -318,27 +318,14 @@
                                          role="img"/>
                                 </t>
                                 <div class="oe_kanban_details">
-                                    <strong class="o_kanban_record_title oe_partner_heading"><field
-                                            name="display_name"/></strong>
-                                    <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
-                                    <ul>
-                                        <li t-if="record.parent_id.raw_value and !record.function.raw_value"><field
-                                                name="parent_id"/></li>
-                                        <li t-if="!record.parent_id.raw_value and record.function.raw_value"><field
-                                                name="function"/></li>
-                                        <li t-if="record.parent_id.raw_value and record.function.raw_value"><field
-                                                name="function"/> at <field name="parent_id"/></li>
-                                        <li t-if="record.city.raw_value and !record.country_id.raw_value"><field
-                                                name="city"/></li>
-                                        <li t-if="!record.city.raw_value and record.country_id.raw_value"><field
-                                                name="country_id"/></li>
-                                        <li t-if="record.city.raw_value and record.country_id.raw_value"><field
-                                                name="city"/>, <field name="country_id"/></li>
-                                        <li t-if="record.email.raw_value" class="o_text_overflow"><field
-                                                name="email"/></li>
-                                    </ul>
-                                    <div class="oe_kanban_partner_links"/>
-                                </div>
+									<strong class="o_kanban_record_title"><field name="display_name"/></strong>
+									<div class="o_kanban_tags_section"/>
+									<ul>
+										<li>Email : <field name="email"/></li>
+										<li>Street : <field name="street"/></li>
+									</ul>
+								</div>
+
                             </div>
                         </t>
                     </templates>
