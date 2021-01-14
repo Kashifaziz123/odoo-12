@@ -9,13 +9,6 @@
             <field name="name">Contact Lense</field>
         </record>
 
-        <record id="optical_erp_product" model="product.product">
-            <field name="name">Eye Examination charges</field>
-            <field name="standard_price">0</field>
-            <field name="list_price">0</field>
-            <field name="type">service</field>
-        </record>
-
 
     </data>
 
