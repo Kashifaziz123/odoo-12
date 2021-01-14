@@ -24,7 +24,7 @@
 							<field name="checkup_date" string="Prescription Date"  required="1"/>
 							<field name="test_type" options='{"no_open": True, "no_create": True}'  required="1"/>
 							<field name="prescription_type"   required="1"/>
-							<field name="is_examination" String="Examination"  required="1"/>
+							<field name="eye_examination_chargeable" String="Examination"  required="1"/>
 
 						</group>
 						<group>
@@ -271,7 +271,9 @@
 		<menuitem id="optical_erp_doctor" name="Optometrist" parent="optical_erp_root" action="doctor.action_doctor_window" groups="doctor.group_optical_erp_doctors,base.group_system" sequence="1"/>
 		<menuitem id="optical_erp_sale_order" name="Sale Order" parent="optical_erp_root" action="sale.action_orders"   sequence="3"/>
 		<menuitem id="optical_erp_customer" name="Customer" parent="optical_erp_root" action="base.action_partner_customer_form"   sequence="4"/>
+		<menuitem id="optical_erp_config" name="Configuration" parent="optical_erp_root"    sequence="6"/>
 		<menuitem id="optical_erp_prescription_history" name="Prescription History" parent="optical_erp_root"  action="action_prescription_history_window" groups="doctor.group_optical_erp_doctors,base.group_system" sequence="5"/>
+
 
 
 	</data>

@@ -25,7 +25,7 @@
                                     <td class="text"><span t-field="doc.dr" ></span></td>
                                 </tr>
                                 <tr>
-                                    <td class="headings">Check Up Date:</td>
+                                    <td class="headings">Prescription Date:</td>
                                     <td  class="text"><span t-field="doc.checkup_date" ></span></td>
                                 </tr>
                             </table>
@@ -228,7 +228,7 @@
                                     <td class="text"><span t-field="doc.prescription_id.dr" ></span></td>
                                 </tr>
                                 <tr>
-                                    <td class="headings">Check Up Date:</td>
+                                    <td class="headings">Prescription Date:</td>
                                     <td  class="text"><span t-field="doc.prescription_id.checkup_date" ></span></td>
                                 </tr>
                             </table>

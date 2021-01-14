@@ -23,6 +23,7 @@
         "report/reports.xml",
         "report/prescription_report.xml",
         "view/prescription.xml",
+        "view/res_config_settings_views.xml",
         "view/partner.xml",
         "view/test_type.xml",
     ],

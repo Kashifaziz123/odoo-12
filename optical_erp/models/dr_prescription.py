@@ -15,7 +15,19 @@ class DrPrescription(models.Model):
     customer_age = fields.Integer(related='customer.age')
     checkup_date = fields.Date('Checkup Date',default=fields.Datetime.now())
     test_type = fields.Many2one('eye.test.type')
-    is_examination = fields.Boolean()
+
+
+    def default_eye_examination_chargeable(self):
+        settings_eye_examination_chargeable = self.env['ir.config_parameter'].sudo().get_param('eye_examination_chargeable')
+        return   settings_eye_examination_chargeable
+
+    eye_examination_chargeable = fields.Boolean(default=default_eye_examination_chargeable,readonly=1)
+
+
+
+
+
+
     prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     sph = fields.Selection(
         [('-8.00', '-8.00'), ('-7.75', '-7.75'), ('-7.50', '-7.50'), ('-7.25', '-7.25'), ('-7.00', '-7.00')
