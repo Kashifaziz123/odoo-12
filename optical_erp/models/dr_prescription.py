@@ -7,15 +7,11 @@ class DrPrescription(models.Model):
     _description = 'Doctor Prescription'
     _rec_name = 'name'
 
-
-
-
     dr = fields.Many2one('optical.dr',string='Optometrist',readonly=True)
     customer = fields.Many2one('res.partner',domain=[('customer_rank','=','1')],string='Customer',readonly=False)
     customer_age = fields.Integer(related='customer.age')
     checkup_date = fields.Date('Checkup Date',default=fields.Datetime.now())
     test_type = fields.Many2one('eye.test.type')
-
 
     def default_eye_examination_chargeable(self):
         settings_eye_examination_chargeable = self.env['ir.config_parameter'].sudo().get_param('eye_examination_chargeable')
