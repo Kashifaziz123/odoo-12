@@ -48,7 +48,11 @@
 									<tr>
 										<td style="border-right:1px solid;">SPH</td>
 										<td style="border-right:1px solid;">CYL</td>
-										<td>AXIS</td>
+										<td style="border-right:1px solid;">AXIS</td>
+										<td style="border-right:1px solid;">Add</td>
+										<td style="border-right:1px solid;">Prism</td>
+										<td>Base</td>
+
 									</tr>
 
 								</table>
@@ -58,7 +62,10 @@
 									<tr>
 										<td style="border-right:1px solid;">SPH</td>
 										<td style="border-right:1px solid;">CYL</td>
-										<td>AXIS</td>
+										<td style="border-right:1px solid;">AXIS</td>
+										<td style="border-right:1px solid;">Add</td>
+										<td style="border-right:1px solid;">Prism</td>
+										<td>Base</td>
 									</tr>
 								</table>
 							</td>
@@ -71,7 +78,10 @@
 									<tr>
 										<td style="border-right:1px solid;"><field name="od_sph_distance"/></td>
 										<td style="border-right:1px solid;"><field name="od_cyl_distance"/></td>
-										<td><field name="od_ax_distance"/></td>
+										<td style="border-right:1px solid;"><field name="od_ax_distance"/></td>
+										<td style="border-right:1px solid;"><field name="od_add_distance"/></td>
+										<td style="border-right:1px solid;"><field name="od_prism_distance"/></td>
+										<td style="border-right:1px solid;"><field name="od_base_distance"/></td>
 									</tr>
 								</table>
 							</td>
@@ -80,7 +90,11 @@
 									<tr>
 										<td style="border-right:1px solid;"><field name="os_sph_distance"/></td>
 										<td style="border-right:1px solid;"><field name="os_cyl_distance"/></td>
-										<td><field name="os_ax_distance"/></td>
+										<td style="border-right:1px solid;"><field name="os_ax_distance"/></td>
+										<td style="border-right:1px solid;"><field name="os_add_distance"/></td>
+										<td style="border-right:1px solid;"><field name="os_prism_distance"/></td>
+										<td style="border-right:1px solid;"><field name="os_base_distance"/></td>
+
 									</tr>
 								</table>
 							</td>
@@ -95,7 +109,10 @@
 									<tr>
 										<td style="border-right:1px solid;"><field name="od_sph_near"/></td>
 										<td style="border-right:1px solid;"><field name="od_cyl_near"/></td>
-										<td><field name="od_ax_near"/></td>
+										<td style="border-right:1px solid;"><field name="od_ax_near"/></td>
+										<td style="border-right:1px solid;"><field name="od_add_near"/></td>
+										<td style="border-right:1px solid;"><field name="od_prism_near"/></td>
+										<td style="border-right:1px solid;"><field name="od_base_near"/></td>
 									</tr>
 								</table>
 							</td>
@@ -104,172 +121,102 @@
 									<tr>
 										<td style="border-right:1px solid;"><field name="os_sph_near"/></td>
 										<td style="border-right:1px solid;"><field name="os_cyl_near"/></td>
-										<td><field name="os_ax_near"/></td>
+										<td style="border-right:1px solid;"><field name="os_ax_near"/></td>
+										<td style="border-right:1px solid;"><field name="os_add_near"/></td>
+										<td style="border-right:1px solid;"><field name="os_prism_near"/></td>
+										<td style="border-right:1px solid;"><field name="os_base_near"/></td>
 									</tr>
 								</table>
 							</td>
 							<td style="text-align:center;  font-size:16px; font-weight:bold; width:10%; border-right:1px solid black; border-bottom:1px solid black;"><field name="pd_near"/></td>
 <!--							<td  style="text-align:center;  font-size:16px; font-weight:bold; width:15%; border-right:1px solid black; border-bottom:1px solid black;"></td>-->
 						</tr>
-
-
-
-
-
-
-
-
-
 					</table>
-					<!--					<table colspan="8" col="8" border="1" cellpadding="0" cellspacing="0" class="table table-bordered pp" width="100%">-->
-					<!--						<tr>-->
-					<!--							<th style="text-align:center;">-->
-					<!--								R/L-->
-					<!--							</th>-->
-					<!--							<th style="text-align:center;">-->
-					<!--								SPH-->
-					<!--							</th>-->
+
+<!--					<group>-->
+<!--						<field name="dual_pd"/>-->
+<!--						<field name="prism"/>-->
+<!--					</group>-->
+
+<!--					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', True)]}" cellspacing="0"-->
+<!--						   class="table table-bordered pp" width="100px">-->
+
+<!--						<tr>-->
+<!--							<th style="text-align:center;">-->
+<!--								PD-->
+<!--							</th>-->
+
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td style="text-align:center;">-->
+<!--&lt;!&ndash;								<field name="pd"/>&ndash;&gt;-->
+<!--							</td>-->
+<!--						</tr>-->
+<!--					</table>-->
+<!--					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0"-->
+<!--						   class="table table-bordered pp" width="150px">-->
+
+<!--						<tr>-->
+<!--							<th style="text-align:center;">-->
+<!--								RIGHT PD-->
+<!--							</th>-->
+
+<!--							<th style="text-align:center;">-->
+<!--								LEFT PD-->
+<!--							</th>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td style="text-align:center;">-->
+<!--								<field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>-->
+<!--							</td>-->
+<!--							<td style="text-align:center;">-->
+<!--								<field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>-->
+<!--							</td>-->
+<!--						</tr>-->
+<!--					</table>-->
+<!--					<table colspan="8" col="8" border="1" cellpadding="0" attrs="{'invisible': [('prism', '=', False)]}"-->
+<!--						   cellspacing="0" class="table table-bordered pp" widht="100%">-->
+
+<!--						<tr>-->
+<!--							<th style="text-align:center;">-->
+<!--								R/L-->
+<!--							</th>-->
+<!--							<th style="text-align:center;">-->
+<!--								Prism Value-->
+<!--							</th>-->
 
 
-					<!--							<th style="text-align:center;">-->
-					<!--								CYL-->
-					<!--							</th>-->
-					<!--							<th style="text-align:center;">-->
-					<!--								AXIS-->
-					<!--							</th>-->
-					<!--							<th style="text-align:center;">-->
-					<!--								ADD-->
-					<!--							</th>-->
-					<!--							&lt;!&ndash;						   <th style="text-align:center;">&ndash;&gt;-->
-					<!--							&lt;!&ndash;							 Dim&ndash;&gt;-->
-					<!--							&lt;!&ndash;						 </th>&ndash;&gt;-->
-					<!--							&lt;!&ndash;						    <th style="text-align:center;">&ndash;&gt;-->
-					<!--							&lt;!&ndash;							 Height&ndash;&gt;-->
-					<!--							&lt;!&ndash;						 </th>&ndash;&gt;-->
-					<!--						</tr>-->
-					<!--						<tr>-->
-					<!--							<td>-->
-					<!--								<span style="text-align:center;">Right</span>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="sph"/>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="cyl"/>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="ax"/>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="add1"/>-->
-					<!--							</td>-->
-					<!--						</tr>-->
-					<!--						<tr>-->
-					<!--							<td>-->
-					<!--								<span style="text-align:center;">Left</span>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="sphl"/>-->
-					<!--							</td>-->
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="cyll" attrs="{'required': [('axl', '!=', False)]}" />-->
-					<!--							</td>-->
+<!--							<th style="text-align:center;">-->
+<!--								Base Direction-->
+<!--							</th>-->
 
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="axl" attrs="{'required': [('cyll', '!=', False)]}" />-->
-					<!--							</td>-->
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td>-->
+<!--								<span style="text-align:center;">Right</span>-->
+<!--							</td>-->
 
-					<!--							<td style="text-align:center;">-->
-					<!--								<field name="add1l"/>-->
-					<!--							</td>-->
+<!--							<td style="text-align:center;">-->
+<!--&lt;!&ndash;								<field name="prism_valr"/>&ndash;&gt;-->
+<!--							</td>-->
+<!--&lt;!&ndash;							<td style="text-align:center;">&ndash;&gt;-->
+<!--&lt;!&ndash;								<field name="baser"/>&ndash;&gt;-->
+<!--&lt;!&ndash;							</td>&ndash;&gt;-->
 
+<!--						</tr>-->
+<!--						<tr>-->
+<!--							<td>-->
+<!--								<span style="text-align:center;">Left</span>-->
+<!--							</td>-->
+<!--							<td style="text-align:center;">-->
+<!--&lt;!&ndash;								<field name="prism_vall"/>&ndash;&gt;-->
+<!--							</td>-->
+<!--&lt;!&ndash;							<td style="text-align:center;">&ndash;&gt;-->
+<!--&lt;!&ndash;								<field name="basel"/>&ndash;&gt;-->
+<!--&lt;!&ndash;							</td>&ndash;&gt;-->
 
-					<!--						</tr>-->
-					<!--					</table>-->
-					<group>
-						<field name="dual_pd"/>
-						<field name="prism"/>
-					</group>
-
-					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', True)]}" cellspacing="0"
-						   class="table table-bordered pp" width="100px">
-
-						<tr>
-							<th style="text-align:center;">
-								PD
-							</th>
-
-						</tr>
-						<tr>
-							<td style="text-align:center;">
-<!--								<field name="pd"/>-->
-							</td>
-						</tr>
-					</table>
-					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0"
-						   class="table table-bordered pp" width="150px">
-
-						<tr>
-							<th style="text-align:center;">
-								RIGHT PD
-							</th>
-
-							<th style="text-align:center;">
-								LEFT PD
-							</th>
-						</tr>
-						<tr>
-							<td style="text-align:center;">
-								<field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
-							</td>
-							<td style="text-align:center;">
-								<field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
-							</td>
-						</tr>
-					</table>
-					<table colspan="8" col="8" border="1" cellpadding="0" attrs="{'invisible': [('prism', '=', False)]}"
-						   cellspacing="0" class="table table-bordered pp" widht="100%">
-
-						<tr>
-							<th style="text-align:center;">
-								R/L
-							</th>
-							<th style="text-align:center;">
-								Prism Value
-							</th>
-
-
-							<th style="text-align:center;">
-								Base Direction
-							</th>
-
-						</tr>
-						<tr>
-							<td>
-								<span style="text-align:center;">Right</span>
-							</td>
-
-							<td style="text-align:center;">
-								<field name="prism_valr"/>
-							</td>
-							<td style="text-align:center;">
-								<field name="baser"/>
-							</td>
-
-						</tr>
-						<tr>
-							<td>
-								<span style="text-align:center;">Left</span>
-							</td>
-							<td style="text-align:center;">
-								<field name="prism_vall"/>
-							</td>
-							<td style="text-align:center;">
-								<field name="basel"/>
-							</td>
-
-						</tr>
-					</table>
+<!--						</tr>-->
+<!--					</table>-->
 
 
 					<separator string="Recommendations"/>
