@@ -12,6 +12,9 @@ class DrPrescription(models.Model):
     customer_age = fields.Integer(related='customer.age')
     checkup_date = fields.Date('Checkup Date',default=fields.Datetime.now())
     test_type = fields.Many2one('eye.test.type')
+    diagnosis_client = fields.Text()
+    notes_laboratory = fields.Text()
+    optometrist_observation = fields.Text()
 
     def default_eye_examination_chargeable(self):
         settings_eye_examination_chargeable = self.env['ir.config_parameter'].sudo().get_param('eye_examination_chargeable')
