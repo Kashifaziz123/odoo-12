@@ -134,6 +134,32 @@
 						</tr>
 					</table>
 
+                   <group>
+						<field name="dual_pd"/>
+						<field name="prism"/>
+					</group>
+					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0"
+						   class="table table-bordered pp" width="150px">
+
+						<tr>
+							<th style="text-align:center;">
+								RIGHT PD
+							</th>
+
+							<th style="text-align:center;">
+								LEFT PD
+							</th>
+						</tr>
+						<tr>
+							<td style="text-align:center;">
+								<field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
+							</td>
+							<td style="text-align:center;">
+								<field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
+							</td>
+						</tr>
+					</table>
+
 					<separator string="Diagnosis for the client"/>
 					<field name="diagnosis_client" ></field>
 

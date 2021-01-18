@@ -14,7 +14,7 @@ class InheritedSaleOrder(models.Model):
     def test(self):
         product = self.env.ref('optical_erp.optical_erp_product')
         self.order_line = None
-        if self.prescription_id.is_examination==True:
+        if self.prescription_id.eye_examination_chargeable==True:
             self.order_line |= self.order_line.new({
                 'name':'',
                 'product_id':product.id,
