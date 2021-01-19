@@ -417,13 +417,6 @@
                                 </tr>
                             </table>
 
-
-
-
-
-
-
-
                             <table t-if="doc.prescription_id.dual_pd == True" style="width:20%; margin-top:30px; border:1px solid black;">
                                 <tr>
                                     <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">RIGHT PD</td>

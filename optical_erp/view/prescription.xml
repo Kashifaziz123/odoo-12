@@ -136,7 +136,7 @@
 
                    <group>
 						<field name="dual_pd"/>
-						<field name="prism"/>
+<!--						<field name="prism"/>-->
 					</group>
 					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0"
 						   class="table table-bordered pp" width="150px">
