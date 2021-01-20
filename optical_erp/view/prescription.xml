@@ -10,7 +10,9 @@
 			<field name="arch" type="xml">
 				<form string="Doctor Prescription">
 					<header>
-						<button name="open_customer" class="btn btn-success" string="Create Sale Order" type="object" ></button>
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+						 <button name="confirm_request" type="object" string="Confirm" class="oe_highlight" states="draft"/>
+						<button name="open_customer" class="btn btn-success" states="confirm" string="Create Sale Order" type="object" ></button>
 						<button name="print_prescription_report" class="btn btn-success" string="Print Prescription" type="object" ></button>
 					</header>
 					<div class="oe_title">

@@ -15,17 +15,18 @@ class DrPrescription(models.Model):
     diagnosis_client = fields.Text()
     notes_laboratory = fields.Text()
     optometrist_observation = fields.Text()
+    state = fields.Selection([('draft','Draft'),('confirm','Confirm')],default='draft')
+
+    def confirm_request(self):
+        for rec in self:
+            rec.state = 'confirm'
+
 
     def default_eye_examination_chargeable(self):
         settings_eye_examination_chargeable = self.env['ir.config_parameter'].sudo().get_param('eye_examination_chargeable')
         return   settings_eye_examination_chargeable
 
     eye_examination_chargeable = fields.Boolean(default=default_eye_examination_chargeable,readonly=1)
-
-
-
-
-
 
     prescription_type = fields.Selection([('internal','Internal'),('external','External')],default='internal')
     od_sph_distance = fields.Selection(
