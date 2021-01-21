@@ -22,19 +22,19 @@
 					</div>
 					<group>
 						<group>
-							<field name="dr" options='{"no_open": True, "no_create": True}'   required="1"/>
-							<field name="customer" options='{"no_open": True, "no_create": True}' required="1"/>
-							<field name="customer_age" string="customer Age"/>
-							<field name="checkup_date" string="Prescription Date"  required="1"/>
-							<field name="test_type" options='{"no_open": True, "no_create": True}'  required="1"/>
-							<field name="prescription_type"   required="1"/>
-							<field name="eye_examination_chargeable" String="Examination"  required="1"/>
+							<field name="dr" attrs="{'readonly': [('state','=','confirm')]}" options='{"no_open": True, "no_create": True}'   required="1"/>
+							<field name="customer"  attrs="{'readonly': [('state','=','confirm')]}" options='{"no_open": True, "no_create": True}' required="1"/>
+							<field name="customer_age"  attrs="{'readonly': [('state','=','confirm')]}" string="customer Age"/>
+							<field name="checkup_date"  attrs="{'readonly': [('state','=','confirm')]}" string="Prescription Date"  required="1"/>
+							<field name="test_type"  attrs="{'readonly': [('state','=','confirm')]}" options='{"no_open": True, "no_create": True}'  required="1"/>
+							<field name="prescription_type"  attrs="{'readonly': [('state','=','confirm')]}"   required="1"/>
+							<field name="eye_examination_chargeable"  attrs="{'readonly': [('state','=','confirm')]}" String="Examination"  required="1"/>
 
 						</group>
 						<group>
-							<field name="family_eye_history" string="Family Eye History"/>
-							<field name="ocular_history" string="Ocular History"/>
-							<field name="consultation" string="Consultation Reason"/>
+							<field name="family_eye_history"  attrs="{'readonly': [('state','=','confirm')]}" string="Family Eye History"/>
+							<field name="ocular_history"  attrs="{'readonly': [('state','=','confirm')]}" string="Ocular History"/>
+							<field name="consultation"  attrs="{'readonly': [('state','=','confirm')]}" string="Consultation Reason"/>
 						</group>
 					</group>
 
@@ -79,24 +79,24 @@
 							<td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">
 								<table  width="100%">
 									<tr>
-										<td style="border-right:1px solid;  height:25px; width:15%"><span><field name="od_sph_distance"/></span></td>
-										<td   t-if="od_cyl_distance" style="border-right:1px solid; width:15%"><field name="od_cyl_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_ax_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_add_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_prism_distance"/></td>
-										<td style=" width:15%"><field name="od_base_distance"/></td>
+										<td style="border-right:1px solid;  height:25px; width:15%"><span><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_sph_distance"/></span></td>
+										<td   t-if="od_cyl_distance" style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_cyl_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_ax_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_add_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_prism_distance"/></td>
+										<td style=" width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="od_base_distance"/></td>
 									</tr>
 								</table>
 							</td>
 							<td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">
 								<table  width="100%">
 									<tr>
-										<td style="border-right:1px solid;  height:25px; width:15%"><field name="os_sph_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_cyl_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_ax_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_add_distance"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_prism_distance"/></td>
-										<td style="width:15%"><field name="os_base_distance"/></td>
+										<td style="border-right:1px solid;  height:25px; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_sph_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_cyl_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_ax_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_add_distance"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_prism_distance"/></td>
+										<td style="width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_base_distance"/></td>
 
 									</tr>
 								</table>
@@ -110,11 +110,11 @@
 							<td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">
 								<table cellspacing="0" cellpadding="0"  width="100%">
 									<tr>
-										<td style="border-right:1px solid; height:25px; width:15%"><field name="od_sph_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_cyl_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_ax_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_add_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="od_prism_near"/></td>
+										<td style="border-right:1px solid; height:25px; width:15%"><field attrs="{'readonly': [('state','=','confirm')]}" name="od_sph_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field attrs="{'readonly': [('state','=','confirm')]}" name="od_cyl_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field attrs="{'readonly': [('state','=','confirm')]}" name="od_ax_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field attrs="{'readonly': [('state','=','confirm')]}" name="od_add_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field attrs="{'readonly': [('state','=','confirm')]}" name="od_prism_near"/></td>
 										<td style="width:15%"><field name="od_base_near"/></td>
 									</tr>
 								</table>
@@ -122,12 +122,12 @@
 							<td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">
 								<table  width="100%">
 									<tr>
-										<td style="border-right:1px solid;  height:25px; width:15%"><field  name="os_sph_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_cyl_near"/></td>
-										<td style="border-right:1px solid; width:15%"><span><field name="os_ax_near"/></span></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_add_near"/></td>
-										<td style="border-right:1px solid; width:15%"><field name="os_prism_near"/></td>
-										<td style="width:15%"><field name="os_base_near"/></td>
+										<td style="border-right:1px solid;  height:25px; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}"  name="os_sph_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_cyl_near"/></td>
+										<td style="border-right:1px solid; width:15%"><span><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_ax_near"/></span></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_add_near"/></td>
+										<td style="border-right:1px solid; width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_prism_near"/></td>
+										<td style="width:15%"><field  attrs="{'readonly': [('state','=','confirm')]}" name="os_base_near"/></td>
 									</tr>
 								</table>
 							</td>
@@ -137,7 +137,7 @@
 					</table>
 
                    <group>
-						<field name="dual_pd"/>
+						<field  attrs="{'readonly': [('state','=','confirm')]}" name="dual_pd"/>
 <!--						<field name="prism"/>-->
 					</group>
 					<table border="1" cellpadding="0" attrs="{'invisible': [('dual_pd', '=', False)]}" cellspacing="0"
@@ -154,26 +154,26 @@
 						</tr>
 						<tr>
 							<td style="text-align:center;">
-								<field name="pdr" attrs="{'required': [('pdl', '!=', False)]}"/>
+								<field name="pdr" attrs="{'required': [('pdl', '!=', False)],'readonly': [('state','=','confirm')]}"/>
 							</td>
 							<td style="text-align:center;">
-								<field name="pdl" attrs="{'required': [('pdr', '!=', False)]}"/>
+								<field name="pdl" attrs="{'required': [('pdr', '!=', False)],'readonly': [('state','=','confirm')]}"/>
 							</td>
 						</tr>
 					</table>
 
 					<separator string="Diagnosis for the client"/>
-					<field name="diagnosis_client" ></field>
+					<field attrs="{'readonly': [('state','=','confirm')]}" name="diagnosis_client" ></field>
 
 					<separator string="Notes for the Laboratory"/>
-					<field name="notes_laboratory" ></field>
+					<field attrs="{'readonly': [('state','=','confirm')]}" name="notes_laboratory" ></field>
 
 					<separator string="Optometrist internal observations"/>
-					<field name="optometrist_observation" ></field>
+					<field attrs="{'readonly': [('state','=','confirm')]}" name="optometrist_observation" ></field>
 
 					<separator string="Recommendations"/>
 					<separator string="Note"/>
-					<field name="dr_notes" placeholder="Note"></field>
+					<field attrs="{'readonly': [('state','=','confirm')]}" name="dr_notes" placeholder="Note"></field>
 
 
 				</form>
