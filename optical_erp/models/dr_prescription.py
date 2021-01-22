@@ -15,11 +15,11 @@ class DrPrescription(models.Model):
     diagnosis_client = fields.Text()
     notes_laboratory = fields.Text()
     optometrist_observation = fields.Text()
-    state = fields.Selection([('draft','Draft'),('confirm','Confirm')],default='draft')
+    state = fields.Selection([('Draft','Draft'),('Confirm','Confirm')],default='Draft')
 
     def confirm_request(self):
         for rec in self:
-            rec.state = 'confirm'
+            rec.state = 'Confirm'
 
 
     def default_eye_examination_chargeable(self):
@@ -443,6 +443,11 @@ class DrPrescription(models.Model):
         [('31.5', '31.5'), ('31', '31'), ('30.5', '30.5'), ('30', '30'),
          ('29.5', '29.5'), ('29', '29')
             , ('28.5', '28.5'), ('28', '28')], 'PDR')
+
+    pd = fields.Selection(
+        [('47', '47'), ('48', '48'), ('49', '49'), ('50', '50'),
+         ('60', '60'), ('70', '70')
+            , ('79', '79')], 'PD')
 
     dr_notes = fields.Text('Notes')
     name = fields.Char(required=True, copy=False, readonly=True,index=True, default=lambda self: _('New'))
