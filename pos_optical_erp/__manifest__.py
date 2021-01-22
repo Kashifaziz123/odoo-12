@@ -6,7 +6,7 @@
     'sequence':2,
     'summary': 'Pos Optical Erp',
     'description': "",
-    'depends': ['stock_account', 'barcodes', 'web_editor','digest','optical_erp'],
+    'depends': ['stock_account','point_of_sale','barcodes', 'web_editor','digest','optical_erp'],
     'data': [
         'views/point_of_sale_template.xml',
     ],
