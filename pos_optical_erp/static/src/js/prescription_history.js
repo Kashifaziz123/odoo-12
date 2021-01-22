@@ -1,8 +1,5 @@
-alert('fire')
 odoo.define('pos_optical_erp.prescription_history',function(require){
 "use strict";
-
-
 
 var gui = require('point_of_sale.gui');
 var chrome = require('point_of_sale.chrome');
