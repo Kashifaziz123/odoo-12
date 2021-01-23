@@ -2,7 +2,7 @@
 {
     'name': 'Pos Optical Erp',
     'version': '1.0.0',
-    'category': 'Point Of Sale',
+    'category': 'hidden',
     'sequence':2,
     'summary': 'Pos Optical Erp',
     'description': "",

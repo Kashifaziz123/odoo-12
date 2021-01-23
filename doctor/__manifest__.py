@@ -1,7 +1,7 @@
 {
     "name": "doctor",
     "version": "12.0.0.0.1",
-    "category": "setting",
+    "category": "hidden",
     "author": "Alhaditech",
     'support': 'https://alhaditech.com',
     "license": "OPL-1",
