@@ -16,7 +16,7 @@ class InheritedResPartner(models.Model):
             return {
                 'name':_('Prescription History'),
                 'view_type': 'form',
-                'domain': [('dr', '=',records.id)],
+                'domain': [('customer', '=',records.id)],
                 'res_model': 'dr.prescription',
                 'view_id': False,
                 'view_mode':'tree,form',
