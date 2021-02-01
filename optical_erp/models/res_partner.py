@@ -9,6 +9,25 @@ class InheritedResPartner(models.Model):
 
     dob = fields.Date()
     age = fields.Integer(compute='_cal_age',store=True,readonly=True)
+    prescription_count = fields.Integer(compute='get_prescription_count')
+
+    def open_customer_prescriptions(self):
+        for records in self:
+            return {
+                'name':_('Prescription History'),
+                'view_type': 'form',
+                'domain': [('dr', '=',records.id)],
+                'res_model': 'dr.prescription',
+                'view_id': False,
+                'view_mode':'tree,form',
+                'context':{'default_dr':self.id},
+                'type': 'ir.actions.act_window',
+            }
+
+    def get_prescription_count(self):
+        for records in self:
+            count = self.env['dr.prescription'].search_count([('customer','=',records.id)])
+            records.prescription_count = count
 
     @api.depends('dob')
     def _cal_age(self):
