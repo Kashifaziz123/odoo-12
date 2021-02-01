@@ -20,7 +20,7 @@ class InheritedResPartner(models.Model):
                 'res_model': 'dr.prescription',
                 'view_id': False,
                 'view_mode':'tree,form',
-                'context':{'default_dr':self.id},
+                'context':{'default_customer':self.id},
                 'type': 'ir.actions.act_window',
             }
 
