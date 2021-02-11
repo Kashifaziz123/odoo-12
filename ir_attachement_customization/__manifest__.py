@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Binary Data Url",
+    'name': "Binary Attachment URL",
     'summary': """
         Get URL of binary file as attachement store in file""",
 
