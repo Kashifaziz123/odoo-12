@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Binary Data Url",
+    'name': "Binary Attachment URL",
     'summary': """
         Get URL of binary file as attachement store in file""",
 
@@ -8,7 +8,7 @@
         Long description of module's purpose
     """,
     'author': "Alhaditech",
-    'website': "http://www.yourcompany.com",
+    'website': "http://www.alhaditech.com",
     # for the full list
     'category': 'Attachement',
     'price': 60, 'currency': 'EUR',
