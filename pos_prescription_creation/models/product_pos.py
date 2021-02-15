@@ -113,7 +113,7 @@ class ProductFromPos(models.Model):
             'od_prism_distance': od_prism_distance if od_prism_distance else '',
             'od_base_distance': od_base_distance if od_base_distance else '',
             'os_sph_distance': os_sph_distance if os_sph_distance else '',
-            'os_cyl_distance': os_cyl_distance if os_cyl_distance else '',
+            'os_cyl_distance': os_cyl_distance if os_cyl_distance else ''
             # '': od_sph_distance if od_sph_distance else '',
             # '': od_sph_distance if od_sph_distance else '',
             # '': od_sph_distance if od_sph_distance else '',
