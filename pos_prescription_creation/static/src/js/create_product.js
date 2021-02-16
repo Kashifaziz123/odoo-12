@@ -20,7 +20,7 @@ models.load_models({
 
 models.load_models({
         model:  'dr.prescription',
-        fields: ['name','dr','customer','checkup_date','test_type','prescription_type','state'],
+        fields: ['name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
         loaded: function(self,products){
             self.products = products;
         },
@@ -28,7 +28,8 @@ models.load_models({
 
 models.load_models({
         model:  'res.partner',
-        fields: ['name'],
+        fields: ['name','customer_rank'],
+        domain: [['customer_rank','=','1']],
         loaded: function(self,customers){
             self.customers = customers;
         },
@@ -65,6 +66,7 @@ screens.define_action_button({
          var optometrist = [];
         var partner = [];
         var test_types=[];
+        var od_sph_distances=[];
 
         for (var i in self.pos.dr){
             optometrist.push(self.pos.dr[i].name);
@@ -76,10 +78,15 @@ screens.define_action_button({
          for (var i in self.pos.test_type){
             test_types.push(self.pos.test_type[i].name);
         }
+         for (var i in self.pos.products){
+            od_sph_distances.push(self.pos.products[i].od_sph_distance);
+
+        }
          self.gui.show_popup('product_create',{
                 'doctors':optometrist,
                 'partners':partner,
-                'test_type':test_types
+                'test_type':test_types,
+                'od_sph_distance':od_sph_distances
             });
 
         },
@@ -102,6 +109,7 @@ var ProductCreationWidget = PopupWidget.extend({
         this.doctors = [];
         this.partners = [];
         this.test_type=[];
+        this.od_sph_distances=[];
     },
     events: {
         'click .button.cancel':  'click_cancel',
@@ -113,6 +121,7 @@ var ProductCreationWidget = PopupWidget.extend({
         this.doctors = options.doctors;
         this.partners = options.partners;
         this.test_type = options.test_type;
+        this.od_sph_distances = options.od_sph_distances;
         this.renderElement();
 
     },
@@ -162,9 +171,9 @@ var ProductCreationWidget = PopupWidget.extend({
         if(!doctor || !partner) {
             alert("Please Select The Optometrist OR Partner")
         }
-        else if(!checkup_date) {
-            alert("Please Select The Prescription Date")
-        }
+//        else if(!checkup_date) {
+//            alert("Please Select The Prescription Date")
+//        }
         else {
              var product_vals = {
                 'doctor':doctor,

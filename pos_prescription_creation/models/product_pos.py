@@ -17,6 +17,128 @@ class ProductFromPos(models.Model):
             od_sph_distance = '-8.00'
         elif vals.get('od_sph_distance') == '-7.75':
             od_sph_distance = '-7.75'
+        elif vals.get('od_sph_distance') == '-8.00':
+            od_sph_distance= '-8.00'
+        elif vals.get('od_sph_distance') == '-7.75':
+            od_sph_distance= '-7.75'
+        elif vals.get('od_sph_distance') =='-7.50':
+            od_sph_distance='-7.50'
+        elif vals.get('od_sph_distance') =='-7.25':
+            od_sph_distance='-7.25'
+        elif vals.get('od_sph_distance') =='-7.00':
+            od_sph_distance ='-7.00'
+        elif vals.get('od_sph_distance') =='-6.75':
+            od_sph_distance ='-6.75'
+        elif vals.get('od_sph_distance') =='-6.50':
+            od_sph_distance ='-6.50'
+        elif vals.get('od_sph_distance') =='-6.25':
+            od_sph_distance ='-6.25'
+        elif vals.get('od_sph_distance') =='-6.00':
+            od_sph_distance ='-6.00'
+        elif vals.get('od_sph_distance') =='-5.75':
+            od_sph_distance ='-5.75'
+        elif vals.get('od_sph_distance') =='-5.50':
+            od_sph_distance ='-5.50'
+        elif vals.get('od_sph_distance') =='-5.25':
+            od_sph_distance ='-5.25'
+        elif vals.get('od_sph_distance') =='-5.00':
+            od_sph_distance ='-5.00'
+        elif vals.get('od_sph_distance') =='-4.75':
+            od_sph_distance ='-4.75'
+        elif vals.get('od_sph_distance') =='-4.50':
+            od_sph_distance ='-4.50'
+        elif vals.get('od_sph_distance') =='-4.25':
+            od_sph_distance ='-4.25'
+        elif vals.get('od_sph_distance') =='-4.00':
+            od_sph_distance ='-4.00'
+        elif vals.get('od_sph_distance') =='-3.75':
+            od_sph_distance ='-3.75'
+        elif vals.get('od_sph_distance') =='-3.50':
+            od_sph_distance = '-3.50'
+        elif vals.get('od_sph_distance') =='-3.25':
+            od_sph_distance ='-3.25'
+        elif vals.get('od_sph_distance') =='-3.00':
+            od_sph_distance ='-3.00'
+        elif vals.get('od_sph_distance') =='-2.75':
+            od_sph_distance ='-2.75'
+        elif vals.get('od_sph_distance') =='-2.50':
+            od_sph_distance ='-2.50'
+        elif vals.get('od_sph_distance') =='-2.25':
+            od_sph_distance ='-2.25'
+        elif vals.get('od_sph_distance') =='-2.00':
+            od_sph_distance ='-2.00'
+        elif vals.get('od_sph_distance') =='-1.75':
+            od_sph_distance ='-1.75'
+        elif vals.get('od_sph_distance') =='-1.50':
+            od_sph_distance ='-1.50'
+        elif vals.get('od_sph_distance') =='-1.25':
+            od_sph_distance            ='-1.25'
+        elif vals.get('od_sph_distance') =='-1.00':
+            od_sph_distance            ='-1.00'
+        elif vals.get('od_sph_distance') =='0.75':
+            od_sph_distance            ='0.75'
+        elif vals.get('od_sph_distance') =='-0.50':
+            od_sph_distance            ='-0.50'
+        elif vals.get('od_sph_distance') =='-0.25':
+            od_sph_distance            ='-0.25'
+        elif vals.get('od_sph_distance') =='-0.00':
+            od_sph_distance            ='-0.00'
+        elif vals.get('od_sph_distance') =='+0.25':
+            od_sph_distance            ='+0.25'
+        elif vals.get('od_sph_distance') =='+0.50':
+            od_sph_distance='+0.50'
+        elif vals.get('od_sph_distance') =='+0.75':
+            od_sph_distance            ='+0.75'
+        elif vals.get('od_sph_distance') =='+1.00':
+            od_sph_distance            ='+1.00'
+        elif vals.get('od_sph_distance') =='+1.25':
+            od_sph_distance            ='+1.25'
+        elif vals.get('od_sph_distance') =='+1.50':
+            od_sph_distance            ='+1.25'
+        elif vals.get('od_sph_distance') =='+1.75':
+            od_sph_distance            ='+1.75'
+        elif vals.get('od_sph_distance') =='+2.00':
+            od_sph_distance ='+2.00'
+        elif vals.get('od_sph_distance') =='+2.25':
+            od_sph_distance            ='+2.25'
+        elif vals.get('od_sph_distance') =='+2.50':
+            od_sph_distance            ='+2.50'
+        elif vals.get('od_sph_distance') =='+2.75':
+            od_sph_distance            ='+2.75'
+        elif vals.get('od_sph_distance') =='+3.00':
+            od_sph_distance            ='+3.00'
+        elif vals.get('od_sph_distance') =='+3.25':
+            od_sph_distance            ='+3.25'
+        elif vals.get('od_sph_distance') =='+3.50':
+            od_sph_distance            ='+3.50'
+        elif vals.get('od_sph_distance') =='+3.75':
+            od_sph_distance            ='+3.75'
+        elif vals.get('od_sph_distance') =='+4.00':
+            od_sph_distance            ='+4.00'
+        elif vals.get('od_sph_distance') =='+4.25':
+            od_sph_distance            ='+4.25'
+        elif vals.get('od_sph_distance') =='+4.50':
+            od_sph_distance            ='+4.50'
+        elif vals.get('od_sph_distance') =='+4.75':
+            od_sph_distance            ='+4.75'
+        elif vals.get('od_sph_distance') =='+5.00':
+            od_sph_distance            ='+5.00'
+        elif vals.get('od_sph_distance') =='+5.25':
+            od_sph_distance            ='+5.25'
+        elif vals.get('od_sph_distance') =='+5.50':
+            od_sph_distance            ='+5.50'
+        elif vals.get('od_sph_distance') =='+5.75':
+            od_sph_distance ='+5.75'
+        elif vals.get('od_sph_distance') =='+6.00':
+            od_sph_distance ='+6.00'
+        elif vals.get('od_sph_distance') =='+6.25':
+            od_sph_distance ='+6.25'
+        elif vals.get('od_sph_distance') =='+6.50':
+            od_sph_distance ='+6.50'
+        elif vals.get('od_sph_distance') =='+6.75':
+            od_sph_distance           ='+6.75'
+        elif vals.get('od_sph_distance') =='6.00':
+            od_sph_distance            ='6.00'
 
         od_cyl_distance = None
         if vals.get('od_cyl_distance') == '-3.50':
@@ -32,9 +154,48 @@ class ProductFromPos(models.Model):
 
         od_add_distance = None
         if vals.get('od_add_distance') == '0.00':
-            od_add_distance = '-0.00'
+            od_add_distance = '0.00'
         elif vals.get('od_add_distance') == '+0.25':
             od_add_distance = '+0.25'
+        elif vals.get('od_add_distance') == '+0.50':
+             od_add_distance= '+0.50'
+        elif vals.get('od_add_distance') == '+0.75':
+             od_add_distance= '+0.75'
+        elif vals.get('od_add_distance') == '+1.00':
+             od_add_distance= '+1.00'
+        elif vals.get('od_add_distance') == '+1.25':
+            od_add_distance= '+1.25'
+        elif vals.get('od_add_distance') == '+1.50':
+            od_add_distance= '+1.50'
+        elif vals.get('od_add_distance') == '+1.75':
+            od_add_distance= '+1.75'
+        elif vals.get('od_add_distance') == '+2.00':
+             od_add_distance= '+2.00'
+        elif vals.get('od_add_distance') == '+2.25':
+             od_add_distance= '+2.25'
+        elif vals.get('od_add_distance') == '+2.50':
+             od_add_distance= '+2.50'
+        elif vals.get('od_add_distance') == '+2.75':
+            od_add_distance= '+2.75'
+        elif vals.get('od_add_distance') == '3.00':
+            od_add_distance= '3.00'
+        elif vals.get('od_add_distance') == '+3.25':
+            od_add_distance = '+3.25'
+        elif vals.get('od_add_distance') == '+3.50':
+             od_add_distance= '+3.50'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         od_prism_distance = None
         if vals.get('od_prism_distance') == '0.25':
@@ -45,18 +206,139 @@ class ProductFromPos(models.Model):
         od_base_distance = None
         if vals.get('od_base_distance') == 'IN':
             od_base_distance = 'IN'
+        elif vals.get('od_base_distance') == 'Select':
+            od_base_distance = 'Select'
         elif vals.get('od_base_distance') == 'OUT':
             od_base_distance = 'OUT'
         elif vals.get('od_base_distance') == 'UP':
             od_base_distance = 'UP'
         elif vals.get('od_base_distance') == 'DOWN':
             od_base_distance = 'DOWN'
-
+        """         ------------------------------------------------------------------------------------------ """
         os_sph_distance = None
         if vals.get('os_sph_distance') == '-8.00':
             os_sph_distance = '-8.00'
         elif vals.get('os_sph_distance') == '-7.75':
             os_sph_distance = '-7.75'
+        elif vals.get('os_sph_distance') =='-7.50':
+            os_sph_distance='-7.50'
+        elif vals.get('os_sph_distance') =='-7.25':
+            os_sph_distance='-7.25'
+        elif vals.get('os_sph_distance') =='-7.00':
+            os_sph_distance='-7.00'
+        elif vals.get('os_sph_distance') =='-6.75':
+            os_sph_distance='-6.75'
+        elif vals.get('os_sph_distance') =='-6.50':
+            os_sph_distance='-6.50'
+        elif vals.get('os_sph_distance') =='-6.25':
+            os_sph_distance='-6.25'
+        elif vals.get('os_sph_distance') =='-6.00':
+            os_sph_distance='-6.00'
+        elif vals.get('os_sph_distance') =='-5.75':
+            os_sph_distance='-5.75'
+        elif vals.get('os_sph_distance') =='-5.50':
+            os_sph_distance='-5.50'
+        elif vals.get('os_sph_distance') =='-5.25':
+            os_sph_distance='-5.25'
+        elif vals.get('os_sph_distance') =='-5.00':
+            os_sph_distance='-5.00'
+        elif vals.get('os_sph_distance') =='-4.75':
+            os_sph_distance='-4.75'
+        elif vals.get('os_sph_distance') =='-4.50':
+            os_sph_distance='-4.50'
+        elif vals.get('os_sph_distance') =='-4.25':
+            os_sph_distance='-4.25'
+        elif vals.get('os_sph_distance') =='-4.00':
+            os_sph_distance='-4.00'
+        elif vals.get('os_sph_distance') =='-3.75':
+            os_sph_distance='-3.75'
+        elif vals.get('os_sph_distance') =='-3.50':
+            os_sph_distance='-3.50'
+        elif vals.get('os_sph_distance') =='-3.25':
+            os_sph_distance='-3.25'
+        elif vals.get('os_sph_distance') =='-3.00':
+            os_sph_distance='-3.00'
+        elif vals.get('os_sph_distance') =='-2.75':
+            os_sph_distance='-2.75'
+        elif vals.get('os_sph_distance') =='-2.50':
+            os_sph_distance='-2.50'
+        elif vals.get('os_sph_distance') =='-2.25':
+            os_sph_distance='-2.25'
+        elif vals.get('os_sph_distance') =='-2.00':
+            os_sph_distance='-2.00'
+        elif vals.get('os_sph_distance') =='-1.75':
+            os_sph_distance='-1.75'
+        elif vals.get('os_sph_distance') =='-1.50':
+            os_sph_distance='-1.50'
+        elif vals.get('os_sph_distance') =='-1.25':
+            os_sph_distance='-1.25'
+        elif vals.get('os_sph_distance') =='-1.00':
+            os_sph_distance='-1.00'
+        elif vals.get('os_sph_distance') =='0.75':
+            os_sph_distance='0.75'
+        elif vals.get('os_sph_distance') =='-0.50':
+            os_sph_distance='-0.50'
+        elif vals.get('os_sph_distance') =='-0.25':
+            os_sph_distance='-0.25'
+        elif vals.get('os_sph_distance') =='-0.00':
+            os_sph_distance='-0.00'
+        elif vals.get('os_sph_distance') =='+0.25':
+            os_sph_distance='+0.25'
+        elif vals.get('os_sph_distance') =='+0.50':
+            os_sph_distance='+0.50'
+        elif vals.get('os_sph_distance') =='+0.75':
+            os_sph_distance='+0.75'
+        elif vals.get('os_sph_distance') =='+1.00':
+            os_sph_distance='+1.00'
+        elif vals.get('os_sph_distance') =='+1.25':
+            os_sph_distance='+1.25'
+        elif vals.get('os_sph_distance') =='+1.50':
+            os_sph_distance ='+1.25'
+        elif vals.get('os_sph_distance') =='+1.75':
+            os_sph_distance='+1.75'
+        elif vals.get('os_sph_distance') =='+2.00':
+            os_sph_distance='+2.00'
+        elif vals.get('os_sph_distance') =='+2.25':
+            os_sph_distance='+2.25'
+        elif vals.get('os_sph_distance') =='+2.50':
+            os_sph_distance='+2.50'
+        elif vals.get('os_sph_distance') =='+2.75':
+            os_sph_distance='+2.75'
+        elif vals.get('os_sph_distance') =='+3.00':
+            os_sph_distance='+3.00'
+        elif vals.get('os_sph_distance') =='+3.25':
+            os_sph_distance='+3.25'
+        elif vals.get('os_sph_distance') =='+3.50':
+            os_sph_distance='+3.50'
+        elif vals.get('os_sph_distance') =='+3.75':
+            os_sph_distance='+3.75'
+        elif vals.get('os_sph_distance') =='+4.00':
+            os_sph_distance='+4.00'
+        elif vals.get('os_sph_distance') =='+4.25':
+            os_sph_distance='+4.25'
+        elif vals.get('os_sph_distance') =='+4.50':
+            os_sph_distance='+4.50'
+        elif vals.get('os_sph_distance') =='+4.75':
+            os_sph_distance='+4.75'
+        elif vals.get('os_sph_distance') =='+5.00':
+            os_sph_distance='+5.00'
+        elif vals.get('os_sph_distance') =='+5.25':
+            os_sph_distance='+5.25'
+        elif vals.get('os_sph_distance') =='+5.50':
+            os_sph_distance='+5.50'
+        elif vals.get('os_sph_distance') =='+5.75':
+            os_sph_distance='+5.75'
+        elif vals.get('os_sph_distance') =='+6.00':
+            os_sph_distance='+6.00'
+        elif vals.get('os_sph_distance') =='+6.25':
+            os_sph_distance='+6.25'
+        elif vals.get('os_sph_distance') =='+6.50':
+            os_sph_distance='+6.50'
+        elif vals.get('os_sph_distance') =='+6.75':
+            os_sph_distance='+6.75'
+        elif vals.get('os_sph_distance') =='6.00':
+            os_sph_distance='6.00'
+
 
         os_cyl_distance = None
         if vals.get('os_cyl_distance') == '-3.50':
@@ -72,9 +354,40 @@ class ProductFromPos(models.Model):
 
         os_add_distance = None
         if vals.get('os_add_distance') == '0.00':
-            os_add_distance = '-0.00'
+            os_add_distance = '0.00'
         elif vals.get('os_add_distance') == '+0.25':
             os_add_distance = '+0.25'
+        elif vals.get('os_add_distance') == '+0.50':
+             os_add_distance= '+0.50'
+        elif vals.get('os_add_distance') == '+0.75':
+             os_add_distance= '+0.75'
+        elif vals.get('os_add_distance') == '+1.00':
+             os_add_distance= '+1.00'
+        elif vals.get('os_add_distance') == '+1.25':
+            os_add_distance= '+1.25'
+        elif vals.get('os_add_distance') == '+1.50':
+            os_add_distance= '+1.50'
+        elif vals.get('os_add_distance') == '+1.75':
+            os_add_distance= '+1.75'
+        elif vals.get('os_add_distance') == '+2.00':
+             os_add_distance= '+2.00'
+        elif vals.get('os_add_distance') == '+2.25':
+             os_add_distance= '+2.25'
+        elif vals.get('os_add_distance') == '+2.50':
+             os_add_distance= '+2.50'
+        elif vals.get('os_add_distance') == '+2.75':
+            os_add_distance= '+2.75'
+        elif vals.get('os_add_distance') == '3.00':
+            os_add_distance = '3.00'
+        elif vals.get('os_add_distance') == '+3.25':
+            os_add_distance= '+3.25'
+        elif vals.get('os_add_distance') == '+3.50':
+             os_add_distance= '+3.50'
+
+
+
+
+
 
         os_prism_distance = None
         if vals.get('os_prism_distance') == '0.25':
@@ -85,18 +398,139 @@ class ProductFromPos(models.Model):
         os_base_distance = None
         if vals.get('os_base_distance') == 'IN':
             os_base_distance = 'IN'
+        elif vals.get('os_base_distance') == 'Select':
+            os_base_distance = 'Select'
         elif vals.get('os_base_distance') == 'OUT':
             os_base_distance = 'OUT'
         elif vals.get('os_base_distance') == 'UP':
             os_base_distance = 'UP'
         elif vals.get('os_base_distance') == 'DOWN':
             os_base_distance = 'DOWN'
-
+        """         ------------------------------------------------------------------------------------------ """
         od_sph_near = None
         if vals.get('od_sph_near') == '-8.00':
             od_sph_near = '-8.00'
         elif vals.get('od_sph_near') == '-7.75':
             od_sph_near = '-7.75'
+        elif vals.get('od_sph_near') =='-7.50':
+            od_sph_near='-7.50'
+        elif vals.get('od_sph_near') =='-7.25':
+            od_sph_near='-7.25'
+        elif vals.get('od_sph_near') =='-7.00':
+            od_sph_near='-7.00'
+        elif vals.get('od_sph_near') =='-6.75':
+            od_sph_near='-6.75'
+        elif vals.get('od_sph_near') =='-6.50':
+            od_sph_near='-6.50'
+        elif vals.get('od_sph_near') =='-6.25':
+            od_sph_near='-6.25'
+        elif vals.get('od_sph_near') =='-6.00':
+            od_sph_near='-6.00'
+        elif vals.get('od_sph_near') =='-5.75':
+            od_sph_near='-5.75'
+        elif vals.get('od_sph_near') =='-5.50':
+            od_sph_near='-5.50'
+        elif vals.get('od_sph_near') =='-5.25':
+            od_sph_near='-5.25'
+        elif vals.get('od_sph_near') =='-5.00':
+            od_sph_near='-5.00'
+        elif vals.get('od_sph_near') =='-4.75':
+            od_sph_near='-4.75'
+        elif vals.get('od_sph_near') =='-4.50':
+            od_sph_near='-4.50'
+        elif vals.get('od_sph_near') =='-4.25':
+            od_sph_near='-4.25'
+        elif vals.get('od_sph_near') =='-4.00':
+            od_sph_near='-4.00'
+        elif vals.get('od_sph_near') =='-3.75':
+            od_sph_near='-3.75'
+        elif vals.get('od_sph_near') =='-3.50':
+            od_sph_near='-3.50'
+        elif vals.get('od_sph_near') =='-3.25':
+            od_sph_near='-3.25'
+        elif vals.get('od_sph_near') =='-3.00':
+            od_sph_near='-3.00'
+        elif vals.get('od_sph_near') =='-2.75':
+            od_sph_near='-2.75'
+        elif vals.get('od_sph_near') =='-2.50':
+            od_sph_near='-2.50'
+        elif vals.get('od_sph_near') =='-2.25':
+            od_sph_near='-2.25'
+        elif vals.get('od_sph_near') =='-2.00':
+            od_sph_near='-2.00'
+        elif vals.get('od_sph_near') =='-1.75':
+            od_sph_near='-1.75'
+        elif vals.get('od_sph_near') =='-1.50':
+            od_sph_near='-1.50'
+        elif vals.get('od_sph_near') =='-1.25':
+            od_sph_near='-1.25'
+        elif vals.get('od_sph_near') =='-1.00':
+            od_sph_near='-1.00'
+        elif vals.get('od_sph_near') =='0.75':
+            od_sph_near='0.75'
+        elif vals.get('od_sph_near') =='-0.50':
+            od_sph_near='-0.50'
+        elif vals.get('od_sph_near') =='-0.25':
+            od_sph_near='-0.25'
+        elif vals.get('od_sph_near') =='-0.00':
+            od_sph_near='-0.00'
+        elif vals.get('od_sph_near') =='+0.25':
+            od_sph_near='+0.25'
+        elif vals.get('od_sph_near') =='+0.50':
+            od_sph_near='+0.50'
+        elif vals.get('od_sph_near') =='+0.75':
+            od_sph_near='+0.75'
+        elif vals.get('od_sph_near') =='+1.00':
+            od_sph_near='+1.00'
+        elif vals.get('od_sph_near') =='+1.25':
+            od_sph_near='+1.25'
+        elif vals.get('od_sph_near') =='+1.50':
+            od_sph_near='+1.25'
+        elif vals.get('od_sph_near') =='+1.75':
+            od_sph_near='+1.75'
+        elif vals.get('od_sph_near') =='+2.00':
+            od_sph_near='+2.00'
+        elif vals.get('od_sph_near') =='+2.25':
+            od_sph_near='+2.25'
+        elif vals.get('od_sph_near') =='+2.50':
+            od_sph_near='+2.50'
+        elif vals.get('od_sph_near') =='+2.75':
+            od_sph_near='+2.75'
+        elif vals.get('od_sph_near') =='+3.00':
+            od_sph_near='+3.00'
+        elif vals.get('od_sph_near') =='+3.25':
+            od_sph_near='+3.25'
+        elif vals.get('od_sph_near') =='+3.50':
+            od_sph_near='+3.50'
+        elif vals.get('od_sph_near') =='+3.75':
+            od_sph_near='+3.75'
+        elif vals.get('od_sph_near') =='+4.00':
+            od_sph_near='+4.00'
+        elif vals.get('od_sph_near') =='+4.25':
+            od_sph_near='+4.25'
+        elif vals.get('od_sph_near') =='+4.50':
+            od_sph_near='+4.50'
+        elif vals.get('od_sph_near') =='+4.75':
+            od_sph_near='+4.75'
+        elif vals.get('od_sph_near') =='+5.00':
+            od_sph_near='+5.00'
+        elif vals.get('od_sph_near') =='+5.25':
+            od_sph_near='+5.25'
+        elif vals.get('od_sph_near') =='+5.50':
+            od_sph_near='+5.50'
+        elif vals.get('od_sph_near') =='+5.75':
+            od_sph_near='+5.75'
+        elif vals.get('od_sph_near') =='+6.00':
+            od_sph_near='+6.00'
+        elif vals.get('od_sph_near') =='+6.25':
+            od_sph_near='+6.25'
+        elif vals.get('od_sph_near') =='+6.50':
+            od_sph_near='+6.50'
+        elif vals.get('od_sph_near') =='+6.75':
+            od_sph_near='+6.75'
+        elif vals.get('od_sph_near') =='6.00':
+            od_sph_near='6.00'
+
 
         od_cyl_near = None
         if vals.get('od_cyl_near') == '-3.50':
@@ -115,6 +549,32 @@ class ProductFromPos(models.Model):
             od_add_near = '0.00'
         elif vals.get('od_add_near') == '+0.25':
             od_add_near = '+0.25'
+        elif vals.get('od_add_near') == '+0.50':
+             od_add_near= '+0.50'
+        elif vals.get('od_add_near') == '+0.75':
+             od_add_near= '+0.75'
+        elif vals.get('od_add_near') == '+1.00':
+             od_add_near= '+1.00'
+        elif vals.get('od_add_near') == '+1.25':
+            od_add_near= '+1.25'
+        elif vals.get('od_add_near') == '+1.50':
+            od_add_near= '+1.50'
+        elif vals.get('od_add_near') == '+1.75':
+            od_add_near= '+1.75'
+        elif vals.get('od_add_near') == '+2.00':
+             od_add_near= '+2.00'
+        elif vals.get('od_add_near') == '+2.25':
+             od_add_near= '+2.25'
+        elif vals.get('od_add_near') == '+2.50':
+             od_add_near= '+2.50'
+        elif vals.get('od_add_near') == '+2.75':
+            od_add_near= '+2.75'
+        elif vals.get('od_add_near') == '3.00':
+            od_add_near= '3.00'
+        elif vals.get('od_add_near') == '+3.25':
+            od_add_near= '+3.25'
+        elif vals.get('od_add_near') == '+3.50':
+             od_add_near= '+3.50'
 
         od_prism_near = None
         if vals.get('od_prism_near') == '0.25':
@@ -125,18 +585,138 @@ class ProductFromPos(models.Model):
         od_base_near = None
         if vals.get('od_base_near') == 'IN':
             od_base_near = 'IN'
+        elif vals.get('od_base_near') == 'Select':
+            od_base_near = 'Select'
         elif vals.get('od_base_near') == 'OUT':
             od_base_near = 'OUT'
         elif vals.get('od_base_near') == 'UP':
             od_base_near = 'UP'
         elif vals.get('od_base_near') == 'DOWN':
             od_base_near = 'DOWN'
-
+        """         ------------------------------------------------------------------------------------------ """
         os_sph_near = None
         if vals.get('os_sph_near') == '-8.00':
             os_sph_near = '-8.00'
         elif vals.get('os_sph_near') == '-7.75':
             os_sph_near = '-7.75'
+        elif vals.get('os_sph_near') =='-7.50':
+            os_sph_near='-7.50'
+        elif vals.get('os_sph_near') =='-7.25':
+            os_sph_near='-7.25'
+        elif vals.get('os_sph_near') =='-7.00':
+            os_sph_near='-7.00'
+        elif vals.get('os_sph_near') =='-6.75':
+            os_sph_near='-6.75'
+        elif vals.get('os_sph_near') =='-6.50':
+            os_sph_near='-6.50'
+        elif vals.get('os_sph_near') =='-6.25':
+            os_sph_near='-6.25'
+        elif vals.get('os_sph_near') =='-6.00':
+            os_sph_near='-6.00'
+        elif vals.get('os_sph_near') =='-5.75':
+            os_sph_near='-5.75'
+        elif vals.get('os_sph_near') =='-5.50':
+            os_sph_near='-5.50'
+        elif vals.get('os_sph_near') =='-5.25':
+            os_sph_near='-5.25'
+        elif vals.get('os_sph_near') =='-5.00':
+            os_sph_near='-5.00'
+        elif vals.get('os_sph_near') =='-4.75':
+            os_sph_near='-4.75'
+        elif vals.get('os_sph_near') =='-4.50':
+            os_sph_near='-4.50'
+        elif vals.get('os_sph_near') =='-4.25':
+            os_sph_near='-4.25'
+        elif vals.get('os_sph_near') =='-4.00':
+            os_sph_near='-4.00'
+        elif vals.get('os_sph_near') =='-3.75':
+            os_sph_near='-3.75'
+        elif vals.get('os_sph_near') =='-3.50':
+            os_sph_near='-3.50'
+        elif vals.get('os_sph_near') =='-3.25':
+            os_sph_near='-3.25'
+        elif vals.get('os_sph_near') =='-3.00':
+            os_sph_near='-3.00'
+        elif vals.get('os_sph_near') =='-2.75':
+            os_sph_near='-2.75'
+        elif vals.get('os_sph_near') =='-2.50':
+            os_sph_near='-2.50'
+        elif vals.get('os_sph_near') =='-2.25':
+            os_sph_near='-2.25'
+        elif vals.get('os_sph_near') =='-2.00':
+            os_sph_near='-2.00'
+        elif vals.get('os_sph_near') =='-1.75':
+            os_sph_near='-1.75'
+        elif vals.get('os_sph_near') =='-1.50':
+            os_sph_near='-1.50'
+        elif vals.get('os_sph_near') =='-1.25':
+            os_sph_near='-1.25'
+        elif vals.get('os_sph_near') =='-1.00':
+            os_sph_near='-1.00'
+        elif vals.get('os_sph_near') =='0.75':
+            os_sph_near='0.75'
+        elif vals.get('os_sph_near') =='-0.50':
+            os_sph_near='-0.50'
+        elif vals.get('os_sph_near') =='-0.25':
+            os_sph_near='-0.25'
+        elif vals.get('os_sph_near') =='-0.00':
+            os_sph_near='-0.00'
+        elif vals.get('os_sph_near') =='+0.25':
+            os_sph_near='+0.25'
+        elif vals.get('os_sph_near') =='+0.50':
+            os_sph_near='+0.50'
+        elif vals.get('os_sph_near') =='+0.75':
+            os_sph_near='+0.75'
+        elif vals.get('os_sph_near') =='+1.00':
+            os_sph_near='+1.00'
+        elif vals.get('os_sph_near') =='+1.25':
+            os_sph_near='+1.25'
+        elif vals.get('os_sph_near') =='+1.50':
+            os_sph_near='+1.25'
+        elif vals.get('os_sph_near') =='+1.75':
+            os_sph_near='+1.75'
+        elif vals.get('os_sph_near') =='+2.00':
+            os_sph_near='+2.00'
+        elif vals.get('os_sph_near') =='+2.25':
+            os_sph_near='+2.25'
+        elif vals.get('os_sph_near') =='+2.50':
+            os_sph_near='+2.50'
+        elif vals.get('os_sph_near') =='+2.75':
+            os_sph_near='+2.75'
+        elif vals.get('os_sph_near') =='+3.00':
+            os_sph_near='+3.00'
+        elif vals.get('os_sph_near') =='+3.25':
+            os_sph_near='+3.25'
+        elif vals.get('os_sph_near') =='+3.50':
+            os_sph_near='+3.50'
+        elif vals.get('os_sph_near') =='+3.75':
+            os_sph_near='+3.75'
+        elif vals.get('os_sph_near') =='+4.00':
+            os_sph_near='+4.00'
+        elif vals.get('os_sph_near') =='+4.25':
+            os_sph_near='+4.25'
+        elif vals.get('os_sph_near') =='+4.50':
+            os_sph_near='+4.50'
+        elif vals.get('os_sph_near') =='+4.75':
+            os_sph_near='+4.75'
+        elif vals.get('os_sph_near') =='+5.00':
+            os_sph_near='+5.00'
+        elif vals.get('os_sph_near') =='+5.25':
+            os_sph_near='+5.25'
+        elif vals.get('os_sph_near') =='+5.50':
+            os_sph_near='+5.50'
+        elif vals.get('os_sph_near') =='+5.75':
+            os_sph_near='+5.75'
+        elif vals.get('os_sph_near') =='+6.00':
+            os_sph_near='+6.00'
+        elif vals.get('os_sph_near') =='+6.25':
+            os_sph_near='+6.25'
+        elif vals.get('os_sph_near') =='+6.50':
+            os_sph_near='+6.50'
+        elif vals.get('os_sph_near') =='+6.75':
+            os_sph_near='+6.75'
+        elif vals.get('os_sph_near') =='6.00':
+            os_sph_near='6.00'
 
         os_cyl_near = None
         if vals.get('os_cyl_near') == '-3.50':
@@ -151,10 +731,37 @@ class ProductFromPos(models.Model):
             os_ax_near = '2'
 
         os_add_near = None
-        if vals.get('os_add_near') == '0.0':
-            os_add_near = '0.0'
+        if vals.get('os_add_near') == '0.00':
+            os_add_near = '0.00'
         elif vals.get('os_add_near') == '+0.25':
             os_add_near = '+0.25'
+
+        elif vals.get('os_add_near') == '+0.50':
+             os_add_near= '+0.50'
+        elif vals.get('os_add_near') == '+0.75':
+             os_add_near= '+0.75'
+        elif vals.get('os_add_near') == '+1.00':
+             os_add_near= '+1.00'
+        elif vals.get('os_add_near') == '+1.25':
+            os_add_near= '+1.25'
+        elif vals.get('os_add_near') == '+1.50':
+            os_add_near= '+1.50'
+        elif vals.get('os_add_near') == '+1.75':
+            os_add_near= '+1.75'
+        elif vals.get('os_add_near') == '+2.00':
+             os_add_near= '+2.00'
+        elif vals.get('os_add_near') == '+2.25':
+             os_add_near= '+2.25'
+        elif vals.get('os_add_near') == '+2.50':
+             os_add_near= '+2.50'
+        elif vals.get('os_add_near') == '+2.75':
+            os_add_near= '+2.75'
+        elif vals.get('os_add_near') == '3.00':
+            os_add_near= '3.00'
+        elif vals.get('os_add_near') == '+3.25':
+            os_add_near= '+3.25'
+        elif vals.get('os_add_near') == '+3.50':
+             os_add_near= '+3.50'
 
         os_prism_near = None
         if vals.get('os_prism_near') == '0.25':
@@ -163,15 +770,18 @@ class ProductFromPos(models.Model):
             os_prism_near = '0.50'
 
         os_base_near = None
+
         if vals.get('os_base_near') == 'IN':
             os_base_near = 'IN'
+        elif vals.get('os_base_near') == 'Select':
+            os_base_near = 'Select'
         elif vals.get('os_base_near') == 'OUT':
             os_base_near = 'OUT'
         elif vals.get('os_base_near') == 'UP':
             os_base_near = 'UP'
         elif vals.get('os_base_near') == 'DOWN':
             os_base_near = 'DOWN'
-
+        """         ------------------------------------------------------------------------------------------ """
 
 
 
@@ -221,7 +831,7 @@ class ProductFromPos(models.Model):
 
 
 
-            }
+        }
         print(new_vals)
         rec = self.env['dr.prescription'].create(new_vals)
         new_vals['id'] = rec.id

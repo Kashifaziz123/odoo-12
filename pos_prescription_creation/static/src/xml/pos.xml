@@ -56,7 +56,7 @@
                      </tr>
                                 <tr>
                          <td width="30%" style="padding:5px; text-align:left;"><label>Prescription Date:</label></td>
-                                    <td width="70%" style="padding:5px;"> <input style="height:30px;" type="date"  class="checkup_date" maxlength="10"/></td>
+                                    <td width="70%" style="padding:5px;"> <input style="height:30px;" type="date"  class="checkup_date"  maxlength="10"  /></td>
 
                      </tr>
                                 <tr>
@@ -161,7 +161,8 @@
                                             <tr>
                                                 <td  style="border-right:1px solid;width:15%;">
                                                      <select class="od_sph_distance" style="width:80%; padding:5px;" >
-                                                         <option>-8.00</option>
+
+                                                          <option>-8.00</option>
                                                          <option>-7.75</option>
                                                          <option>-7.50</option>
                                                          <option>-7.25</option>
@@ -186,36 +187,42 @@
                                                          <option>-2.50</option>
                                                          <option>-2.25</option>
                                                          <option>-2.00</option>
-                                                         <option>-1.75</option>
+                                                         <option> -1.75</option>
                                                          <option>-1.50</option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
-                                                         <option></option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
 
 
                             </select>
@@ -239,23 +246,35 @@
                                                 </td>
                                                 <td style="border-right:1px solid; width:15%;">
                                                      <select class="od_add_distance" style="width:80%; padding:5px;" >
-                                                         <option>-0.00</option>
+                                                        <option>0.00</option>
                                                          <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option>+3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
 
 
                             </select>
                                                 </td>
                                                 <td style="border-right:1px solid; width:15%;">
                                                      <select class="od_prism_distance" style="width:80%; padding:5px;" >
-                                                         <option>0.25</option>
-                                                         <option>0.50</option>
+
 
 
                             </select>
                                                 </td>
                                                 <td style=" width:15%;">
                                                      <select class="od_base_distance" style="width:80%; padding:5px;" >
-                                                          <option>SELECT</option>
+                                                          <option>Select</option>
                                                          <option>IN</option>
                                                          <option>OUT</option>
                                                          <option>UP</option>
@@ -272,8 +291,67 @@
                                             <tr>
                                                 <td style="border-right:1px solid;  width:15%">
                                                      <select class="os_sph_distance" style="width:80%; padding:5px;" >
-                                                         <option>-8.00</option>
+                                                          <option>-8.00</option>
                                                          <option>-7.75</option>
+                                                         <option>-7.50</option>
+                                                         <option>-7.25</option>
+                                                         <option>-7.00</option>
+                                                         <option>-6.75</option>
+                                                         <option>-6.50</option>
+                                                         <option>-6.25</option>
+                                                         <option>-6.00</option>
+                                                         <option>-5.75</option>
+                                                         <option>-5.50</option>
+                                                         <option>-5.25</option>
+                                                         <option>-5.00</option>
+                                                         <option>-4.75</option>
+                                                         <option>-4.50</option>
+                                                         <option>-4.25</option>
+                                                         <option>-4.00</option>
+                                                         <option>-3.75</option>
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option> -1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
 
 
                             </select>
@@ -298,8 +376,21 @@
                                                 </td>
                                                 <td style="border-right:1px solid; width:15%">
                                                      <select class="os_add_distance" style="width:80%; padding:5px;" >
-                                                         <option>-0.00</option>
+                                                         <option>0.00</option>
                                                          <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option>+3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
 
 
                             </select>
@@ -314,7 +405,7 @@
                                                 </td>
                                                 <td style="width:15%">
                                                      <select class="os_base_distance" style="width:80%; padding:5px;" >
-                                                          <option>SELECT</option>
+                                                          <option>Select</option>
                                                          <option>IN</option>
                                                          <option>OUT</option>
                                                          <option>UP</option>
@@ -336,8 +427,67 @@
                                             <tr>
                                                 <td  style="border-right:1px solid;width:15%;">
                                                      <select class="od_sph_near" style="width:80%; padding:5px;" >
-                                                         <option>-8.00</option>
+                                                          <option>-8.00</option>
                                                          <option>-7.75</option>
+                                                         <option>-7.50</option>
+                                                         <option>-7.25</option>
+                                                         <option>-7.00</option>
+                                                         <option>-6.75</option>
+                                                         <option>-6.50</option>
+                                                         <option>-6.25</option>
+                                                         <option>-6.00</option>
+                                                         <option>-5.75</option>
+                                                         <option>-5.50</option>
+                                                         <option>-5.25</option>
+                                                         <option>-5.00</option>
+                                                         <option>-4.75</option>
+                                                         <option>-4.50</option>
+                                                         <option>-4.25</option>
+                                                         <option>-4.00</option>
+                                                         <option>-3.75</option>
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option> -1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
 
 
                             </select>
@@ -360,8 +510,21 @@
                                                 </td>
                                                 <td style="border-right:1px solid; width:15%">
                                                     <select class="od_add_near" style="width:80%; padding:5px;" >
-                                                         <option>0.00</option>
+                                                        <option>0.00</option>
                                                         <option>+0.25</option>
+                                                        <option>+0.50</option>
+                                                        <option>+0.75</option>
+                                                        <option>+1.00</option>
+                                                        <option>+1.25</option>
+                                                        <option>+1.50</option>
+                                                        <option>+1.75</option>
+                                                        <option>+2.00</option>
+                                                        <option>+2.25</option>
+                                                        <option>+2.50</option>
+                                                        <option>+2.75</option>
+                                                        <option>+3.00</option>
+                                                        <option>+3.25</option>
+                                                        <option>+3.50</option>
 
 
                             </select>
@@ -376,7 +539,7 @@
                                                 </td>
                                                 <td style=" width:15%">
                                                     <select class="od_base_near" style="width:80%; padding:5px;" >
-                                                         <option>SELECT</option>
+                                                         <option>Select</option>
                                                         <option>IN</option>
                                                         <option>OUT</option>
                                                         <option>UP</option>
@@ -395,6 +558,65 @@
                                                     <select class="os_sph_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
                                                         <option>-7.75</option>
+                                                        <option>-7.50</option>
+                                                        <option>-7.25</option>
+                                                        <option>-7.00</option>
+                                                        <option>-6.75</option>
+                                                        <option>-6.50</option>
+                                                        <option>-6.25</option>
+                                                        <option>-6.00</option>
+                                                        <option>-5.75</option>
+                                                        <option>-5.50</option>
+                                                        <option>-5.25</option>
+                                                        <option>-5.00</option>
+                                                        <option>-4.75</option>
+                                                        <option>-4.50</option>
+                                                        <option>-4.25</option>
+                                                        <option>-4.00</option>
+                                                        <option>-3.75</option>
+                                                        <option>-3.50</option>
+                                                        <option>-3.25</option>
+                                                        <option>-3.00</option>
+                                                        <option>-2.75</option>
+                                                        <option>-2.50</option>
+                                                        <option>-2.25</option>
+                                                        <option>-2.00</option>
+                                                        <option> -1.75</option>
+                                                        <option>-1.50</option>
+                                                        <option> -1.25</option>
+                                                        <option> -1.00</option>
+                                                        <option>0.75</option>
+                                                        <option>-0.50</option>
+                                                        <option>-0.25</option>
+                                                        <option>-0.00</option>
+                                                        <option>+0.25</option>
+                                                        <option>+0.50</option>
+                                                        <option>+0.75</option>
+                                                        <option>+1.00</option>
+                                                        <option>+1.25</option>
+                                                        <option>+1.50</option>
+                                                        <option>+1.75</option>
+                                                        <option>+2.00</option>
+                                                        <option>+2.25</option>
+                                                        <option>+2.50</option>
+                                                        <option>+2.75</option>
+                                                        <option> +3.00</option>
+                                                        <option>+3.25</option>
+                                                        <option>+3.50</option>
+                                                        <option>+3.75</option>
+                                                        <option>+4.00</option>
+                                                        <option>+4.25</option>
+                                                        <option>+4.50</option>
+                                                        <option>+4.75</option>
+                                                        <option>+5.00</option>
+                                                        <option>+5.25</option>
+                                                        <option>+5.50</option>
+                                                        <option>+5.75</option>
+                                                        <option>+6.00</option>
+                                                        <option>+6.25</option>
+                                                        <option>+6.50</option>
+                                                        <option>+6.75</option>
+                                                        <option>6.00</option>
 
 
                             </select>
@@ -417,8 +639,21 @@
                                                 </td>
                                                 <td style="border-right:1px solid; width:15%">
                                                       <select class="os_add_near" style="width:80%; padding:5px;" >
-                                                         <option>0.00</option>
+                                                        <option>0.00</option>
                                                           <option>+0.25</option>
+                                                          <option>+0.50</option>
+                                                          <option>+0.75</option>
+                                                          <option>+1.00</option>
+                                                          <option>+1.25</option>
+                                                          <option>+1.50</option>
+                                                          <option>+1.75</option>
+                                                          <option>+2.00</option>
+                                                          <option>+2.25</option>
+                                                          <option>+2.50</option>
+                                                          <option>+2.75</option>
+                                                          <option>+3.00</option>
+                                                          <option>+3.25</option>
+                                                          <option>+3.50</option>
 
 
                             </select>
@@ -433,7 +668,7 @@
                                                 </td>
                                                 <td style="width:15%">
                                                     <select class="os_base_near" style="width:80%; padding:5px;" >
-                                                         <option>SELECT</option>
+                                                         <option>Select</option>
                                                         <option>IN</option>
                                                         <option>OUT</option>
                                                         <option>UP</option>
