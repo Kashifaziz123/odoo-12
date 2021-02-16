@@ -19,6 +19,14 @@ models.load_models({
     });
 
 models.load_models({
+        model:  'dr.prescription',
+        fields: ['name','dr','customer','checkup_date','test_type','prescription_type','state'],
+        loaded: function(self,products){
+            self.products = products;
+        },
+    })
+
+models.load_models({
         model:  'res.partner',
         fields: ['name'],
         loaded: function(self,customers){
@@ -33,6 +41,20 @@ models.load_models({
             self.test_type = test_type;
         },
     });
+
+
+var PrescriptionButton = screens.ActionButtonWidget.extend({
+    template: 'PrescriptionButton',
+    button_click: function(){
+            this.gui.show_screen('product-list');
+            var self = this;
+    }
+});
+
+screens.define_action_button({
+    'name': 'PrescriptionButton',
+    'widget':PrescriptionButton,
+});
 
 
  var button_book_order = screens.ActionButtonWidget.extend({
@@ -111,11 +133,11 @@ var ProductCreationWidget = PopupWidget.extend({
         var optometrist_observation = this.$('.optometrist_observation').val();
         var od_sph_distance = this.$('.od_sph_distance').val();
         var od_cyl_distance = this.$('.od_cyl_distance').val();
-//        var od_axis_distance = this.$('.od_axis_distance').val();
-//        var od_add_distance = this.$('.od_add_distance').val();
-//        var od_prism_distance = this.$('.od_prism_distance').val();
-//        var od_base_distance = this.$('.od_base_distance').val();
-//        var os_sph_distance = this.$('.os_sph_distance').val();
+        var od_axis_distance = this.$('.od_axis_distance').val();
+        var od_add_distance = this.$('.od_add_distance').val();
+        var od_prism_distance = this.$('.od_prism_distance').val();
+        var od_base_distance = this.$('.od_base_distance').val();
+        var os_sph_distance = this.$('.os_sph_distance').val();
 //        var os_cyl_distance = this.$('.os_cyl_distance').val();
 //        var os_axis_distance = this.$('.os_axis_distance').val();
 //        var os_add_distance  = this.$('.os_add_distance').val();
@@ -164,7 +186,7 @@ var ProductCreationWidget = PopupWidget.extend({
                 'od_prism_distance':od_prism_distance,
                 'od_base_distance':od_base_distance,
                 'os_sph_distance':os_sph_distance,
-                'os_cyl_distance':os_cyl_distance
+//                'os_cyl_distance':os_cyl_distance
 //                'od_axis_distance':od_axis_distance,
 //                'os_add_distance':os_add_distance,
 //                'os_prism_distance':os_prism_distance
@@ -195,5 +217,123 @@ var ProductCreationWidget = PopupWidget.extend({
 
 });
 gui.define_popup({name:'product_create', widget: ProductCreationWidget});
+
+
+
+
+
+
+
+var ProductWidget = screens.ScreenWidget.extend({
+    template: 'Product-ListWidget-Custom',
+    init: function(parent, options){
+        this._super(parent, options);
+    },
+
+    show: function(){
+            var self = this;
+            this._super();
+            this.renderElement();
+            this.$('.back').click(function(){
+                self.gui.show_screen('products');
+            });
+
+            var products = []
+            for (var i=0;i < this.pos.products.length ;i++){
+                      products.push(this.pos.products[i]);
+            }
+
+            self.products = products;
+            this.render_list(products);
+            this.$('.products-list-contents').delegate('.productlines','click',function(event){
+                self.line_select(event,$(this.parentElement.parentElement),parseInt($(this.parentElement.parentElement).data('id')))
+            });
+
+
+            var search_timeout = null;
+
+            if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
+                this.chrome.widget.keyboard.connect(this.$('.searchbox input'));
+            }
+
+            this.$('.searchbox input').on('keyup',function(event){
+                clearTimeout(search_timeout);
+                var query = this.value;
+                search_timeout = setTimeout(function(){
+                    self.perform_search(query,event.which === 13);
+                },70);
+            });
+
+            this.$('.searchbox .search-clear').click(function(){
+                self.clear_search();
+            });
+    },
+
+    perform_search: function(query){
+            var products;
+            if(query){
+               products = this.search_products(query);
+                this.render_list(products);
+            }else{
+                products = this.pos.products;
+                this.render_list(products);
+    }
+    },
+
+    line_select: function(event,$line,id){
+
+    },
+
+    render_list: function(products){
+            var length = products.length
+            var contents = this.$el[0].querySelector('.products-list-contents');
+            contents.innerHTML = "";
+            for(var i = 0, len = Math.min(products.length); i < len; i++){
+                var product    = products[i];
+                var product_line_html = QWeb.render('ProductsLine',{widget: this, product:products[i]});
+                var product_line = document.createElement('tbody');
+                product_line.innerHTML = product_line_html;
+                product_line = product_line.childNodes[1];
+                contents.appendChild(product_line);
+            }
+    },
+
+    search_products: function(query){
+            try {
+                var re = RegExp(query);
+            }catch(e){
+                return [];
+            }
+            var results = [];
+            for (var product_id in this.pos.products){
+                var r = re.exec(this.pos.products[product_id]['name']);
+                var g = re.exec(this.pos.products[product_id]['dr']);
+                if(r || g){
+                results.push(this.pos.products[product_id]);
+                }
+            }
+            return results;
+
+        },
+
+
+
+
+
+
+
+
+
+});
+
+gui.define_screen({name:'product-list',widget:ProductWidget});
+
+
+
+
+
+
+
+
 
 });

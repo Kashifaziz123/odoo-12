@@ -8,6 +8,12 @@
             </div>
     </t>
 
+    <t t-name="PrescriptionButton">
+            <div class='control-button'>
+                Prescription History
+            </div>
+    </t>
+
 
 
     <t t-name="ProductCreationWidget">
@@ -282,7 +288,7 @@
                                                 <td   style="border-right:1px solid; width:15%">
                                                     <select class="od_cyl_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -290,7 +296,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                     <select class="od_axis_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -298,7 +304,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                     <select class="od_add_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -306,7 +312,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                     <select class="od_prism_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -314,7 +320,7 @@
                                                 <td style=" width:15%">
                                                     <select class="od_base_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -328,7 +334,7 @@
                                                 <td   style="border-right:1px solid;width:15%;">
                                                     <select class="os_sph_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -336,7 +342,7 @@
                                                 <td   style="border-right:1px solid; width:15%">
                                                     <select class="os_cyl_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -344,7 +350,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                       <select class="os_axis_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                          <option>-7.75</option>
 
 
                             </select>
@@ -352,7 +358,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                       <select class="os_add_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                          <option>-7.75</option>
 
 
                             </select>
@@ -360,7 +366,7 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                     <select class="os_prism_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -368,7 +374,7 @@
                                                 <td style="width:15%">
                                                     <select class="os_base_near" style="width:80%; padding:5px;" >
                                                          <option>-8.00</option>
-                                                         <option>-7.75</option>
+                                                        <option>-7.75</option>
 
 
                             </select>
@@ -417,5 +423,101 @@
             </div>
         </div>
     </t>
+
+
+
+
+
+
+
+    <t t-name="ProductsLine">
+        <tr class='productlines '>
+             <td><t t-esc='product.name' /></td>
+            <td><t t-esc='product.customer[1]' /></td>
+            <td><t t-esc='product.checkup_date' /></td>
+            <td><t t-esc='product.dr[1]' /></td>
+            <td><t t-esc='product.test_type[1]' /></td>
+            <td><t t-esc='product.prescription_type' /></td>
+            <td><t t-esc='product.state' /></td>
+            <td> <i class="fa fa-print"/></td>
+
+        </tr>
+    </t>
+
+
+
+
+
+
+    <t t-name="Product-ListWidget-Custom">
+        <div class="clientlist-screen screen">
+            <div class="full_width screen-content">
+                        <section class="top-content">
+                                <span class='button back'>
+                                    <i class='fa fa-angle-double-left'></i>
+                                    Cancel
+                                </span>
+                            <span class='searchbox'>
+                                    <input placeholder='Search Prescriptions' />
+                                <span class='search-clear'></span>
+                                </span>
+                            <span class='searchbox'></span>
+<!--                            <span class='button new-customer' role="img" aria-label="Add a Product" title="Add a Product">-->
+<!--                                    <i class='fa fa-user'></i>-->
+<!--                                <i class='fa fa-plus'></i>-->
+<!--                                </span>-->
+                        </section>
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix order-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                    <table class='client-list'>
+                                       <thead>
+                                            <tr>
+                                                <th>Number</th>
+                                                <th>Client</th>
+                                                <th>Date</th>
+                                                <th>Optometrist</th>
+                                                <th>Test Type</th>
+                                                <th>Prescription Type</th>
+                                                <th>Status</th>
+                                                <th>Prescription</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='products-list-contents'>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </t>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </templates>

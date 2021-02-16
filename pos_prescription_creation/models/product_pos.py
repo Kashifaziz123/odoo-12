@@ -1,25 +1,3 @@
-# -*- coding: utf-8 -*-
-#############################################################################
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#
-#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>).
-#    Author: Linto CT @cybrosys(odoo@cybrosys.com)
-#
-#    You can modify it under the terms of the GNU AFFERO
-#    GENERAL PUBLIC LICENSE (AGPL v3), Version 3.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU AFFERO GENERAL PUBLIC LICENSE (AGPL v3) for more details.
-#
-#    You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
-#    (AGPL v3) along with this program.
-#    If not, see <http://www.gnu.org/licenses/>.
-#
-#############################################################################
-
 from odoo import models, api
 
 
@@ -80,11 +58,11 @@ class ProductFromPos(models.Model):
         elif vals.get('os_sph_distance') == '-7.75':
             os_sph_distance = '-7.75'
 
-        os_cyl_distance = None
-        if vals.get('os_cyl_distance') == '-8.00':
-            os_cyl_distance = '-8.00'
-        elif vals.get('os_cyl_distance') == '-7.75':
-            os_cyl_distance = '-7.75'
+        # os_cyl_distance = None
+        # if vals.get('os_cyl_distance') == '-8.00':
+        #     os_cyl_distance = '-8.00'
+        # elif vals.get('os_cyl_distance') == '-7.75':
+        #     os_cyl_distance = '-7.75'
 
 
 
@@ -113,7 +91,7 @@ class ProductFromPos(models.Model):
             'od_prism_distance': od_prism_distance if od_prism_distance else '',
             'od_base_distance': od_base_distance if od_base_distance else '',
             'os_sph_distance': os_sph_distance if os_sph_distance else '',
-            'os_cyl_distance': os_cyl_distance if os_cyl_distance else ''
+            # 'os_cyl_distance': os_cyl_distance if os_cyl_distance else ''
             # '': od_sph_distance if od_sph_distance else '',
             # '': od_sph_distance if od_sph_distance else '',
             # '': od_sph_distance if od_sph_distance else '',
@@ -144,7 +122,7 @@ class ProductFromPos(models.Model):
         new_vals['od_prism_distance'] = rec.od_prism_distance if rec.od_prism_distance else ''
         new_vals['od_base_distance'] = rec.od_base_distance if rec.od_base_distance else ''
         new_vals['os_sph_distance'] = rec.os_sph_distance if rec.os_sph_distance else ''
-        new_vals['os_cyl_distance'] = rec.os_cyl_distance if rec.os_cyl_distance else ''
+        # new_vals['os_cyl_distance'] = rec.os_cyl_distance if rec.os_cyl_distance else ''
         # new_vals[''] = rec. if rec. else ''
 
         return new_vals
