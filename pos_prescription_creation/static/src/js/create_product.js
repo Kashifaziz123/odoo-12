@@ -138,23 +138,23 @@ var ProductCreationWidget = PopupWidget.extend({
         var od_prism_distance = this.$('.od_prism_distance').val();
         var od_base_distance = this.$('.od_base_distance').val();
         var os_sph_distance = this.$('.os_sph_distance').val();
-//        var os_cyl_distance = this.$('.os_cyl_distance').val();
-//        var os_axis_distance = this.$('.os_axis_distance').val();
-//        var os_add_distance  = this.$('.os_add_distance').val();
-//        var os_prism_distance = this.$('.os_prism_distance').val();
-//        var os_base_distance = this.$('.os_base_distance').val();
-//         var od_sph_near = this.$('.od_sph_near').val();
-//        var od_cyl_near = this.$('.od_cyl_near').val();
-//        var od_axis_near = this.$('.od_axis_near').val();
-//        var od_add_near = this.$('.od_add_near').val();
-//        var od_prism_near  = this.$('.od_prism_near').val();
-//        var od_base_near  = this.$('.od_base_near').val();
-//        var  os_sph_near = this.$('.os_sph_near').val();
-//        var os_cyl_near = this.$('.os_cyl_near').val();
-//        var os_axis_near = this.$('.os_axis_near').val();
-//        var os_add_near = this.$('.os_add_near').val();
-//        var os_prism_near = this.$('.os_prism_near').val();
-//        var os_base_near = this.$('.os_base_near').val();
+        var os_cyl_distance = this.$('.os_cyl_distance').val();
+        var os_ax_distance = this.$('.os_ax_distance').val();
+        var os_add_distance  = this.$('.os_add_distance').val();
+        var os_prism_distance = this.$('.os_prism_distance').val();
+        var os_base_distance = this.$('.os_base_distance').val();
+        var od_sph_near = this.$('.od_sph_near').val();
+        var od_cyl_near = this.$('.od_cyl_near').val();
+        var od_ax_near = this.$('.od_ax_near').val();
+        var od_add_near = this.$('.od_add_near').val();
+        var od_prism_near  = this.$('.od_prism_near').val();
+        var od_base_near  = this.$('.od_base_near').val();
+        var  os_sph_near = this.$('.os_sph_near').val();
+        var os_cyl_near = this.$('.os_cyl_near').val();
+        var os_ax_near = this.$('.os_ax_near').val();
+        var os_add_near = this.$('.os_add_near').val();
+        var os_prism_near = this.$('.os_prism_near').val();
+        var os_base_near = this.$('.os_base_near').val();
 
 
 
@@ -186,10 +186,23 @@ var ProductCreationWidget = PopupWidget.extend({
                 'od_prism_distance':od_prism_distance,
                 'od_base_distance':od_base_distance,
                 'os_sph_distance':os_sph_distance,
-//                'os_cyl_distance':os_cyl_distance
-//                'od_axis_distance':od_axis_distance,
-//                'os_add_distance':os_add_distance,
-//                'os_prism_distance':os_prism_distance
+                'os_cyl_distance':os_cyl_distance,
+                'os_ax_distance':os_ax_distance,
+                'os_add_distance':os_add_distance,
+                'os_prism_distance':os_prism_distance,
+                'os_base_distance':os_base_distance,
+                'od_sph_near':od_sph_near,
+                'od_cyl_near':od_cyl_near,
+                'od_ax_near':od_ax_near,
+                'od_add_near':od_add_near,
+                'od_prism_near':od_prism_near,
+                'od_base_near':od_base_near,
+                'os_sph_near':os_sph_near,
+                'os_cyl_near':os_cyl_near,
+                'os_ax_near':os_ax_near,
+                'os_add_near':os_add_near,
+                'os_prism_near':os_prism_near,
+                'os_base_near':os_base_near,
 
 
             };

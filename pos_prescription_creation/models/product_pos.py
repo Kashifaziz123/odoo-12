@@ -58,11 +58,119 @@ class ProductFromPos(models.Model):
         elif vals.get('os_sph_distance') == '-7.75':
             os_sph_distance = '-7.75'
 
-        # os_cyl_distance = None
-        # if vals.get('os_cyl_distance') == '-8.00':
-        #     os_cyl_distance = '-8.00'
-        # elif vals.get('os_cyl_distance') == '-7.75':
-        #     os_cyl_distance = '-7.75'
+        os_cyl_distance = None
+        if vals.get('os_cyl_distance') == '-3.50':
+            os_cyl_distance = '-3.50'
+        elif vals.get('os_cyl_distance') == '-3.25':
+            os_cyl_distance = '-3.25'
+
+        os_ax_distance = None
+        if vals.get('os_ax_distance') == '1':
+            os_ax_distance = '1'
+        elif vals.get('os_ax_distance') == '2':
+            os_ax_distance = '2'
+
+        os_add_distance = None
+        if vals.get('os_add_distance') == '0.00':
+            os_add_distance = '-0.00'
+        elif vals.get('os_add_distance') == '+0.25':
+            os_add_distance = '+0.25'
+
+        os_prism_distance = None
+        if vals.get('os_prism_distance') == '0.25':
+            os_prism_distance = '0.25'
+        elif vals.get('os_prism_distance') == '0.50':
+            os_prism_distance = '0.50'
+
+        os_base_distance = None
+        if vals.get('os_base_distance') == 'IN':
+            os_base_distance = 'IN'
+        elif vals.get('os_base_distance') == 'OUT':
+            os_base_distance = 'OUT'
+        elif vals.get('os_base_distance') == 'UP':
+            os_base_distance = 'UP'
+        elif vals.get('os_base_distance') == 'DOWN':
+            os_base_distance = 'DOWN'
+
+        od_sph_near = None
+        if vals.get('od_sph_near') == '-8.00':
+            od_sph_near = '-8.00'
+        elif vals.get('od_sph_near') == '-7.75':
+            od_sph_near = '-7.75'
+
+        od_cyl_near = None
+        if vals.get('od_cyl_near') == '-3.50':
+            od_cyl_near = '-3.50'
+        elif vals.get('od_cyl_near') == '-3.25':
+            od_cyl_near = '-3.25'
+
+        od_ax_near = None
+        if vals.get('od_ax_near') == '1':
+            od_ax_near = '1'
+        elif vals.get('od_ax_near') == '2':
+            od_ax_near = '2'
+
+        od_add_near = None
+        if vals.get('od_add_near') == '0.00':
+            od_add_near = '0.00'
+        elif vals.get('od_add_near') == '+0.25':
+            od_add_near = '+0.25'
+
+        od_prism_near = None
+        if vals.get('od_prism_near') == '0.25':
+            od_prism_near = '0.25'
+        elif vals.get('od_prism_near') == '0.50':
+            od_prism_near = '0.50'
+
+        od_base_near = None
+        if vals.get('od_base_near') == 'IN':
+            od_base_near = 'IN'
+        elif vals.get('od_base_near') == 'OUT':
+            od_base_near = 'OUT'
+        elif vals.get('od_base_near') == 'UP':
+            od_base_near = 'UP'
+        elif vals.get('od_base_near') == 'DOWN':
+            od_base_near = 'DOWN'
+
+        os_sph_near = None
+        if vals.get('os_sph_near') == '-8.00':
+            os_sph_near = '-8.00'
+        elif vals.get('os_sph_near') == '-7.75':
+            os_sph_near = '-7.75'
+
+        os_cyl_near = None
+        if vals.get('os_cyl_near') == '-3.50':
+            os_cyl_near = '-3.50'
+        elif vals.get('os_cyl_near') == '-3.25':
+            os_cyl_near = '-3.25'
+
+        os_ax_near = None
+        if vals.get('os_ax_near') == '1':
+            os_ax_near = '1'
+        elif vals.get('os_ax_near') == '2':
+            os_ax_near = '2'
+
+        os_add_near = None
+        if vals.get('os_add_near') == '0.0':
+            os_add_near = '0.0'
+        elif vals.get('os_add_near') == '+0.25':
+            os_add_near = '+0.25'
+
+        os_prism_near = None
+        if vals.get('os_prism_near') == '0.25':
+            os_prism_near = '0.25'
+        elif vals.get('os_prism_near') == '0.50':
+            os_prism_near = '0.50'
+
+        os_base_near = None
+        if vals.get('os_base_near') == 'IN':
+            os_base_near = 'IN'
+        elif vals.get('os_base_near') == 'OUT':
+            os_base_near = 'OUT'
+        elif vals.get('os_base_near') == 'UP':
+            os_base_near = 'UP'
+        elif vals.get('os_base_near') == 'DOWN':
+            os_base_near = 'DOWN'
 
 
 
@@ -91,10 +199,24 @@ class ProductFromPos(models.Model):
             'od_prism_distance': od_prism_distance if od_prism_distance else '',
             'od_base_distance': od_base_distance if od_base_distance else '',
             'os_sph_distance': os_sph_distance if os_sph_distance else '',
-            # 'os_cyl_distance': os_cyl_distance if os_cyl_distance else ''
-            # '': od_sph_distance if od_sph_distance else '',
-            # '': od_sph_distance if od_sph_distance else '',
-            # '': od_sph_distance if od_sph_distance else '',
+            'os_cyl_distance': os_cyl_distance if os_cyl_distance else '',
+            'os_ax_distance': os_ax_distance if os_ax_distance else '',
+            'os_add_distance': os_add_distance if os_add_distance else '',
+            'os_prism_distance':os_prism_distance if  os_prism_distance else '',
+            'os_base_distance':  os_base_distance if  os_base_distance else '',
+            'od_sph_near': od_sph_near if od_sph_near else '',
+            'od_cyl_near': od_cyl_near if od_cyl_near else '',
+            'od_ax_near': od_ax_near if od_ax_near else '',
+            'od_add_near': od_add_near if od_add_near else '',
+            'od_prism_near': od_prism_near if od_prism_near else '',
+            'od_base_near': od_base_near if od_base_near else '',
+            'os_sph_near': os_sph_near if os_sph_near else '',
+            'os_cyl_near': os_cyl_near if os_cyl_near else '',
+            'os_ax_near': os_ax_near if os_ax_near else '',
+            'os_add_near': os_add_near if os_add_near else '',
+            'os_prism_near': os_prism_near if os_prism_near else '',
+            'os_base_near': os_base_near if os_base_near else '',
+
             # '': od_sph_distance if od_sph_distance else '',
 
 
@@ -122,7 +244,23 @@ class ProductFromPos(models.Model):
         new_vals['od_prism_distance'] = rec.od_prism_distance if rec.od_prism_distance else ''
         new_vals['od_base_distance'] = rec.od_base_distance if rec.od_base_distance else ''
         new_vals['os_sph_distance'] = rec.os_sph_distance if rec.os_sph_distance else ''
-        # new_vals['os_cyl_distance'] = rec.os_cyl_distance if rec.os_cyl_distance else ''
-        # new_vals[''] = rec. if rec. else ''
+        new_vals['os_cyl_distance'] = rec.os_cyl_distance if rec.os_cyl_distance else ''
+        new_vals['os_ax_distance'] = rec.os_ax_distance if rec.os_ax_distance else ''
+        new_vals['os_add_distance'] = rec.os_add_distance if rec.os_add_distance else ''
+        new_vals['os_prism_distance'] = rec.os_prism_distance if rec.os_prism_distance else ''
+        new_vals['os_base_distance'] = rec.os_base_distance if rec.os_base_distance else ''
+        new_vals['od_sph_near'] = rec.od_sph_near if rec.od_sph_near else ''
+        new_vals['od_cyl_near'] = rec.od_cyl_near if rec.od_cyl_near else ''
+        new_vals['od_ax_near'] = rec.od_ax_near if rec.od_ax_near else ''
+        new_vals['od_add_near'] = rec.od_add_near if rec.od_add_near else ''
+        new_vals['od_prism_near'] = rec.od_prism_near if rec.od_prism_near else ''
+        new_vals['od_base_near'] = rec.od_base_near if rec.od_base_near else ''
+        new_vals['os_sph_near'] = rec.os_sph_near if rec.os_sph_near else ''
+        new_vals['os_cyl_near'] = rec.os_cyl_near if rec.os_cyl_near else ''
+        new_vals['os_ax_near'] = rec.os_ax_near if rec.os_ax_near else ''
+        new_vals['os_add_near'] = rec.os_add_near if rec.os_add_near else ''
+        new_vals['os_prism_near'] = rec.os_prism_near if rec.os_prism_near else ''
+        new_vals['os_base_near'] = rec.os_base_near if rec.os_base_near else ''
+
 
         return new_vals
