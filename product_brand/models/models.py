@@ -11,8 +11,6 @@ class ModelBrand(models.Model):
     name = fields.Char('Brand Name')
     brand_ids = fields.One2many('product.template','brand_id', string='Order Lines')
     brand_image = fields.Binary("Logo", attachment=True,help="This field holds the image used as logo for the brand, limited to 1024x1024px.")
-    sequence = fields.Integer('Sequence')
-    total_no_items = fields.Integer('Total no of items')
 
 
 class InheritedProductTemplate(models.Model):

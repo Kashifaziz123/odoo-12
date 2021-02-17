@@ -18,8 +18,6 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="sequence"/>
-                            <field name="total_no_items"/>
                         </group>
                     </group>
                     <field name="brand_ids" readonly="1" force_save="1">
