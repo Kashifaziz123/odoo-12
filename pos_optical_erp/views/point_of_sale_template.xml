@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="assets_backend" name="hr assets" inherit_id="point_of_sale.assets">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_optical_erp/static/src/js/prescription_history.js"></script>
-            <link rel="stylesheet" type="text/scss" href="/pos_optical_erp/static/src/css/pos_optical_erp.css"/>
-        </xpath>
-    </template>
-</odoo>
