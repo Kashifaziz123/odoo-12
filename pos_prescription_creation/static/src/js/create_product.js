@@ -8,8 +8,11 @@ var popups = require('point_of_sale.popups');
 var core = require('web.core');
 var models = require('point_of_sale.models');
 var rpc = require('web.rpc');
+var utils = require('web.utils');
 var QWeb = core.qweb;
 var _t = core._t;
+
+
 models.load_models({
         model:  'optical.dr',
         fields: ['name'],
@@ -168,54 +171,57 @@ var ProductCreationWidget = PopupWidget.extend({
 
 
         var today = new Date().toJSON().slice(0,10);
-        if(!doctor || !partner) {
-            alert("Please Select The Optometrist OR Partner")
+        if( !checkup_date) {
+              this.gui.show_popup('error',{
+                    'title': _t('Error'),
+                    'body':  _t('Required CheckUP Date'),
+                });
         }
-//        else if(!checkup_date) {
-//            alert("Please Select The Prescription Date")
-//        }
         else {
-             var product_vals = {
-                'doctor':doctor,
-                'partner':partner,
-                'checkup_date':checkup_date,
-                'test_type':test_type,
-                'prescription_type':prescription_type,
-                'eyes_charges':eyes_charges,
-                'eyes_history':eyes_history,
-                'ocular_history':ocular_history,
-                'consultation_reason':consultation_reason,
-                'diagnosis_client':diagnosis_client,
-                'notes_laboratory':notes_laboratory,
-                'optometrist_observation':optometrist_observation,
-                'od_sph_distance':od_sph_distance,
-                'od_cyl_distance':od_cyl_distance,
-                'od_axis_distance':od_axis_distance,
-                'od_add_distance':od_add_distance,
-                'od_prism_distance':od_prism_distance,
-                'od_base_distance':od_base_distance,
-                'os_sph_distance':os_sph_distance,
-                'os_cyl_distance':os_cyl_distance,
-                'os_ax_distance':os_ax_distance,
-                'os_add_distance':os_add_distance,
-                'os_prism_distance':os_prism_distance,
-                'os_base_distance':os_base_distance,
-                'od_sph_near':od_sph_near,
-                'od_cyl_near':od_cyl_near,
-                'od_ax_near':od_ax_near,
-                'od_add_near':od_add_near,
-                'od_prism_near':od_prism_near,
-                'od_base_near':od_base_near,
-                'os_sph_near':os_sph_near,
-                'os_cyl_near':os_cyl_near,
-                'os_ax_near':os_ax_near,
-                'os_add_near':os_add_near,
-                'os_prism_near':os_prism_near,
-                'os_base_near':os_base_near,
 
-
-            };
-            rpc.query({
+          this.gui.show_popup('confirm',{
+                'title': _t('Create a Prescription ?'),
+                'body': _t('Are You Sure You Want a Create a Prescription'),
+                confirm: function(){
+                  var product_vals = {
+                        'doctor':doctor,
+                        'partner':partner,
+                        'checkup_date':checkup_date,
+                        'test_type':test_type,
+                        'prescription_type':prescription_type,
+                        'eyes_charges':eyes_charges,
+                        'eyes_history':eyes_history,
+                        'ocular_history':ocular_history,
+                        'consultation_reason':consultation_reason,
+                        'diagnosis_client':diagnosis_client,
+                        'notes_laboratory':notes_laboratory,
+                        'optometrist_observation':optometrist_observation,
+                        'od_sph_distance':od_sph_distance,
+                        'od_cyl_distance':od_cyl_distance,
+                        'od_axis_distance':od_axis_distance,
+                        'od_add_distance':od_add_distance,
+                        'od_prism_distance':od_prism_distance,
+                        'od_base_distance':od_base_distance,
+                        'os_sph_distance':os_sph_distance,
+                        'os_cyl_distance':os_cyl_distance,
+                        'os_ax_distance':os_ax_distance,
+                        'os_add_distance':os_add_distance,
+                        'os_prism_distance':os_prism_distance,
+                        'os_base_distance':os_base_distance,
+                        'od_sph_near':od_sph_near,
+                        'od_cyl_near':od_cyl_near,
+                        'od_ax_near':od_ax_near,
+                        'od_add_near':od_add_near,
+                        'od_prism_near':od_prism_near,
+                        'od_base_near':od_base_near,
+                        'os_sph_near':os_sph_near,
+                        'os_cyl_near':os_cyl_near,
+                        'os_ax_near':os_ax_near,
+                        'os_add_near':os_add_near,
+                        'os_prism_near':os_prism_near,
+                        'os_base_near':os_base_near,
+                 };
+                  rpc.query({
                     model: 'dr.prescription',
                     method: 'create_product_pos',
                     args: [product_vals],
@@ -223,12 +229,28 @@ var ProductCreationWidget = PopupWidget.extend({
                          console.log(products)
 
                 });
-            this.gui.close_popup();
-        }
 
-        this.gui.close_popup();
 
-    },
+
+
+                },
+
+
+            });
+
+
+
+
+
+    };
+
+
+
+
+
+
+
+     },
 
     click_cancel: function(){
         this.gui.close_popup();
