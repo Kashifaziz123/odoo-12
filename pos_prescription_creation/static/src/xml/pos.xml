@@ -1,0 +1,2115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="button_book_order">
+            <div class='control-button'>
+                <i class='fa-prescription' />
+                <span class="label">Prescription</span>
+            </div>
+    </t>
+
+    <t t-name="PrescriptionButton">
+            <div class='control-button'>
+                Prescription History
+            </div>
+    </t>
+
+
+
+    <t t-name="ProductCreationWidget">
+        <div class="modal-dialog">
+            <div class="popup widget order-scroller touch-scrollable" style="width:70%;height:700px;font-size: 13px;">
+                <p class="title" style="text-align:left;">Create:Prescription</p>
+
+                <table width="100%" style="margin-top:10px;">
+                    <tr>
+                        <td width="50%">
+                            <table width="100%">
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label for="fname">Optometrist:</label></td>
+                                    <td width="70%" style="padding:5px;">
+                            <select class="doctor"  style="width:80%; padding:5px;" >
+                    <t t-foreach="widget.doctors || []" t-as="item">
+                        <option>
+                            <t t-esc='item'/>
+                        </option>
+                    </t>
+                </select>
+                         </td>
+                     </tr>
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Client:</label></td>
+                                    <td width="70%" style="padding:5px;">
+                            <select class="partner"  style="width:80%; padding:5px;" >
+                    <t t-foreach="widget.partners || []" t-as="item2">
+                        <option>
+                            <t t-esc='item2'/>
+                        </option>
+                    </t>
+                </select>
+                        </td>
+                     </tr>
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>customer Age:</label></td>
+                                    <td width="70%" style="padding:5px;"></td>
+
+                     </tr>
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Prescription Date:</label></td>
+                                    <td width="70%" style="padding:5px;"> <input style="height:30px;" type="date"  class="checkup_date"  maxlength="10"  /></td>
+
+                     </tr>
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label for="fname">Test Type:</label></td>
+                                    <td width="70%" style="padding:5px;">
+                                        <select class="test_type"  style="width:80%; padding:5px;" >
+                    <t t-foreach="widget.test_type || []" t-as="item3">
+                        <option>
+                            <t t-esc='item3'/>
+                        </option>
+                    </t>
+                </select>
+
+                        </td>
+                     </tr>
+                                <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Prescription Type:</label></td>
+                                    <td width="70%" style="padding:5px;">
+                            <select class="prescription_type" style="width:80%; padding:5px;" >
+                                 <option>Internal</option>
+                                <option>External</option>
+                            </select>
+                        </td>
+                     </tr>
+
+
+
+
+                            </table>
+                        </td>
+                        <td width="50%">
+                         <table width="100%">
+                               <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Eye Examination Chargeable:</label></td>
+                                   <td width="70%">
+                            <input style="height:30px;" class="eye_charges" type="checkbox"  />
+                        </td>
+                     </tr>
+                             <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Family Eye History:</label></td>
+                                 <td width="70%" style="padding:5px;"> <input style="height:30px;" class="eyes_history" type="text"/></td>
+
+                     </tr>
+                             <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Ocular  History:</label></td>
+                                 <td width="70%" style="padding:5px;"> <input class="ocular_history" style="height:30px;" type="text"/></td>
+
+                     </tr>
+                             <tr>
+                         <td width="30%" style="padding:5px; text-align:left;"><label>Consultation Reason:</label></td>
+                                 <td width="70%" style="padding:5px;"> <input class="consultation_reason" style="height:30px;" type="text"/></td>
+
+                     </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                 </table>
+
+
+                <div style="padding-left:10px; padding-right:10px;">
+                 <table  cellspacing="0" cellpadding="0" style="border:1px solid; width:100%; margin-top:15px;">
+                                <tr>
+                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;"></td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OD</td>
+                                    <!--                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OS</td>-->
+                                    <!--                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:3%; border-right:1px solid black; border-bottom:1px solid black;">PD</td>-->
+                                </tr>
+                     <tr>
+                                    <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table  width="100%">
+                                            <tr>
+                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">SPH</td>
+                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">CYL</td>
+                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">AXIS</td>
+                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">Add</td>
+                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">Prism</td>
+                                                <td style="width:15%  font-size:16px; color:green; font-weight:bold;  ">Base</td>
+
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                         <!--                         <td  style="text-align:center;font-size:16px; font-weight:bold; width:5%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">SPH</td>-->
+                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">CYL</td>-->
+                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">AXIS</td>-->
+                         <!--                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Add</td>-->
+                         <!--                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Prism</td>-->
+                         <!--                                                <td style="width:15%  font-size:16px; color:green; font-weight:bold;  ">Base</td>-->
+                         <!--                                            </tr>-->
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                                </tr>
+
+                     <tr>
+                                    <td style="text-align:center; font-size:16px; font-weight:bold; width:5%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Distance</td>
+                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table  width="100%">
+                                            <tr>
+                                                <td  style="border-right:1px solid;width:15%;">
+                                                     <select class="od_sph_distance" style="width:80%; padding:5px;" >
+
+                                                          <option>-8.00</option>
+                                                         <option>-7.75</option>
+                                                         <option>-7.50</option>
+                                                         <option>-7.25</option>
+                                                         <option>-7.00</option>
+                                                         <option>-6.75</option>
+                                                         <option>-6.50</option>
+                                                         <option>-6.25</option>
+                                                         <option>-6.00</option>
+                                                         <option>-5.75</option>
+                                                         <option>-5.50</option>
+                                                         <option>-5.25</option>
+                                                         <option>-5.00</option>
+                                                         <option>-4.75</option>
+                                                         <option>-4.50</option>
+                                                         <option>-4.25</option>
+                                                         <option>-4.00</option>
+                                                         <option>-3.75</option>
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option> -1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
+
+
+                            </select>
+
+                                                </td>
+                                                <td   style="border-right:1px solid; width:15%;">
+                                                     <select class="od_cyl_distance" style="width:80%; padding:5px;" >
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%;">
+                                                     <select class="od_axis_distance" style="width:80%; padding:5px;" >
+                                                         <option>1</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                          <option>5</option>
+                                                          <option>6</option>
+                                                          <option>7</option>
+                                                          <option>8</option>
+                                                          <option>9</option>
+                                                          <option>10</option>
+                                                          <option>11</option>
+                                                          <option>12</option>
+                                                          <option>13</option>
+                                                          <option>14</option>
+                                                          <option>15</option>
+                                                          <option>16</option>
+                                                          <option>17</option>
+                                                          <option>18</option>
+                                                          <option>19</option>
+                                                          <option>20</option>
+                                                          <option>21</option>
+                                                          <option>22</option>
+                                                          <option>23</option>
+                                                          <option>24</option>
+                                                          <option>25</option>
+                                                          <option>26</option>
+                                                          <option>27</option>
+                                                          <option>28</option>
+                                                          <option>29</option>
+                                                          <option>30</option>
+                                                          <option>31</option>
+                                                          <option>32</option>
+                                                          <option>33</option>
+                                                          <option>34</option>
+                                                          <option>35</option>
+                                                          <option>36</option>
+                                                          <option>37</option>
+                                                          <option>38</option>
+                                                          <option>39</option>
+                                                          <option>40</option>
+                                                          <option>41</option>
+                                                          <option>42</option>
+                                                          <option>43</option>
+                                                          <option>44</option>
+                                                          <option>45</option>
+                                                          <option>46</option>
+                                                          <option>47</option>
+                                                          <option>48</option>
+                                                          <option>49</option>
+                                                          <option>50</option>
+                                                          <option>51</option>
+                                                          <option>52</option>
+                                                          <option>53</option>
+                                                          <option>54</option>
+                                                          <option>55</option>
+                                                          <option>56</option>
+                                                          <option>57</option>
+                                                          <option>58</option>
+                                                          <option>59</option>
+                                                          <option>60</option>
+                                                          <option>61</option>
+                                                          <option>62</option>
+                                                          <option>63</option>
+                                                          <option>64</option>
+                                                          <option>65</option>
+                                                          <option>66</option>
+                                                          <option>67</option>
+                                                          <option>68</option>
+                                                          <option>69</option>
+                                                          <option>70</option>
+                                                          <option>71</option>
+                                                          <option>72</option>
+                                                          <option>73</option>
+                                                          <option>74</option>
+                                                          <option>75</option>
+                                                          <option>76</option>
+                                                          <option>77</option>
+                                                          <option>78</option>
+                                                          <option>79</option>
+                                                          <option>80</option>
+                                                          <option>81</option>
+                                                          <option>82</option>
+                                                          <option>83</option>
+                                                          <option>84</option>
+                                                          <option>85</option>
+                                                          <option>86</option>
+                                                          <option>87</option>
+                                                          <option>88</option>
+                                                          <option>89</option>
+                                                          <option>90</option>
+                                                          <option>91</option>
+                                                          <option>92</option>
+                                                          <option>93</option>
+                                                          <option>94</option>
+                                                          <option>95</option>
+                                                          <option>96</option>
+                                                          <option>97</option>
+                                                          <option>98</option>
+                                                          <option>99</option>
+                                                          <option>100</option>
+                                                          <option>101</option>
+                                                          <option>102</option>
+                                                          <option>103</option>
+                                                          <option>104</option>
+                                                          <option>105</option>
+                                                          <option>106</option>
+                                                          <option>107</option>
+                                                          <option>108</option>
+                                                          <option>109</option>
+                                                          <option>110</option>
+                                                          <option>111</option>
+                                                          <option>112</option>
+                                                          <option>113</option>
+                                                          <option>114</option>
+                                                          <option>115</option>
+                                                          <option>116</option>
+                                                          <option>117</option>
+                                                          <option>118</option>
+                                                          <option>119</option>
+                                                          <option>120</option>
+                                                          <option>121</option>
+                                                          <option>122</option>
+                                                          <option>123</option>
+                                                          <option>124</option>
+                                                          <option>125</option>
+                                                          <option>126</option>
+                                                          <option>127</option>
+                                                          <option>128</option>
+                                                          <option>129</option>
+                                                          <option>130</option>
+                                                          <option>131</option>
+                                                          <option>132</option>
+                                                          <option>133</option>
+                                                          <option>134</option>
+                                                          <option>135</option>
+                                                          <option>136</option>
+                                                          <option>137</option>
+                                                          <option>138</option>
+                                                          <option>139</option>
+                                                          <option>140</option>
+                                                          <option>141</option>
+                                                          <option>142</option>
+                                                          <option>143</option>
+                                                          <option>144</option>
+                                                          <option>145</option>
+                                                          <option>146</option>
+                                                          <option>147</option>
+                                                          <option>148</option>
+                                                          <option>149</option>
+                                                          <option>150</option>
+                                                          <option>151</option>
+                                                          <option>152</option>
+                                                          <option>153</option>
+                                                          <option>154</option>
+                                                          <option>155</option>
+                                                          <option>156</option>
+                                                          <option>157</option>
+                                                          <option>158</option>
+                                                          <option>159</option>
+                                                          <option>160</option>
+                                                          <option>161</option>
+                                                          <option>162</option>
+                                                          <option>163</option>
+                                                          <option>164</option>
+                                                          <option>165</option>
+                                                          <option>166</option>
+                                                          <option>167</option>
+                                                          <option>168</option>
+                                                          <option>169</option>
+                                                          <option>170</option>
+                                                          <option>171</option>
+                                                          <option>172</option>
+                                                          <option>173</option>
+                                                          <option>174</option>
+                                                          <option>175</option>
+                                                          <option>176</option>
+                                                          <option>177</option>
+                                                          <option>178</option>
+                                                          <option>179</option>
+                                                          <option>180</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%;">
+                                                     <select class="od_add_distance" style="width:80%; padding:5px;" >
+                                                        <option>0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option>+3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%;">
+                                                     <select class="od_prism_distance" style="width:80%; padding:5px;" >
+
+
+
+                            </select>
+                                                </td>
+                                                <td style=" width:15%;">
+                                                     <select class="od_base_distance" style="width:80%; padding:5px;" >
+                                                          <option>Select</option>
+                                                         <option>IN</option>
+                                                         <option>OUT</option>
+                                                         <option>UP</option>
+                                                         <option>DOWN</option>
+
+
+                            </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                         <!--                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td style="border-right:1px solid;  width:15%">-->
+                         <!--                                                     <select class="os_sph_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>-8.00</option>-->
+                         <!--                                                         <option>-7.75</option>-->
+                         <!--                                                         <option>-7.50</option>-->
+                         <!--                                                         <option>-7.25</option>-->
+                         <!--                                                         <option>-7.00</option>-->
+                         <!--                                                         <option>-6.75</option>-->
+                         <!--                                                         <option>-6.50</option>-->
+                         <!--                                                         <option>-6.25</option>-->
+                         <!--                                                         <option>-6.00</option>-->
+                         <!--                                                         <option>-5.75</option>-->
+                         <!--                                                         <option>-5.50</option>-->
+                         <!--                                                         <option>-5.25</option>-->
+                         <!--                                                         <option>-5.00</option>-->
+                         <!--                                                         <option>-4.75</option>-->
+                         <!--                                                         <option>-4.50</option>-->
+                         <!--                                                         <option>-4.25</option>-->
+                         <!--                                                         <option>-4.00</option>-->
+                         <!--                                                         <option>-3.75</option>-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                         <option>-3.25</option>-->
+                         <!--                                                         <option>-3.00</option>-->
+                         <!--                                                         <option>-2.75</option>-->
+                         <!--                                                         <option>-2.50</option>-->
+                         <!--                                                         <option>-2.25</option>-->
+                         <!--                                                         <option>-2.00</option>-->
+                         <!--                                                         <option> -1.75</option>-->
+                         <!--                                                         <option>-1.50</option>-->
+                         <!--                                                         <option> -1.25</option>-->
+                         <!--                                                         <option> -1.00</option>-->
+                         <!--                                                         <option>0.75</option>-->
+                         <!--                                                         <option>-0.50</option>-->
+                         <!--                                                         <option>-0.25</option>-->
+                         <!--                                                         <option>-0.00</option>-->
+                         <!--                                                         <option>+0.25</option>-->
+                         <!--                                                         <option>+0.50</option>-->
+                         <!--                                                         <option>+0.75</option>-->
+                         <!--                                                         <option>+1.00</option>-->
+                         <!--                                                         <option>+1.25</option>-->
+                         <!--                                                         <option>+1.50</option>-->
+                         <!--                                                         <option>+1.75</option>-->
+                         <!--                                                         <option>+2.00</option>-->
+                         <!--                                                         <option>+2.25</option>-->
+                         <!--                                                         <option>+2.50</option>-->
+                         <!--                                                         <option>+2.75</option>-->
+                         <!--                                                         <option> +3.00</option>-->
+                         <!--                                                         <option>+3.25</option>-->
+                         <!--                                                         <option>+3.50</option>-->
+                         <!--                                                         <option>+3.75</option>-->
+                         <!--                                                         <option>+4.00</option>-->
+                         <!--                                                         <option>+4.25</option>-->
+                         <!--                                                         <option>+4.50</option>-->
+                         <!--                                                         <option>+4.75</option>-->
+                         <!--                                                         <option>+5.00</option>-->
+                         <!--                                                         <option>+5.25</option>-->
+                         <!--                                                         <option>+5.50</option>-->
+                         <!--                                                         <option>+5.75</option>-->
+                         <!--                                                         <option>+6.00</option>-->
+                         <!--                                                         <option>+6.25</option>-->
+                         <!--                                                         <option>+6.50</option>-->
+                         <!--                                                         <option>+6.75</option>-->
+                         <!--                                                         <option>6.00</option>-->
+
+
+                         <!--                            </select>-->
+
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                     <select class="os_cyl_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                         <option>&#45;&#45;3.25</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                     <select class="os_ax_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>1</option>-->
+                         <!--                                                         <option>2</option>-->
+
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                     <select class="os_add_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>0.00</option>-->
+                         <!--                                                         <option>+0.25</option>-->
+                         <!--                                                         <option>+0.50</option>-->
+                         <!--                                                         <option>+0.75</option>-->
+                         <!--                                                         <option>+1.00</option>-->
+                         <!--                                                         <option>+1.25</option>-->
+                         <!--                                                         <option>+1.50</option>-->
+                         <!--                                                         <option>+1.75</option>-->
+                         <!--                                                         <option>+2.00</option>-->
+                         <!--                                                         <option>+2.25</option>-->
+                         <!--                                                         <option>+2.50</option>-->
+                         <!--                                                         <option>+2.75</option>-->
+                         <!--                                                         <option>+3.00</option>-->
+                         <!--                                                         <option>+3.25</option>-->
+                         <!--                                                         <option>+3.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                     <select class="os_prism_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>0.25</option>-->
+                         <!--                                                         <option>0.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="width:15%">-->
+                         <!--                                                     <select class="os_base_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>Select</option>-->
+                         <!--                                                         <option>IN</option>-->
+                         <!--                                                         <option>OUT</option>-->
+                         <!--                                                         <option>UP</option>-->
+                         <!--                                                         <option>DOWN</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+
+                         <!--                                            </tr>-->
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                                </tr>
+
+                     <tr>
+                                    <td style="text-align:center; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold;  ">Near</td>
+                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table cellspacing="0" cellpadding="0"  width="100%">
+                                            <tr>
+                                                <td  style="border-right:1px solid;width:15%;">
+                                                     <select class="od_sph_near" style="width:80%; padding:5px;" >
+                                                          <option>-8.00</option>
+                                                         <option>-7.75</option>
+                                                         <option>-7.50</option>
+                                                         <option>-7.25</option>
+                                                         <option>-7.00</option>
+                                                         <option>-6.75</option>
+                                                         <option>-6.50</option>
+                                                         <option>-6.25</option>
+                                                         <option>-6.00</option>
+                                                         <option>-5.75</option>
+                                                         <option>-5.50</option>
+                                                         <option>-5.25</option>
+                                                         <option>-5.00</option>
+                                                         <option>-4.75</option>
+                                                         <option>-4.50</option>
+                                                         <option>-4.25</option>
+                                                         <option>-4.00</option>
+                                                         <option>-3.75</option>
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option> -1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
+
+
+                            </select>
+                                                </td>
+                                                <td   style="border-right:1px solid; width:15%">
+                                                    <select class="od_cyl_near" style="width:80%; padding:5px;" >
+                                                         <option>-3.50</option>
+                                                        <option>--3.25</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                    <select class="od_ax_near" style="width:80%; padding:5px;" >
+                                                           <option>1</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                          <option>5</option>
+                                                          <option>6</option>
+                                                          <option>7</option>
+                                                          <option>8</option>
+                                                          <option>9</option>
+                                                          <option>10</option>
+                                                          <option>11</option>
+                                                          <option>12</option>
+                                                          <option>13</option>
+                                                          <option>14</option>
+                                                          <option>15</option>
+                                                          <option>16</option>
+                                                          <option>17</option>
+                                                          <option>18</option>
+                                                          <option>19</option>
+                                                          <option>20</option>
+                                                          <option>21</option>
+                                                          <option>22</option>
+                                                          <option>23</option>
+                                                          <option>24</option>
+                                                          <option>25</option>
+                                                          <option>26</option>
+                                                          <option>27</option>
+                                                          <option>28</option>
+                                                          <option>29</option>
+                                                          <option>30</option>
+                                                          <option>31</option>
+                                                          <option>32</option>
+                                                          <option>33</option>
+                                                          <option>34</option>
+                                                          <option>35</option>
+                                                          <option>36</option>
+                                                          <option>37</option>
+                                                          <option>38</option>
+                                                          <option>39</option>
+                                                          <option>40</option>
+                                                          <option>41</option>
+                                                          <option>42</option>
+                                                          <option>43</option>
+                                                          <option>44</option>
+                                                          <option>45</option>
+                                                          <option>46</option>
+                                                          <option>47</option>
+                                                          <option>48</option>
+                                                          <option>49</option>
+                                                          <option>50</option>
+                                                          <option>51</option>
+                                                          <option>52</option>
+                                                          <option>53</option>
+                                                          <option>54</option>
+                                                          <option>55</option>
+                                                          <option>56</option>
+                                                          <option>57</option>
+                                                          <option>58</option>
+                                                          <option>59</option>
+                                                          <option>60</option>
+                                                          <option>61</option>
+                                                          <option>62</option>
+                                                          <option>63</option>
+                                                          <option>64</option>
+                                                          <option>65</option>
+                                                          <option>66</option>
+                                                          <option>67</option>
+                                                          <option>68</option>
+                                                          <option>69</option>
+                                                          <option>70</option>
+                                                          <option>71</option>
+                                                          <option>72</option>
+                                                          <option>73</option>
+                                                          <option>74</option>
+                                                          <option>75</option>
+                                                          <option>76</option>
+                                                          <option>77</option>
+                                                          <option>78</option>
+                                                          <option>79</option>
+                                                          <option>80</option>
+                                                          <option>81</option>
+                                                          <option>82</option>
+                                                          <option>83</option>
+                                                          <option>84</option>
+                                                          <option>85</option>
+                                                          <option>86</option>
+                                                          <option>87</option>
+                                                          <option>88</option>
+                                                          <option>89</option>
+                                                          <option>90</option>
+                                                          <option>91</option>
+                                                          <option>92</option>
+                                                          <option>93</option>
+                                                          <option>94</option>
+                                                          <option>95</option>
+                                                          <option>96</option>
+                                                          <option>97</option>
+                                                          <option>98</option>
+                                                          <option>99</option>
+                                                          <option>100</option>
+                                                          <option>101</option>
+                                                          <option>102</option>
+                                                          <option>103</option>
+                                                          <option>104</option>
+                                                          <option>105</option>
+                                                          <option>106</option>
+                                                          <option>107</option>
+                                                          <option>108</option>
+                                                          <option>109</option>
+                                                          <option>110</option>
+                                                          <option>111</option>
+                                                          <option>112</option>
+                                                          <option>113</option>
+                                                          <option>114</option>
+                                                          <option>115</option>
+                                                          <option>116</option>
+                                                          <option>117</option>
+                                                          <option>118</option>
+                                                          <option>119</option>
+                                                          <option>120</option>
+                                                          <option>121</option>
+                                                          <option>122</option>
+                                                          <option>123</option>
+                                                          <option>124</option>
+                                                          <option>125</option>
+                                                          <option>126</option>
+                                                          <option>127</option>
+                                                          <option>128</option>
+                                                          <option>129</option>
+                                                          <option>130</option>
+                                                          <option>131</option>
+                                                          <option>132</option>
+                                                          <option>133</option>
+                                                          <option>134</option>
+                                                          <option>135</option>
+                                                          <option>136</option>
+                                                          <option>137</option>
+                                                          <option>138</option>
+                                                          <option>139</option>
+                                                          <option>140</option>
+                                                          <option>141</option>
+                                                          <option>142</option>
+                                                          <option>143</option>
+                                                          <option>144</option>
+                                                          <option>145</option>
+                                                          <option>146</option>
+                                                          <option>147</option>
+                                                          <option>148</option>
+                                                          <option>149</option>
+                                                          <option>150</option>
+                                                          <option>151</option>
+                                                          <option>152</option>
+                                                          <option>153</option>
+                                                          <option>154</option>
+                                                          <option>155</option>
+                                                          <option>156</option>
+                                                          <option>157</option>
+                                                          <option>158</option>
+                                                          <option>159</option>
+                                                          <option>160</option>
+                                                          <option>161</option>
+                                                          <option>162</option>
+                                                          <option>163</option>
+                                                          <option>164</option>
+                                                          <option>165</option>
+                                                          <option>166</option>
+                                                          <option>167</option>
+                                                          <option>168</option>
+                                                          <option>169</option>
+                                                          <option>170</option>
+                                                          <option>171</option>
+                                                          <option>172</option>
+                                                          <option>173</option>
+                                                          <option>174</option>
+                                                          <option>175</option>
+                                                          <option>176</option>
+                                                          <option>177</option>
+                                                          <option>178</option>
+                                                          <option>179</option>
+                                                          <option>180</option>
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                    <select class="od_add_near" style="width:80%; padding:5px;" >
+                                                        <option>0.00</option>
+                                                        <option>+0.25</option>
+                                                        <option>+0.50</option>
+                                                        <option>+0.75</option>
+                                                        <option>+1.00</option>
+                                                        <option>+1.25</option>
+                                                        <option>+1.50</option>
+                                                        <option>+1.75</option>
+                                                        <option>+2.00</option>
+                                                        <option>+2.25</option>
+                                                        <option>+2.50</option>
+                                                        <option>+2.75</option>
+                                                        <option>+3.00</option>
+                                                        <option>+3.25</option>
+                                                        <option>+3.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                    <select class="od_prism_near" style="width:80%; padding:5px;" >
+                                                          <option>0.25</option>
+                                                        <option>0.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style=" width:15%">
+                                                    <select class="od_base_near" style="width:80%; padding:5px;" >
+                                                         <option>Select</option>
+                                                        <option>IN</option>
+                                                        <option>OUT</option>
+                                                        <option>UP</option>
+                                                        <option>DOWN</option>
+                            </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                         <!--                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table cellspacing="0" cellpadding="0"  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td   style="border-right:1px solid;width:15%;">-->
+                         <!--                                                    <select class="os_sph_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>-8.00</option>-->
+                         <!--                                                        <option>-7.75</option>-->
+                         <!--                                                        <option>-7.50</option>-->
+                         <!--                                                        <option>-7.25</option>-->
+                         <!--                                                        <option>-7.00</option>-->
+                         <!--                                                        <option>-6.75</option>-->
+                         <!--                                                        <option>-6.50</option>-->
+                         <!--                                                        <option>-6.25</option>-->
+                         <!--                                                        <option>-6.00</option>-->
+                         <!--                                                        <option>-5.75</option>-->
+                         <!--                                                        <option>-5.50</option>-->
+                         <!--                                                        <option>-5.25</option>-->
+                         <!--                                                        <option>-5.00</option>-->
+                         <!--                                                        <option>-4.75</option>-->
+                         <!--                                                        <option>-4.50</option>-->
+                         <!--                                                        <option>-4.25</option>-->
+                         <!--                                                        <option>-4.00</option>-->
+                         <!--                                                        <option>-3.75</option>-->
+                         <!--                                                        <option>-3.50</option>-->
+                         <!--                                                        <option>-3.25</option>-->
+                         <!--                                                        <option>-3.00</option>-->
+                         <!--                                                        <option>-2.75</option>-->
+                         <!--                                                        <option>-2.50</option>-->
+                         <!--                                                        <option>-2.25</option>-->
+                         <!--                                                        <option>-2.00</option>-->
+                         <!--                                                        <option> -1.75</option>-->
+                         <!--                                                        <option>-1.50</option>-->
+                         <!--                                                        <option> -1.25</option>-->
+                         <!--                                                        <option> -1.00</option>-->
+                         <!--                                                        <option>0.75</option>-->
+                         <!--                                                        <option>-0.50</option>-->
+                         <!--                                                        <option>-0.25</option>-->
+                         <!--                                                        <option>-0.00</option>-->
+                         <!--                                                        <option>+0.25</option>-->
+                         <!--                                                        <option>+0.50</option>-->
+                         <!--                                                        <option>+0.75</option>-->
+                         <!--                                                        <option>+1.00</option>-->
+                         <!--                                                        <option>+1.25</option>-->
+                         <!--                                                        <option>+1.50</option>-->
+                         <!--                                                        <option>+1.75</option>-->
+                         <!--                                                        <option>+2.00</option>-->
+                         <!--                                                        <option>+2.25</option>-->
+                         <!--                                                        <option>+2.50</option>-->
+                         <!--                                                        <option>+2.75</option>-->
+                         <!--                                                        <option> +3.00</option>-->
+                         <!--                                                        <option>+3.25</option>-->
+                         <!--                                                        <option>+3.50</option>-->
+                         <!--                                                        <option>+3.75</option>-->
+                         <!--                                                        <option>+4.00</option>-->
+                         <!--                                                        <option>+4.25</option>-->
+                         <!--                                                        <option>+4.50</option>-->
+                         <!--                                                        <option>+4.75</option>-->
+                         <!--                                                        <option>+5.00</option>-->
+                         <!--                                                        <option>+5.25</option>-->
+                         <!--                                                        <option>+5.50</option>-->
+                         <!--                                                        <option>+5.75</option>-->
+                         <!--                                                        <option>+6.00</option>-->
+                         <!--                                                        <option>+6.25</option>-->
+                         <!--                                                        <option>+6.50</option>-->
+                         <!--                                                        <option>+6.75</option>-->
+                         <!--                                                        <option>6.00</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td   style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="os_cyl_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>-3.50</option>-->
+                         <!--                                                        <option>&#45;&#45;3.25</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                      <select class="os_ax_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>1</option>-->
+                         <!--                                                          <option>2</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                      <select class="os_add_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                        <option>0.00</option>-->
+                         <!--                                                          <option>+0.25</option>-->
+                         <!--                                                          <option>+0.50</option>-->
+                         <!--                                                          <option>+0.75</option>-->
+                         <!--                                                          <option>+1.00</option>-->
+                         <!--                                                          <option>+1.25</option>-->
+                         <!--                                                          <option>+1.50</option>-->
+                         <!--                                                          <option>+1.75</option>-->
+                         <!--                                                          <option>+2.00</option>-->
+                         <!--                                                          <option>+2.25</option>-->
+                         <!--                                                          <option>+2.50</option>-->
+                         <!--                                                          <option>+2.75</option>-->
+                         <!--                                                          <option>+3.00</option>-->
+                         <!--                                                          <option>+3.25</option>-->
+                         <!--                                                          <option>+3.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="os_prism_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>0.25</option>-->
+                         <!--                                                        <option>0.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="width:15%">-->
+                         <!--                                                    <select class="os_base_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>Select</option>-->
+                         <!--                                                        <option>IN</option>-->
+                         <!--                                                        <option>OUT</option>-->
+                         <!--                                                        <option>UP</option>-->
+                         <!--                                                        <option>DOWN</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                            </tr>-->
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                                </tr>
+                            </table>
+                          </div>
+
+
+                <div style="padding-left:10px; padding-right:10px;">
+                 <table  cellspacing="0" cellpadding="0" style="border:1px solid; width:100%; margin-top:15px;">
+                                <tr>
+                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;"></td>
+                                    <!--                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OD</td>-->
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OS</td>
+                                    <!--                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:3%; border-right:1px solid black; border-bottom:1px solid black;">PD</td>-->
+                                </tr>
+                     <tr>
+<!--                                    <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">SPH</td>-->
+                         <!--                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">CYL</td>-->
+                         <!--                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">AXIS</td>-->
+                         <!--                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">Add</td>-->
+                         <!--                                                <td style="border-right:1px solid;  font-size:16px; color:green; font-weight:bold;  width:15%">Prism</td>-->
+                         <!--                                                <td style="width:15%  font-size:16px; color:green; font-weight:bold;  ">Base</td>-->
+
+                         <!--                                            </tr>-->
+
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                         <td  style="text-align:center;font-size:16px; font-weight:bold; width:5%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table  width="100%">
+                                            <tr>
+                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">SPH</td>
+                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">CYL</td>
+                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">AXIS</td>
+                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Add</td>
+                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Prism</td>
+                                                <td style="width:15%  font-size:16px; color:green; font-weight:bold;  ">Base</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                     <tr>
+                                    <td style="text-align:center; font-size:16px; font-weight:bold; width:5%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Distance</td>
+                         <!--                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td  style="border-right:1px solid;width:15%;">-->
+                         <!--                                                     <select class="od_sph_distance" style="width:80%; padding:5px;" >-->
+
+                         <!--                                                          <option>-8.00</option>-->
+                         <!--                                                         <option>-7.75</option>-->
+                         <!--                                                         <option>-7.50</option>-->
+                         <!--                                                         <option>-7.25</option>-->
+                         <!--                                                         <option>-7.00</option>-->
+                         <!--                                                         <option>-6.75</option>-->
+                         <!--                                                         <option>-6.50</option>-->
+                         <!--                                                         <option>-6.25</option>-->
+                         <!--                                                         <option>-6.00</option>-->
+                         <!--                                                         <option>-5.75</option>-->
+                         <!--                                                         <option>-5.50</option>-->
+                         <!--                                                         <option>-5.25</option>-->
+                         <!--                                                         <option>-5.00</option>-->
+                         <!--                                                         <option>-4.75</option>-->
+                         <!--                                                         <option>-4.50</option>-->
+                         <!--                                                         <option>-4.25</option>-->
+                         <!--                                                         <option>-4.00</option>-->
+                         <!--                                                         <option>-3.75</option>-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                         <option>-3.25</option>-->
+                         <!--                                                         <option>-3.00</option>-->
+                         <!--                                                         <option>-2.75</option>-->
+                         <!--                                                         <option>-2.50</option>-->
+                         <!--                                                         <option>-2.25</option>-->
+                         <!--                                                         <option>-2.00</option>-->
+                         <!--                                                         <option> -1.75</option>-->
+                         <!--                                                         <option>-1.50</option>-->
+                         <!--                                                         <option> -1.25</option>-->
+                         <!--                                                         <option> -1.00</option>-->
+                         <!--                                                         <option>0.75</option>-->
+                         <!--                                                         <option>-0.50</option>-->
+                         <!--                                                         <option>-0.25</option>-->
+                         <!--                                                         <option>-0.00</option>-->
+                         <!--                                                         <option>+0.25</option>-->
+                         <!--                                                         <option>+0.50</option>-->
+                         <!--                                                         <option>+0.75</option>-->
+                         <!--                                                         <option>+1.00</option>-->
+                         <!--                                                         <option>+1.25</option>-->
+                         <!--                                                         <option>+1.50</option>-->
+                         <!--                                                         <option>+1.75</option>-->
+                         <!--                                                         <option>+2.00</option>-->
+                         <!--                                                         <option>+2.25</option>-->
+                         <!--                                                         <option>+2.50</option>-->
+                         <!--                                                         <option>+2.75</option>-->
+                         <!--                                                         <option> +3.00</option>-->
+                         <!--                                                         <option>+3.25</option>-->
+                         <!--                                                         <option>+3.50</option>-->
+                         <!--                                                         <option>+3.75</option>-->
+                         <!--                                                         <option>+4.00</option>-->
+                         <!--                                                         <option>+4.25</option>-->
+                         <!--                                                         <option>+4.50</option>-->
+                         <!--                                                         <option>+4.75</option>-->
+                         <!--                                                         <option>+5.00</option>-->
+                         <!--                                                         <option>+5.25</option>-->
+                         <!--                                                         <option>+5.50</option>-->
+                         <!--                                                         <option>+5.75</option>-->
+                         <!--                                                         <option>+6.00</option>-->
+                         <!--                                                         <option>+6.25</option>-->
+                         <!--                                                         <option>+6.50</option>-->
+                         <!--                                                         <option>+6.75</option>-->
+                         <!--                                                         <option>6.00</option>-->
+
+
+                         <!--                            </select>-->
+
+                         <!--                                                </td>-->
+                         <!--                                                <td   style="border-right:1px solid; width:15%;">-->
+                         <!--                                                     <select class="od_cyl_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                         <option>-3.25</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%;">-->
+                         <!--                                                     <select class="od_axis_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>1</option>-->
+                         <!--                                                         <option>2</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%;">-->
+                         <!--                                                     <select class="od_add_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                        <option>0.00</option>-->
+                         <!--                                                         <option>+0.25</option>-->
+                         <!--                                                         <option>+0.50</option>-->
+                         <!--                                                         <option>+0.75</option>-->
+                         <!--                                                         <option>+1.00</option>-->
+                         <!--                                                         <option>+1.25</option>-->
+                         <!--                                                         <option>+1.50</option>-->
+                         <!--                                                         <option>+1.75</option>-->
+                         <!--                                                         <option>+2.00</option>-->
+                         <!--                                                         <option>+2.25</option>-->
+                         <!--                                                         <option>+2.50</option>-->
+                         <!--                                                         <option>+2.75</option>-->
+                         <!--                                                         <option>+3.00</option>-->
+                         <!--                                                         <option>+3.25</option>-->
+                         <!--                                                         <option>+3.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%;">-->
+                         <!--                                                     <select class="od_prism_distance" style="width:80%; padding:5px;" >-->
+
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style=" width:15%;">-->
+                         <!--                                                     <select class="od_base_distance" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>Select</option>-->
+                         <!--                                                         <option>IN</option>-->
+                         <!--                                                         <option>OUT</option>-->
+                         <!--                                                         <option>UP</option>-->
+                         <!--                                                         <option>DOWN</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                            </tr>-->
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:30%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table  width="100%">
+                                            <tr>
+                                                <td style="border-right:1px solid;  width:15%">
+                                                     <select class="os_sph_distance" style="width:80%; padding:5px;" >
+                                                          <option>-8.00</option>
+                                                         <option>-7.75</option>
+                                                         <option>-7.50</option>
+                                                         <option>-7.25</option>
+                                                         <option>-7.00</option>
+                                                         <option>-6.75</option>
+                                                         <option>-6.50</option>
+                                                         <option>-6.25</option>
+                                                         <option>-6.00</option>
+                                                         <option>-5.75</option>
+                                                         <option>-5.50</option>
+                                                         <option>-5.25</option>
+                                                         <option>-5.00</option>
+                                                         <option>-4.75</option>
+                                                         <option>-4.50</option>
+                                                         <option>-4.25</option>
+                                                         <option>-4.00</option>
+                                                         <option>-3.75</option>
+                                                         <option>-3.50</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option> -1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option> -1.25</option>
+                                                         <option> -1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option> +3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+                                                         <option>+3.75</option>
+                                                         <option>+4.00</option>
+                                                         <option>+4.25</option>
+                                                         <option>+4.50</option>
+                                                         <option>+4.75</option>
+                                                         <option>+5.00</option>
+                                                         <option>+5.25</option>
+                                                         <option>+5.50</option>
+                                                         <option>+5.75</option>
+                                                         <option>+6.00</option>
+                                                         <option>+6.25</option>
+                                                         <option>+6.50</option>
+                                                         <option>+6.75</option>
+                                                         <option>6.00</option>
+
+
+                            </select>
+
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                     <select class="os_cyl_distance" style="width:80%; padding:5px;" >
+                                                         <option>-3.50</option>
+                                                         <option>--3.25</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                     <select class="os_ax_distance" style="width:80%; padding:5px;" >
+                                                          <option>1</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                          <option>5</option>
+                                                          <option>6</option>
+                                                          <option>7</option>
+                                                          <option>8</option>
+                                                          <option>9</option>
+                                                          <option>10</option>
+                                                          <option>11</option>
+                                                          <option>12</option>
+                                                          <option>13</option>
+                                                          <option>14</option>
+                                                          <option>15</option>
+                                                          <option>16</option>
+                                                          <option>17</option>
+                                                          <option>18</option>
+                                                          <option>19</option>
+                                                          <option>20</option>
+                                                          <option>21</option>
+                                                          <option>22</option>
+                                                          <option>23</option>
+                                                          <option>24</option>
+                                                          <option>25</option>
+                                                          <option>26</option>
+                                                          <option>27</option>
+                                                          <option>28</option>
+                                                          <option>29</option>
+                                                          <option>30</option>
+                                                          <option>31</option>
+                                                          <option>32</option>
+                                                          <option>33</option>
+                                                          <option>34</option>
+                                                          <option>35</option>
+                                                          <option>36</option>
+                                                          <option>37</option>
+                                                          <option>38</option>
+                                                          <option>39</option>
+                                                          <option>40</option>
+                                                          <option>41</option>
+                                                          <option>42</option>
+                                                          <option>43</option>
+                                                          <option>44</option>
+                                                          <option>45</option>
+                                                          <option>46</option>
+                                                          <option>47</option>
+                                                          <option>48</option>
+                                                          <option>49</option>
+                                                          <option>50</option>
+                                                          <option>51</option>
+                                                          <option>52</option>
+                                                          <option>53</option>
+                                                          <option>54</option>
+                                                          <option>55</option>
+                                                          <option>56</option>
+                                                          <option>57</option>
+                                                          <option>58</option>
+                                                          <option>59</option>
+                                                          <option>60</option>
+                                                          <option>61</option>
+                                                          <option>62</option>
+                                                          <option>63</option>
+                                                          <option>64</option>
+                                                          <option>65</option>
+                                                          <option>66</option>
+                                                          <option>67</option>
+                                                          <option>68</option>
+                                                          <option>69</option>
+                                                          <option>70</option>
+                                                          <option>71</option>
+                                                          <option>72</option>
+                                                          <option>73</option>
+                                                          <option>74</option>
+                                                          <option>75</option>
+                                                          <option>76</option>
+                                                          <option>77</option>
+                                                          <option>78</option>
+                                                          <option>79</option>
+                                                          <option>80</option>
+                                                          <option>81</option>
+                                                          <option>82</option>
+                                                          <option>83</option>
+                                                          <option>84</option>
+                                                          <option>85</option>
+                                                          <option>86</option>
+                                                          <option>87</option>
+                                                          <option>88</option>
+                                                          <option>89</option>
+                                                          <option>90</option>
+                                                          <option>91</option>
+                                                          <option>92</option>
+                                                          <option>93</option>
+                                                          <option>94</option>
+                                                          <option>95</option>
+                                                          <option>96</option>
+                                                          <option>97</option>
+                                                          <option>98</option>
+                                                          <option>99</option>
+                                                          <option>100</option>
+                                                          <option>101</option>
+                                                          <option>102</option>
+                                                          <option>103</option>
+                                                          <option>104</option>
+                                                          <option>105</option>
+                                                          <option>106</option>
+                                                          <option>107</option>
+                                                          <option>108</option>
+                                                          <option>109</option>
+                                                          <option>110</option>
+                                                          <option>111</option>
+                                                          <option>112</option>
+                                                          <option>113</option>
+                                                          <option>114</option>
+                                                          <option>115</option>
+                                                          <option>116</option>
+                                                          <option>117</option>
+                                                          <option>118</option>
+                                                          <option>119</option>
+                                                          <option>120</option>
+                                                          <option>121</option>
+                                                          <option>122</option>
+                                                          <option>123</option>
+                                                          <option>124</option>
+                                                          <option>125</option>
+                                                          <option>126</option>
+                                                          <option>127</option>
+                                                          <option>128</option>
+                                                          <option>129</option>
+                                                          <option>130</option>
+                                                          <option>131</option>
+                                                          <option>132</option>
+                                                          <option>133</option>
+                                                          <option>134</option>
+                                                          <option>135</option>
+                                                          <option>136</option>
+                                                          <option>137</option>
+                                                          <option>138</option>
+                                                          <option>139</option>
+                                                          <option>140</option>
+                                                          <option>141</option>
+                                                          <option>142</option>
+                                                          <option>143</option>
+                                                          <option>144</option>
+                                                          <option>145</option>
+                                                          <option>146</option>
+                                                          <option>147</option>
+                                                          <option>148</option>
+                                                          <option>149</option>
+                                                          <option>150</option>
+                                                          <option>151</option>
+                                                          <option>152</option>
+                                                          <option>153</option>
+                                                          <option>154</option>
+                                                          <option>155</option>
+                                                          <option>156</option>
+                                                          <option>157</option>
+                                                          <option>158</option>
+                                                          <option>159</option>
+                                                          <option>160</option>
+                                                          <option>161</option>
+                                                          <option>162</option>
+                                                          <option>163</option>
+                                                          <option>164</option>
+                                                          <option>165</option>
+                                                          <option>166</option>
+                                                          <option>167</option>
+                                                          <option>168</option>
+                                                          <option>169</option>
+                                                          <option>170</option>
+                                                          <option>171</option>
+                                                          <option>172</option>
+                                                          <option>173</option>
+                                                          <option>174</option>
+                                                          <option>175</option>
+                                                          <option>176</option>
+                                                          <option>177</option>
+                                                          <option>178</option>
+                                                          <option>179</option>
+                                                          <option>180</option>
+
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                     <select class="os_add_distance" style="width:80%; padding:5px;" >
+                                                         <option>0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.75</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.75</option>
+                                                         <option>+2.00</option>
+                                                         <option>+2.25</option>
+                                                         <option>+2.50</option>
+                                                         <option>+2.75</option>
+                                                         <option>+3.00</option>
+                                                         <option>+3.25</option>
+                                                         <option>+3.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                     <select class="os_prism_distance" style="width:80%; padding:5px;" >
+                                                         <option>0.25</option>
+                                                         <option>0.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="width:15%">
+                                                     <select class="os_base_distance" style="width:80%; padding:5px;" >
+                                                          <option>Select</option>
+                                                         <option>IN</option>
+                                                         <option>OUT</option>
+                                                         <option>UP</option>
+                                                         <option>DOWN</option>
+
+
+                            </select>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                     <tr>
+                                    <td style="text-align:center; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold;  ">Near</td>
+                         <!--                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">-->
+                         <!--                                        <table cellspacing="0" cellpadding="0"  width="100%">-->
+                         <!--                                            <tr>-->
+                         <!--                                                <td  style="border-right:1px solid;width:15%;">-->
+                         <!--                                                     <select class="od_sph_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>-8.00</option>-->
+                         <!--                                                         <option>-7.75</option>-->
+                         <!--                                                         <option>-7.50</option>-->
+                         <!--                                                         <option>-7.25</option>-->
+                         <!--                                                         <option>-7.00</option>-->
+                         <!--                                                         <option>-6.75</option>-->
+                         <!--                                                         <option>-6.50</option>-->
+                         <!--                                                         <option>-6.25</option>-->
+                         <!--                                                         <option>-6.00</option>-->
+                         <!--                                                         <option>-5.75</option>-->
+                         <!--                                                         <option>-5.50</option>-->
+                         <!--                                                         <option>-5.25</option>-->
+                         <!--                                                         <option>-5.00</option>-->
+                         <!--                                                         <option>-4.75</option>-->
+                         <!--                                                         <option>-4.50</option>-->
+                         <!--                                                         <option>-4.25</option>-->
+                         <!--                                                         <option>-4.00</option>-->
+                         <!--                                                         <option>-3.75</option>-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                         <option>-3.25</option>-->
+                         <!--                                                         <option>-3.00</option>-->
+                         <!--                                                         <option>-2.75</option>-->
+                         <!--                                                         <option>-2.50</option>-->
+                         <!--                                                         <option>-2.25</option>-->
+                         <!--                                                         <option>-2.00</option>-->
+                         <!--                                                         <option> -1.75</option>-->
+                         <!--                                                         <option>-1.50</option>-->
+                         <!--                                                         <option> -1.25</option>-->
+                         <!--                                                         <option> -1.00</option>-->
+                         <!--                                                         <option>0.75</option>-->
+                         <!--                                                         <option>-0.50</option>-->
+                         <!--                                                         <option>-0.25</option>-->
+                         <!--                                                         <option>-0.00</option>-->
+                         <!--                                                         <option>+0.25</option>-->
+                         <!--                                                         <option>+0.50</option>-->
+                         <!--                                                         <option>+0.75</option>-->
+                         <!--                                                         <option>+1.00</option>-->
+                         <!--                                                         <option>+1.25</option>-->
+                         <!--                                                         <option>+1.50</option>-->
+                         <!--                                                         <option>+1.75</option>-->
+                         <!--                                                         <option>+2.00</option>-->
+                         <!--                                                         <option>+2.25</option>-->
+                         <!--                                                         <option>+2.50</option>-->
+                         <!--                                                         <option>+2.75</option>-->
+                         <!--                                                         <option> +3.00</option>-->
+                         <!--                                                         <option>+3.25</option>-->
+                         <!--                                                         <option>+3.50</option>-->
+                         <!--                                                         <option>+3.75</option>-->
+                         <!--                                                         <option>+4.00</option>-->
+                         <!--                                                         <option>+4.25</option>-->
+                         <!--                                                         <option>+4.50</option>-->
+                         <!--                                                         <option>+4.75</option>-->
+                         <!--                                                         <option>+5.00</option>-->
+                         <!--                                                         <option>+5.25</option>-->
+                         <!--                                                         <option>+5.50</option>-->
+                         <!--                                                         <option>+5.75</option>-->
+                         <!--                                                         <option>+6.00</option>-->
+                         <!--                                                         <option>+6.25</option>-->
+                         <!--                                                         <option>+6.50</option>-->
+                         <!--                                                         <option>+6.75</option>-->
+                         <!--                                                         <option>6.00</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td   style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="od_cyl_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>-3.50</option>-->
+                         <!--                                                        <option>&#45;&#45;3.25</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="od_ax_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                           <option>1</option>-->
+                         <!--                                                        <option>2</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="od_add_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                        <option>0.00</option>-->
+                         <!--                                                        <option>+0.25</option>-->
+                         <!--                                                        <option>+0.50</option>-->
+                         <!--                                                        <option>+0.75</option>-->
+                         <!--                                                        <option>+1.00</option>-->
+                         <!--                                                        <option>+1.25</option>-->
+                         <!--                                                        <option>+1.50</option>-->
+                         <!--                                                        <option>+1.75</option>-->
+                         <!--                                                        <option>+2.00</option>-->
+                         <!--                                                        <option>+2.25</option>-->
+                         <!--                                                        <option>+2.50</option>-->
+                         <!--                                                        <option>+2.75</option>-->
+                         <!--                                                        <option>+3.00</option>-->
+                         <!--                                                        <option>+3.25</option>-->
+                         <!--                                                        <option>+3.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style="border-right:1px solid; width:15%">-->
+                         <!--                                                    <select class="od_prism_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                          <option>0.25</option>-->
+                         <!--                                                        <option>0.50</option>-->
+
+
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                                <td style=" width:15%">-->
+                         <!--                                                    <select class="od_base_near" style="width:80%; padding:5px;" >-->
+                         <!--                                                         <option>Select</option>-->
+                         <!--                                                        <option>IN</option>-->
+                         <!--                                                        <option>OUT</option>-->
+                         <!--                                                        <option>UP</option>-->
+                         <!--                                                        <option>DOWN</option>-->
+                         <!--                            </select>-->
+                         <!--                                                </td>-->
+                         <!--                                            </tr>-->
+                         <!--                                        </table>-->
+                         <!--                                    </td>-->
+                         <td  style="text-align:center;  font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;">
+                                        <table cellspacing="0" cellpadding="0"  width="100%">
+                                            <tr>
+                                                <td   style="border-right:1px solid;width:15%;">
+                                                    <select class="os_sph_near" style="width:80%; padding:5px;" >
+                                                         <option>-8.00</option>
+                                                        <option>-7.75</option>
+                                                        <option>-7.50</option>
+                                                        <option>-7.25</option>
+                                                        <option>-7.00</option>
+                                                        <option>-6.75</option>
+                                                        <option>-6.50</option>
+                                                        <option>-6.25</option>
+                                                        <option>-6.00</option>
+                                                        <option>-5.75</option>
+                                                        <option>-5.50</option>
+                                                        <option>-5.25</option>
+                                                        <option>-5.00</option>
+                                                        <option>-4.75</option>
+                                                        <option>-4.50</option>
+                                                        <option>-4.25</option>
+                                                        <option>-4.00</option>
+                                                        <option>-3.75</option>
+                                                        <option>-3.50</option>
+                                                        <option>-3.25</option>
+                                                        <option>-3.00</option>
+                                                        <option>-2.75</option>
+                                                        <option>-2.50</option>
+                                                        <option>-2.25</option>
+                                                        <option>-2.00</option>
+                                                        <option> -1.75</option>
+                                                        <option>-1.50</option>
+                                                        <option> -1.25</option>
+                                                        <option> -1.00</option>
+                                                        <option>0.75</option>
+                                                        <option>-0.50</option>
+                                                        <option>-0.25</option>
+                                                        <option>-0.00</option>
+                                                        <option>+0.25</option>
+                                                        <option>+0.50</option>
+                                                        <option>+0.75</option>
+                                                        <option>+1.00</option>
+                                                        <option>+1.25</option>
+                                                        <option>+1.50</option>
+                                                        <option>+1.75</option>
+                                                        <option>+2.00</option>
+                                                        <option>+2.25</option>
+                                                        <option>+2.50</option>
+                                                        <option>+2.75</option>
+                                                        <option> +3.00</option>
+                                                        <option>+3.25</option>
+                                                        <option>+3.50</option>
+                                                        <option>+3.75</option>
+                                                        <option>+4.00</option>
+                                                        <option>+4.25</option>
+                                                        <option>+4.50</option>
+                                                        <option>+4.75</option>
+                                                        <option>+5.00</option>
+                                                        <option>+5.25</option>
+                                                        <option>+5.50</option>
+                                                        <option>+5.75</option>
+                                                        <option>+6.00</option>
+                                                        <option>+6.25</option>
+                                                        <option>+6.50</option>
+                                                        <option>+6.75</option>
+                                                        <option>6.00</option>
+
+
+                            </select>
+                                                </td>
+                                                <td   style="border-right:1px solid; width:15%">
+                                                    <select class="os_cyl_near" style="width:80%; padding:5px;" >
+                                                          <option>-3.50</option>
+                                                        <option>--3.25</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                      <select class="os_ax_near" style="width:80%; padding:5px;" >
+                                                         <option>1</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                          <option>5</option>
+                                                          <option>6</option>
+                                                          <option>7</option>
+                                                          <option>8</option>
+                                                          <option>9</option>
+                                                          <option>10</option>
+                                                          <option>11</option>
+                                                          <option>12</option>
+                                                          <option>13</option>
+                                                          <option>14</option>
+                                                          <option>15</option>
+                                                          <option>16</option>
+                                                          <option>17</option>
+                                                          <option>18</option>
+                                                          <option>19</option>
+                                                          <option>20</option>
+                                                          <option>21</option>
+                                                          <option>22</option>
+                                                          <option>23</option>
+                                                          <option>24</option>
+                                                          <option>25</option>
+                                                          <option>26</option>
+                                                          <option>27</option>
+                                                          <option>28</option>
+                                                          <option>29</option>
+                                                          <option>30</option>
+                                                          <option>31</option>
+                                                          <option>32</option>
+                                                          <option>33</option>
+                                                          <option>34</option>
+                                                          <option>35</option>
+                                                          <option>36</option>
+                                                          <option>37</option>
+                                                          <option>38</option>
+                                                          <option>39</option>
+                                                          <option>40</option>
+                                                          <option>41</option>
+                                                          <option>42</option>
+                                                          <option>43</option>
+                                                          <option>44</option>
+                                                          <option>45</option>
+                                                          <option>46</option>
+                                                          <option>47</option>
+                                                          <option>48</option>
+                                                          <option>49</option>
+                                                          <option>50</option>
+                                                          <option>51</option>
+                                                          <option>52</option>
+                                                          <option>53</option>
+                                                          <option>54</option>
+                                                          <option>55</option>
+                                                          <option>56</option>
+                                                          <option>57</option>
+                                                          <option>58</option>
+                                                          <option>59</option>
+                                                          <option>60</option>
+                                                          <option>61</option>
+                                                          <option>62</option>
+                                                          <option>63</option>
+                                                          <option>64</option>
+                                                          <option>65</option>
+                                                          <option>66</option>
+                                                          <option>67</option>
+                                                          <option>68</option>
+                                                          <option>69</option>
+                                                          <option>70</option>
+                                                          <option>71</option>
+                                                          <option>72</option>
+                                                          <option>73</option>
+                                                          <option>74</option>
+                                                          <option>75</option>
+                                                          <option>76</option>
+                                                          <option>77</option>
+                                                          <option>78</option>
+                                                          <option>79</option>
+                                                          <option>80</option>
+                                                          <option>81</option>
+                                                          <option>82</option>
+                                                          <option>83</option>
+                                                          <option>84</option>
+                                                          <option>85</option>
+                                                          <option>86</option>
+                                                          <option>87</option>
+                                                          <option>88</option>
+                                                          <option>89</option>
+                                                          <option>90</option>
+                                                          <option>91</option>
+                                                          <option>92</option>
+                                                          <option>93</option>
+                                                          <option>94</option>
+                                                          <option>95</option>
+                                                          <option>96</option>
+                                                          <option>97</option>
+                                                          <option>98</option>
+                                                          <option>99</option>
+                                                          <option>100</option>
+                                                          <option>101</option>
+                                                          <option>102</option>
+                                                          <option>103</option>
+                                                          <option>104</option>
+                                                          <option>105</option>
+                                                          <option>106</option>
+                                                          <option>107</option>
+                                                          <option>108</option>
+                                                          <option>109</option>
+                                                          <option>110</option>
+                                                          <option>111</option>
+                                                          <option>112</option>
+                                                          <option>113</option>
+                                                          <option>114</option>
+                                                          <option>115</option>
+                                                          <option>116</option>
+                                                          <option>117</option>
+                                                          <option>118</option>
+                                                          <option>119</option>
+                                                          <option>120</option>
+                                                          <option>121</option>
+                                                          <option>122</option>
+                                                          <option>123</option>
+                                                          <option>124</option>
+                                                          <option>125</option>
+                                                          <option>126</option>
+                                                          <option>127</option>
+                                                          <option>128</option>
+                                                          <option>129</option>
+                                                          <option>130</option>
+                                                          <option>131</option>
+                                                          <option>132</option>
+                                                          <option>133</option>
+                                                          <option>134</option>
+                                                          <option>135</option>
+                                                          <option>136</option>
+                                                          <option>137</option>
+                                                          <option>138</option>
+                                                          <option>139</option>
+                                                          <option>140</option>
+                                                          <option>141</option>
+                                                          <option>142</option>
+                                                          <option>143</option>
+                                                          <option>144</option>
+                                                          <option>145</option>
+                                                          <option>146</option>
+                                                          <option>147</option>
+                                                          <option>148</option>
+                                                          <option>149</option>
+                                                          <option>150</option>
+                                                          <option>151</option>
+                                                          <option>152</option>
+                                                          <option>153</option>
+                                                          <option>154</option>
+                                                          <option>155</option>
+                                                          <option>156</option>
+                                                          <option>157</option>
+                                                          <option>158</option>
+                                                          <option>159</option>
+                                                          <option>160</option>
+                                                          <option>161</option>
+                                                          <option>162</option>
+                                                          <option>163</option>
+                                                          <option>164</option>
+                                                          <option>165</option>
+                                                          <option>166</option>
+                                                          <option>167</option>
+                                                          <option>168</option>
+                                                          <option>169</option>
+                                                          <option>170</option>
+                                                          <option>171</option>
+                                                          <option>172</option>
+                                                          <option>173</option>
+                                                          <option>174</option>
+                                                          <option>175</option>
+                                                          <option>176</option>
+                                                          <option>177</option>
+                                                          <option>178</option>
+                                                          <option>179</option>
+                                                          <option>180</option>
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                      <select class="os_add_near" style="width:80%; padding:5px;" >
+                                                        <option>0.00</option>
+                                                          <option>+0.25</option>
+                                                          <option>+0.50</option>
+                                                          <option>+0.75</option>
+                                                          <option>+1.00</option>
+                                                          <option>+1.25</option>
+                                                          <option>+1.50</option>
+                                                          <option>+1.75</option>
+                                                          <option>+2.00</option>
+                                                          <option>+2.25</option>
+                                                          <option>+2.50</option>
+                                                          <option>+2.75</option>
+                                                          <option>+3.00</option>
+                                                          <option>+3.25</option>
+                                                          <option>+3.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="border-right:1px solid; width:15%">
+                                                    <select class="os_prism_near" style="width:80%; padding:5px;" >
+                                                         <option>0.25</option>
+                                                        <option>0.50</option>
+
+
+                            </select>
+                                                </td>
+                                                <td style="width:15%">
+                                                    <select class="os_base_near" style="width:80%; padding:5px;" >
+                                                         <option>Select</option>
+                                                        <option>IN</option>
+                                                        <option>OUT</option>
+                                                        <option>UP</option>
+                                                        <option>DOWN</option>
+
+
+                            </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <table width="100%" style="margin-top:10px;">
+                       <tr>
+                         <td width="20%" style="padding:5px; text-align:left;"><label>Diagnosis for the client:</label></td>
+                           <td width="80%" style="padding:5px; text-align:left;"> <input class="diagnosis_client" style="height:30px;" type="text"/></td>
+                     </tr>
+                 </table>
+
+                <table width="100%" style="margin-top:10px;">
+                       <tr>
+                         <td width="20%" style="padding:5px; text-align:left;"><label>Notes for the Laboratory:</label></td>
+                           <td width="80%" style="padding:5px; text-align:left;"> <input class="notes_laboratory" style="height:30px;" type="text"/></td>
+                     </tr>
+                 </table>
+
+                <table width="100%" style="margin-top:10px;">
+                       <tr>
+                         <td width="20%" style="padding:5px; text-align:left;"><label>Optometrist internal observations:</label></td>
+                           <td width="80%" style="padding:5px; text-align:left;"> <input class="optometrist_observation" style="height:30px;" type="text"/></td>
+                     </tr>
+                 </table>
+
+
+
+
+
+
+
+                <div class="button confirm">
+                        Create
+                    </div>
+                <div class="button cancel">
+                        Cancel
+                    </div>
+
+            </div>
+        </div>
+    </t>
+
+
+
+
+
+
+
+    <t t-name="ProductsLine">
+        <tr class='productlines '>
+             <td><t t-esc='product.name' /></td>
+            <td><t t-esc='product.customer[1]' /></td>
+            <td><t t-esc='product.checkup_date' /></td>
+            <td><t t-esc='product.dr[1]' /></td>
+            <td><t t-esc='product.test_type[1]' /></td>
+            <td><t t-esc='product.prescription_type' /></td>
+            <td><t t-esc='product.state' /></td>
+            <td> <i class="fa fa-print"/></td>
+
+        </tr>
+    </t>
+
+
+
+
+
+
+    <t t-name="Product-ListWidget-Custom">
+        <div class="clientlist-screen screen">
+            <div class="full_width screen-content">
+                        <section class="top-content">
+                                <span class='button back'>
+                                    <i class='fa fa-angle-double-left'></i>
+                                    Cancel
+                                </span>
+                            <span class='searchbox'>
+                                    <input placeholder='Search Prescriptions' />
+                                <span class='search-clear'></span>
+                                </span>
+                            <span class='searchbox'></span>
+                            <!--                            <span class='button new-customer' role="img" aria-label="Add a Product" title="Add a Product">-->
+                            <!--                                    <i class='fa fa-user'></i>-->
+                            <!--                                <i class='fa fa-plus'></i>-->
+                            <!--                                </span>-->
+                        </section>
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix order-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                    <table class='client-list'>
+                                       <thead>
+                                            <tr>
+                                                <th>Number</th>
+                                                <th>Client</th>
+                                                <th>Date</th>
+                                                <th>Optometrist</th>
+                                                <th>Test Type</th>
+                                                <th>Prescription Type</th>
+                                                <th>Status</th>
+                                                <th>Prescription</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='products-list-contents'>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </t>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</templates>
