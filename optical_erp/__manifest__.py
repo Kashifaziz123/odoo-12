@@ -10,7 +10,7 @@
     "author": "Alhaditech",
     "website": "www.alhaditech.com",
     "license": "OPL-1",
-    'images': ['static/description/background.png'],
+    'images': ['static/description/background.png','static/description/background2.png'],
     "depends": [
         'base','sale','doctor'
     ],
