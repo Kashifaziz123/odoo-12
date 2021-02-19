@@ -90,10 +90,10 @@
                         <td width="50%">
                          <table width="100%">
                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Eye Examination Chargeable:</label></td>
-                                   <td width="70%">
-                            <input style="height:30px;" class="eye_charges" type="checkbox"  />
-                        </td>
+<!--                         <td width="30%" style="padding:5px; text-align:left;"><label>Eye Examination Chargeable:</label></td>-->
+<!--                                   <td  style="text-align:left; padding-left:40px;">-->
+<!--                            <input style="width:12%;" class="eye_charges" type="checkbox"  />-->
+<!--                        </td>-->
                      </tr>
                              <tr>
                          <td width="30%" style="padding:5px; text-align:left;"><label>Family Eye History:</label></td>
@@ -1364,29 +1364,29 @@
                                                 <td style="border-right:1px solid; width:15%">
                                                      <select class="os_cyl_distance" style="width:80%; padding:5px;" >
                                                           <option>-3.50</option>
-                                                        <option>-3.25</option>
-                                                        <option>-3.00</option>
-                                                        <option>-2.75</option>
-                                                        <option>-2.50</option>
-                                                        <option>-2.25</option>
-                                                        <option>-2.00</option>
-                                                        <option>-1.75</option>
-                                                        <option>-1.50</option>
-                                                        <option>-1.25</option>
-                                                        <option>-1.00</option>
-                                                        <option>0.75</option>
-                                                        <option>-0.50</option>
-                                                        <option>-0.25</option>
-                                                        <option>-0.00</option>
-                                                        <option>+0.25</option>
-                                                        <option>+0.50</option>
-                                                        <option>+0.25</option>
-                                                        <option>+1.00</option>
-                                                        <option>+1.25</option>
-                                                        <option>+1.50</option>
-                                                        <option>+1.25</option>
-                                                        <option>+1.00</option>
-                                                        <option>+1.25</option>
+                                                         <option>-3.25</option>
+                                                         <option>-3.00</option>
+                                                         <option>-2.75</option>
+                                                         <option>-2.50</option>
+                                                         <option>-2.25</option>
+                                                         <option>-2.00</option>
+                                                         <option>-1.75</option>
+                                                         <option>-1.50</option>
+                                                         <option>-1.25</option>
+                                                         <option>-1.00</option>
+                                                         <option>0.75</option>
+                                                         <option>-0.50</option>
+                                                         <option>-0.25</option>
+                                                         <option>-0.00</option>
+                                                         <option>+0.25</option>
+                                                         <option>+0.50</option>
+                                                         <option>+0.25</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.50</option>
+                                                         <option>+1.25</option>
+                                                         <option>+1.00</option>
+                                                         <option>+1.25</option>
 
 
                             </select>
@@ -2115,7 +2115,172 @@
                                     </td>
                                 </tr>
                             </table>
+                    <table width="100%">
+                               <tr>
+                         <td width="10%" style="padding:5px; text-align:left;"><label>I have Dual PD:</label></td>
+                                   <td width="90%" height="5px;"  style="text-align:left;">
+                            <input style="width:3%;" class="coupon_question"   onchange="valueChanged()" type="checkbox"  />
+                        </td>
+                     </tr>
+                     </table>
+
+
+                    <table class="pd"  style="border:1px solid black; margin-top:10px;" width="100px">
+						<tr>
+							<th style="text-align:center;">
+								PD
+							</th>
+
+						</tr>
+                        <tr>
+							<td style="width:15%">
+                                                    <select  style="width:80%; padding:5px;" >
+                                                        <option>50.00</option>
+                                                        <option>51.00</option>
+                                                        <option>52.00</option>
+                                                        <option>53.00</option>
+                                                        <option>54.00</option>
+                                                        <option>55.00</option>
+                                                        <option>56.00</option>
+                                                        <option>57.00</option>
+                                                        <option>58.00</option>
+                                                        <option>59.00</option>
+                                                        <option>60.00</option>
+                                                        <option>61.00</option>
+                                                        <option>62.00</option>
+                                                        <option>63.00</option>
+                                                        <option>64.00</option>
+                                                        <option>65.00</option>
+                                                        <option>66.00</option>
+                                                        <option>67.00</option>
+                                                        <option>68.00</option>
+                                                        <option>69.00</option>
+                                                        <option>70.00</option>
+                                                        <option>71.00</option>
+                                                        <option>72.00</option>
+                                                        <option>73.00</option>
+                                                        <option>74.00</option>
+                                                        <option>75.00</option>
+                                                        <option>76.00</option>
+                                                        <option>77.00</option>
+                                                        <option>78.00</option>
+                                                        <option>79.00</option>
+                                                        <option>80.00</option>
+
+
+
+                            </select>
+                                                </td>
+						</tr>
+					</table>
+
+                    <table class="dual_pd" border="1" cellpadding="0" style="margin-top:10px;" width="150px">
+
+						<tr>
+							<th style="text-align:center;">
+								RIGHT PD
+							</th>
+
+                            <th style="text-align:center;">
+								LEFT PD
+							</th>
+						</tr>
+                        <tr>
+							<td style="text-align:center;">
+                                <select  style="width:80%; padding:5px;" >
+                                     <option>25.00</option>
+                                    <option>25.50</option>
+                                    <option>26.00</option>
+                                    <option>26.50</option>
+                                    <option>27.00</option>
+                                    <option>27.50</option>
+                                    <option>28.00</option>
+                                    <option>28.50</option>
+                                    <option>29.00</option>
+                                    <option>29.50</option>
+                                    <option>30.00</option>
+                                    <option>30.50</option>
+                                    <option>31.00</option>
+                                    <option>31.50</option>
+                                    <option>32.00</option>
+                                    <option>32.50</option>
+                                    <option>33.00</option>
+                                    <option>33.50</option>
+                                    <option>34.00</option>
+                                    <option>34.50</option>
+                                    <option>35.00</option>
+                                    <option>35.50</option>
+                                    <option>36.00</option>
+                                    <option>36.50</option>
+                                    <option>37.00</option>
+                                    <option>37.50</option>
+                                    <option>38.00</option>
+                                    <option>38.50</option>
+                                    <option>39.00</option>
+                                    <option>39.50</option>
+                                    <option>40.00</option>
+                            </select>
+							</td>
+                            <td style="text-align:center;">
+                                <select  style="width:80%; padding:5px;" >
+                                   <option>25.00</option>
+                                    <option>25.50</option>
+                                    <option>26.00</option>
+                                    <option>26.50</option>
+                                    <option>27.00</option>
+                                    <option>27.50</option>
+                                    <option>28.00</option>
+                                    <option>28.50</option>
+                                    <option>29.00</option>
+                                    <option>29.50</option>
+                                    <option>30.00</option>
+                                    <option>30.50</option>
+                                    <option>31.00</option>
+                                    <option>31.50</option>
+                                    <option>32.00</option>
+                                    <option>32.50</option>
+                                    <option>33.00</option>
+                                    <option>33.50</option>
+                                    <option>34.00</option>
+                                    <option>34.50</option>
+                                    <option>35.00</option>
+                                    <option>35.50</option>
+                                    <option>36.00</option>
+                                    <option>36.50</option>
+                                    <option>37.00</option>
+                                    <option>37.50</option>
+                                    <option>38.00</option>
+                                    <option>38.50</option>
+                                    <option>39.00</option>
+                                    <option>39.50</option>
+                                    <option>40.00</option>
+                                </select>
+							</td>
+						</tr>
+					</table>
+
+
+                    <script type="text/javascript">
+                          function valueChanged()
+                                {
+                                    if($('.coupon_question').is(":checked"))
+                                        $(".dual_pd").show(),
+                                        $(".pd").hide();
+                                    else
+                                        $(".dual_pd").hide(),
+                                        $(".pd").show();
+
+                                }
+                         $( document ).ready(function() {
+                               $(".dual_pd").hide();
+                            });
+                     </script>
+
+
+
                           </div>
+
+
 
 
 

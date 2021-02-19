@@ -173,8 +173,35 @@ var ProductCreationWidget = PopupWidget.extend({
         var today = new Date().toJSON().slice(0,10);
         if( !checkup_date) {
               this.gui.show_popup('error',{
-                    'title': _t('Error'),
-                    'body':  _t('Required CheckUP Date'),
+                    'title': _t('Checkup date is empty'),
+                    'body':  _t('You need to select a Checkup date'),
+                cancel: function () {
+
+                 var optometrist = [];
+        var partner = [];
+        var test_types=[];
+        var od_sph_distances=[];
+
+        for (var i in self.pos.dr){
+            optometrist.push(self.pos.dr[i].name);
+
+        }
+         for (var i in self.pos.customers){
+            partner.push(self.pos.customers[i].name);
+        }
+         for (var i in self.pos.test_type){
+            test_types.push(self.pos.test_type[i].name);
+        }
+
+
+                    this.gui.show_popup('product_create',{
+                'doctors':optometrist,
+                'partners':partner,
+                'test_type':test_types,
+
+            });
+                },
+
                 });
         }
         else {
