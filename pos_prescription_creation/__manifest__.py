@@ -1,5 +1,5 @@
 {
-    'name': 'optoal POS',
+    'name': 'Optical POS',
     'version': '13.0.1.0.0',
     'category': 'hidden',
     'summary': 'Create Products From POS Interface',
