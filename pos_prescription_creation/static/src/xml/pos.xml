@@ -4,7 +4,14 @@
     <t t-name="button_book_order">
             <div class='control-button'>
                 <i class='fa-prescription' />
-                <span class="label">Prescription</span>
+                <span class="label optical_prescription">
+                    <t t-if="widget.pos.get_optical_reference()">
+                        <t t-esc="widget.pos.get_optical_reference().name" />
+                    </t>
+                    <t t-if="!widget.pos.get_optical_reference()">
+                        Prescription
+                    </t>
+                </span>
             </div>
     </t>
 

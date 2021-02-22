@@ -1126,12 +1126,15 @@ class ProductFromPos(models.Model):
         }
         print(new_vals)
         rec = self.env['dr.prescription'].create(new_vals)
-        optical_order = {'dr': [rec.dr.id, rec.dr.name] if rec.dr else [],
+        optical_order = {'id': rec.id if rec.id else '',
+                         'dr': [rec.dr.id, rec.dr.name] if rec.dr else [],
                          'customer': [rec.customer.id, rec.customer.name] if rec.customer else [],
                          'test_type': [rec.test_type.id, rec.test_type.name] if rec.test_type else [],
                          'checkup_date': rec.checkup_date if rec.checkup_date else '',
                          'prescription_type': rec.prescription_type if rec.prescription_type else '',
                          'od_sph_distance': rec.od_sph_distance if rec.od_sph_distance else '',
-                         'name': rec.name if rec.name else '', 'state': rec.state if rec.state else ''}
+                         'name': rec.name if rec.name else '',
+                         'state': rec.state if rec.state else '',
+                         }
 
         return optical_order

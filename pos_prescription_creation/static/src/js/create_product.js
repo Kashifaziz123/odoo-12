@@ -24,13 +24,13 @@ models.load_models({
 
 models.load_models({
         model:  'dr.prescription',
-        fields: ['name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
+        fields: ['id','name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
         loaded: function(self,optical_orders){
             self.db.optical_all_orders = optical_orders;
             self.products = optical_orders;
-            self.db.optical_order_by_name = {};
+            self.db.optical_order_by_id = {};
             optical_orders.forEach(function(order){
-                self.db.optical_order_by_name[order.name] = order;
+                self.db.optical_order_by_id[order.id] = order;
             });
         },
     })
@@ -136,6 +136,7 @@ var ProductCreationWidget = PopupWidget.extend({
     },
     click_confirm: function(){
         var self = this;
+        var order = this.pos.get_order();
         var doctor = this.$('.doctor').val();
         var partner = this.$('.partner').val();
         var test_type = this.$('.test_type').val();
@@ -259,6 +260,8 @@ var ProductCreationWidget = PopupWidget.extend({
                     args: [product_vals],
                 }).then(function (products){
                         self.pos.db.add_optical_orders(products)
+                        $('.optical_prescription').text(products.name);
+                        order.set_optical_reference(products);
                         console.log(products)
                 });
                 },

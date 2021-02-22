@@ -5,6 +5,7 @@
             <xpath expr="." position="inside">
                 <script type="text/javascript" src="/pos_prescription_creation/static/src/js/create_product.js"></script>
                 <script type="text/javascript" src="/pos_prescription_creation/static/src/js/db.js"></script>
+                <script type="text/javascript" src="/pos_prescription_creation/static/src/js/models.js"></script>
 <!--                <script type="text/javascript" src="/pos_prescription_creation/static/src/js/prescription_history.js"></script-->
             </xpath>
         </template>
