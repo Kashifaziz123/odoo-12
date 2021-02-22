@@ -1126,43 +1126,12 @@ class ProductFromPos(models.Model):
         }
         print(new_vals)
         rec = self.env['dr.prescription'].create(new_vals)
-        new_vals['id'] = rec.id
-        new_vals['dr'] = [rec.dr.id] if rec.dr else []
-        new_vals['customer'] = [rec.customer.id] if rec.customer else []
-        new_vals['test_type'] = [rec.test_type.id] if rec.test_type else []
-        new_vals['checkup_date'] = rec.checkup_date if rec.checkup_date else ''
-        new_vals['prescription_type'] = rec.prescription_type if rec.prescription_type else ''
-        new_vals['eye_examination_chargeable'] = rec.eye_examination_chargeable if rec.eye_examination_chargeable else ''
-        new_vals['family_eye_history'] = rec.family_eye_history if rec.family_eye_history else ''
-        new_vals['ocular_history'] = rec.ocular_history if rec.ocular_history else ''
-        new_vals['consultation'] = rec.consultation if rec.consultation else ''
-        new_vals['diagnosis_client'] = rec.diagnosis_client if rec.diagnosis_client else ''
-        new_vals['notes_laboratory'] = rec.notes_laboratory if rec.notes_laboratory else ''
-        new_vals['optometrist_observation'] = rec.optometrist_observation if rec.optometrist_observation else ''
-        new_vals['od_sph_distance'] = rec.od_sph_distance if rec.od_sph_distance else ''
-        new_vals['od_cyl_distance'] = rec.od_cyl_distance if rec.od_cyl_distance else ''
-        new_vals['od_ax_distance'] = rec.od_ax_distance if rec.od_ax_distance else ''
-        new_vals['od_add_distance'] = rec.od_add_distance if rec.od_add_distance else ''
-        new_vals['od_prism_distance'] = rec.od_prism_distance if rec.od_prism_distance else ''
-        new_vals['od_base_distance'] = rec.od_base_distance if rec.od_base_distance else ''
-        new_vals['os_sph_distance'] = rec.os_sph_distance if rec.os_sph_distance else ''
-        new_vals['os_cyl_distance'] = rec.os_cyl_distance if rec.os_cyl_distance else ''
-        new_vals['os_ax_distance'] = rec.os_ax_distance if rec.os_ax_distance else ''
-        new_vals['os_add_distance'] = rec.os_add_distance if rec.os_add_distance else ''
-        new_vals['os_prism_distance'] = rec.os_prism_distance if rec.os_prism_distance else ''
-        new_vals['os_base_distance'] = rec.os_base_distance if rec.os_base_distance else ''
-        new_vals['od_sph_near'] = rec.od_sph_near if rec.od_sph_near else ''
-        new_vals['od_cyl_near'] = rec.od_cyl_near if rec.od_cyl_near else ''
-        new_vals['od_ax_near'] = rec.od_ax_near if rec.od_ax_near else ''
-        new_vals['od_add_near'] = rec.od_add_near if rec.od_add_near else ''
-        new_vals['od_prism_near'] = rec.od_prism_near if rec.od_prism_near else ''
-        new_vals['od_base_near'] = rec.od_base_near if rec.od_base_near else ''
-        new_vals['os_sph_near'] = rec.os_sph_near if rec.os_sph_near else ''
-        new_vals['os_cyl_near'] = rec.os_cyl_near if rec.os_cyl_near else ''
-        new_vals['os_ax_near'] = rec.os_ax_near if rec.os_ax_near else ''
-        new_vals['os_add_near'] = rec.os_add_near if rec.os_add_near else ''
-        new_vals['os_prism_near'] = rec.os_prism_near if rec.os_prism_near else ''
-        new_vals['os_base_near'] = rec.os_base_near if rec.os_base_near else ''
+        optical_order = {'dr': [rec.dr.id, rec.dr.name] if rec.dr else [],
+                         'customer': [rec.customer.id, rec.customer.name] if rec.customer else [],
+                         'test_type': [rec.test_type.id, rec.test_type.name] if rec.test_type else [],
+                         'checkup_date': rec.checkup_date if rec.checkup_date else '',
+                         'prescription_type': rec.prescription_type if rec.prescription_type else '',
+                         'od_sph_distance': rec.od_sph_distance if rec.od_sph_distance else '',
+                         'name': rec.name if rec.name else '', 'state': rec.state if rec.state else ''}
 
-
-        return new_vals
+        return optical_order

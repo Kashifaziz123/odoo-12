@@ -18,14 +18,20 @@ models.load_models({
         fields: ['name'],
         loaded: function(self,dr){
             self.dr =dr;
+            self.db.doctors = dr;
         },
     });
 
 models.load_models({
         model:  'dr.prescription',
         fields: ['name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
-        loaded: function(self,products){
-            self.products = products;
+        loaded: function(self,optical_orders){
+            self.db.optical_all_orders = optical_orders;
+            self.products = optical_orders;
+            self.db.optical_order_by_name = {};
+            optical_orders.forEach(function(order){
+                self.db.optical_order_by_name[order.name] = order;
+            });
         },
     })
 
@@ -205,7 +211,6 @@ var ProductCreationWidget = PopupWidget.extend({
                 });
         }
         else {
-
           this.gui.show_popup('confirm',{
                 'title': _t('Create a Prescription ?'),
                 'body': _t('Are You Sure You Want a Create a Prescription'),
@@ -253,30 +258,12 @@ var ProductCreationWidget = PopupWidget.extend({
                     method: 'create_product_pos',
                     args: [product_vals],
                 }).then(function (products){
-                         console.log(products)
-
+                        self.pos.db.add_optical_orders(products)
+                        console.log(products)
                 });
-
-
-
-
                 },
-
-
             });
-
-
-
-
-
     };
-
-
-
-
-
-
-
      },
 
     click_cancel: function(){
@@ -310,17 +297,13 @@ var ProductWidget = screens.ScreenWidget.extend({
             });
 
             var products = []
-            for (var i=0;i < this.pos.products.length ;i++){
-                      products.push(this.pos.products[i]);
+            for (var i=0;i < self.pos.db.optical_all_orders.length ;i++){
+                      products.push(self.pos.db.optical_all_orders[i]);
             }
-
-            self.products = products;
             this.render_list(products);
             this.$('.products-list-contents').delegate('.productlines','click',function(event){
                 self.line_select(event,$(this.parentElement.parentElement),parseInt($(this.parentElement.parentElement).data('id')))
             });
-
-
             var search_timeout = null;
 
             if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
