@@ -27,7 +27,7 @@ odoo.define('pos_prescription_creation.pos_optical_reference', function(require)
         export_as_JSON: function () {
             var json = _super_order.export_as_JSON.apply(this, arguments);
             if (this.optical_reference) {
-                if (!this.optical_reference.name){
+                if (this.optical_reference[0]){
                     json.optical_reference=this.optical_reference[0];
                 }
                 else{
@@ -47,7 +47,7 @@ odoo.define('pos_prescription_creation.pos_optical_reference', function(require)
     models.PosModel = models.PosModel.extend({
         get_optical_reference: function() {
             var order = this.get_order();
-            if (order) {
+            if (order.optical_reference) {
                 optical_reference = this.db.optical_order_by_id[order.optical_reference.id]
                 return optical_reference;
             }

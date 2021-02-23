@@ -280,11 +280,6 @@ var ProductCreationWidget = PopupWidget.extend({
 gui.define_popup({name:'product_create', widget: ProductCreationWidget});
 
 
-
-
-
-
-
 var ProductWidget = screens.ScreenWidget.extend({
     template: 'Product-ListWidget-Custom',
     init: function(parent, options){
@@ -303,10 +298,13 @@ var ProductWidget = screens.ScreenWidget.extend({
             for (var i=0;i < self.pos.db.optical_all_orders.length ;i++){
                       products.push(self.pos.db.optical_all_orders[i]);
             }
-            this.render_list(products);
-            this.$('.products-list-contents').delegate('.productlines','click',function(event){
-                self.line_select(event,$(this.parentElement.parentElement),parseInt($(this.parentElement.parentElement).data('id')))
+//            this.$('.products-list-contents').delegate('.productlines','click',function(event){
+//                self.line_select(event,$(this.parentElement.parentElement),parseInt($(this.parentElement.parentElement).data('id')))
+//            });
+            this.$('.products-list-contents').on('click', '.productlines', function(event){
+                self.line_select(event,$(this),parseInt($(this).data('id')));
             });
+            this.render_list(products);
             var search_timeout = null;
 
             if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
@@ -338,10 +336,13 @@ var ProductWidget = screens.ScreenWidget.extend({
     },
 
     line_select: function(event,$line,id){
-
+        var self = this;
+		return self.pos.db.optical_order_by_id[id]
     },
 
+
     render_list: function(products){
+            var self = this
             var length = products.length
             var contents = this.$el[0].querySelector('.products-list-contents');
             contents.innerHTML = "";
@@ -353,6 +354,16 @@ var ProductWidget = screens.ScreenWidget.extend({
                 product_line = product_line.childNodes[1];
                 contents.appendChild(product_line);
             }
+            this.$('.pos_optical_copy').click(function(event) {
+                var order = self.pos.get_order();
+                product = self.pos.db.optical_order_by_id[parseInt($(this).data('orderId'))];
+                $('.optical_prescription').text(product.name);
+                order.set_optical_reference(product);
+                self.gui.back();
+            });
+            this.$('.pos_optical_print').click(function(event) {
+                self.gui.show_screen('PrescriptionReceipt',parseInt($(this).data('orderId')));
+            });
     },
 
     search_products: function(query){
@@ -373,24 +384,151 @@ var ProductWidget = screens.ScreenWidget.extend({
 
         },
 
-
-
-
-
-
-
-
-
 });
-
 gui.define_screen({name:'product-list',widget:ProductWidget});
 
+var PrintPrescriptionScreenWidget = screens.ReceiptScreenWidget.extend({
+    template: 'PrintPrescriptionScreenWidget',
+    get_receipt_render_env: function() {
+        var order = this.pos.get_order();
+        var optical_order = this.pos.db.optical_order_by_id[order.get_screen_data('params')]
+        return {
+            widget: this,
+            pos: this.pos,
+            order: order,
+            optical_order: optical_order,
+            receipt: order.export_for_printing(),
+            orderlines: order.get_orderlines(),
+            paymentlines: order.get_paymentlines(),
+        };
+    },
+    print_html: function () {
+        var receipt = QWeb.render('PrescriptionOrderReceipt', this.get_receipt_render_env());
+        this.pos.proxy.printer.print_receipt(receipt);
+        this.pos.get_order()._printed = true;
+    },
+    click_back: function() {
+        this._super();
+        this.gui.show_screen('products');
+    },
+    render_receipt: function() {
+        this.$('.pos-receipt-container').html(QWeb.render('PrescriptionOrderReceipt', this.get_receipt_render_env()));
+    },
 
+});
+gui.define_screen({name:'PrescriptionReceipt', widget: PrintPrescriptionScreenWidget});
 
+screens.ClientListScreenWidget.include({
+    display_client_details: function(visibility,partner,clickpos){
+        var self = this;
+        var searchbox = this.$('.searchbox input');
+        var contents = this.$('.client-details-contents');
+        var parent   = this.$('.client-list').parent();
+        var scroll   = parent.scrollTop();
+        var height   = contents.height();
 
+        contents.off('click','.button.edit');
+        contents.off('click','.button.save');
+        contents.off('click','.button.undo');
+        contents.on('click','.button.edit',function(){ self.edit_client_details(partner); });
+        contents.on('click','.button.save',function(){ self.save_client_details(partner); });
+        contents.on('click','.button.undo',function(){ self.undo_client_details(partner); });
+        this.editing_client = false;
+        this.uploaded_picture = null;
+        count = self.pos.db.optical_all_orders.filter(function(el){return el.customer[0] === partner.id}).length
+        if(visibility === 'show'){
+            contents.empty();
+            contents.append($(QWeb.render('ClientDetails',{widget:this,partner:partner,prescription_count:count})));
 
+            var new_height   = contents.height();
 
+            if(!this.details_visible){
+                // resize client list to take into account client details
+                parent.height('-=' + new_height);
 
+                if(clickpos < scroll + new_height + 20 ){
+                    parent.scrollTop( clickpos - 20 );
+                }else{
+                    parent.scrollTop(parent.scrollTop() + new_height);
+                }
+            }else{
+                parent.scrollTop(parent.scrollTop() - height + new_height);
+            }
 
+            this.details_visible = true;
+            this.toggle_save_button();
+        } else if (visibility === 'edit') {
+            // Connect the keyboard to the edited field
+            if (this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard) {
+                contents.off('click', '.detail');
+                searchbox.off('click');
+                contents.on('click', '.detail', function(ev){
+                    self.chrome.widget.keyboard.connect(ev.target);
+                    self.chrome.widget.keyboard.show();
+                });
+                searchbox.on('click', function() {
+                    self.chrome.widget.keyboard.connect($(this));
+                });
+            }
+
+            this.editing_client = true;
+            contents.empty();
+            contents.append($(QWeb.render('ClientDetailsEdit',{widget:this,partner:partner,prescription_count:count})));
+            this.toggle_save_button();
+
+            // Browsers attempt to scroll invisible input elements
+            // into view (eg. when hidden behind keyboard). They don't
+            // seem to take into account that some elements are not
+            // scrollable.
+            contents.find('input').blur(function() {
+                setTimeout(function() {
+                    self.$('.window').scrollTop(0);
+                }, 0);
+            });
+
+            contents.find('.client-address-country').on('change', function (ev) {
+                var $stateSelection = contents.find('.client-address-states');
+                var value = this.value;
+                $stateSelection.empty()
+                $stateSelection.append($("<option/>", {
+                    value: '',
+                    text: 'None',
+                }));
+                self.pos.states.forEach(function (state) {
+                    if (state.country_id[0] == value) {
+                        $stateSelection.append($("<option/>", {
+                            value: state.id,
+                            text: state.name
+                        }));
+                    }
+                });
+            });
+
+            contents.find('.image-uploader').on('change',function(event){
+                self.load_image_file(event.target.files[0],function(res){
+                    if (res) {
+                        contents.find('.client-picture img, .client-picture .fa').remove();
+                        contents.find('.client-picture').append("<img src='"+res+"'>");
+                        contents.find('.detail.picture').remove();
+                        self.uploaded_picture = res;
+                    }
+                });
+            });
+        } else if (visibility === 'hide') {
+            contents.empty();
+            parent.height('100%');
+            if( height > scroll ){
+                contents.css({height:height+'px'});
+                contents.animate({height:0},400,function(){
+                    contents.css({height:''});
+                });
+            }else{
+                parent.scrollTop( parent.scrollTop() - height);
+            }
+            this.details_visible = false;
+            this.toggle_save_button();
+        }
+    },
+});
 
 });

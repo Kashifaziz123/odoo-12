@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
 
+    <t t-name="PrintPrescriptionScreenWidget">
+        <div class='receipt-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                    <h1>Change: <span class='change-value'>0.00</span></h1>
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                </div>
+                <div class="centered-content touch-scrollable">
+                    <div class="button print">
+                        <i class='fa fa-print'></i> Print Prescription
+                    </div>
+                    <div class="pos-receipt-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend='ClientDetails'>
+        <t t-jquery='.edit-buttons' t-operation='prepend'>
+            <button>
+                Prescription
+                <t t-esc="prescription_count"/>
+            </button>
+        </t>
+    </t>
+
+    <t t-name="PrescriptionOrderReceipt">
+        <div class="pos-receipt">
+            <!-- Footer -->
+            <h1><t t-esc="optical_order.name"/></h1>
+            <div t-if='receipt.footer_html'  class="pos-receipt-center-align">
+                <t t-raw='receipt.footer_html'/>
+            </div>
+        </div>
+    </t>
+
+
     <t t-name="button_book_order">
             <div class='control-button'>
                 <i class='fa-prescription' />
@@ -2880,7 +2921,7 @@
 
 
     <t t-name="ProductsLine">
-        <tr class='productlines '>
+        <tr class='productlines ' t-att-data-id='product.id'>
              <td><t t-esc='product.name' /></td>
             <td><t t-esc='product.customer[1]' /></td>
             <td><t t-esc='product.checkup_date' /></td>
@@ -2888,7 +2929,12 @@
             <td><t t-esc='product.test_type[1]' /></td>
             <td><t t-esc='product.prescription_type' /></td>
             <td><t t-esc='product.state' /></td>
-            <td> <i class="fa fa-print"/></td>
+            <td name="td_pos_optical_copy" t-att-data-order-id="product.id">
+                <button class="button pos_optical_copy" t-att-data-order-id="product.id">
+                    Copy Measures
+                </button>
+            </td>
+            <td> <i class="fa fa-print pos_optical_print" t-att-data-order-id="product.id"/></td>
 
         </tr>
     </t>
@@ -2937,6 +2983,7 @@
                                                 <th>Test Type</th>
                                                 <th>Prescription Type</th>
                                                 <th>Status</th>
+                                                <th>Send to Glasses</th>
                                                 <th>Prescription</th>
                                             </tr>
                                         </thead>
