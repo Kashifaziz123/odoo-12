@@ -9,11 +9,10 @@ odoo.define('pos_orders.pos_orders',function(require){
     var core = require('web.core');
     var QWeb = core.qweb;
     var SuperPosModel = models.PosModel.prototype;
-    var pos = require('point_of_sale.models');
 
     models.load_models([{
             model: 'pos.order',
-            fields: ['id', 'name', 'date_order', 'session_id', 'partner_id', 'lines', 'ean13', 'sales_person_id',  'pos_reference', 'account_move', 'user_id', 'amount_paid', 'amount_total', 'amount_tax', 'state'],
+            fields: ['id', 'name', 'date_order', 'partner_id', 'lines', 'pos_reference','invoice_id'],
             domain: function(self) {
                 var domain_list = [];
                 if(self.config.order_loading_options == 'n_days'){
@@ -39,7 +38,7 @@ odoo.define('pos_orders.pos_orders',function(require){
             },
         }, {
             model: 'pos.order.line',
-            fields: ['product_id', 'order_id', 'qty','discount','price_unit','price_subtotal_incl','price_subtotal','sales_person_id'],
+            fields: ['product_id', 'order_id', 'qty','discount','price_unit','price_subtotal_incl','price_subtotal'],
             domain: function(self) {
                 var order_lines = []
                 var orders = self.db.pos_all_orders;
@@ -92,49 +91,16 @@ odoo.define('pos_orders.pos_orders',function(require){
                             self.db.line_by_id[orderline.id] = orderline;
                         }
                     });
-                    if(self.db.all_payments)
-                        return_dict.payments.forEach(function(payment) {
-                            self.db.all_payments.unshift(payment);
-                            self.db.payment_by_id[payment.id] = payment;
+                    if(self.db.all_statements)
+                        return_dict.statements.forEach(function(statement) {
+                            self.db.all_statements.unshift(statement);
+                            self.db.statement_by_id[statement.id] = statement;
                     });
 
                 }
                 return return_dict.order_ids;
             });
         }
-    });
-
-    //For Re-Print Order Receipt
-    screens.ReceiptScreenWidget.include({
-        render_receipt: function() {
-            if (!this.pos.reloaded_order) {
-                return this._super();
-            }
-            var order = this.pos.reloaded_order;
-            this.$('.pos-receipt-container').html(QWeb.render('OrderReceipt', {
-                widget: this,
-                pos: this.pos,
-                order: order,
-                receipt: order.export_for_printing(),
-                orderlines: order.get_orderlines(),
-                paymentlines: order.get_paymentlines(),
-            }));
-            this.pos.from_loaded_order = true;
-        },
-        click_next: function() {
-            if (!this.pos.from_loaded_order) {
-                return this._super();
-            }
-            this.pos.from_loaded_order = false;
-            // When reprinting a loaded order we temporarily set it as the
-            // active one. When we get out from the printing screen, we set
-            // it back to the one that was active
-            if (this.pos.current_order) {
-                this.pos.set_order(this.pos.current_order);
-                this.pos.current_order = false;
-            }
-            return this.gui.show_screen(this.gui.startup_screen);
-        },
     });
 
     var OrdersScreenWidget = screens.ScreenWidget.extend({
@@ -189,257 +155,27 @@ odoo.define('pos_orders.pos_orders',function(require){
                 orderline = orderline.childNodes[1];
                 contents.appendChild(orderline);
             }
-
-            //For Re-Print Order Receipt
-            this.$('.wk_print_content').click(function(event) {
-                self.order_list_actions_wk(event, 'print');
-            });
         },
-
         show: function() {
             var self = this;
             this._super();
             var orders = self.pos.db.pos_all_orders;
             this.render_list(orders, undefined);
             this.$('.order_search').keyup(function() {
-            self.render_list(orders, this.value);});
+                self.render_list(orders, this.value);
+            });
             this.$('.back').on('click',function() {
                 self.gui.show_screen('products');
             });
-            //For Re-Print Order Receipt
-            this.old_order = this.pos.get_order();
         },
         close: function() {
             this._super();
             this.$('.wk-order-list-contents').undelegate();
         },
-
-        //For Re-Print Order Receipt
-        order_list_actions_wk: function(event, action) {
-            var self = this;
-            var dataset = event.target.parentNode.dataset;
-            self.load_order_data_wk(parseInt(dataset.orderId, 10))
-                .then(function(order_data) {
-                    self.order_action_wk(order_data, action);
-                });
-        },
-
-        //For Re-Print Order Receipt
-        order_action_wk: function(order_data, action) {
-            if (this.old_order !== null) {
-                this.gui.back();
-            }
-            var order = this.load_order_from_data_wk(order_data, action);
-            if (!order) {
-                // The load of the order failed. (products not found, ...
-                // We cancel the action
-                return;
-            }
-            this['action_' + action](order_data, order);
-        },
-
-        //For Re-Print Order Receipt
-        action_print: function(order_data, order) {
-            // We store temporarily the current order so we can safely compute
-            // taxes based on fiscal position
-            this.pos.current_order = this.pos.get_order();
-
-            this.pos.set_order(order);
-
-            if (this.pos.config.iface_print_via_proxy) {
-                this.pos.proxy.print_receipt(QWeb.render(
-                    'OrderReceipt', {
-                        widget: this,
-                        pos: this.pos,
-                        order: order,
-                        receipt: order.export_for_printing(),
-                        orderlines: order.get_orderlines(),
-                        paymentlinesf: order.get_paymentlines(),
-                    }));
-                this.pos.set_order(this.pos.current_order);
-                this.pos.current_order = false;
-            } else {
-                this.pos.reloaded_order = order;
-                this.gui.show_screen('receipt');
-                this.pos.reloaded_order = false;
-            }
-
-            // If it's invoiced, we also print the invoice
-            if (order_data.to_invoice) {
-                this.pos.chrome.do_action('point_of_sale.pos_invoice_report', {
-                    additional_context: {
-                        active_ids: [order_data.id]
-                    }
-                })
-            }
-
-            // Destroy the order so it's removed from localStorage
-            // Otherwise it will stay there and reappear on browser refresh
-            order.destroy();
-        },
-
-        //For Re-Print Order Receipt
-        _prepare_order_from_order_data_wk: function(order_data, action) {
-            var self = this;
-            var order = new pos.Order({}, {
-                pos: this.pos,
-            });
-
-            // Get Customer
-            if (order_data.partner_id) {
-                order.set_client(
-                    this.pos.db.get_partner_by_id(order_data.partner_id));
-            }
-
-            // Get fiscal position
-            if (order_data.fiscal_position && this.pos.fiscal_positions) {
-                var fiscal_positions = this.pos.fiscal_positions;
-                order.fiscal_position = fiscal_positions.filter(function(p) {
-                    return p.id === order_data.fiscal_position;
-                })[0];
-                order.trigger('change');
-            }
-
-            // Get order lines
-            self._prepare_orderlines_from_order_data_wk(
-                order, order_data, action);
-
-            // Get order data
-            if (['print'].indexOf(action) !== -1) {
-                order.ean13 = order_data.ean13;
-                order.sales_person_id = order_data.sales_person_id;
-                order.name = order_data.pos_reference;
-                order.formatted_validation_date = moment(order_data.date_order).format('DD/MM/YYYY HH:mm:ss');
-            }
-
-            // Get Payment lines
-            if (['print'].indexOf(action) !== -1) {
-                var paymentLines = order_data.payment_lines || [];
-                _.each(paymentLines, function(paymentLine) {
-                    var line = paymentLine;
-                    // In case of local data
-                    if (line.length === 3) {
-                        line = line[2];
-                    }
-                    _.each(self.pos.payment_methods, function(payment_method) {
-                        if (payment_method.id === line.payment_method_id) {
-                            if (line.amount > 0) {
-                                // If it is not change
-                                order.add_paymentline(payment_method);
-                                order.selected_paymentline.set_amount(
-                                    line.amount);
-                            }
-                        }
-                    });
-                });
-            }
-            return order;
-        },
-
-        //For Re-Print Order Receipt
-        _prepare_orderlines_from_order_data_wk: function(
-            order, order_data, action) {
-            var orderLines = order_data.line_ids || order_data.lines || [];
-
-            var self = this;
-            _.each(orderLines, function(orderLine) {
-                var line = orderLine;
-                // In case of local data
-                if (line.length === 3) {
-                    line = line[2];
-                }
-                var product = self.pos.db.get_product_by_id(line.product_id);
-                // Check if product are available in pos
-                if (_.isUndefined(product)) {
-                    self.unknown_products.push(String(line.product_id));
-                } else {
-                    var qty = line.qty;
-                    if (['return'].indexOf(action) !== -1) {
-                        // Invert line quantities
-                        qty *= -1;
-                    }
-                    // Create a new order line
-                    order.add_product(product, {
-                        price: line.price_unit,
-                        quantity: qty,
-                        discount: line.discount,
-                        merge: false,
-                    });
-                }
-            });
-        },
-
-        //For Re-Print Order Receipt
-        load_order_data_wk: function(order_id) {
-            var self = this;
-            return this._rpc({
-                model: 'pos.order',
-                method: 'load_done_order_for_pos_wk',
-                args: [order_id],
-            }).guardedCatch(function(reason) {
-                if (parseInt(reason.message.code, 10) === 200) {
-                    // Business Logic Error, not a connection problem
-                    self.gui.show_popup(
-                        'error-traceback', {
-                            'title': error.data.message,
-                            'body': error.data.debug,
-                        }
-                    );
-                } else {
-                    self.gui.show_popup('error', {
-                        'title': _t('Connection error'),
-                        'body': _t(
-                            'Can not execute this action because the POS' +
-                            ' is currently offline'),
-                    });
-                }
-            });
-        },
-
-        //For Re-Print Order Receipt
-        load_order_from_data_wk: function(order_data, action) {
-            var self = this;
-            this.unknown_products = [];
-            var order = self._prepare_order_from_order_data_wk(
-                order_data, action);
-            // Forbid POS Order loading if some products are unknown
-            if (self.unknown_products.length > 0) {
-                self.gui.show_popup('error-traceback', {
-                    'title': _t('Unknown Products'),
-                    'body': _t('Unable to load some order lines because the ' +
-                            'products are not available in the POS cache.\n\n' +
-                            'Please check that lines :\n\n  * ') +
-                        self.unknown_products.join("; \n  *"),
-                });
-                return false;
-            }
-            return order;
-        },
-
     });
     gui.define_screen({name: 'wk_order',widget:OrdersScreenWidget});
 
-	// Start AllOrdersButtonWidget
-	var AllOrdersButtonWidget = screens.ActionButtonWidget.extend({
-		template: 'AllOrdersButtonWidget',
-
-		button_click: function() {
-			var self = this;
-			this.gui.show_screen('wk_order', {});
-		},
-
-	});
-
-	screens.define_action_button({
-		'name': 'All Orders Button Widget',
-		'widget': AllOrdersButtonWidget,
-		'condition': function() {
-			return true;
-		},
-	});
-	// End SeeAllOrdersButtonWidget
-	
-/*     screens.ProductScreenWidget.include({
+    screens.ProductScreenWidget.include({
         show: function(){
             var self = this;
             this._super();
@@ -449,7 +185,7 @@ odoo.define('pos_orders.pos_orders',function(require){
                 self.gui.show_screen('wk_order',{});
             });
         },
-    }); */
+    });
     screens.ClientListScreenWidget.include({
         show: function() {
             var self = this;
