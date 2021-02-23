@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<templates id="template" xml:space="preserve">
+
+<!-- 	<t t-extend="ActionpadWidget">  
+		<t t-jquery=".actionpad" t-operation="before">
+			<span class="control-button" id="all_orders" style="width: 384px;margin-right: 5px;margin-top: 3px;margin-bottom: -7px;">
+				All Orders
+			</span>
+		</t>	
+	</t> -->
+
+	<t t-name="AllOrdersButtonWidget" name="All Orders Button Widget">
+		<div class="control-button button confirm" id="all_orders">
+		   <i class="fa fa-university"></i> Orders
+		</div>
+	 </t>
+	 
+	<t t-name="OrdersScreenWidget">        
+    	<div class="clientlist-screen screen">
+            <div class="orders-screen-content">
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                </section>
+                <span class="searchbox">
+                    <input placeholder="Search Orders" class="order_search"/>
+                    <span class="search-clear"></span>
+                </span>
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow collapsed'>
+                            <div class='subwindow-container collapsed'>
+                                <div class='subwindow-container-fix order-details-contents'>
+                                </div>
+                            </div>
+                        </section>
+                        <section class='subwindow'>
+                            <div class='wk_table_back subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y' style="background-color: rgb(240, 238, 238);overflow-y: scroll;">
+                                    <table class='client-list wk_order_list'>
+                                        <thead>
+                                            <tr style="background-color: rgb(135, 160, 166);color: white;">
+                                                <th>Order Date</th>  
+                                                <th>Receipt No.</th>  
+                                                <!-- <th>Order Ref.</th> -->                                              
+                                                <th>Session</th>
+                                                <!-- <th>Receipt Ref.</th> -->
+                                                <th>Customer</th>
+                                                <th>Cashier</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Receipt</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='wk-order-list-contents'>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+    
+    <t t-name="WkOrderLine"> 
+        <tr class='wk-order-line' t-att-data-id='order.id' style="cursor:pointer;">
+            <td><t t-esc='order.date_order' /></td>
+            <td><t t-esc='order.ean13' /></td>
+            <!-- <td><t t-esc='order.name' /></td> -->
+            <td><t t-esc='order.session_id[1]' /></td>
+            <!-- <td><t t-esc='order.pos_reference' /></td> -->
+            <td><t t-esc="order.partner_id[1] || '-'" /></td>
+            <td><t t-esc='order.user_id[1]' /></td>
+            <td><t t-esc='widget.format_currency(order.amount_total)'/></td>
+			<td>
+				<t t-if="order.state == 'draft'">Draft/New</t>
+				<t t-if="order.state == 'paid'">Paid</t>
+				<t t-if="order.state == 'done'">Posted</t>
+				<t t-if="order.state == 'invoiced'">Invoiced</t>
+				<t t-if="order.state == 'cancel'">Cancelled</t>
+			</td>
+            <!-- <td><button class='wk_print_content' t-att-id='order.id' title='Print a duplicate for this order'><i class='fa fa-print'></i>Print</button></td> -->
+            <td name="td_wk_reprint" t-att-data-order-id="order.id">
+                <button class="button wk_print_content" t-att-data-order-id="order.id" title="Print duplicate receipt of this order">
+                <i class='fa fa-print'/>Print
+                </button>
+            </td>
+
+        </tr>
+    </t>
+    
+	<t t-extend='ClientListScreenWidget'>
+		<t t-jquery='.client-list thead tr' t-operation='append'>
+			<th>Orders</th>
+		</t>
+	</t>
+
+	<t t-extend='ClientLine'>
+		<t t-jquery='.client-line' t-operation='append'>
+			<td>
+				<button class="view_all_order" t-att-id='partner.id'><i class="fa fa-filter"></i> View orders</button>
+			</td>
+		</t>
+	</t>	
+
+</templates>
+
+
