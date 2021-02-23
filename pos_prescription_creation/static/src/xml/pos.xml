@@ -24,7 +24,7 @@
 
     <t t-extend='ClientDetails'>
         <t t-jquery='.edit-buttons' t-operation='prepend'>
-            <button>
+            <button class="control-button highlight" style="margin-top: 1%;">
                 Prescription
                 <t t-esc="prescription_count"/>
             </button>
