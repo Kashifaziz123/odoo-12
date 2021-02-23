@@ -31,14 +31,144 @@
         </t>
     </t>
 
+    <t t-extend='OrderReceipt'>
+        <t t-jquery='.pos-receipt-contact' t-operation='append'>
+            <t t-call="PrescriptionOrderReceiptTable"/>
+        </t>
+    </t>
+
     <t t-name="PrescriptionOrderReceipt">
         <div class="pos-receipt">
-            <!-- Footer -->
-            <h1><t t-esc="optical_order.name"/></h1>
-            <div t-if='receipt.footer_html'  class="pos-receipt-center-align">
-                <t t-raw='receipt.footer_html'/>
+            <t t-if='receipt.company.logo'>
+                <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
+                <br/>
+            </t>
+            <t t-if='!receipt.company.logo'>
+                <h2 class="pos-receipt-center-align">
+                    <t t-esc='receipt.company.name' />
+                </h2>
+                <br/>
+            </t>
+            <div class="pos-receipt-contact">
+                <t t-if='receipt.company.contact_address'>
+                    <div><t t-esc='receipt.company.contact_address' /></div>
+                </t>
+                <t t-if='receipt.company.phone'>
+                    <div>Tel:<t t-esc='receipt.company.phone' /></div>
+                </t>
+                <t t-if='receipt.company.vat'>
+                    <div><t t-esc='receipt.company.vat_label'/>:<t t-esc='receipt.company.vat' /></div>
+                </t>
+                <t t-if='receipt.company.email'>
+                    <div><t t-esc='receipt.company.email' /></div>
+                </t>
+                <t t-if='receipt.company.website'>
+                    <div><t t-esc='receipt.company.website' /></div>
+                </t>
+                <t t-if='receipt.header_html'>
+                    <t t-raw='receipt.header_html' />
+                </t>
+                <t t-if='!receipt.header_html and receipt.header'>
+                    <div><t t-esc='receipt.header' /></div>
+                </t>
+                <t t-if='receipt.cashier'>
+                    <div class='cashier'>
+                        <div>--------------------------------</div>
+                        <div>Served by <t t-esc='receipt.cashier' /></div>
+                    </div>
+                </t>
             </div>
+            <br /><br />
+            <t t-call="PrescriptionOrderReceiptTable"/>
         </div>
+    </t>
+
+    <t t-name="PrescriptionOrderReceiptTable">
+        <t t-if="optical_order !== 0 ">
+            <div class="prescription_receipt_details">
+                <table>
+                    <tr>
+                        <th>Reference:</th>
+                        <td><t t-esc="optical_order.name"/></td>
+                        <th class="padding">Client Name:</th>
+                        <td><t t-esc="optical_order.customer.name"/></td>
+                    </tr>
+                    <tr>
+                        <th>Prescription Date:</th>
+                        <td><t t-esc="optical_order.checkup_date"/></td>
+                        <th class="padding">Test Test:</th>
+                        <td><t t-esc="optical_order.test_type.name"/></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="prescription_receipt_table">
+                <table>
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OD</th>
+                    </tr>
+                    <tr>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                    </tr>
+                    <tr>
+                        <th>Distance</th>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                    </tr>
+                    <tr>
+                        <th>Near</th>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                    </tr>
+                    <tr>
+                        <th colspan="7">&amp;nbsp;</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OS</th>
+                    </tr>
+                    <tr>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                    </tr>
+                    <tr>
+                        <th>Distance</th>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                    </tr>
+                    <tr>
+                        <th>Near</th>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                        <td>00.0</td>
+                    </tr>
+                </table>
+            </div>
+        </t>
     </t>
 
     <t t-name="button_book_order">

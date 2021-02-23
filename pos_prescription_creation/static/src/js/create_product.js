@@ -354,37 +354,6 @@ var ProductWidget = screens.ScreenWidget.extend({
 });
 gui.define_screen({name:'product-list',widget:ProductWidget});
 
-var PrintPrescriptionScreenWidget = screens.ReceiptScreenWidget.extend({
-    template: 'PrintPrescriptionScreenWidget',
-    get_receipt_render_env: function() {
-        var order = this.pos.get_order();
-        var optical_order = this.pos.db.optical_order_by_id[order.get_screen_data('params')]
-        return {
-            widget: this,
-            pos: this.pos,
-            order: order,
-            optical_order: optical_order,
-            receipt: order.export_for_printing(),
-            orderlines: order.get_orderlines(),
-            paymentlines: order.get_paymentlines(),
-        };
-    },
-    print_html: function () {
-        var receipt = QWeb.render('PrescriptionOrderReceipt', this.get_receipt_render_env());
-        this.pos.proxy.printer.print_receipt(receipt);
-        this.pos.get_order()._printed = true;
-    },
-    click_back: function() {
-        this._super();
-        this.gui.show_screen('products');
-    },
-    render_receipt: function() {
-        this.$('.pos-receipt-container').html(QWeb.render('PrescriptionOrderReceipt', this.get_receipt_render_env()));
-    },
-
-});
-gui.define_screen({name:'PrescriptionReceipt', widget: PrintPrescriptionScreenWidget});
-
 screens.ClientListScreenWidget.include({
     events: {
             'click .prescription_count_btn': 'prescription_count_btn',

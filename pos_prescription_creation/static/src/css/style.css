@@ -1,0 +1,23 @@
+.prescription_receipt_table table tbody tr td,.prescription_receipt_table table tbody tr th,.prescription_receipt_table table tbody tr{
+    border: 1px solid black;
+}
+.prescription_receipt_table table{
+    font-size: x-small;
+    width: 100%;
+    text-align: center;
+}
+.prescription_receipt_details{
+    font-size: 10px;
+    color: black;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.prescription_receipt_details table tr div{
+    width: 50%;
+}.prescription_receipt_details table tbody tr th{
+    text-align: left;
+}
+.prescription_receipt_details .padding{
+    padding-left: 20px
+}

@@ -1,4 +1,4 @@
-odoo.define('pos_prescription_creation.pos_optical_reference', function(require){
+odoo.define('pos_prescription_creation.models', function(require){
 
     var ActionpadWidget = require("point_of_sale.screens").ActionpadWidget;  
 	var PosBaseWidget = require('point_of_sale.BaseWidget');  
@@ -27,12 +27,10 @@ odoo.define('pos_prescription_creation.pos_optical_reference', function(require)
         export_as_JSON: function () {
             var json = _super_order.export_as_JSON.apply(this, arguments);
             if (this.optical_reference) {
-                if (this.optical_reference[0]){
+                if (this.optical_reference[0])
                     json.optical_reference=this.optical_reference[0];
-                }
-                else{
+                else
                     json.optical_reference = this.optical_reference.id;
-                }
             }
             return json;
         },
