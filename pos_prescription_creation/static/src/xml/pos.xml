@@ -24,7 +24,7 @@
 
     <t t-extend='ClientDetails'>
         <t t-jquery='.edit-buttons' t-operation='prepend'>
-            <button class="control-button highlight" style="margin-top: 1%;">
+            <button t-att-data-id='partner.id' class="control-button highlight prescription_count_btn" style="margin-top: 1%;">
                 Prescription
                 <t t-esc="prescription_count"/>
             </button>
@@ -40,7 +40,6 @@
             </div>
         </div>
     </t>
-
 
     <t t-name="button_book_order">
             <div class='control-button'>
@@ -2914,12 +2913,6 @@
         </div>
     </t>
 
-
-
-
-
-
-
     <t t-name="ProductsLine">
         <tr class='productlines ' t-att-data-id='product.id'>
              <td><t t-esc='product.name' /></td>
@@ -2939,34 +2932,28 @@
         </tr>
     </t>
 
-
-
-
-
-
     <t t-name="Product-ListWidget-Custom">
         <div class="clientlist-screen screen">
             <div class="full_width screen-content">
-                        <section class="top-content">
-                                <span class='button back'>
-                                    <i class='fa fa-angle-double-left'></i>
-                                    Cancel
-                                </span>
-                            <span class='searchbox'>
-                                    <input placeholder='Search Prescriptions' />
-                                <span class='search-clear'></span>
-                                </span>
-                            <span class='searchbox'></span>
-                            <!--                            <span class='button new-customer' role="img" aria-label="Add a Product" title="Add a Product">-->
-                            <!--                                    <i class='fa fa-user'></i>-->
-                            <!--                                <i class='fa fa-plus'></i>-->
-                            <!--                                </span>-->
-                        </section>
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                            Cancel
+                    </span>
+                    <span class='searchbox searchbox_date' style="right: 2px;">
+                        <input placeholder='Search Date' />
+                        <span class='search-clear'></span>
+                    </span>
+                    <span class='searchbox searchbox_client'>
+                        <input placeholder='Search Client' />
+                        <span class='search-clear'></span>
+                    </span>
+                </section>
                 <section class="full-content">
                     <div class='window'>
                         <section class='subwindow collapsed'>
                             <div class='subwindow-container collapsed'>
-                                <div class='subwindow-container-fix order-details-contents'>
+                                <div class='subwindow-container-fix products-details-contents'>
                                 </div>
                             </div>
                         </section>
@@ -3000,20 +2987,5 @@
             </div>
         </div>
     </t>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </templates>

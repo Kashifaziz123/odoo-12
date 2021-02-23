@@ -273,15 +273,6 @@ class ProductFromPos(models.Model):
         elif vals.get('od_sph_distance') == '+12.00':
             od_sph_distance = '+12.00'
 
-
-
-
-
-
-
-
-
-
         od_cyl_distance = None
         if vals.get('od_cyl_distance') == '0.00':
             od_cyl_distance = '0.00'
@@ -291,8 +282,6 @@ class ProductFromPos(models.Model):
             od_cyl_distance = '-6.00'
         elif vals.get('od_cyl_distance') == '-5.50':
             od_cyl_distance = '-6.00'
-
-
 
         od_axis_distance = None
         if vals.get('od_axis_distance') == '1':
@@ -305,8 +294,6 @@ class ProductFromPos(models.Model):
             od_axis_distance = '4'
         elif vals.get('od_axis_distance') == '5':
             od_axis_distance = '5'
-
-
 
         od_add_distance = None
         if vals.get('od_add_distance') == '0.00':
@@ -339,19 +326,6 @@ class ProductFromPos(models.Model):
             od_add_distance = '+3.25'
         elif vals.get('od_add_distance') == '+3.50':
              od_add_distance= '+3.50'
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         od_prism_distance = None
         if vals.get('od_prism_distance') == '0.25':
@@ -1118,15 +1092,13 @@ class ProductFromPos(models.Model):
             'os_add_near': os_add_near if os_add_near else '',
             'os_prism_near': os_prism_near if os_prism_near else '',
             'os_base_near': os_base_near if os_base_near else '',
-
+            'state': 'Confirm',
             # '': od_sph_distance if od_sph_distance else '',
-
-
 
         }
         print(new_vals)
         rec = self.env['dr.prescription'].create(new_vals)
-        optical_order = {'id': rec.id if rec.id else '',
+        new_vals = {'id': rec.id if rec.id else '',
                          'dr': [rec.dr.id, rec.dr.name] if rec.dr else [],
                          'customer': [rec.customer.id, rec.customer.name] if rec.customer else [],
                          'test_type': [rec.test_type.id, rec.test_type.name] if rec.test_type else [],
@@ -1137,4 +1109,4 @@ class ProductFromPos(models.Model):
                          'state': rec.state if rec.state else '',
                          }
 
-        return optical_order
+        return new_vals

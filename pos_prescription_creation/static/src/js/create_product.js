@@ -24,7 +24,7 @@ models.load_models({
 
 models.load_models({
         model:  'dr.prescription',
-        fields: ['id','name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
+//        fields: ['id','name','dr','customer','checkup_date','test_type','prescription_type','state','od_sph_distance'],
         loaded: function(self,optical_orders){
             self.db.optical_all_orders = optical_orders;
             self.products = optical_orders;
@@ -38,7 +38,7 @@ models.load_models({
 models.load_models({
         model:  'res.partner',
         fields: ['name','customer_rank'],
-        domain: [['customer_rank','=','1']],
+//        domain: [['customer_rank','=','1']],
         loaded: function(self,customers){
             self.customers = customers;
         },
@@ -56,8 +56,7 @@ models.load_models({
 var PrescriptionButton = screens.ActionButtonWidget.extend({
     template: 'PrescriptionButton',
     button_click: function(){
-            this.gui.show_screen('product-list');
-            var self = this;
+        this.gui.show_screen('product-list',this.pos.db.optical_all_orders);
     }
 });
 
@@ -285,105 +284,73 @@ var ProductWidget = screens.ScreenWidget.extend({
     init: function(parent, options){
         this._super(parent, options);
     },
-
     show: function(){
             var self = this;
+            var optical_orders = [];
             this._super();
             this.renderElement();
             this.$('.back').click(function(){
                 self.gui.show_screen('products');
             });
+            var order = this.pos.get_order();
+            optical_order_ids = order.get_screen_data('params')
+            if (optical_order_ids)
+                for (var i=0; i < optical_order_ids.length; i++)
+                    optical_orders.push(self.pos.db.optical_order_by_id[optical_order_ids[i].id])
+            else
+                var optical_orders = self.pos.db.optical_all_orders
+            this.render_list(optical_orders, undefined, undefined);
+            var search_timeout = null;
 
-            var products = []
-            for (var i=0;i < self.pos.db.optical_all_orders.length ;i++){
-                      products.push(self.pos.db.optical_all_orders[i]);
-            }
-//            this.$('.products-list-contents').delegate('.productlines','click',function(event){
-//                self.line_select(event,$(this.parentElement.parentElement),parseInt($(this.parentElement.parentElement).data('id')))
-//            });
+//            if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
+//                this.chrome.widget.keyboard.connect(this.$('.searchbox input'));
+//            }
             this.$('.products-list-contents').on('click', '.productlines', function(event){
                 self.line_select(event,$(this),parseInt($(this).data('id')));
             });
-            this.render_list(products);
-            var search_timeout = null;
-
-            if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
-                this.chrome.widget.keyboard.connect(this.$('.searchbox input'));
-            }
-
-            this.$('.searchbox input').on('keyup',function(event){
-                clearTimeout(search_timeout);
-                var query = this.value;
-                search_timeout = setTimeout(function(){
-                    self.perform_search(query,event.which === 13);
-                },70);
+            this.$('.searchbox_date').keyup(function() {
+                self.render_list(optical_orders, this.childNodes[1].value, undefined);
             });
-
+            this.$('.searchbox_client').keyup(function() {
+                self.render_list(optical_orders, undefined, this.childNodes[1].value);
+            });
             this.$('.searchbox .search-clear').click(function(){
                 self.clear_search();
             });
     },
-
-    perform_search: function(query){
-            var products;
-            if(query){
-               products = this.search_products(query);
-                this.render_list(products);
-            }else{
-                products = this.pos.products;
-                this.render_list(products);
-    }
-    },
-
     line_select: function(event,$line,id){
         var self = this;
 		return self.pos.db.optical_order_by_id[id]
     },
-
-
-    render_list: function(products){
+    render_list: function(optical_orders, date_value, client_value){
             var self = this
-            var length = products.length
+            var length = optical_orders.length
             var contents = this.$el[0].querySelector('.products-list-contents');
             contents.innerHTML = "";
-            for(var i = 0, len = Math.min(products.length); i < len; i++){
-                var product    = products[i];
-                var product_line_html = QWeb.render('ProductsLine',{widget: this, product:products[i]});
-                var product_line = document.createElement('tbody');
-                product_line.innerHTML = product_line_html;
-                product_line = product_line.childNodes[1];
-                contents.appendChild(product_line);
+            if (client_value)
+                optical_orders = optical_orders.filter(function(el){return el.customer[1].toLowerCase().includes(client_value.toLowerCase())})
+            if (date_value)
+                optical_orders = optical_orders.filter(function(el){return el.checkup_date.toLowerCase().includes(date_value.toLowerCase())})
+            len = Math.min(optical_orders.length)-1;
+            for(var i = len ; i >= 0; i--){
+                var optical_order = optical_orders[i];
+                var optical_orders_line_html = QWeb.render('ProductsLine',{widget: this, product:optical_order});
+                var optical_orders_line = document.createElement('tbody');
+                optical_orders_line.innerHTML = optical_orders_line_html;
+                optical_orders_line = optical_orders_line.childNodes[1];
+                contents.appendChild(optical_orders_line);
             }
             this.$('.pos_optical_copy').click(function(event) {
                 var order = self.pos.get_order();
-                product = self.pos.db.optical_order_by_id[parseInt($(this).data('orderId'))];
-                $('.optical_prescription').text(product.name);
-                order.set_optical_reference(product);
+                optical_order = self.pos.db.optical_order_by_id[parseInt($(this).data('orderId'))];
+                $('.optical_prescription').text(optical_order.name);
+                order.set_optical_reference(optical_order);
                 self.gui.back();
             });
             this.$('.pos_optical_print').click(function(event) {
                 self.gui.show_screen('PrescriptionReceipt',parseInt($(this).data('orderId')));
             });
     },
-
-    search_products: function(query){
-            try {
-                var re = RegExp(query);
-            }catch(e){
-                return [];
-            }
-            var results = [];
-            for (var product_id in this.pos.products){
-                var r = re.exec(this.pos.products[product_id]['name']);
-                var g = re.exec(this.pos.products[product_id]['dr']);
-                if(r || g){
-                results.push(this.pos.products[product_id]);
-                }
-            }
-            return results;
-
-        },
-
 });
 gui.define_screen({name:'product-list',widget:ProductWidget});
 
@@ -419,6 +386,9 @@ var PrintPrescriptionScreenWidget = screens.ReceiptScreenWidget.extend({
 gui.define_screen({name:'PrescriptionReceipt', widget: PrintPrescriptionScreenWidget});
 
 screens.ClientListScreenWidget.include({
+    events: {
+            'click .prescription_count_btn': 'prescription_count_btn',
+	},
     display_client_details: function(visibility,partner,clickpos){
         var self = this;
         var searchbox = this.$('.searchbox input');
@@ -435,7 +405,9 @@ screens.ClientListScreenWidget.include({
         contents.on('click','.button.undo',function(){ self.undo_client_details(partner); });
         this.editing_client = false;
         this.uploaded_picture = null;
-        count = self.pos.db.optical_all_orders.filter(function(el){return el.customer[0] === partner.id}).length
+        count = 0
+        if (partner)
+            count = self.pos.db.optical_all_orders.filter(function(el){return el.customer[0] === partner.id}).length
         if(visibility === 'show'){
             contents.empty();
             contents.append($(QWeb.render('ClientDetails',{widget:this,partner:partner,prescription_count:count})));
@@ -528,6 +500,11 @@ screens.ClientListScreenWidget.include({
             this.details_visible = false;
             this.toggle_save_button();
         }
+    },
+    prescription_count_btn: function(){
+//        $(this)[0].$el[0].children[0].children[1].childNodes[1].childNodes[1].children[0].children[0].children[0].children[2].children[0].dataset['id']
+        optical_orders = this.pos.db.optical_all_orders.filter(function(el){return el.customer[0] === $('.prescription_count_btn').data('id')})
+        this.gui.show_screen('product-list', optical_orders);
     },
 });
 
