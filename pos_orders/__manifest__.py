@@ -24,7 +24,7 @@
   "website"              :  "https://store.webkul.com/Odoo-POS-All-Orders-List.html",
   "description"          :  """https://webkul.com/blog/odoo-pos-all-orders-list/""",
   "live_test_url"        :  "http://odoodemo.webkul.com/?module=pos_orders&version=11.0",
-  "depends"              :  ['point_of_sale','multi_branches_pos','pos_receipt_custom','pw_pos_salesperson'],
+  "depends"              :  ['point_of_sale'],
   "data"                 :  [
                              'views/pos_config_view.xml',
                              'views/template.xml',
