@@ -117,21 +117,21 @@
                     </tr>
                     <tr>
                         <th>Distance</th>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
+                        <td><t t-esc="optical_order.od_sph_distance"/></td>
+                        <td><t t-esc="optical_order.od_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.od_ax_distance"/></td>
+                        <td><t t-esc="optical_order.od_add_distance"/></td>
+                        <td><t t-esc="optical_order.od_prism_distance"/></td>
+                        <td><t t-esc="optical_order.od_base_distance"/></td>
                     </tr>
                     <tr>
                         <th>Near</th>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
+                        <td><t t-esc="optical_order.od_sph_near"/></td>
+                        <td><t t-esc="optical_order.od_cyl_near"/></td>
+                        <td><t t-esc="optical_order.od_ax_near"/></td>
+                        <td><t t-esc="optical_order.od_add_near"/></td>
+                        <td><t t-esc="optical_order.od_prism_near"/></td>
+                        <td><t t-esc="optical_order.od_base_near"/></td>
                     </tr>
                     <tr>
                         <th colspan="7">&amp;nbsp;</th>
@@ -150,21 +150,94 @@
                     </tr>
                     <tr>
                         <th>Distance</th>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
+                        <td><t t-esc="optical_order.os_sph_distance"/></td>
+                        <td><t t-esc="optical_order.os_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.os_ax_distance"/></td>
+                        <td><t t-esc="optical_order.os_add_distance"/></td>
+                        <td><t t-esc="optical_order.os_prism_distance"/></td>
+                        <td><t t-esc="optical_order.os_base_distance"/></td>
                     </tr>
                     <tr>
                         <th>Near</th>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
-                        <td>00.0</td>
+                        <td><t t-esc="optical_order.os_sph_near"/></td>
+                        <td><t t-esc="optical_order.os_cyl_near"/></td>
+                        <td><t t-esc="optical_order.os_ax_near"/></td>
+                        <td><t t-esc="optical_order.os_add_near"/></td>
+                        <td><t t-esc="optical_order.os_prism_near"/></td>
+                        <td><t t-esc="optical_order.os_base_near"/></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="PrescriptionShowTable">
+        <t t-if="optical_order !== 0 ">
+            <div class="prescription_receipt_details" t-att-data-id='optical_order.id'>
+                <table>
+                    <tr>
+                        <td><span>Reference:</span><t t-esc="optical_order.name"/></td>
+                        <td><span>Client Name:</span><t t-esc="optical_order.customer[1]"/></td>
+                    </tr>
+                    <tr>
+                        <td><span>Prescription Date:</span><t t-esc="optical_order.checkup_date"/></td>
+                        <td><span>Test Type:</span><t t-esc="optical_order.test_type[1]"/></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="prescription_receipt_table">
+                <table>
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OD</th>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OS</th>
+                    </tr>
+                    <tr>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                    </tr>
+                    <tr>
+                        <th>Distance</th>
+                        <td><t t-esc="optical_order.od_sph_distance"/></td>
+                        <td><t t-esc="optical_order.od_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.od_ax_distance"/></td>
+                        <td><t t-esc="optical_order.od_add_distance"/></td>
+                        <td><t t-esc="optical_order.od_prism_distance"/></td>
+                        <td><t t-esc="optical_order.od_base_distance"/></td>
+                        <th>Distance</th>
+                        <td><t t-esc="optical_order.os_sph_distance"/></td>
+                        <td><t t-esc="optical_order.os_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.os_ax_distance"/></td>
+                        <td><t t-esc="optical_order.os_add_distance"/></td>
+                        <td><t t-esc="optical_order.os_prism_distance"/></td>
+                        <td><t t-esc="optical_order.os_base_distance"/></td>
+                    </tr>
+                    <tr>
+                        <th>Near</th>
+                        <td><t t-esc="optical_order.od_sph_near"/></td>
+                        <td><t t-esc="optical_order.od_cyl_near"/></td>
+                        <td><t t-esc="optical_order.od_ax_near"/></td>
+                        <td><t t-esc="optical_order.od_add_near"/></td>
+                        <td><t t-esc="optical_order.od_prism_near"/></td>
+                        <td><t t-esc="optical_order.od_base_near"/></td>
+                        <th>Near</th>
+                        <td><t t-esc="optical_order.os_sph_near"/></td>
+                        <td><t t-esc="optical_order.os_cyl_near"/></td>
+                        <td><t t-esc="optical_order.os_ax_near"/></td>
+                        <td><t t-esc="optical_order.os_add_near"/></td>
+                        <td><t t-esc="optical_order.os_prism_near"/></td>
+                        <td><t t-esc="optical_order.os_base_near"/></td>
                     </tr>
                 </table>
             </div>
@@ -172,23 +245,23 @@
     </t>
 
     <t t-name="button_book_order">
-            <div class='control-button'>
-                <i class='fa-prescription' />
-                <span class="label optical_prescription">
-                    <t t-if="widget.pos.get_optical_reference()">
-                        <t t-esc="widget.pos.get_optical_reference().name" />
-                    </t>
-                    <t t-if="!widget.pos.get_optical_reference()">
-                        Prescription
-                    </t>
-                </span>
-            </div>
+        <div class='control-button'>
+            <i class='fa-prescription' />
+            <span class="label optical_prescription">
+                <t t-if="widget.pos.get_optical_reference()">
+                    <t t-esc="widget.pos.get_optical_reference().name" />
+                </t>
+                <t t-if="!widget.pos.get_optical_reference()">
+                    Prescription
+                </t>
+            </span>
+        </div>
     </t>
 
     <t t-name="PrescriptionButton">
-            <div class='control-button'>
-                Prescription History
-            </div>
+        <div class='control-button'>
+            Prescription History
+        </div>
     </t>
 
 
@@ -197,102 +270,65 @@
         <div class="modal-dialog">
             <div class="popup widget order-scroller touch-scrollable" style="width:70%;height:700px;font-size: 13px;">
                 <p class="title" style="text-align:left;">Create:Prescription</p>
-
-                <table width="100%" style="margin-top:10px;">
-                    <tr>
-                        <td width="50%">
-                            <table width="100%">
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label for="fname">Optometrist:</label></td>
-                                    <td width="70%" style="padding:5px;">
-                            <select class="doctor"  style="width:80%; padding:5px;" >
-                    <t t-foreach="widget.doctors || []" t-as="item">
-                        <option>
-                            <t t-esc='item'/>
-                        </option>
-                    </t>
-                </select>
-                         </td>
-                     </tr>
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Client:</label></td>
-                                    <td width="70%" style="padding:5px;">
-                            <select class="partner"  style="width:80%; padding:5px;" >
-                    <t t-foreach="widget.partners || []" t-as="item2">
-                        <option>
-                            <t t-esc='item2'/>
-                        </option>
-                    </t>
-                </select>
-                        </td>
-                     </tr>
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>customer Age:</label></td>
-                                    <td width="70%" style="padding:5px;"></td>
-
-                     </tr>
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Prescription Date:</label></td>
-                                    <td width="70%" style="padding:5px;"> <input style="height:30px;" type="date"  class="checkup_date"  maxlength="10"  /></td>
-
-                     </tr>
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label for="fname">Test Type:</label></td>
-                                    <td width="70%" style="padding:5px;">
-                                        <select class="test_type"  style="width:80%; padding:5px;" >
-                    <t t-foreach="widget.test_type || []" t-as="item3">
-                        <option>
-                            <t t-esc='item3'/>
-                        </option>
-                    </t>
-                </select>
-
-                        </td>
-                     </tr>
-                                <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Prescription Type:</label></td>
-                                    <td width="70%" style="padding:5px;">
-                            <select class="prescription_type" style="width:80%; padding:5px;" >
-                                 <option>Internal</option>
-                                <option>External</option>
-                            </select>
-                        </td>
-                     </tr>
-
-
-
-
-                            </table>
-                        </td>
-                        <td width="50%">
-                         <table width="100%">
-                               <tr>
-<!--                         <td width="30%" style="padding:5px; text-align:left;"><label>Eye Examination Chargeable:</label></td>-->
-                                   <!--                                   <td  style="text-align:left; padding-left:40px;">-->
-                                   <!--                            <input style="width:12%;" class="eye_charges" type="checkbox"  />-->
-                                   <!--                        </td>-->
-                     </tr>
-                             <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Family Eye History:</label></td>
-                                 <td width="70%" style="padding:5px;"> <input style="height:30px;" class="eyes_history" type="text"/></td>
-
-                     </tr>
-                             <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Ocular  History:</label></td>
-                                 <td width="70%" style="padding:5px;"> <input class="ocular_history" style="height:30px;" type="text"/></td>
-
-                     </tr>
-                             <tr>
-                         <td width="30%" style="padding:5px; text-align:left;"><label>Consultation Reason:</label></td>
-                                 <td width="70%" style="padding:5px;"> <input class="consultation_reason" style="height:30px;" type="text"/></td>
-
-                     </tr>
-                            </table>
-                        </td>
-                    </tr>
-
-                 </table>
-
+                <form id="prescription_form">
+                    <table style="table-layout: fixed;width:100%">
+                        <tr>
+                            <th>Optometrist:</th>
+                            <td>
+                                <select name="dr"  style="width:80%; padding:5px;" >
+                                    <t t-foreach="widget.doctors || []" t-as="item">
+                                        <option><t t-esc='item'/></option>
+                                    </t>
+                                </select>
+                            </td>
+                            <th>Client:</th>
+                            <td>
+                                <select name="customer"  style="width:80%; padding:5px;" >
+                                    <t t-foreach="widget.partners || []" t-as="item">
+                                        <option><t t-esc='item'/></option>
+                                    </t>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Prescription Date:</th>
+                            <td>
+                                <input style="height:30px;" type="date"  name="checkup_date"  maxlength="10"  />
+                            </td>
+                            <th>Test Type:</th>
+                            <td>
+                                <select name="test_type"  style="width:80%; padding:5px;" >
+                                    <t t-foreach="widget.test_type || []" t-as="item">
+                                        <option><t t-esc='item'/></option>
+                                    </t>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Prescription Type:</th>
+                            <td>
+                                <select name="prescription_type"  style="width:80%; padding:5px;" >
+                                   <option>Internal</option>
+                                   <option>External</option>
+                                </select>
+                            </td>
+                            <th>Family Eye History:</th>
+                            <td>
+                                <input style="height:30px;" name="family_eye_history" type="text"/>
+\                            </td>
+                        </tr>
+                        <tr>
+                            <th>Ocular History:</th>
+                            <td>
+                                <input style="height:30px;" name="ocular_history" type="text"/>
+                            </td>
+                            <th>Consultation Reason:</th>
+                            <td>
+                                <input style="height:30px;" name="ocular_history" type="text"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
 
                 <div style="padding-left:10px; padding-right:10px;">
                  <table  cellspacing="0" cellpadding="0" style="border:1px solid; width:100%; margin-top:15px;">
@@ -317,18 +353,6 @@
 
                                         </table>
                                     </td>
-                         <!--                         <td  style="text-align:center;font-size:16px; font-weight:bold; width:5%; border-right:1px solid black; border-bottom:1px solid black;">-->
-                         <!--                                        <table  width="100%">-->
-                         <!--                                            <tr>-->
-                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">SPH</td>-->
-                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">CYL</td>-->
-                         <!--                                                <td style="border-right:1px  font-size:16px; color:green; font-weight:bold;  solid; width:15%">AXIS</td>-->
-                         <!--                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Add</td>-->
-                         <!--                                                <td style="border-right:1px   font-size:16px; color:green; font-weight:bold; solid; width:15%">Prism</td>-->
-                         <!--                                                <td style="width:15%  font-size:16px; color:green; font-weight:bold;  ">Base</td>-->
-                         <!--                                            </tr>-->
-                         <!--                                        </table>-->
-                         <!--                                    </td>-->
                                 </tr>
 
                      <tr>
@@ -338,148 +362,21 @@
                                             <tr>
                                                 <td  style="border-right:1px solid;width:15%;">
                                                      <select class="od_sph_distance" style="width:80%; padding:5px;" >
-
-                                                          <option>0.00</option>
-                                                         <option>-16.00</option>
-                                                         <option>-15.75</option>
-                                                         <option>-15.50</option>
-                                                         <option>-15.25</option>
-                                                         <option>-15.00</option>
-                                                         <option>-14.75</option>
-                                                         <option>-14.50</option>
-                                                         <option>-14.25</option>
-                                                         <option>-14.00</option>
-                                                         <option>-13.75</option>
-                                                         <option>-13.50</option>
-                                                         <option>-13.25</option>
-                                                         <option>-13.00</option>
-                                                         <option>-12.75</option>
-                                                         <option>-12.50</option>
-                                                         <option>-12.25</option>
-                                                         <option>-12.00</option>
-                                                         <option>-11.75</option>
-                                                         <option>-11.50</option>
-                                                         <option>-11.25</option>
-                                                         <option>-11.00</option>
-                                                         <option>-10.75</option>
-                                                         <option>-10.50</option>
-                                                         <option>-10.25</option>
-                                                         <option>-10.00</option>
-                                                         <option>-9.75</option>
-                                                         <option>-9.50</option>
-                                                         <option>-9.25</option>
-                                                         <option>-9.00</option>
-                                                         <option>-8.75</option>
-                                                         <option>-8.50</option>
-                                                         <option>-8.25</option>
-                                                         <option>-8.00</option>
-                                                         <option>-7.75</option>
-                                                         <option>-7.50</option>
-                                                         <option>-7.25</option>
-                                                         <option>-7.00</option>
-                                                         <option>-6.75</option>
-                                                         <option>-6.50</option>
-                                                         <option>-6.25</option>
-                                                         <option>-6.00</option>
-                                                         <option>-5.75</option>
-                                                         <option>-5.50</option>
-                                                         <option>-5.25</option>
-                                                         <option>-5.00</option>
-                                                         <option>-4.75</option>
-                                                         <option>-4.50</option>
-                                                         <option>-4.25</option>
-                                                         <option>-4.00</option>
-                                                         <option>-3.75</option>
-                                                         <option>-3.50</option>
-                                                         <option>-3.25</option>
-                                                         <option>-3.00</option>
-                                                         <option>-2.75</option>
-                                                         <option>-2.50</option>
-                                                         <option>-2.25</option>
-                                                         <option>-2.00</option>
-                                                         <option>-1.75</option>
-                                                         <option>-1.50</option>
-                                                         <option>-1.25</option>
-                                                         <option>-1.00</option>
-                                                         <option>-0.75</option>
-                                                         <option>-0.50</option>
-                                                         <option>-0.25</option>
-                                                         <option>-0.00</option>
-                                                         <option>+0.75</option>
-                                                         <option>+1.50</option>
-                                                         <option>+1.25</option>
-                                                         <option>+1.00</option>
-                                                         <option>+1.75</option>
-                                                         <option>+2.50</option>
-                                                         <option>+2.25</option>
-                                                         <option>+2.00</option>
-                                                         <option>+2.75</option>
-                                                         <option>+3.50</option>
-                                                         <option>+3.25</option>
-                                                         <option>+3.00</option>
-                                                         <option>+3.75</option>
-                                                         <option>+4.50</option>
-                                                         <option>+4.25</option>
-                                                         <option>+4.00</option>
-                                                         <option>+4.75</option>
-                                                         <option>+5.50</option>
-                                                         <option>+5.25</option>
-                                                         <option>+5.00</option>
-                                                         <option>+5.75</option>
-                                                         <option>+3.50</option>
-                                                         <option>+3.25</option>
-                                                         <option>+3.00</option>
-                                                         <option>+3.75</option>
-
-                                                         <option>+4.50</option>
-                                                         <option>+4.25</option>
-                                                         <option>+4.00</option>
-                                                         <option>+4.75</option>
-
-                                                         <option>+5.50</option>
-                                                         <option>+5.25</option>
-                                                         <option>+5.00</option>
-                                                         <option>+5.75</option>
-
-
-                                                         <option>+6.50</option>
-                                                         <option>+6.25</option>
-                                                         <option>+6.00</option>
-                                                         <option>+6.75</option>
-
-                                                         <option>+7.50</option>
-                                                         <option>+7.25</option>
-                                                         <option>+7.00</option>
-                                                         <option>+7.75</option>
-
-                                                         <option>+8.50</option>
-                                                         <option>+8.25</option>
-                                                         <option>+8.00</option>
-                                                         <option>+8.75</option>
-
-                                                         <option>+9.50</option>
-                                                         <option>+9.25</option>
-                                                         <option>+9.00</option>
-                                                         <option>+9.75</option>
-
-                                                         <option>+10.50</option>
-                                                         <option>+10.25</option>
-                                                         <option>+10.00</option>
-                                                         <option>+10.75</option>
-
-                                                         <option>+11.50</option>
-                                                         <option>+11.25</option>
-                                                         <option>+11.00</option>
-                                                         <option>+11.75</option>
-                                                         <option>+12.00</option>
-
-
-
-
-
-
-
-
+<t t-set="check" t-value="16"/>
+<t t-foreach="widget.abc || []" t-as="i">
+<t t-if="check &gt; 0">
+<option>-<t t-esc="check"/></option>
+</t>
+<t t-set="check" t-value="check - 0.25"/>
+</t>
+<option>0</option>
+<t t-set="check" t-value="0.25"/>
+<t t-foreach="widget.abc || []" t-as="i">
+<t t-if="check &lt; 12.25">
+    <option>+<t t-esc="check"/></option>
+</t>
+<t t-set="check" t-value="check + 0.25"/>
+</t>
 
                             </select>
 
@@ -3083,7 +2980,7 @@
                     <div class='window'>
                         <section class='subwindow collapsed'>
                             <div class='subwindow-container collapsed'>
-                                <div class='subwindow-container-fix products-details-contents'>
+                                <div class='subwindow-container-fix optical_order-details-content'>
                                 </div>
                             </div>
                         </section>

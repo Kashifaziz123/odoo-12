@@ -90,11 +90,15 @@ screens.define_action_button({
             od_sph_distances.push(self.pos.products[i].od_sph_distance);
 
         }
+        var abc= [];
+        for (var i=0;i<90;i++)
+            abc.push(i);
          self.gui.show_popup('product_create',{
                 'doctors':optometrist,
                 'partners':partner,
                 'test_type':test_types,
-                'od_sph_distance':od_sph_distances
+                'od_sph_distance':od_sph_distances,
+                'abc':abc,
             });
 
         },
@@ -130,6 +134,7 @@ var ProductCreationWidget = PopupWidget.extend({
         this.partners = options.partners;
         this.test_type = options.test_type;
         this.od_sph_distances = options.od_sph_distances;
+        this.abc= options.abc;
         this.renderElement();
 
     },
@@ -301,7 +306,6 @@ var ProductWidget = screens.ScreenWidget.extend({
                 var optical_orders = self.pos.db.optical_all_orders
             this.render_list(optical_orders, undefined, undefined);
             var search_timeout = null;
-
 //            if(this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard){
 //                this.chrome.widget.keyboard.connect(this.$('.searchbox input'));
 //            }
@@ -320,7 +324,14 @@ var ProductWidget = screens.ScreenWidget.extend({
     },
     line_select: function(event,$line,id){
         var self = this;
-		return self.pos.db.optical_order_by_id[id]
+		optical_order =  self.pos.db.optical_order_by_id[id]
+    	var contents = this.$('.optical_order-details-content');
+    	if (parseInt($('.prescription_receipt_details').data('id')) !== id){
+        	contents.empty();
+    		contents.append($(QWeb.render('PrescriptionShowTable',{widget:this, optical_order:optical_order})));
+    	}
+    	else
+        	contents.empty();
     },
     render_list: function(optical_orders, date_value, client_value){
             var self = this

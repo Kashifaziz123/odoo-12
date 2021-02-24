@@ -13,11 +13,40 @@
     padding-top: 8px;
     padding-bottom: 8px;
 }
-.prescription_receipt_details table tr div{
-    width: 50%;
-}.prescription_receipt_details table tbody tr th{
+.prescription_receipt_details table tbody tr th{
     text-align: left;
 }
 .prescription_receipt_details .padding{
     padding-left: 20px
+}
+.optical_order-details-content .prescription_receipt_table table tbody tr td,.optical_order-details-content .prescription_receipt_table table tbody tr th,.optical_order-details-content .prescription_receipt_table table tbody tr{
+    border: 1px solid green;
+}
+.optical_order-details-content .prescription_receipt_table table{
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+.optical_order-details-content .prescription_receipt_details{
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 24px;
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+.optical_order-details-content .prescription_receipt_details table tbody tr td span{
+    color: green;
+    padding-right: 10px;
+}
+.optical_order-details-content .prescription_receipt_details table{
+    width: 100%;
+}
+.optical_order-details-content .prescription_receipt_table{
+    padding-bottom: 16px;
+}
+.optical_order-details-content .prescription_receipt_details table{
+    table-layout: fixed;
 }
