@@ -4,6 +4,7 @@
         <template id="assets" inherit_id="point_of_sale.assets">
             <xpath expr="." position="inside">
                 <link rel="stylesheet" type="text/css" href="/pos_prescription_creation/static/src/css/style.css"/>
+                <script type="text/javascript" src="/pos_prescription_creation/static/src/js/script.js"></script>
                 <script type="text/javascript" src="/pos_prescription_creation/static/src/js/create_product.js"></script>
                 <script type="text/javascript" src="/pos_prescription_creation/static/src/js/db.js"></script>
                 <script type="text/javascript" src="/pos_prescription_creation/static/src/js/models.js"></script>
