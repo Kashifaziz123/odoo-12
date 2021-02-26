@@ -1,28 +1,25 @@
 odoo.define('pos_prescription_creation',function(require) {
 
-var gui = require('point_of_sale.gui');
-var chrome = require('point_of_sale.chrome');
-var PopupWidget = require('point_of_sale.popups');
-var screens = require('point_of_sale.screens');
-var popups = require('point_of_sale.popups');
-var core = require('web.core');
-var models = require('point_of_sale.models');
-var rpc = require('web.rpc');
-var utils = require('web.utils');
-var QWeb = core.qweb;
-var _t = core._t;
+    var gui = require('point_of_sale.gui');
+    var chrome = require('point_of_sale.chrome');
+    var PopupWidget = require('point_of_sale.popups');
+    var screens = require('point_of_sale.screens');
+    var popups = require('point_of_sale.popups');
+    var core = require('web.core');
+    var models = require('point_of_sale.models');
+    var rpc = require('web.rpc');
+    var utils = require('web.utils');
+    var QWeb = core.qweb;
+    var _t = core._t;
 
-
-models.load_models({
+    models.load_models([{
         model:  'optical.dr',
         fields: ['name'],
         loaded: function(self,dr){
             self.dr =dr;
             self.db.doctors = dr;
         },
-    });
-
-models.load_models({
+    },{
         model:  'dr.prescription',
         loaded: function(self,optical_orders){
             self.db.optical_all_orders = optical_orders;
@@ -32,45 +29,38 @@ models.load_models({
                 self.db.optical_order_by_id[order.id] = order;
             });
         },
-    })
-
-models.load_models({
+    },{
         model:  'res.partner',
         fields: ['name','customer_rank'],
 //        domain: [['customer_rank','=','1']],
         loaded: function(self,customers){
             self.customers = customers;
         },
-    });
-
-models.load_models({
+    },{
         model:  'eye.test.type',
         fields: ['name'],
         loaded: function(self,test_type){
             self.test_type = test_type;
         },
+    }]);
+
+    var PrescriptionButton = screens.ActionButtonWidget.extend({
+        template: 'PrescriptionButton',
+        button_click: function(){
+            this.gui.show_screen('product-list',this.pos.db.optical_all_orders);
+        }
     });
 
+    screens.define_action_button({
+        'name': 'PrescriptionButton',
+        'widget':PrescriptionButton,
+    });
 
-var PrescriptionButton = screens.ActionButtonWidget.extend({
-    template: 'PrescriptionButton',
-    button_click: function(){
-        this.gui.show_screen('product-list',this.pos.db.optical_all_orders);
-    }
-});
-
-screens.define_action_button({
-    'name': 'PrescriptionButton',
-    'widget':PrescriptionButton,
-});
-
-
- var button_book_order = screens.ActionButtonWidget.extend({
+    var button_book_order = screens.ActionButtonWidget.extend({
         template: 'button_book_order',
         button_click: function () {
-            var self = this;
             this._super();
-            self.gui.show_popup('product_create');
+            this.gui.show_popup('product_create');
         },
     });
 
@@ -78,6 +68,94 @@ screens.define_action_button({
         'name': 'book_order',
         'widget': button_book_order
     });
+
+    var SelectGlassesButton = screens.ActionButtonWidget.extend({
+        template: 'SelectGlassesButton',
+        button_click: function () {
+            this._super();
+            this.gui.show_popup('order_create');
+        },
+    });
+
+    screens.define_action_button({
+        'name': 'SelectGlassesButton',
+        'widget': SelectGlassesButton
+    });
+
+    var OrderCreationWidget = PopupWidget.extend({
+        template: 'OrderCreationWidget',
+        events: {
+        'click .button.cancel':  'click_cancel',
+        'click .button.confirm': 'click_confirm',
+    },
+        show: function(options){
+            options = options || {};
+            this._super(options);
+            if (this.pos.get_order().attributes.client)
+                this.customer = this.pos.get_order().attributes.client.name;
+            else
+                this.customer = false;
+            if (this.pos.get_order().optical_reference != undefined)
+                this.optical_reference = this.pos.get_order().optical_reference.name;
+            else
+                this.optical_reference = false;
+            if (!this.customer || !this.optical_reference){
+                this.gui.show_popup('error',{
+                    'title': _t('No Customer or Prescription found'),
+                    'body':  _t('You need to select Customer & Prescription to continue'),
+                });
+            }
+            else
+                this.renderElement();
+        },
+        click_confirm: function(){
+        var self = this;
+        var order = this.pos.get_order();
+        var vals = $("#prescription_form").serializeObject();
+        vals["dr"] = $('option:selected', $('[name=dr]')).data('id');
+        vals["customer"] = $('option:selected', $('[name=customer]')).data('id');
+        vals["test_type"] = $('option:selected', $('[name=test_type]')).data('id');
+        if (vals["dual_pd"] !== "on")
+            vals["dual_pd"] = "off";
+        vals = JSON.stringify(vals);
+        var checkup_date = $('[name=checkup_date]').val();
+        var today = new Date().toJSON().slice(0,10);
+        if( !checkup_date) {
+              this.gui.show_popup('error',{
+                'title': _t('Checkup date is empty'),
+                'body':  _t('You need to select a Checkup date'),
+                cancel: function () {
+                    this.gui.show_popup('product_create');
+                },
+              });
+        }
+        else {
+            this.gui.show_popup('confirm',{
+                'title': _t('Create a Prescription ?'),
+                'body': _t('Are You Sure You Want a Create a Prescription'),
+                    confirm: function(){
+                        rpc.query({
+                            model: 'dr.prescription',
+                            method: 'create_product_pos',
+                            args: [vals],
+                        }).then(function (products){
+                            self.pos.db.add_optical_orders(products)
+                            $('.optical_prescription').text(products.name);
+                            order.set_optical_reference(products);
+                            console.log(products)
+                        });
+                    },
+            });
+        };
+    },
+        click_cancel: function(){
+            this.gui.close_popup();
+            if (this.options.cancel) {
+                this.options.cancel.call(this);
+            }
+        },
+    });
+    gui.define_popup({name:'order_create', widget: OrderCreationWidget});
 
 
 

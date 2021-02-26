@@ -133,8 +133,8 @@
                         <td><t t-esc="optical_order.od_prism_near"/></td>
                         <td><t t-esc="optical_order.od_base_near"/></td>
                     </tr>
-                    <tr>
-                        <th colspan="7">&amp;nbsp;</th>
+                    <tr class="nbsp">
+                        <th colspan="7" class="nbsp">&amp;nbsp;</th>
                     </tr>
                     <tr>
                         <th rowspan="2"></th>
@@ -278,6 +278,12 @@
     <t t-name="PrescriptionButton">
         <div class='control-button'>
             Prescription History
+        </div>
+    </t>
+
+    <t t-name="SelectGlassesButton">
+        <div class='control-button'>
+            Select Glasses
         </div>
     </t>
 
@@ -804,6 +810,41 @@
                         $(".dual_pd").hide();
                     });
                 </script>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="OrderCreationWidget">
+        <div class="modal-dialog">
+            <div class="prescription_form_div popup widget order-scroller touch-scrollable">
+                <p class="title" style="text-align:left;">Create Prescription</p>
+                <form id="prescription_form">
+                    <table>
+                        <tr>
+                            <th>Client:</th>
+                            <td colspan="3"><t t-esc="widget.customer"/></td>
+                        </tr>
+                        <tr>
+                            <th>Prescription:</th>
+                            <td colspan="3"><t t-esc="widget.optical_reference"/></td>
+                        </tr>
+                        <tr>
+                            <th>Glasses:</th>
+                            <td colspan="3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="button confirm">
+                                    Create
+                                </div>
+                                <div class="button cancel">
+                                    Cancel
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
     </t>
