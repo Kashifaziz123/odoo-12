@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Variants -->
+        <record id="product_attribute_111" model="product.attribute">
+            <field name="name">Type Of Focus</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="product_attribute_value_11" model="product.attribute.value">
+            <field name="name">MON</field>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="sequence">1</field>
+        </record>
+        <record id="product_attribute_value_12" model="product.attribute.value">
+            <field name="name">BIF</field>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="sequence">2</field>
+        </record>
+        <record id="product_attribute_value_13" model="product.attribute.value">
+            <field name="name">MULT</field>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="sequence">3</field>
+        </record>
+        <record id="product_attribute_value_14" model="product.attribute.value">
+            <field name="name">No type</field>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_222" model="product.attribute">
+            <field name="name">Material</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="product_attribute_value_21" model="product.attribute.value">
+            <field name="name">RE</field>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="sequence">1</field>
+        </record>
+        <record id="product_attribute_value_22" model="product.attribute.value">
+            <field name="name">CR</field>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="sequence">2</field>
+        </record>
+        <record id="product_attribute_value_23" model="product.attribute.value">
+            <field name="name">POL</field>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="sequence">3</field>
+        </record>
+        <record id="product_attribute_value_24" model="product.attribute.value">
+            <field name="name">FX</field>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_25" model="product.attribute.value">
+            <field name="name">No material</field>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="sequence">5</field>
+        </record>
+        <record id="product_attribute_333" model="product.attribute">
+            <field name="name">Treatment</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="product_attribute_value_31" model="product.attribute.value">
+            <field name="name">UV</field>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="sequence">1</field>
+        </record>
+        <record id="product_attribute_value_32" model="product.attribute.value">
+            <field name="name">DQ</field>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="sequence">2</field>
+        </record>
+        <record id="product_attribute_value_33" model="product.attribute.value">
+            <field name="name">AR</field>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="sequence">3</field>
+        </record>
+        <record id="product_attribute_value_34" model="product.attribute.value">
+            <field name="name">No treatment</field>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="sequence">4</field>
+        </record>
+<!--        <record id="product_attribute_444" model="product.attribute">-->
+<!--            <field name="name">Photochromic</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_41" model="product.attribute.value">-->
+<!--            <field name="name">TR</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_42" model="product.attribute.value">-->
+<!--            <field name="name">PH</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_43" model="product.attribute.value">-->
+<!--            <field name="name">CM</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="sequence">3</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_44" model="product.attribute.value">-->
+<!--            <field name="name">No photochromic</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="sequence">4</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_555" model="product.attribute">-->
+<!--            <field name="name">Filter</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_51" model="product.attribute.value">-->
+<!--            <field name="name">BLF</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_555"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_52" model="product.attribute.value">-->
+<!--            <field name="name">No filter</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_555"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_666" model="product.attribute">-->
+<!--            <field name="name">High Index</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_61" model="product.attribute.value">-->
+<!--            <field name="name">1.67</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_666"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_62" model="product.attribute.value">-->
+<!--            <field name="name">1.74</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_666"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_63" model="product.attribute.value">-->
+<!--            <field name="name">No index</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_666"/>-->
+<!--            <field name="sequence">3</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_777" model="product.attribute">-->
+<!--            <field name="name">Carving</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_71" model="product.attribute.value">-->
+<!--            <field name="name">DC</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_777"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_72" model="product.attribute.value">-->
+<!--            <field name="name">CC</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_777"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_73" model="product.attribute.value">-->
+<!--            <field name="name">No carving</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_777"/>-->
+<!--            <field name="sequence">3</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_888" model="product.attribute">-->
+<!--            <field name="name">Special Works</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_81" model="product.attribute.value">-->
+<!--            <field name="name">CW</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_82" model="product.attribute.value">-->
+<!--            <field name="name">CD</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_83" model="product.attribute.value">-->
+<!--            <field name="name">CO</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="sequence">3</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_84" model="product.attribute.value">-->
+<!--            <field name="name">PR</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="sequence">4</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_85" model="product.attribute.value">-->
+<!--            <field name="name">No special works</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="sequence">5</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_999" model="product.attribute">-->
+<!--            <field name="name">Type Scope</field>-->
+<!--            <field name="sequence">10</field>-->
+<!--            <field name="create_variant">dynamic</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_91" model="product.attribute.value">-->
+<!--            <field name="name">CL</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_999"/>-->
+<!--            <field name="sequence">1</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_92" model="product.attribute.value">-->
+<!--            <field name="name">FA</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_999"/>-->
+<!--            <field name="sequence">2</field>-->
+<!--        </record>-->
+<!--        <record id="product_attribute_value_93" model="product.attribute.value">-->
+<!--            <field name="name">No type scope</field>-->
+<!--            <field name="attribute_id" ref="product_attribute_999"/>-->
+<!--            <field name="sequence">3</field>-->
+<!--        </record>-->
+
+        <!--Product 1-->
+
+        <record id="product_product_00_product_template" model="product.template">
+            <field name="name">Optical Glasses 01</field>
+            <field name="standard_price">500.0</field>
+            <field name="list_price">750.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+        <!-- the product template attribute lines have to be defined before creating the variants -->
+        <record id="product_00_attribute_1_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_00_product_template"/>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_11'), ref('product_attribute_value_12'), ref('product_attribute_value_13'), ref('product_attribute_value_14')])]"/>
+        </record>
+        <record id="product_00_attribute_2_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_00_product_template"/>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21'), ref('product_attribute_value_22'), ref('product_attribute_value_23'), ref('product_attribute_value_24'), ref('product_attribute_value_25')])]"/>
+        </record>
+        <record id="product_00_attribute_3_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_00_product_template"/>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_31'), ref('product_attribute_value_32'), ref('product_attribute_value_33'), ref('product_attribute_value_34')])]"/>
+        </record>
+<!--        <record id="product_00_attribute_4_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_41'), ref('product_attribute_value_42'), ref('product_attribute_value_43'), ref('product_attribute_value_44')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_5_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_555"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_51'), ref('product_attribute_value_52')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_6_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_666"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_61'), ref('product_attribute_value_62'), ref('product_attribute_value_63')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_7_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_777"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_71'), ref('product_attribute_value_72'), ref('product_attribute_value_73')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_8_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_81'), ref('product_attribute_value_82'), ref('product_attribute_value_83'), ref('product_attribute_value_84'), ref('product_attribute_value_85')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_9_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_999"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_91'), ref('product_attribute_value_92'), ref('product_attribute_value_93')])]"/>-->
+<!--        </record>-->
+
+        <!--Product 2-->
+
+<!--        <record id="product_product_01_product_template" model="product.template">-->
+<!--            <field name="name">Optical Glasses 02</field>-->
+<!--            <field name="standard_price">500.0</field>-->
+<!--            <field name="list_price">750.0</field>-->
+<!--            <field name="type">consu</field>-->
+<!--            <field name="weight">0.01</field>-->
+<!--            <field name="available_in_pos">True</field>-->
+<!--            <field name="uom_id" ref="uom.product_uom_unit"/>-->
+<!--            <field name="uom_po_id" ref="uom.product_uom_unit"/>-->
+<!--        </record>-->
+<!--        &lt;!&ndash; the product template attribute lines have to be defined before creating the variants &ndash;&gt;-->
+<!--        <record id="product_00_attribute_1_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_111"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_11'), ref('product_attribute_value_12'), ref('product_attribute_value_13'), ref('product_attribute_value_14')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_2_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_222"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21'), ref('product_attribute_value_22'), ref('product_attribute_value_23'), ref('product_attribute_value_24'), ref('product_attribute_value_25')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_3_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_333"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_31'), ref('product_attribute_value_32'), ref('product_attribute_value_33'), ref('product_attribute_value_34')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_4_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_444"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_41'), ref('product_attribute_value_42'), ref('product_attribute_value_43'), ref('product_attribute_value_44')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_5_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_555"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_51'), ref('product_attribute_value_52')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_6_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_666"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_61'), ref('product_attribute_value_62'), ref('product_attribute_value_63')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_7_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_777"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_71'), ref('product_attribute_value_72'), ref('product_attribute_value_73')])]"/>-->
+<!--        </record>-->
+<!--        <record id="product_00_attribute_8_product_template_attribute_line" model="product.template.attribute.line">-->
+<!--            <field name="product_tmpl_id" ref="product_product_01_product_template"/>-->
+<!--            <field name="attribute_id" ref="product_attribute_888"/>-->
+<!--            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_81'), ref('product_attribute_value_82'), ref('product_attribute_value_83'), ref('product_attribute_value_84'), ref('product_attribute_value_85')])]"/>-->
+<!--        </record>-->
+</odoo>

@@ -96,7 +96,7 @@
                     <tr>
                         <th>Prescription Date:</th>
                         <td><t t-esc="optical_order.checkup_date"/></td>
-                        <th class="padding">Test Test:</th>
+                        <th class="padding">Test Type:</th>
                         <td><t t-esc="optical_order.test_type[1]"/></td>
                     </tr>
                 </table>
@@ -817,8 +817,8 @@
     <t t-name="OrderCreationWidget">
         <div class="modal-dialog">
             <div class="prescription_form_div popup widget order-scroller touch-scrollable">
-                <p class="title" style="text-align:left;">Create Prescription</p>
-                <form id="prescription_form">
+                <p class="title" style="text-align:left;">Add Product</p>
+                <form id="order_form">
                     <table>
                         <tr>
                             <th>Client:</th>
@@ -833,6 +833,114 @@
                             <td colspan="3">
                             </td>
                         </tr>
+                        <tr class="nbsp">
+                            <th colspan="4" class="nbsp">&amp;nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="far"/> Far</td>
+                            <td><input class="coupon_question" type="radio" name="far"/> Close</td>
+                            <td><input class="coupon_question" type="checkbox" name="glass_right"/>Glass right</td>
+                            <td><input class="coupon_question" type="checkbox" name="glass_left"/>Glass left</td>
+                        </tr>
+                        <tr class="nbsp">
+                            <th colspan="4" class="nbsp">&amp;nbsp;</th>
+                        </tr>
+                    </table>
+                    <table class="properties">
+                        <tr>
+                            <th colspan="2">Types Of Focus</th>
+                            <th colspan="2">Filter</th>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MON"/> MonoFocal</td>
+                            <td>MON</td>
+                            <td><input class="coupon_question" type="checkbox" name="blue_light_filter"/>Blue Light Filter</td>
+                            <td>BLF</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="BIF"/> BiFocal</td>
+                            <td>BIF</td>
+                            <th colspan="2">High Index</th>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MULT"/> MultiFocal</td>
+                            <td>MULT</td>
+                            <td><input class="coupon_question" type="radio" name="high_index" value="1.67"/> To 1.67</td>
+                            <td>To 1.67</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Material</th>
+                            <td><input class="coupon_question" type="radio" name="high_index" value="1.74"/> To 1.74</td>
+                            <td>To 1.74</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="material" value="RE"/> Resins</td>
+                            <td>RE</td>
+                            <th colspan="2">Carving</th>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="material" value="CR"/> Crystals</td>
+                            <td>CR</td>
+                            <td><input class="coupon_question" type="radio" name="carving" value="DC"/> Digital Carving</td>
+                            <td>DC</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="material" value="POL"/>Poly Carbonate</td>
+                            <td>POL</td>
+                            <td><input class="coupon_question" type="radio" name="carving" value="CC"/>Conventional Carving</td>
+                            <td>CC</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="material" value="FX"/>Futurex</td>
+                            <td>FX</td>
+                            <th colspan="2">Special Works</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Treatment</th>
+                            <td><input class="coupon_question" type="radio" name="special_works" value="CW"/>Colored Whole</td>
+                            <td>CW</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="treatment" value="UV"/>Ultra Violet</td>
+                            <td>UV</td>
+                            <td><input class="coupon_question" type="radio" name="special_works" value="CD"/>Colored Degrade</td>
+                            <td>CD</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="treatment" value="DQ"/>DQ/HC</td>
+                            <td>DQ</td>
+                            <td><input class="coupon_question" type="radio" name="special_works" value="CO"/>Colored Others</td>
+                            <td>CO</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="treatment" value="AR"/>Anti Reflection</td>
+                            <td>AR</td>
+                            <td><input class="coupon_question" type="radio" name="special_works" value="PR"/>Prism</td>
+                            <td>PR</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">PhotoChromic</th>
+                            <th colspan="2">Type Scope</th>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="TR"/>Transitions</td>
+                            <td>TR</td>
+                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="CL"/>Close</td>
+                            <td>CL</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="PH"/>PhotoFusion</td>
+                            <td>PH</td>
+                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="FA"/>Far</td>
+                            <td>FA</td>
+                        </tr>
+                        <tr>
+                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="CM"/>ColorMatic</td>
+                            <td>CM</td>
+                            <th colspan="2" class="nbsp">&amp;nbsp;</th>
+                        </tr>
+                    </table>
+                    <table>
                         <tr>
                             <td colspan="4">
                                 <div class="button confirm">
@@ -851,7 +959,7 @@
 
     <t t-name="ProductsLine">
         <tr class='productlines ' t-att-data-id='product.id'>
-             <td><t t-esc='product.name' /></td>
+            <td><t t-esc='product.name' /></td>
             <td><t t-esc='product.customer[1]' /></td>
             <td><t t-esc='product.checkup_date' /></td>
             <td><t t-esc='product.dr[1]' /></td>
@@ -864,7 +972,6 @@
                 </button>
             </td>
             <td> <i class="fa fa-print pos_optical_print" t-att-data-order-id="product.id"/></td>
-
         </tr>
     </t>
 
@@ -874,7 +981,7 @@
                 <section class="top-content">
                     <span class='button back'>
                         <i class='fa fa-angle-double-left'></i>
-                            Cancel
+                        Cancel
                     </span>
                     <span class='searchbox searchbox_date' style="right: 2px;">
                         <input placeholder='Search Date' />
@@ -918,8 +1025,6 @@
                         </section>
                     </div>
                 </section>
-
-
             </div>
         </div>
     </t>

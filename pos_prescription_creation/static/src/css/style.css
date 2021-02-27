@@ -83,6 +83,47 @@
     width: 100%;
     text-align: center;
 }
+#order_form{
+    font-size: medium;
+    text-align: left;
+    padding: 30px;
+    width: 94%;
+}
+#order_form table{
+    table-layout: fixed;
+    width:100%
+}
+#order_form table tbody tr td input,#order_form table tbody tr td select{
+    width:95%;
+    min-height: 0px;
+    font-size: inherit;
+    max-height: 20px;
+    padding-left: 5px;
+    color: currentColor;
+}
+#order_form table tbody tr td{
+    padding: 3px;
+}
+#order_form .table tbody tr td,#order_form .table tbody tr th{
+    border: 1px solid black;
+}
+#order_form .table{
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+#order_form .properties{
+    border: 3px solid black;
+    padding: 3px;
+}
+#order_form .properties tbody tr td{
+    padding: 10px;
+    padding-left: 10px;
+}
+#order_form .properties tbody tr th{
+    padding: 10px;
+    color: green;
+}
 .nbsp{
     border-left: 0px !important;
     border-right: 0px !important;
@@ -90,4 +131,5 @@
 }
 .coupon_question{
     box-shadow: none !important;
+    width: fit-content !important;
 }
