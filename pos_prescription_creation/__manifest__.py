@@ -11,8 +11,6 @@
     'data': [
              'views/pos_template.xml',
              'views/pos_order_view.xml',
-    ],
-    'demo': [
              'data/optical_product_variants.xml',
             ],
     'qweb': ['static/src/xml/pos.xml','static/src/xml/prescription_history.xml'],
