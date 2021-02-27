@@ -237,6 +237,65 @@
             <field name="attribute_id" ref="product_attribute_333"/>
             <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_31'), ref('product_attribute_value_32'), ref('product_attribute_value_33'), ref('product_attribute_value_34')])]"/>
         </record>
+
+        <!--Product 2-->
+
+        <record id="product_product_01_product_template" model="product.template">
+            <field name="name">Optical Glasses 02</field>
+            <field name="standard_price">500.0</field>
+            <field name="list_price">750.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+        <!-- the product template attribute lines have to be defined before creating the variants -->
+        <record id="product_00_attribute_1_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_01_product_template"/>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_11'), ref('product_attribute_value_12'), ref('product_attribute_value_13'), ref('product_attribute_value_14')])]"/>
+        </record>
+        <record id="product_00_attribute_2_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_01_product_template"/>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21'), ref('product_attribute_value_22'), ref('product_attribute_value_23'), ref('product_attribute_value_24'), ref('product_attribute_value_25')])]"/>
+        </record>
+        <record id="product_00_attribute_3_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_01_product_template"/>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_31'), ref('product_attribute_value_32'), ref('product_attribute_value_33'), ref('product_attribute_value_34')])]"/>
+        </record>
+
+        <!--Product 3-->
+
+        <record id="product_product_02_product_template" model="product.template">
+            <field name="name">Optical Glasses 03</field>
+            <field name="standard_price">500.0</field>
+            <field name="list_price">750.0</field>
+            <field name="type">consu</field>
+            <field name="weight">0.01</field>
+            <field name="available_in_pos">True</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        </record>
+        <!-- the product template attribute lines have to be defined before creating the variants -->
+        <record id="product_00_attribute_1_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_02_product_template"/>
+            <field name="attribute_id" ref="product_attribute_111"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_11'), ref('product_attribute_value_12'), ref('product_attribute_value_13'), ref('product_attribute_value_14')])]"/>
+        </record>
+        <record id="product_00_attribute_2_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_02_product_template"/>
+            <field name="attribute_id" ref="product_attribute_222"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_21'), ref('product_attribute_value_22'), ref('product_attribute_value_23'), ref('product_attribute_value_24'), ref('product_attribute_value_25')])]"/>
+        </record>
+        <record id="product_00_attribute_3_product_template_attribute_line" model="product.template.attribute.line">
+            <field name="product_tmpl_id" ref="product_product_02_product_template"/>
+            <field name="attribute_id" ref="product_attribute_333"/>
+            <field name="value_ids" eval="[(6, 0, [ref('product_attribute_value_31'), ref('product_attribute_value_32'), ref('product_attribute_value_33'), ref('product_attribute_value_34')])]"/>
+        </record>
+
 <!--        <record id="product_00_attribute_4_product_template_attribute_line" model="product.template.attribute.line">-->
 <!--            <field name="product_tmpl_id" ref="product_product_00_product_template"/>-->
 <!--            <field name="attribute_id" ref="product_attribute_444"/>-->

@@ -52,7 +52,7 @@ odoo.define('pos_prescription_creation',function(require) {
 //  To select all products with optical variants
 // =============================================
         model:  'product.template',
-        fields: ['name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
+        fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
 //        domain: [['product_variant_count', '=', 81]],
         loaded: function(self,products){
             self.db.product_templates = products;
@@ -135,16 +135,19 @@ odoo.define('pos_prescription_creation',function(require) {
             self = this;
 
             self.pos.db.optical_glasses = [];
+            self.pos.db.optical_glasses_by_id = [];
             self.pos.db.product_templates.forEach(function(product_template){
                 self.pos.db.attribute_line_ids = [];
                 product_template.attribute_line_ids.forEach(function(attribute_line){
                     self.pos.db.attribute_line_ids.push(self.pos.db.product_attributes_lines_by_id[attribute_line].attribute_id[0]);
                 })
                 if (self.pos.db.attribute_line_ids.length)
-                    if (self.pos.db.attribute_line_ids.every(function(id){return self.pos.db.optical_product_attributes_ids.includes(id);}))
+                    if (self.pos.db.attribute_line_ids.every(function(id){return self.pos.db.optical_product_attributes_ids.includes(id);})){
+                        self.pos.db.optical_glasses_by_id[product_template.id] = product_template;
                         self.pos.db.optical_glasses.push(product_template);
+                    }
             })
-
+            this.glasses = self.pos.db.optical_glasses;
             if (this.pos.get_order().attributes.client)
                 this.customer = this.pos.get_order().attributes.client.name;
             else
@@ -187,7 +190,8 @@ odoo.define('pos_prescription_creation',function(require) {
             if (vals["Type_Scope"] == undefined)
                 vals["Type_Scope"] = 'No type scope';
 
-            self.pos.db.optical_glasses[0].product_variant_ids.forEach(function(product_template){
+            id = $('option:selected', $('[name=glasses]')).data('id');
+            self.pos.db.optical_glasses_by_id[id].product_variant_ids.forEach(function(product_template){
                 if (self.pos.db.product_by_id[product_template].display_name.includes(vals["types_of_focus"]) &&
                     self.pos.db.product_by_id[product_template].display_name.includes(vals["material"]) &&
                     self.pos.db.product_by_id[product_template].display_name.includes(vals["treatment"]))
@@ -226,6 +230,10 @@ var ProductCreationWidget = PopupWidget.extend({
         this.doctors = this.pos.dr;
         this.partners = this.pos.customers;
         this.test_type = this.pos.test_type;
+        if (this.pos.get_order().attributes.client)
+            this.customer = this.pos.get_order().attributes.client.id;
+        else
+            this.customer = false;
         var abc= [];
         for (var i=0;i<90;i++)
             abc.push(i);
@@ -267,7 +275,7 @@ var ProductCreationWidget = PopupWidget.extend({
                             self.pos.db.add_optical_orders(products)
                             $('.optical_prescription').text(products.name);
                             order.set_optical_reference(products);
-                            console.log(products)
+                            order.set_client(this.pos.db.partner_by_id[$('option:selected', $('[name=customer]')).data('id')]);
                         });
                     },
             });

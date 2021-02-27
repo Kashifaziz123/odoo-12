@@ -306,7 +306,12 @@
                             <td>
                                 <select name="customer">
                                     <t t-foreach="widget.partners || []" t-as="item">
-                                        <option t-attf-data-id="{{ item.id }}"><t t-esc='item.name'/></option>
+                                        <t t-if="widget.customer == item.id">
+                                            <option t-attf-data-id="{{ item.id }}" t-attf-selected=""><t t-esc='item.name'/></option>
+                                        </t>
+                                        <t t-if="widget.customer != item.id">
+                                            <option t-attf-data-id="{{ item.id }}"><t t-esc='item.name'/></option>
+                                        </t>
                                     </t>
                                 </select>
                             </td>
@@ -831,6 +836,11 @@
                         <tr>
                             <th>Glasses:</th>
                             <td colspan="3">
+                                <select name="glasses">
+                                    <t t-foreach="widget.glasses || []" t-as="item">
+                                        <option t-attf-data-id="{{ item.id }}"><t t-esc='item.name'/></option>
+                                    </t>
+                                </select>
                             </td>
                         </tr>
                         <tr class="nbsp">
