@@ -243,17 +243,19 @@
                         <th class="nbsp">&amp;nbsp;</th>
                     </tr>
                     <t t-if="!optical_order.dual_pd">
-                        <tr>
+                        <tr class="nbsp">
                             <th>PD</th>
                             <td><t t-esc="optical_order.pd"/></td>
+                            <th class="nbsp" colspan="12">&amp;nbsp</th>
                         </tr>
                     </t>
                     <t t-if="optical_order.dual_pd">
-                        <tr>
+                        <tr class="nbsp">
                             <th class="dual_pd">PD Left</th>
                             <td><t t-esc="optical_order.pdl"/></td>
                             <th class="dual_pd">PD Right</th>
                             <td><t t-esc="optical_order.pdr"/></td>
+                            <th class="nbsp" colspan="11">&amp;nbsp</th>
                         </tr>
                     </t>
                 </table>
@@ -715,6 +717,7 @@
                         </tr>
                         <tr class="nbsp">
                             <th colspan="4" class="nbsp">&amp;nbsp;</th>
+                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
                         </tr>
                         <tr>
                             <th class="pd">PD</th>
@@ -734,6 +737,7 @@
                             <td>
                                 <input name="dual_pd" class="coupon_question" onchange="valueChanged()" type="checkbox"  />
                             </td>
+                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
                         </tr>
                         <tr class="dual_pd">
                             <th class="dual_pd">PD Left</th>
@@ -762,6 +766,7 @@
                                     </t>
                                 </select>
                             </td>
+                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
                         </tr>
                     </table>
                     <table>

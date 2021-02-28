@@ -42,21 +42,11 @@ odoo.define('pos_prescription_creation',function(require) {
         loaded: function(self,test_type){
             self.test_type = test_type;
         },
-    },{
-        model:  'product.product',
-        loaded: function(self,products){
-            self.db.product_product = products;
-        },
-    },{
-// =============================================
-//  To select all products with optical variants
-// =============================================
-        model:  'product.template',
-        fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
-//        domain: [['product_variant_count', '=', 81]],
-        loaded: function(self,products){
-            self.db.product_templates = products;
-        },
+//    },{
+//        model:  'product.product',
+//        loaded: function(self,products){
+//            self.db.product_product = products;
+//        },
     },{
 // =====================================
 //  To select all optical attributes ids
@@ -84,6 +74,31 @@ odoo.define('pos_prescription_creation',function(require) {
             });
         },
     }]);
+
+    models.load_models({
+// =============================================
+//  To select all products with optical variants
+// =============================================
+        model:  'product.template',
+        fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
+//        domain: [['product_variant_count', '=', 81]],
+        loaded: function(self,product_templates){
+            self.db.optical_glasses = [];
+            self.db.optical_glasses_by_id = {};
+            product_templates.forEach(function(product_template){
+                self.db.attribute_line_ids = [];
+                product_template.attribute_line_ids.forEach(function(attribute_line){
+                    self.db.attribute_line_ids.push(self.db.product_attributes_lines_by_id[attribute_line].attribute_id[0]);
+                })
+                if (self.db.attribute_line_ids.length)
+                    if (self.db.attribute_line_ids.every(function(id){return self.db.optical_product_attributes_ids.includes(id);})){
+                        self.db.optical_glasses.push(product_template);
+                        self.db.optical_glasses_by_id[product_template.id] = product_template;
+                    }
+            })
+        },
+    });
+
 
     var PrescriptionButton = screens.ActionButtonWidget.extend({
         template: 'PrescriptionButton',
@@ -134,19 +149,6 @@ odoo.define('pos_prescription_creation',function(require) {
             this._super(options);
             self = this;
 
-            self.pos.db.optical_glasses = [];
-            self.pos.db.optical_glasses_by_id = [];
-            self.pos.db.product_templates.forEach(function(product_template){
-                self.pos.db.attribute_line_ids = [];
-                product_template.attribute_line_ids.forEach(function(attribute_line){
-                    self.pos.db.attribute_line_ids.push(self.pos.db.product_attributes_lines_by_id[attribute_line].attribute_id[0]);
-                })
-                if (self.pos.db.attribute_line_ids.length)
-                    if (self.pos.db.attribute_line_ids.every(function(id){return self.pos.db.optical_product_attributes_ids.includes(id);})){
-                        self.pos.db.optical_glasses_by_id[product_template.id] = product_template;
-                        self.pos.db.optical_glasses.push(product_template);
-                    }
-            })
             this.glasses = self.pos.db.optical_glasses;
             if (this.pos.get_order().attributes.client)
                 this.customer = this.pos.get_order().attributes.client.name;
@@ -275,7 +277,7 @@ var ProductCreationWidget = PopupWidget.extend({
                             self.pos.db.add_optical_orders(products)
                             $('.optical_prescription').text(products.name);
                             order.set_optical_reference(products);
-                            order.set_client(this.pos.db.partner_by_id[$('option:selected', $('[name=customer]')).data('id')]);
+                            order.set_client(self.pos.db.partner_by_id[$('option:selected', $('[name=customer]')).data('id')]);
                         });
                     },
             });
