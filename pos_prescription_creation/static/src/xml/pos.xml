@@ -842,9 +842,6 @@
                             <th>Glasses:</th>
                             <td colspan="3">
                                 <select id="glasses">
-                                    <t t-foreach="widget.glasses || []" t-as="item">
-                                        <option t-attf-data-id="{{ item.id }}"><t t-esc='item.name'/></option>
-                                    </t>
                                 </select>
                             </td>
                         </tr>
@@ -871,7 +868,7 @@
                                             <th colspan="1" class="nbsp">&amp;nbsp;</th>
                                             <t t-foreach="item.attributes || []" t-as="items">
                                                 <tr>
-                                                    <td><input class="coupon_question" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
+                                                    <td><input class="coupon_question attribute_variant" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
                                                     <td><t t-esc='items'/></td>
                                                 </tr>
                                             </t>
@@ -887,7 +884,7 @@
                                             <th colspan="1" class="nbsp">&amp;nbsp;</th>
                                             <t t-foreach="item.attributes || []" t-as="items">
                                                 <tr>
-                                                    <td><input class="coupon_question" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
+                                                    <td><input class="coupon_question attribute_variant" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
                                                     <td><t t-esc='items'/></td>
                                                 </tr>
                                             </t>
