@@ -81,7 +81,6 @@
         <record id="product_attribute_444" model="product.attribute">
             <field name="name">Photochromic</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_41" model="product.attribute.value">
             <field name="name">TR</field>
@@ -106,7 +105,6 @@
         <record id="product_attribute_555" model="product.attribute">
             <field name="name">Filter</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_51" model="product.attribute.value">
             <field name="name">BLF</field>
@@ -121,7 +119,6 @@
         <record id="product_attribute_666" model="product.attribute">
             <field name="name">High Index</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_61" model="product.attribute.value">
             <field name="name">1.67</field>
@@ -141,7 +138,6 @@
         <record id="product_attribute_777" model="product.attribute">
             <field name="name">Carving</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_71" model="product.attribute.value">
             <field name="name">DC</field>
@@ -161,7 +157,6 @@
         <record id="product_attribute_888" model="product.attribute">
             <field name="name">Special Works</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_81" model="product.attribute.value">
             <field name="name">CW</field>
@@ -191,7 +186,6 @@
         <record id="product_attribute_999" model="product.attribute">
             <field name="name">Type Scope</field>
             <field name="sequence">10</field>
-            <field name="create_variant">dynamic</field>
         </record>
         <record id="product_attribute_value_91" model="product.attribute.value">
             <field name="name">CL</field>
