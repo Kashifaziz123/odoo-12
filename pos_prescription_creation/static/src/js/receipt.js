@@ -10,7 +10,7 @@ odoo.define('pos_prescription_creation.receipt', function(require){
         template: 'PrintPrescriptionScreenWidget',
         get_receipt_render_env: function() {
             var order = this.pos.get_order();
-            var optical_order = this.pos.db.optical_order_by_id[order.get_screen_data('params')]
+            var optical_order = this.pos.optical.order_by_id[order.get_screen_data('params')]
             return {
                 widget: this,
                 pos: this.pos,
@@ -46,9 +46,9 @@ odoo.define('pos_prescription_creation.receipt', function(require){
             optical_order = [];
             if (order.optical_reference){
                 if (order.optical_reference.id)
-                    var optical_order = this.pos.db.optical_order_by_id[order.optical_reference.id]
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference.id]
                 else
-                    var optical_order = this.pos.db.optical_order_by_id[order.optical_reference]
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference]
             }
             this.$('.pos-receipt-container').html(QWeb.render('OrderReceipt', {
                 widget: this,
@@ -66,9 +66,9 @@ odoo.define('pos_prescription_creation.receipt', function(require){
             optical_order = [];
             if (order.optical_reference){
                 if (order.optical_reference.id)
-                    var optical_order = this.pos.db.optical_order_by_id[order.optical_reference.id]
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference.id]
                 else
-                    var optical_order = this.pos.db.optical_order_by_id[order.optical_reference]
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference]
             }
             else
                 optical_order = 0;
