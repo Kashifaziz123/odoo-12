@@ -42,24 +42,16 @@ odoo.define('pos_prescription_creation',function(require) {
         loaded: function(self,test_type){
             self.test_type = test_type;
         },
-//    },{
-//        model:  'product.product',
-//        loaded: function(self,products){
-//            self.db.product_product = products;
-//        },
     },{
 // =====================================
 //  To select all optical attributes ids
 // =====================================
         model:  'product.attribute',
-        fields: ['id','name'],
-//        domain: [['name','in',['Type Of Focus', 'Material', 'Treatment', 'Photochromic', 'Filter', 'High Index', 'Carving',
-//            'Special Works', 'Type Scope']]],
-        domain: [['name','in',['Type Of Focus', 'Material', 'Treatment']]],
         loaded: function(self,attributes){
-            self.db.optical_product_attributes_ids = [];
+            self.db.optical_product_attributes_by_id = {};
+            self.db.optical_product_attributes = attributes;
             for (var i=0;i< attributes.length;i++)
-                self.db.optical_product_attributes_ids.push(attributes[i].id);
+                self.db.optical_product_attributes_by_id[attributes[i].id] = attributes[i];
         },
     },{
 // ========================================
@@ -75,30 +67,41 @@ odoo.define('pos_prescription_creation',function(require) {
         },
     }]);
 
-    models.load_models({
+    models.load_models([{
 // =============================================
 //  To select all products with optical variants
 // =============================================
         model:  'product.template',
         fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
-//        domain: [['product_variant_count', '=', 81]],
         loaded: function(self,product_templates){
             self.db.optical_glasses = [];
             self.db.optical_glasses_by_id = {};
-            product_templates.forEach(function(product_template){
-                self.db.attribute_line_ids = [];
-                product_template.attribute_line_ids.forEach(function(attribute_line){
-                    self.db.attribute_line_ids.push(self.db.product_attributes_lines_by_id[attribute_line].attribute_id[0]);
-                })
-                if (self.db.attribute_line_ids.length)
-                    if (self.db.attribute_line_ids.every(function(id){return self.db.optical_product_attributes_ids.includes(id);})){
-                        self.db.optical_glasses.push(product_template);
-                        self.db.optical_glasses_by_id[product_template.id] = product_template;
-                    }
-            })
+            self.db.optical_glasses = product_templates.filter(function(el){return el.product_variant_count > 1});
+            self.db.optical_glasses.forEach(function(optical_glass){
+                self.db.optical_glasses_by_id[optical_glass.id] = optical_glass;
+            });
         },
-    });
-
+    },{
+        model:  'product.attribute.value',
+        loaded: function(self,attributes){
+            self.db.optical_product_attribute_values_by_id = {};
+            self.db.optical_product_attribute_values= attributes;
+            attributes.forEach(function(attribute){
+                self.db.optical_product_attribute_values_by_id[attribute.id] = attribute;
+            });
+            self.db.optical_product_attributes_for_xml = [];
+            i = 0;
+            self.db.optical_product_attributes.forEach(function(attribute){
+                self.db.optical_product_attributes_for_xml[i] = {};
+                self.db.optical_product_attributes_for_xml[i].name = attribute.name;
+                self.db.optical_product_attributes_for_xml[i].attributes = [];
+                attribute.value_ids.forEach(function(attribute_value_id){
+                    self.db.optical_product_attributes_for_xml[i].attributes.push(self.db.optical_product_attribute_values_by_id[attribute_value_id].name);
+                })
+                i++;
+            });
+        },
+    }]);
 
     var PrescriptionButton = screens.ActionButtonWidget.extend({
         template: 'PrescriptionButton',
@@ -148,7 +151,9 @@ odoo.define('pos_prescription_creation',function(require) {
             options = options || {};
             this._super(options);
             self = this;
-
+            ceil = Math.ceil(self.pos.db.optical_product_attributes_for_xml.length / 2);
+            this.variants1 = self.pos.db.optical_product_attributes_for_xml.slice(0, ceil);
+            this.variants2 = self.pos.db.optical_product_attributes_for_xml.slice(ceil);
             this.glasses = self.pos.db.optical_glasses;
             if (this.pos.get_order().attributes.client)
                 this.customer = this.pos.get_order().attributes.client.name;
@@ -171,35 +176,25 @@ odoo.define('pos_prescription_creation',function(require) {
             var self = this;
             var order = this.pos.get_order();
             var vals = $("#order_form").serializeObject();
-            if (vals["blue_light_filter"] == undefined)
-                vals["blue_light_filter"] = 'No filter';
-            else
-                vals["blue_light_filter"] = 'BLF';
-            if (vals["types_of_focus"] == undefined)
-                vals["types_of_focus"] = 'No type';
-            if (vals["high_index"] == undefined)
-                vals["high_index"] = 'No index';
-            if (vals["material"] == undefined)
-                vals["material"] = 'No material';
-            if (vals["carving"] == undefined)
-                vals["carving"] = 'No carving';
-            if (vals["special_works"] == undefined)
-                vals["special_works"] = 'No special works';
-            if (vals["treatment"] == undefined)
-                vals["treatment"] = 'No treatment';
-            if (vals["PhotoChromic"] == undefined)
-                vals["PhotoChromic"] = 'No photochromic';
-            if (vals["Type_Scope"] == undefined)
-                vals["Type_Scope"] = 'No type scope';
+            id = $('option:selected', $('#glasses')).data('id');
+            var found = false;
 
-            id = $('option:selected', $('[name=glasses]')).data('id');
+            variants = []
+            self.pos.db.optical_glasses_by_id[id].attribute_line_ids.forEach(function(attribute_line_id){
+                variants.push(self.pos.db.product_attributes_lines_by_id[attribute_line_id].display_name);
+            })
             self.pos.db.optical_glasses_by_id[id].product_variant_ids.forEach(function(product_template){
-                if (self.pos.db.product_by_id[product_template].display_name.includes(vals["types_of_focus"]) &&
-                    self.pos.db.product_by_id[product_template].display_name.includes(vals["material"]) &&
-                    self.pos.db.product_by_id[product_template].display_name.includes(vals["treatment"]))
-                        order.add_product(self.pos.db.product_by_id[product_template])
+                if (variants.every(function(variant){return self.pos.db.product_by_id[product_template].display_name.includes(vals[variant])})){
+                    order.add_product(self.pos.db.product_by_id[product_template])
+                    found = true;
+                }
             })
             self.gui.close_popup();
+            if (!found)
+                this.gui.show_popup('error',{
+                    'title': _t('No variant found'),
+                    'body':  _t('The glasses selected have no variant base on selected attributes'),
+                });
         },
         click_cancel: function(){
             this.gui.close_popup();

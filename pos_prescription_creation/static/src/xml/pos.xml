@@ -841,7 +841,7 @@
                         <tr>
                             <th>Glasses:</th>
                             <td colspan="3">
-                                <select name="glasses">
+                                <select id="glasses">
                                     <t t-foreach="widget.glasses || []" t-as="item">
                                         <option t-attf-data-id="{{ item.id }}"><t t-esc='item.name'/></option>
                                     </t>
@@ -863,98 +863,134 @@
                     </table>
                     <table class="properties">
                         <tr>
-                            <th colspan="2">Types Of Focus</th>
-                            <th colspan="2">Filter</th>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MON"/> MonoFocal</td>
-                            <td>MON</td>
-                            <td><input class="coupon_question" type="checkbox" name="blue_light_filter"/>Blue Light Filter</td>
-                            <td>BLF</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="BIF"/> BiFocal</td>
-                            <td>BIF</td>
-                            <th colspan="2">High Index</th>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MULT"/> MultiFocal</td>
-                            <td>MULT</td>
-                            <td><input class="coupon_question" type="radio" name="high_index" value="1.67"/> To 1.67</td>
-                            <td>To 1.67</td>
-                        </tr>
-                        <tr>
-                            <th colspan="2">Material</th>
-                            <td><input class="coupon_question" type="radio" name="high_index" value="1.74"/> To 1.74</td>
-                            <td>To 1.74</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="material" value="RE"/> Resins</td>
-                            <td>RE</td>
-                            <th colspan="2">Carving</th>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="material" value="CR"/> Crystals</td>
-                            <td>CR</td>
-                            <td><input class="coupon_question" type="radio" name="carving" value="DC"/> Digital Carving</td>
-                            <td>DC</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="material" value="POL"/>Poly Carbonate</td>
-                            <td>POL</td>
-                            <td><input class="coupon_question" type="radio" name="carving" value="CC"/>Conventional Carving</td>
-                            <td>CC</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="material" value="FX"/>Futurex</td>
-                            <td>FX</td>
-                            <th colspan="2">Special Works</th>
-                        </tr>
-                        <tr>
-                            <th colspan="2">Treatment</th>
-                            <td><input class="coupon_question" type="radio" name="special_works" value="CW"/>Colored Whole</td>
-                            <td>CW</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="treatment" value="UV"/>Ultra Violet</td>
-                            <td>UV</td>
-                            <td><input class="coupon_question" type="radio" name="special_works" value="CD"/>Colored Degrade</td>
-                            <td>CD</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="treatment" value="DQ"/>DQ/HC</td>
-                            <td>DQ</td>
-                            <td><input class="coupon_question" type="radio" name="special_works" value="CO"/>Colored Others</td>
-                            <td>CO</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="treatment" value="AR"/>Anti Reflection</td>
-                            <td>AR</td>
-                            <td><input class="coupon_question" type="radio" name="special_works" value="PR"/>Prism</td>
-                            <td>PR</td>
-                        </tr>
-                        <tr>
-                            <th colspan="2">PhotoChromic</th>
-                            <th colspan="2">Type Scope</th>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="TR"/>Transitions</td>
-                            <td>TR</td>
-                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="CL"/>Close</td>
-                            <td>CL</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="PH"/>PhotoFusion</td>
-                            <td>PH</td>
-                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="FA"/>Far</td>
-                            <td>FA</td>
-                        </tr>
-                        <tr>
-                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="CM"/>ColorMatic</td>
-                            <td>CM</td>
-                            <th colspan="2" class="nbsp">&amp;nbsp;</th>
+                            <td colspan="2" class="sub-table">
+                                <table>
+                                    <t t-foreach="widget.variants1 || []" t-as="item">
+                                        <tr>
+                                            <th><t t-esc='item.name'/></th>
+                                            <th colspan="1" class="nbsp">&amp;nbsp;</th>
+                                            <t t-foreach="item.attributes || []" t-as="items">
+                                                <tr>
+                                                    <td><input class="coupon_question" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
+                                                    <td><t t-esc='items'/></td>
+                                                </tr>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                 </table>
+                            </td>
+                            <td colspan="2" class="sub-table">
+                                <table>
+                                    <t t-foreach="widget.variants2 || []" t-as="item">
+                                        <tr>
+                                            <th><t t-esc='item.name'/></th>
+                                            <th colspan="1" class="nbsp">&amp;nbsp;</th>
+                                            <t t-foreach="item.attributes || []" t-as="items">
+                                                <tr>
+                                                    <td><input class="coupon_question" type="radio" t-attf-name="{{ item.name }}" t-attf-value="{{ items }}"/><t t-esc='items'/></td>
+                                                    <td><t t-esc='items'/></td>
+                                                </tr>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                 </table>
+                            </td>
                         </tr>
                     </table>
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <th colspan="2">Types Of Focus</th>-->
+<!--                            <th colspan="2">Filter</th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MON"/> MonoFocal</td>-->
+<!--                            <td>MON</td>-->
+<!--                            <td><input class="coupon_question" type="checkbox" name="blue_light_filter"/>Blue Light Filter</td>-->
+<!--                            <td>BLF</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="BIF"/> BiFocal</td>-->
+<!--                            <td>BIF</td>-->
+<!--                            <th colspan="2">High Index</th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="types_of_focus" value="MULT"/> MultiFocal</td>-->
+<!--                            <td>MULT</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="high_index" value="1.67"/> To 1.67</td>-->
+<!--                            <td>To 1.67</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th colspan="2">Material</th>-->
+<!--                            <td><input class="coupon_question" type="radio" name="high_index" value="1.74"/> To 1.74</td>-->
+<!--                            <td>To 1.74</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="material" value="RE"/> Resins</td>-->
+<!--                            <td>RE</td>-->
+<!--                            <th colspan="2">Carving</th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="material" value="CR"/> Crystals</td>-->
+<!--                            <td>CR</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="carving" value="DC"/> Digital Carving</td>-->
+<!--                            <td>DC</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="material" value="POL"/>Poly Carbonate</td>-->
+<!--                            <td>POL</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="carving" value="CC"/>Conventional Carving</td>-->
+<!--                            <td>CC</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="material" value="FX"/>Futurex</td>-->
+<!--                            <td>FX</td>-->
+<!--                            <th colspan="2">Special Works</th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th colspan="2">Treatment</th>-->
+<!--                            <td><input class="coupon_question" type="radio" name="special_works" value="CW"/>Colored Whole</td>-->
+<!--                            <td>CW</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="treatment" value="UV"/>Ultra Violet</td>-->
+<!--                            <td>UV</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="special_works" value="CD"/>Colored Degrade</td>-->
+<!--                            <td>CD</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="treatment" value="DQ"/>DQ/HC</td>-->
+<!--                            <td>DQ</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="special_works" value="CO"/>Colored Others</td>-->
+<!--                            <td>CO</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="treatment" value="AR"/>Anti Reflection</td>-->
+<!--                            <td>AR</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="special_works" value="PR"/>Prism</td>-->
+<!--                            <td>PR</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th colspan="2">PhotoChromic</th>-->
+<!--                            <th colspan="2">Type Scope</th>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="TR"/>Transitions</td>-->
+<!--                            <td>TR</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="CL"/>Close</td>-->
+<!--                            <td>CL</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="PH"/>PhotoFusion</td>-->
+<!--                            <td>PH</td>-->
+<!--                            <td><input class="coupon_question" type="radio" name="Type_Scope" value="FA"/>Far</td>-->
+<!--                            <td>FA</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td><input class="coupon_question" type="radio" name="PhotoChromic" value="CM"/>ColorMatic</td>-->
+<!--                            <td>CM</td>-->
+<!--                            <th colspan="2" class="nbsp">&amp;nbsp;</th>-->
+<!--                        </tr>-->
+<!--                    </table>-->
                     <table>
                         <tr>
                             <td colspan="4">

@@ -132,3 +132,6 @@
     box-shadow: none !important;
     width: auto !important;
 }
+.sub-table{
+    vertical-align: top;
+}
