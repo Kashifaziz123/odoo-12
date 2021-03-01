@@ -48,7 +48,7 @@ odoo.define('pos_prescription_creation',function(require) {
         model:  'product.attribute',
         loaded: function(self,attributes){
             self.optical.product_attributes_by_id = {};
-            self.optical.product_attributes = attributes;
+            self.optical.product_attributes =  _.sortBy( attributes, 'Sequence');
             for (var i=0;i< attributes.length;i++)
                 self.optical.product_attributes_by_id[attributes[i].id] = attributes[i];
         },
