@@ -52,6 +52,7 @@
 }
 .prescription_form_div{
     width:80% !important;
+    height:80% !important;
 }
 #prescription_form{
     font-size: medium;
@@ -83,7 +84,7 @@
     text-align: center;
 }
 #order_form{
-    font-size: medium;
+    font-size: small;
     text-align: left;
     padding: 30px;
     width: 94%;
