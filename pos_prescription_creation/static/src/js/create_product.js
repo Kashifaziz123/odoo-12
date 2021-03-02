@@ -101,9 +101,21 @@ odoo.define('pos_prescription_creation',function(require) {
             ceil = Math.ceil(self.optical.product_attributes_for_xml.length / 4);
             floor = Math.floor(self.optical.product_attributes_for_xml.length / 4);
             self.optical.variants1 = self.optical.product_attributes_for_xml.slice(0, ceil);
-            self.optical.variants2 = self.optical.product_attributes_for_xml.slice(ceil, ceil+floor);
-            self.optical.variants3 = self.optical.product_attributes_for_xml.slice(ceil+floor, ceil+floor+floor);
-            self.optical.variants4 = self.optical.product_attributes_for_xml.slice(ceil+floor+floor);
+            if(self.optical.product_attributes_for_xml.length % 4 == 2){
+                self.optical.variants2 = self.optical.product_attributes_for_xml.slice(ceil, ceil+ceil);
+                self.optical.variants3 = self.optical.product_attributes_for_xml.slice(ceil+ceil, ceil+ceil+floor);
+                self.optical.variants4 = self.optical.product_attributes_for_xml.slice(ceil+ceil+floor);
+            }
+            else if (self.optical.product_attributes_for_xml.length % 4 == 3){
+                self.optical.variants2 = self.optical.product_attributes_for_xml.slice(ceil, ceil+ceil);
+                self.optical.variants3 = self.optical.product_attributes_for_xml.slice(ceil+ceil, ceil+ceil+ceil);
+                self.optical.variants4 = self.optical.product_attributes_for_xml.slice(ceil+ceil+ceil);
+            }
+            else{
+                self.optical.variants2 = self.optical.product_attributes_for_xml.slice(ceil, ceil+floor);
+                self.optical.variants3 = self.optical.product_attributes_for_xml.slice(ceil+floor, ceil+floor+floor);
+                self.optical.variants4 = self.optical.product_attributes_for_xml.slice(ceil+floor+floor);
+            }
         },
     }]);
 
