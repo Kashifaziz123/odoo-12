@@ -48,6 +48,38 @@ odoo.define('pos_prescription_creation.models', function(require){
             }
             return null;
         },
+        delete_current_order: function(){
+            var order = this.get_order();
+            if (order) {
+                order.destroy({'reason':'abandon'});
+            }
+            $('.optical_prescription').text("Prescription")
+        },
+    });
+
+    chrome.OrderSelectorWidget.include({
+        order_click_handler: function(event,$el) {
+            this._super(event,$el);
+            var order = this.pos.get_order();
+            if (order!==null && order!==undefined && order.optical_reference)
+                $('.optical_prescription').text(order.optical_reference.name)
+            else
+                $('.optical_prescription').text("Prescription")
+        },
+
+        neworder_click_handler: function(event, $el) {
+            this._super(event, $el);
+            $('.optical_prescription').text("Prescription")
+        },
+
+        deleteorder_click_handler: function(event,$el) {
+            this._super(event,$el);
+            var order = this.pos.get_order();
+            if (order!==null && order!==undefined && order.optical_reference)
+                $('.optical_prescription').text(order.optical_reference.name)
+            else
+                $('.optical_prescription').text("Prescription")
+        },
     });
 
 	screens.PaymentScreenWidget.include({

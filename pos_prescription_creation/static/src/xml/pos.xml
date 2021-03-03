@@ -264,7 +264,7 @@
     </t>
 
     <t t-name="button_book_order">
-        <div class='control-button'>
+        <div class='control-button button confirm'>
             <i class='fa-prescription' />
             <span class="label optical_prescription">
                 <t t-if="widget.pos.get_optical_reference()">
@@ -278,13 +278,13 @@
     </t>
 
     <t t-name="PrescriptionButton">
-        <div class='control-button'>
+        <div class='control-button button confirm'>
             Prescription History
         </div>
     </t>
 
     <t t-name="SelectGlassesButton">
-        <div class='control-button'>
+        <div class='control-button button confirm'>
             Select Glasses
         </div>
     </t>

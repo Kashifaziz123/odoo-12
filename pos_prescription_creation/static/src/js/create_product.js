@@ -46,6 +46,7 @@ odoo.define('pos_prescription_creation',function(require) {
 //  To select all optical attributes ids
 // =====================================
         model:  'product.attribute',
+        domain: [['in_pos','=','true']],
         loaded: function(self,attributes){
             self.optical.product_attributes_by_id = {};
             self.optical.product_attributes =  _.sortBy( attributes, 'Sequence');
@@ -129,6 +130,9 @@ odoo.define('pos_prescription_creation',function(require) {
     screens.define_action_button({
         'name': 'PrescriptionButton',
         'widget':PrescriptionButton,
+        'condition': function() {
+			return true;
+		},
     });
 
     var button_book_order = screens.ActionButtonWidget.extend({
@@ -141,7 +145,10 @@ odoo.define('pos_prescription_creation',function(require) {
 
     screens.define_action_button({
         'name': 'book_order',
-        'widget': button_book_order
+        'widget': button_book_order,
+        'condition': function() {
+			return true;
+		},
     });
 
     var SelectGlassesButton = screens.ActionButtonWidget.extend({
@@ -154,7 +161,11 @@ odoo.define('pos_prescription_creation',function(require) {
 
     screens.define_action_button({
         'name': 'SelectGlassesButton',
-        'widget': SelectGlassesButton
+        'widget': SelectGlassesButton,
+        'condition': function() {
+			return true;
+		},
+
     });
 
     var OrderCreationWidget = PopupWidget.extend({
@@ -242,6 +253,7 @@ odoo.define('pos_prescription_creation',function(require) {
         show: function(options){
             options = options || {};
             this._super(options);
+            this.pos.optical.ProductCreationScreen = undefined;
             this.doctors = this.pos.optical.doctors;
             this.partners = this.pos.optical.customers;
             this.test_type = this.pos.optical.test_type;
@@ -268,11 +280,16 @@ odoo.define('pos_prescription_creation',function(require) {
             var checkup_date = $('[name=checkup_date]').val();
             var today = new Date().toJSON().slice(0,10);
             if( !checkup_date) {
-                this.gui.show_popup('error',{
+                this.pos.optical.ProductCreationScreen = this.gui.current_popup;
+                this.pos.optical.ProductCreationScreen.hide();
+                this.gui.current_popup = this.gui.popup_instances['error'];
+                this.gui.current_popup.show({
                     'title': _t('Checkup date is empty'),
                     'body':  _t('You need to select a Checkup date'),
                     cancel: function () {
-                        this.gui.show_popup('product_create');
+                        this.pos.optical.ProductCreationScreen.$el.removeClass('oe_hidden');
+                        this.gui.current_popup = this.pos.optical.ProductCreationScreen
+                        this.pos.optical.ProductCreationScreen = undefined;
                     }
                 });
             }
@@ -281,6 +298,7 @@ odoo.define('pos_prescription_creation',function(require) {
                     'title': _t('Create a Prescription ?'),
                     'body': _t('Are You Sure You Want a Create a Prescription'),
                      confirm: function(){
+                        this.pos.optical.ProductCreationScreen = undefined;
                         rpc.query({
                             model: 'dr.prescription',
                             method: 'create_product_pos',
@@ -298,9 +316,6 @@ odoo.define('pos_prescription_creation',function(require) {
         },
         click_cancel: function(){
             this.gui.close_popup();
-            if (this.options.cancel) {
-                this.options.cancel.call(this);
-            }
         },
     });
     gui.define_popup({name:'product_create', widget: ProductCreationWidget});

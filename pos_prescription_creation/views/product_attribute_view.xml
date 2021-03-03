@@ -6,6 +6,7 @@
         <field name="inherit_id" ref="product.product_attribute_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
+                <field name="in_pos"/>
 				<field name="Sequence"/>
             </xpath>
         </field>
@@ -16,6 +17,7 @@
         <field name="inherit_id" ref="product.attribute_tree_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
+                <field name="in_pos"/>
 				<field name="Sequence"/>
             </xpath>
         </field>
