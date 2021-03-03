@@ -29,13 +29,6 @@ odoo.define('pos_prescription_creation',function(require) {
             });
         },
     },{
-        model:  'res.partner',
-        fields: ['name','customer_rank'],
-//        domain: [['customer_rank','=','1']],
-        loaded: function(self,customers){
-            self.optical.customers = customers;
-        },
-    },{
         model:  'eye.test.type',
         fields: ['name'],
         loaded: function(self,test_type){
@@ -255,7 +248,7 @@ odoo.define('pos_prescription_creation',function(require) {
             this._super(options);
             this.pos.optical.ProductCreationScreen = undefined;
             this.doctors = this.pos.optical.doctors;
-            this.partners = this.pos.optical.customers;
+            this.partners = this.pos.db.get_partners_sorted();
             this.test_type = this.pos.optical.test_type;
             if (this.pos.get_order().attributes.client)
                 this.customer = this.pos.get_order().attributes.client.id;
