@@ -3,11 +3,11 @@
     "version": "12.0.0.0.1",
     "category": "hidden",
     "author": "Alhaditech",
-    'support': 'https://alhaditech.com',
-    "license": "OPL-1",
+    "website": "https://www.alhaditech.com/",
+    'license': 'AGPL-3',
     'images': ['static/description/dr.jpg'],
     "depends": [
-        'base',
+        'base','sale',
     ],
     "data": [
         "security/groups.xml",
