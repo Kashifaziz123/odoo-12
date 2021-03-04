@@ -10,11 +10,11 @@
     "author": "Alhaditech",
     "website": "www.alhaditech.com",
     "license": "OPL-1",
-    'images': ['static/description/background.png'],
+    'images': ['static/description/background.png','static/description/background2.png'],
     "depends": [
         'base','sale','doctor'
     ],
-    'price': 80, 'currency': 'EUR',
+    'price': 120, 'currency': 'EUR',
     "data": [
         'security/groups.xml',
         "security/ir.model.access.csv",
@@ -22,9 +22,10 @@
         "data/sequence.xml",
         "report/reports.xml",
         "report/prescription_report.xml",
-        "view/prescription.xml",
-        "view/partner.xml",
-        "view/test_type.xml",
+        "views/prescription.xml",
+        "views/res_config_settings_views.xml",
+        "views/partner.xml",
+        "views/test_type.xml",
     ],
     "installable": True,
     'application': True,
