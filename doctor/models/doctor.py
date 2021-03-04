@@ -11,10 +11,8 @@ class Doctor(models.Model):
     create_users_button = fields.Boolean()
     partner_id = fields.Many2one('res.partner', string='Related Partner', required=True,ondelete='restrict',help='Partner-related data of the Doctor')
     is_doctor = fields.Boolean()
-    related_user_id= fields.Many2one(related='partner_id.user_id')
 
     def create_doctors(self):
-        print('.....res')
         self.is_doctor=True
         if len(self.partner_id.user_ids):
             raise UserError(_('User for this patient already created.'))
