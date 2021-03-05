@@ -12,7 +12,7 @@
         'license': 'AGPL-3',
     'images': ['static/description/background.png','static/description/background2.png'],
     "depends": [
-        'base','sale','doctor'
+        'base','sale','doctor','point_of_sale'
     ],
     'price': 120, 'currency': 'EUR',
     "data": [
@@ -26,7 +26,12 @@
         "views/res_config_settings_views.xml",
         "views/partner.xml",
         "views/test_type.xml",
-    ],
+        'views/pos_template.xml',
+        'views/pos_order_view.xml',
+        'views/product_attribute_view.xml',
+        'data/optical_pos_product_variants.xml',
+        ],
+    'qweb': ['static/src/xml/pos.xml', 'static/src/xml/prescription_history.xml'],        
     "installable": True,
     'application': True,
 }
