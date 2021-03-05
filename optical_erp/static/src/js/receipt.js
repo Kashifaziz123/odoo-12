@@ -4,6 +4,7 @@ odoo.define('pos_prescription_creation.receipt', function(require){
     var QWeb = core.qweb;
 	var gui = require('point_of_sale.gui');
 	var screens = require('point_of_sale.screens');
+	var chrome = require('point_of_sale.chrome');
 
     // For Prescription Receipt
     var PrintPrescriptionScreenWidget = screens.ReceiptScreenWidget.extend({
@@ -81,6 +82,34 @@ odoo.define('pos_prescription_creation.receipt', function(require){
                 orderlines: order.get_orderlines(),
                 paymentlines: order.get_paymentlines(),
             };
+        },
+    });
+
+    chrome.Chrome.include({
+		save_receipt_for_reprint:function(){
+            var self = this;
+            var order = this.pos.get_order();
+            if (order.optical_reference){
+                if (order.optical_reference.id)
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference.id]
+                else
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference]
+            }
+            else
+                optical_order = 0;
+			var env = {
+                widget:self,
+                pos: this.pos,
+                order: order,
+                optical_order: optical_order,
+                receipt: order.export_for_printing(),
+                orderlines: order.get_orderlines(),
+                paymentlines: order.get_paymentlines(),
+            };
+            var receipt_html = QWeb.render('PosTicket',env);
+        	order.set_pos_normal_receipt_html(receipt_html.replace(/<img[^>]*>/g,"").replace(/<object[^>]*>/g,""));
+        	var receipt = QWeb.render('XmlReceipt',env);
+        	order.set_pos_xml_receipt_html(receipt.replace(/<img[^>]*>/g,"").replace(/<object[^>]*>/g,""));
         },
     });
 });
