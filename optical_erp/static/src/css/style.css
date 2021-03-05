@@ -1,5 +1,5 @@
 .prescription_receipt_table table tbody tr td,.prescription_receipt_table table tbody tr th,.prescription_receipt_table table tbody tr{
-    border: 1px solid black;
+    border: 1px solid black !important;
 }
 .prescription_receipt_table table{
     font-size: x-small;

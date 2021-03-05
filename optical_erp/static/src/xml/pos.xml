@@ -31,54 +31,22 @@
         </t>
     </t>
 
-    <t t-extend='OrderReceipt'>
-        <t t-jquery='.pos-receipt-contact' t-operation='append'>
+    <t t-extend='PosTicket'>
+        <t t-jquery='.receipt-user' t-operation='append'>
             <t t-call="PrescriptionOrderReceiptTable"/>
         </t>
     </t>
 
     <t t-name="PrescriptionOrderReceipt">
-        <div class="pos-receipt">
-            <t t-if='receipt.company.logo'>
-                <img class="pos-receipt-logo" t-att-src='receipt.company.logo' alt="Logo"/>
-                <br/>
-            </t>
-            <t t-if='!receipt.company.logo'>
-                <h2 class="pos-receipt-center-align">
-                    <t t-esc='receipt.company.name' />
-                </h2>
-                <br/>
-            </t>
-            <div class="pos-receipt-contact">
-                <t t-if='receipt.company.contact_address'>
-                    <div><t t-esc='receipt.company.contact_address' /></div>
-                </t>
-                <t t-if='receipt.company.phone'>
-                    <div>Tel:<t t-esc='receipt.company.phone' /></div>
-                </t>
-                <t t-if='receipt.company.vat'>
-                    <div><t t-esc='receipt.company.vat_label'/>:<t t-esc='receipt.company.vat' /></div>
-                </t>
-                <t t-if='receipt.company.email'>
-                    <div><t t-esc='receipt.company.email' /></div>
-                </t>
-                <t t-if='receipt.company.website'>
-                    <div><t t-esc='receipt.company.website' /></div>
-                </t>
-                <t t-if='receipt.header_html'>
-                    <t t-raw='receipt.header_html' />
-                </t>
-                <t t-if='!receipt.header_html and receipt.header'>
-                    <div><t t-esc='receipt.header' /></div>
-                </t>
-                <t t-if='receipt.cashier'>
-                    <div class='cashier'>
-                        <div>--------------------------------</div>
-                        <div>Served by <t t-esc='receipt.cashier' /></div>
-                    </div>
-                </t>
+        <div class="pos-sale-ticket">
+            <t t-esc="widget.pos.company.name"/><br />
+            <div class="receipt-phone">
+                Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
             </div>
-            <br /><br />
+            <div class="receipt-user">
+                User: <t t-esc="widget.pos.get_cashier().name"/><br />
+            </div>
+            <br />
             <t t-call="PrescriptionOrderReceiptTable"/>
         </div>
     </t>

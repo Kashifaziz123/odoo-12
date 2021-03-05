@@ -224,6 +224,7 @@ odoo.define('pos_prescription_creation',function(require) {
                         }));
                     }
                 })
+                variants = [];
             })
         },
     });
