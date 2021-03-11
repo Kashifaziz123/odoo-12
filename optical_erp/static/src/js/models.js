@@ -8,8 +8,6 @@ odoo.define('pos_prescription_creation.models', function(require){
 	var gui = require('point_of_sale.gui');
 	var screens = require('point_of_sale.screens');
 	var _t = core._t;
-    var flexiretail_com_advance_chrome = require('flexiretail_com_advance.chrome');
-
 
     models.load_fields("pos.order", ['optical_reference']);
     var _super_order = models.Order.prototype;
