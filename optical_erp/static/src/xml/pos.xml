@@ -38,27 +38,60 @@
     </t>
 
     <t t-name="PrescriptionOrderReceipt">
-       <div class="pos-sale-ticket">
-            <div class="receipt-company">
-                <div class="pos-center-align"><t t-esc="order.formatted_validation_date"/> <t t-esc="order.name"/></div>
-                <br />
-                <t t-esc="widget.pos.company.name"/><br />
-            </div>
-            <div class="receipt-phone">
-                Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
-            </div>
-            <div class="receipt-user">
-                User: <t t-esc="widget.pos.get_cashier().name"/><br />
-            </div>
-            <br />
-            <t t-if="receipt.header">
-                <div style='text-align:center'>
-                    <t t-esc="receipt.header" />
-                </div>
-                <br />
+	    <!-- POS Reorder start here -->
+        <t t-jquery="[t-esc='order.name']" t-operation="replace">
+			<t t-if="widget.pos.company_logo_base64">
+				<div style="text-align:center;">
+				    <img t-att-src="widget.pos.company_logo_base64" style="max-height: 70px;width:auto;height:auto;"/>
+                    <br/>
+				</div>
+	        </t>
+            <t t-if="order.get_invoice_name()">
+                <t t-esc="order.get_invoice_name()"/>
             </t>
-            <t t-call="PrescriptionOrderReceiptTable"/>
-       </div>
+            <t t-if="!order.get_invoice_name() and order.get_sale_order_name()">
+                <t t-esc="order.get_sale_order_name()"/>
+            </t>
+            <t t-if="!order.get_invoice_name() and !order.get_sale_order_name()">
+                <t t-esc="order.get_pos_reference() ? order.get_pos_reference() : order.name"/>
+            </t>
+        </t>
+        <t t-jquery="div.receipt-phone" t-operation="replace">
+            <div class="pos-center-align">
+                <div class="receipt-phone">
+                    <t t-set="store_detail" t-value="false"/>
+                    <t t-if="widget.pos.config.multi_store_id and widget.pos.config.multi_store_id[0]">
+                        <t t-if="widget.pos.config.header_info == 'store'">
+                            <t t-if="widget.pos.pos_session.store_id and widget.pos.store_by_id[widget.pos.pos_session.store_id[0]]">
+                                <t t-set="store_detail"
+                                   t-value="widget.pos.store_by_id[widget.pos.pos_session.store_id[0]]"/>
+                                <t t-if="store_detail and store_detail.phone">
+                                    Phone: <t t-esc="store_detail.phone || ''"/>
+                                    <br/>
+                                </t>
+                            </t>
+                        </t>
+                        <t t-if="widget.pos.config.header_info == 'company'">
+                            Phone: <t t-esc="widget.pos.company.phone || ''"/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-if="!widget.pos.config.multi_store_id">
+                        Phone: <t t-esc="widget.pos.company.phone || ''"/>
+                        <br/>
+                    </t>
+                </div>
+            </div>
+        </t>
+        <t t-jquery="div.receipt-user" t-operation="replace">
+            <div class="pos-center-align">
+                <div class="receipt-user">
+                     User: <t t-esc="widget.pos.get_cashier().name"/>
+                    <br/>
+                </div>
+            </div>
+        </t>
+        <t t-call="PrescriptionOrderReceiptTable"/>
     </t>
 
     <t t-name="PrescriptionOrderReceiptTable">

@@ -41,6 +41,53 @@ odoo.define('pos_prescription_creation.receipt', function(require){
     gui.define_screen({name:'PrescriptionReceipt', widget: PrintPrescriptionScreenWidget});
 
     // For POS Receipt
+    screens.ReceiptScreenWidget.include({
+        render_receipt: function() {
+            if (!this.pos.reloaded_order) {
+                return this._super();
+            }
+            var order = this.pos.reloaded_order;
+            optical_order = [];
+            if (order.optical_reference){
+                if (order.optical_reference.id)
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference.id]
+                else
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference]
+            }
+            this.$('.pos-receipt-container').html(QWeb.render('OrderReceipt', {
+                widget: this,
+                pos: this.pos,
+                order: order,
+                optical_order: optical_order,
+                receipt: order.export_for_printing(),
+                orderlines: order.get_orderlines(),
+                paymentlines: order.get_paymentlines(),
+            }));
+            this.pos.from_loaded_order = true;
+        },
+        get_receipt_render_env: function() {
+            var order = this.pos.get_order();
+            optical_order = [];
+            if (order.optical_reference){
+                if (order.optical_reference.id)
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference.id]
+                else
+                    var optical_order = this.pos.optical.order_by_id[order.optical_reference]
+            }
+            else
+                optical_order = 0;
+            return {
+                widget: this,
+                pos: this.pos,
+                order: order,
+                optical_order: optical_order,
+                receipt: order.export_for_printing(),
+                orderlines: order.get_orderlines(),
+                paymentlines: order.get_paymentlines(),
+            };
+        },
+    });
+
     chrome.Chrome.include({
 		save_receipt_for_reprint:function(){
             var self = this;
