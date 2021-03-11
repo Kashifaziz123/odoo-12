@@ -45,7 +45,6 @@
                    <br/>
                </div>
            </t>
-           <t t-esc="widget.pos.company.name"/><br />
            <div class="pos-center-align">
                 <div class="receipt-phone">
                     <t t-set="store_detail" t-value="false"/>
