@@ -4,7 +4,6 @@ odoo.define('pos_prescription_creation.receipt', function(require){
     var QWeb = core.qweb;
 	var gui = require('point_of_sale.gui');
 	var screens = require('point_of_sale.screens');
-	var chrome = require('point_of_sale.chrome');
 	var flexiretail_com_advance_screens = require('flexiretail_com_advance.screens');
 	var flexiretail_com_advance_chrome = require('flexiretail_com_advance.chrome');
 
@@ -88,7 +87,7 @@ odoo.define('pos_prescription_creation.receipt', function(require){
         },
     });
 
-    chrome.Chrome.include({
+    flexiretail_com_advance_chrome.chrome.Chrome.include({
 		save_receipt_for_reprint:function(){
             var self = this;
             var order = this.pos.get_order();
@@ -116,7 +115,7 @@ odoo.define('pos_prescription_creation.receipt', function(require){
         },
     });
 
-    screens.ReceiptScreenWidget.include({
+    flexiretail_com_advance_chrome.screens.ReceiptScreenWidget.include({
         render_receipt: function() {
             var order = this.pos.get_order();
             if (order.optical_reference){
