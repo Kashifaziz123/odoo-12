@@ -4,7 +4,7 @@
     "category": "hidden",
     "author": "Alhaditech",
     "website": "https://www.alhaditech.com/",
-    "license": "OPL-1",
+   'license': 'AGPL-3',
     'images': ['static/description/dr.jpg'],
     "depends": [
         'base','sale',
