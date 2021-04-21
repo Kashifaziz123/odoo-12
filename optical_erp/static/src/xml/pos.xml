@@ -22,14 +22,20 @@
         </div>
     </t>
 
-    <t t-extend='ClientDetails'>
-        <t t-jquery='.edit-buttons' t-operation='prepend'>
-            <button t-att-data-id='partner.id' class="control-button highlight prescription_count_btn" style="margin-top: 1%;">
+    <t t-extend='ClientListScreen'>
+        <t t-jquery='div.back' t-operation='after'>
+            <div t-if="isNextButtonVisible" t-on-click="abc" class="button next highlight">
                 Prescription
-                <t t-esc="prescription_count"/>
-            </button>
+<!--                <t t-esc="prescription_count"/>-->
+            </div>
         </t>
     </t>
+<!--<t t-extend="WebClient.DebugManager.Backend">-->
+<!--    <t t-jquery="a[data-action='perform_click_everywhere_test']" t-operation="after">-->
+<!--        <a role="menuitem" href="#" data-action="perform_pos_js_tests" class="dropdown-item">Run Point of Sale JS Tests</a>-->
+<!--    </t>-->
+<!--</t>-->
+
 
     <t t-extend='OrderReceipt'>
         <t t-jquery='.pos-receipt-contact' t-operation='append'>
@@ -166,98 +172,6 @@
                         <td><t t-esc="optical_order.os_prism_near"/></td>
                         <td><t t-esc="optical_order.os_base_near"/></td>
                     </tr>
-                </table>
-            </div>
-        </t>
-    </t>
-
-    <t t-name="PrescriptionShowTable">
-        <t t-if="optical_order !== 0 ">
-            <div class="prescription_receipt_details" t-att-data-id='optical_order.id'>
-                <table>
-                    <tr>
-                        <td><span>Reference:</span><t t-esc="optical_order.name"/></td>
-                        <td><span>Client Name:</span><t t-esc="optical_order.customer[1]"/></td>
-                    </tr>
-                    <tr>
-                        <td><span>Prescription Date:</span><t t-esc="optical_order.checkup_date"/></td>
-                        <td><span>Test Type:</span><t t-esc="optical_order.test_type[1]"/></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="prescription_receipt_table">
-                <table>
-                    <tr>
-                        <th rowspan="2"></th>
-                        <th colspan="6">OD</th>
-                        <th rowspan="2"></th>
-                        <th colspan="6">OS</th>
-                    </tr>
-                    <tr>
-                        <th>SPH</th>
-                        <th>CYL</th>
-                        <th>AXIS</th>
-                        <th>Add</th>
-                        <th>Prism</th>
-                        <th>Base</th>
-                        <th>SPH</th>
-                        <th>CYL</th>
-                        <th>AXIS</th>
-                        <th>Add</th>
-                        <th>Prism</th>
-                        <th>Base</th>
-                    </tr>
-                    <tr>
-                        <th>Distance</th>
-                        <td><t t-esc="optical_order.od_sph_distance"/></td>
-                        <td><t t-esc="optical_order.od_cyl_distance"/></td>
-                        <td><t t-esc="optical_order.od_ax_distance"/></td>
-                        <td><t t-esc="optical_order.od_add_distance"/></td>
-                        <td><t t-esc="optical_order.od_prism_distance"/></td>
-                        <td><t t-esc="optical_order.od_base_distance"/></td>
-                        <th>Distance</th>
-                        <td><t t-esc="optical_order.os_sph_distance"/></td>
-                        <td><t t-esc="optical_order.os_cyl_distance"/></td>
-                        <td><t t-esc="optical_order.os_ax_distance"/></td>
-                        <td><t t-esc="optical_order.os_add_distance"/></td>
-                        <td><t t-esc="optical_order.os_prism_distance"/></td>
-                        <td><t t-esc="optical_order.os_base_distance"/></td>
-                    </tr>
-                    <tr>
-                        <th>Near</th>
-                        <td><t t-esc="optical_order.od_sph_near"/></td>
-                        <td><t t-esc="optical_order.od_cyl_near"/></td>
-                        <td><t t-esc="optical_order.od_ax_near"/></td>
-                        <td><t t-esc="optical_order.od_add_near"/></td>
-                        <td><t t-esc="optical_order.od_prism_near"/></td>
-                        <td><t t-esc="optical_order.od_base_near"/></td>
-                        <th>Near</th>
-                        <td><t t-esc="optical_order.os_sph_near"/></td>
-                        <td><t t-esc="optical_order.os_cyl_near"/></td>
-                        <td><t t-esc="optical_order.os_ax_near"/></td>
-                        <td><t t-esc="optical_order.os_add_near"/></td>
-                        <td><t t-esc="optical_order.os_prism_near"/></td>
-                        <td><t t-esc="optical_order.os_base_near"/></td>
-                    </tr>
-                    <tr class="nbsp">
-                        <th class="nbsp">&amp;nbsp;</th>
-                    </tr>
-                    <t t-if="!optical_order.dual_pd">
-                        <tr class="nbsp">
-                            <th>PD</th>
-                            <td><t t-esc="optical_order.pd"/></td>
-                            <th class="nbsp" colspan="12">&amp;nbsp</th>
-                        </tr>
-                    </t>
-                    <t t-if="optical_order.dual_pd">
-                        <tr class="nbsp">
-                            <th class="dual_pd">PD Left</th>
-                            <td><t t-esc="optical_order.pdl"/></td>
-                            <th class="dual_pd">PD Right</th>
-                            <td><t t-esc="optical_order.pdr"/></td>
-                            <th class="nbsp" colspan="11">&amp;nbsp</th>
-                        </tr>
-                    </t>
                 </table>
             </div>
         </t>
@@ -937,20 +851,21 @@
                         <i class='fa fa-angle-double-left'></i>
                         Cancel
                     </span>
-                    <span class='searchbox searchbox_date' style="right: 2px;">
-                        <input placeholder='Search Date' />
-                        <span class='search-clear'></span>
-                    </span>
-                    <span class='searchbox searchbox_client'>
-                        <input placeholder='Search Client' />
-                        <span class='search-clear'></span>
-                    </span>
+                    <div class='searchbox-client searchbox_date' style="right: 2px;">
+                        <input placeholder='Search Date' size="1" t-on-keyup="updateDateList"/>
+                        <span class='search-clear-client'></span>
+                    </div>
+                    <div class='searchbox-client searchbox_client'>
+                        <input placeholder='Search Client' size="1" t-on-keyup="updateClientList"/>
+                        <span class='search-clear-client'></span>
+                    </div>
                 </section>
                 <section class="full-content">
                     <div class='window'>
                         <section class='subwindow collapsed'>
                             <div class='subwindow-container collapsed'>
                                 <div class='subwindow-container-fix optical_order-details-content'>
+                                    <t t-call="PrescriptionDetails"/>
                                 </div>
                             </div>
                         </section>
@@ -970,9 +885,26 @@
                                                 <th>Send to Glasses</th>
                                                 <th>Prescription</th>
                                             </tr>
-                                        </thead>
-                                        <tbody class='products-list-contents'>
-                                        </tbody>
+                                       </thead>
+                                       <tbody class='products-list-contents'>
+                                            <t t-foreach="optical_orders" t-as="product" t-key="product.id">
+                                                <tr t-attf-class="productlines {{(optical_order.id == product.id) ? 'highlight' : ''}}" t-att-data-id='product.id' t-on-click="prescription_line_click(product)">
+                                                    <td><t t-esc='product.name' /></td>
+                                                    <td><t t-esc='product.customer[1]' /></td>
+                                                    <td><t t-esc='product.checkup_date' /></td>
+                                                    <td><t t-esc='product.dr[1]' /></td>
+                                                    <td><t t-esc='product.test_type[1]' /></td>
+                                                    <td><t t-esc='product.prescription_type' /></td>
+                                                    <td><t t-esc='product.state' /></td>
+                                                    <td name="td_pos_optical_copy" t-att-data-order-id="product.id">
+                                                        <button class="button pos_optical_copy" t-att-data-order-id="product.id" t-on-click="prescription_line_button(product)">
+                                                            Copy Measures
+                                                        </button>
+                                                    </td>
+                                                    <td> <i class="fa fa-print pos_optical_print" t-att-data-order-id="product.id" t-on-click="print_receipt(product)"/></td>
+                                                </tr>
+                                           </t>
+                                       </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -983,22 +915,96 @@
         </div>
     </t>
 
-    <t t-name="PrescriptionHistoryScreenData" owl="1">
-        <tr class='productlines ' t-att-data-id='product.id' t-on-click="prescription_line_click(product.id)">
-            <td><t t-esc='product.name' /></td>
-            <td><t t-esc='product.customer[1]' /></td>
-            <td><t t-esc='product.checkup_date' /></td>
-            <td><t t-esc='product.dr[1]' /></td>
-            <td><t t-esc='product.test_type[1]' /></td>
-            <td><t t-esc='product.prescription_type' /></td>
-            <td><t t-esc='product.state' /></td>
-            <td name="td_pos_optical_copy" t-att-data-order-id="product.id">
-                <button class="button pos_optical_copy" t-att-data-order-id="product.id">
-                    Copy Measures
-                </button>
-            </td>
-            <td> <i class="fa fa-print pos_optical_print" t-att-data-order-id="product.id"/></td>
-        </tr>
+    <t t-name="PrescriptionDetails" owl="1">
+        <t t-if="optical_order !== 0 ">
+            <div class="prescription_receipt_details" t-att-data-id='optical_order.id'>
+                <table>
+                    <tr>
+                        <td><span>Reference:</span><t t-esc="optical_order.name"/></td>
+                        <td><span>Client Name:</span><t t-esc="optical_order.customer[1]"/></td>
+                    </tr>
+                    <tr>
+                        <td><span>Prescription Date:</span><t t-esc="optical_order.checkup_date"/></td>
+                        <td><span>Test Type:</span><t t-esc="optical_order.test_type[1]"/></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="prescription_receipt_table">
+                <table>
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OD</th>
+                        <th rowspan="2"></th>
+                        <th colspan="6">OS</th>
+                    </tr>
+                    <tr>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                        <th>SPH</th>
+                        <th>CYL</th>
+                        <th>AXIS</th>
+                        <th>Add</th>
+                        <th>Prism</th>
+                        <th>Base</th>
+                    </tr>
+                    <tr>
+                        <th>Distance</th>
+                        <td><t t-esc="optical_order.od_sph_distance"/></td>
+                        <td><t t-esc="optical_order.od_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.od_ax_distance"/></td>
+                        <td><t t-esc="optical_order.od_add_distance"/></td>
+                        <td><t t-esc="optical_order.od_prism_distance"/></td>
+                        <td><t t-esc="optical_order.od_base_distance"/></td>
+                        <th>Distance</th>
+                        <td><t t-esc="optical_order.os_sph_distance"/></td>
+                        <td><t t-esc="optical_order.os_cyl_distance"/></td>
+                        <td><t t-esc="optical_order.os_ax_distance"/></td>
+                        <td><t t-esc="optical_order.os_add_distance"/></td>
+                        <td><t t-esc="optical_order.os_prism_distance"/></td>
+                        <td><t t-esc="optical_order.os_base_distance"/></td>
+                    </tr>
+                    <tr>
+                        <th>Near</th>
+                        <td><t t-esc="optical_order.od_sph_near"/></td>
+                        <td><t t-esc="optical_order.od_cyl_near"/></td>
+                        <td><t t-esc="optical_order.od_ax_near"/></td>
+                        <td><t t-esc="optical_order.od_add_near"/></td>
+                        <td><t t-esc="optical_order.od_prism_near"/></td>
+                        <td><t t-esc="optical_order.od_base_near"/></td>
+                        <th>Near</th>
+                        <td><t t-esc="optical_order.os_sph_near"/></td>
+                        <td><t t-esc="optical_order.os_cyl_near"/></td>
+                        <td><t t-esc="optical_order.os_ax_near"/></td>
+                        <td><t t-esc="optical_order.os_add_near"/></td>
+                        <td><t t-esc="optical_order.os_prism_near"/></td>
+                        <td><t t-esc="optical_order.os_base_near"/></td>
+                    </tr>
+                    <tr class="nbsp">
+                        <th class="nbsp">&amp;nbsp;</th>
+                    </tr>
+                    <t t-if="!optical_order.dual_pd">
+                        <tr class="nbsp">
+                            <th>PD</th>
+                            <td><t t-esc="optical_order.pd"/></td>
+                            <th class="nbsp" colspan="12">&amp;nbsp</th>
+                        </tr>
+                    </t>
+                    <t t-if="optical_order.dual_pd">
+                        <tr class="nbsp">
+                            <th class="dual_pd">PD Left</th>
+                            <td><t t-esc="optical_order.pdl"/></td>
+                            <th class="dual_pd">PD Right</th>
+                            <td><t t-esc="optical_order.pdr"/></td>
+                            <th class="nbsp" colspan="11">&amp;nbsp</th>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </t>
     </t>
 
 </templates>
