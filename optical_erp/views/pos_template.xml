@@ -4,10 +4,15 @@
         <template id="assets" inherit_id="point_of_sale.assets">
             <xpath expr="." position="inside">
                 <link rel="stylesheet" type="text/css" href="/optical_erp/static/src/css/style.css"/>
-                <script type="text/javascript" src="/optical_erp/static/src/js/script.js"></script>
                 <script type="text/javascript" src="/optical_erp/static/src/js/create_product.js"></script>
                 <script type="text/javascript" src="/optical_erp/static/src/js/models.js"></script>
                 <script type="text/javascript" src="/optical_erp/static/src/js/receipt.js"></script>
+
+                <script type="text/javascript" src="/optical_erp/static/src/js/serializeObject.js"></script>
+                <script type="text/javascript" src="/optical_erp/static/src/js/point_of_sale_models.js"></script>
+                <script type="text/javascript" src="/optical_erp/static/src/js/Main_Page_Buttons.js"></script>
+                <script type="text/javascript" src="/optical_erp/static/src/js/popups.js"></script>
+                <script type="text/javascript" src="/optical_erp/static/src/js/screens.js"></script>
             </xpath>
         </template>
     </data>
