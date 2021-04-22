@@ -14,7 +14,7 @@
     "depends": [
         'base','sale','doctor','point_of_sale'
     ],
-    'price': 120, 'currency': 'EUR',
+    'price': 150, 'currency': 'EUR',
     "data": [
         'security/groups.xml',
         "security/ir.model.access.csv",
