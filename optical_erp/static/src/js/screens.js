@@ -71,7 +71,8 @@ odoo.define('optical_erp.screens',function(require) {
         }
 
         print_receipt(data){
-//            self.gui.show_screen('PrescriptionReceipt',parseInt(data.id));
+            this.close();
+            this.showScreen('PrescriptionPrint',{prescription:data.id});
         }
 
         mounted() {
@@ -86,6 +87,7 @@ odoo.define('optical_erp.screens',function(require) {
 
     PrescriptionListScreenWidget.template = 'PrescriptionHistoryScreenContainer';
     Registries.Component.add(PrescriptionListScreenWidget);
+
     return PrescriptionListScreenWidget;
 
 });

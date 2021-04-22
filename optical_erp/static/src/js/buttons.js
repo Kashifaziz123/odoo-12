@@ -1,11 +1,10 @@
 odoo.define('optical_erp.Main_Page_Buttons',function(require) {
 
-var gui = require('point_of_sale.Gui');
-//const { Gui } = require('point_of_sale.Gui');
-const PosComponent = require('point_of_sale.PosComponent');
-const Registries = require('point_of_sale.Registries');
-const ProductScreen = require('point_of_sale.ProductScreen');
-const { useListener } = require('web.custom_hooks');
+    var gui = require('point_of_sale.Gui');
+    const PosComponent = require('point_of_sale.PosComponent');
+    const Registries = require('point_of_sale.Registries');
+    const ProductScreen = require('point_of_sale.ProductScreen');
+    const { useListener } = require('web.custom_hooks');
 
     //-----------------------------------------
     //-----------------------------------------
@@ -46,7 +45,6 @@ const { useListener } = require('web.custom_hooks');
         }
         button_click() {
             self = this
-//            self.showScreen('PrescriptionCreationWidget');
             self.showPopup('PrescriptionCreationWidget');
         }
     }

@@ -13,6 +13,9 @@
     padding-top: 8px;
     padding-bottom: 8px;
 }
+.prescription_receipt_details .left_align{
+    text-align: left
+}
 .prescription_receipt_details table tbody tr th{
     text-align: left;
 }
