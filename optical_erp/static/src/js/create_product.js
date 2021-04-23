@@ -256,7 +256,7 @@ odoo.define('pos_prescription_creation',function(require) {
             else
                 this.customer = false;
             var abc= [];
-            for (var i=0;i<90;i++)
+            for (var i=0;i<180;i++)
                 abc.push(i);
             this.abc= abc;
             this.renderElement();

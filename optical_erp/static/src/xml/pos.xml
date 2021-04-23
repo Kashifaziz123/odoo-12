@@ -383,7 +383,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 12.25">
@@ -402,7 +402,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 6.25">
@@ -465,7 +465,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 12.25">
@@ -484,7 +484,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 6.25">
@@ -562,7 +562,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 12.25">
@@ -581,7 +581,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 6.25">
@@ -644,7 +644,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 12.25">
@@ -663,7 +663,7 @@
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="widget.abc || []" t-as="i">
                                         <t t-if="check &lt; 6.25">
