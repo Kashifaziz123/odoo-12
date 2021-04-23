@@ -78,8 +78,8 @@
                             <table  cellspacing="0" cellpadding="0" style="border:1px solid; width:100%; margin-top:15px;">
                                 <tr>
                                     <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;"></td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OD</td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OS</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Right</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Left</td>
                                     <!--                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:3%; border-right:1px solid black; border-bottom:1px solid black;">PD</td>-->
                                 </tr>
                                 <tr>
@@ -168,15 +168,21 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table t-if="doc.dual_pd == True" style="width:20%; margin-top:30px; border:1px solid black;">
+                            <table style="width:20%; margin-top:30px; border:1px solid black;">
                                 <tr>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">RIGHT PD</td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">LEFT PD</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">iPD</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Cl Right</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Cl Left</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Base Curve</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Dim</td>
                                 </tr>
                                 <tbody style="border:1px solid black;">
                                     <tr>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.pdr"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.pdl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.ipd"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.cl_right"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.cl_left"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.base_curve"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.dim"></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -326,8 +332,8 @@
                              <table  cellspacing="0" cellpadding="0" style="border:1px solid; width:100%; margin-top:15px;">
                                 <tr>
                                     <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:7%; border-right:1px solid black; border-bottom:1px solid black;"></td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OD</td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">OS</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Right</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:40%; border-right:1px solid black; border-bottom:1px solid black;  font-size:16px; color:green; font-weight:bold; ">Left</td>
                                     <!--                                    <td rowspan="2" style="text-align:center; padding:5px; font-size:16px; font-weight:bold; width:3%; border-right:1px solid black; border-bottom:1px solid black;">PD</td>-->
                                 </tr>
                                 <tr>
@@ -417,15 +423,21 @@
                                 </tr>
                             </table>
 
-                            <table t-if="doc.prescription_id.dual_pd == True" style="width:20%; margin-top:30px; border:1px solid black;">
+                            <table style="width:20%; margin-top:30px; border:1px solid black;">
                                 <tr>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">RIGHT PD</td>
-                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">LEFT PD</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">iPD</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Cl Right</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Cl Left</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Base Curve</td>
+                                    <td  style="text-align:center; padding:5px; font-size:16px; color:green; font-weight:bold;  width:20%; border-right:1px solid black; border-bottom:1px solid black;">Dim</td>
                                 </tr>
                                 <tbody style="border:1px solid black;">
                                     <tr>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.pdr"></span></td>
-                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.pdl"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.ipd"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.cl_right"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.cl_left"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.base_curve"></span></td>
+                                        <td  style="text-align:center; padding:5px; font-size:16px;  width:20%; border-right:1px solid black; border-bottom:1px solid black;"><span t-field="doc.prescription_id.dim"></span></td>
                                     </tr>
                                 </tbody>
                             </table>

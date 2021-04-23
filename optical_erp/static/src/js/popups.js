@@ -27,6 +27,7 @@ odoo.define('optical_erp.popups',function(require) {
             for (var i=0;i<180;i++)
                 abc.push(i);
             this.abc= abc;
+            this.today = new Date().toISOString().substr(0, 10);;
         }
         mounted() {
         }
@@ -39,8 +40,6 @@ odoo.define('optical_erp.popups',function(require) {
             vals["dr"] = $('option:selected', $('[name=dr]')).data('id');
             vals["customer"] = $('option:selected', $('[name=customer]')).data('id');
             vals["test_type"] = $('option:selected', $('[name=test_type]')).data('id');
-            if (vals["dual_pd"] !== "on")
-                vals["dual_pd"] = "off";
             vals = JSON.stringify(vals);
             var checkup_date = $('[name=checkup_date]').val();
             var today = new Date().toJSON().slice(0,10);

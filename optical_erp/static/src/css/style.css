@@ -143,6 +143,7 @@
     border-right: 0px solid black !important;
     border-bottom: 0px solid black !important;
     border: 0px solid black !important;
+    padding: 8px;
 }
 .coupon_question{
     box-shadow: none !important;

@@ -112,7 +112,7 @@
                 <table>
                     <tr>
                         <th rowspan="2"></th>
-                        <th colspan="6">OD</th>
+                        <th colspan="6">Right</th>
                     </tr>
                     <tr>
                         <th>SPH</th>
@@ -141,11 +141,11 @@
                         <td><t t-esc="optical_order.od_base_near"/></td>
                     </tr>
                     <tr class="nbsp">
-                        <th colspan="7" class="nbsp">&amp;nbsp;</th>
+                        <th colspan="7" class="nbsp">&#160;</th>
                     </tr>
                     <tr>
                         <th rowspan="2"></th>
-                        <th colspan="6">OS</th>
+                        <th colspan="6">Left</th>
                     </tr>
                     <tr>
                         <th>SPH</th>
@@ -172,6 +172,24 @@
                         <td><t t-esc="optical_order.os_add_near"/></td>
                         <td><t t-esc="optical_order.os_prism_near"/></td>
                         <td><t t-esc="optical_order.os_base_near"/></td>
+                    </tr>
+                    <tr class="nbsp">
+                        <th colspan="5" class="nbsp">&#160;</th>
+                        <th colspan="2" class="nbsp">&#160;</th>
+                    </tr>
+                    <tr>
+                        <th>iPD</th>
+                        <th>Cl Right</th>
+                        <th>Cl Left</th>
+                        <th>Base Curve</th>
+                        <th>Dim</th>
+                    </tr>
+                    <tr>
+                        <td><t t-esc="optical_order.ipd"/></td>
+                        <td><t t-esc="optical_order.cl_right"/></td>
+                        <td><t t-esc="optical_order.cl_left"/></td>
+                        <td><t t-esc="optical_order.base_curve"/></td>
+                        <td><t t-esc="optical_order.dim"/></td>
                     </tr>
                 </table>
             </div>
@@ -236,7 +254,7 @@
                         <tr>
                             <th>Prescription Date:</th>
                             <td>
-                                <input type="date"  name="checkup_date"  maxlength="10"  />
+                                <input type="date"  name="checkup_date"  maxlength="10"  t-attf-value="{{today}}"/>
                             </td>
                             <th>Test Type:</th>
                             <td>
@@ -271,13 +289,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <th colspan="4">&amp;nbsp;</th>
+                            <th colspan="4">&#160;</th>
                         </tr>
                     </table>
                     <table class="table">
                         <tr>
                             <th rowspan="2"></th>
-                            <th colspan="6">OD</th>
+                            <th colspan="6">Right</th>
                         </tr>
                         <tr>
                             <th>SPH</th>
@@ -291,17 +309,17 @@
                             <th>Distance</th>
                             <td>
                                 <select name="od_sph_distance">
-                                    <t t-set="check" t-value="16"/>
+                                    <t t-set="check" t-value="30"/>
                                     <t t-foreach="abc || []" t-as="i" t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 12.25">
+                                        <t t-if="check &lt; 30.25">
                                             <option>+<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check + 0.25"/>
@@ -310,21 +328,14 @@
                             </td>
                             <td>
                                 <select name="od_cyl_distance">
-                                    <t t-set="check" t-value="6"/>
+                                    <t t-set="check" t-value="10"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
-                                    <t t-set="check" t-value="0.25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 6.25">
-                                            <option>+<t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.25"/>
-                                    </t>
+                                    <option t-attf-selected="selected">0</option>
                                 </select>
                             </td>
                             <td>
@@ -352,6 +363,7 @@
                             <td>
                                 <select name="od_prism_distance">
                                     <t t-set="check" t-value="0.25"/>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &lt; 5.25">
                                             <option><t t-esc="check"/></option>
@@ -362,6 +374,7 @@
                             </td>
                             <td>
                                 <select name="od_base_distance">
+                                    <option t-attf-selected="selected">0</option>
                                     <option>IN</option>
                                     <option>OUT</option>
                                     <option>UP</option>
@@ -373,17 +386,17 @@
                             <th>Near</th>
                             <td>
                                 <select name="od_sph_near">
-                                    <t t-set="check" t-value="16"/>
+                                    <t t-set="check" t-value="30"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 12.25">
+                                        <t t-if="check &lt; 30.25">
                                             <option>+<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check + 0.25"/>
@@ -392,21 +405,14 @@
                             </td>
                             <td>
                                 <select name="od_cyl_near">
-                                    <t t-set="check" t-value="6"/>
+                                    <t t-set="check" t-value="10"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
-                                    <t t-set="check" t-value="0.25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 6.25">
-                                            <option>+<t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.25"/>
-                                    </t>
+                                    <option t-attf-selected="selected">0</option>
                                 </select>
                             </td>
                             <td>
@@ -434,6 +440,7 @@
                             <td>
                                 <select name="od_prism_near">
                                     <t t-set="check" t-value="0.25"/>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &lt; 5.25">
                                             <option><t t-esc="check"/></option>
@@ -444,6 +451,7 @@
                             </td>
                             <td>
                                 <select name="od_base_near">
+                                    <option t-attf-selected="selected">0</option>
                                     <option>IN</option>
                                     <option>OUT</option>
                                     <option>UP</option>
@@ -452,11 +460,11 @@
                             </td>
                         </tr>
                         <tr class="nbsp">
-                            <th colspan="7" class="nbsp">&amp;nbsp;</th>
+                            <th colspan="7" class="nbsp">&#160;</th>
                         </tr>
                         <tr>
                             <th rowspan="2"></th>
-                            <th colspan="6">OS</th>
+                            <th colspan="6">Left</th>
                         </tr>
                         <tr>
                             <th>SPH</th>
@@ -470,17 +478,17 @@
                             <th>Distance</th>
                             <td>
                                 <select name="os_sph_distance">
-                                    <t t-set="check" t-value="16"/>
+                                    <t t-set="check" t-value="30"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 12.25">
+                                        <t t-if="check &lt; 30.25">
                                             <option>+<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check + 0.25"/>
@@ -489,21 +497,14 @@
                             </td>
                             <td>
                                 <select name="os_cyl_distance">
-                                    <t t-set="check" t-value="6"/>
+                                    <t t-set="check" t-value="10"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
-                                    <t t-set="check" t-value="0.25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 6.25">
-                                            <option>+<t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.25"/>
-                                    </t>
+                                    <option t-attf-selected="selected">0</option>
                                 </select>
                             </td>
                             <td>
@@ -531,6 +532,7 @@
                             <td>
                                 <select name="os_prism_distance">
                                     <t t-set="check" t-value="0.25"/>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &lt; 5.25">
                                             <option><t t-esc="check"/></option>
@@ -541,6 +543,7 @@
                             </td>
                             <td>
                                 <select name="os_base_distance">
+                                    <option t-attf-selected="selected">0</option>
                                     <option>IN</option>
                                     <option>OUT</option>
                                     <option>UP</option>
@@ -552,17 +555,17 @@
                             <th>Near</th>
                             <td>
                                 <select name="os_sph_near">
-                                    <t t-set="check" t-value="16"/>
+                                    <t t-set="check" t-value="30"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-set="check" t-value="0.25"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 12.25">
+                                        <t t-if="check &lt; 30.25">
                                             <option>+<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check + 0.25"/>
@@ -571,21 +574,14 @@
                             </td>
                             <td>
                                 <select name="os_cyl_near">
-                                    <t t-set="check" t-value="6"/>
+                                    <t t-set="check" t-value="10"/>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &gt; 0">
                                             <option>-<t t-esc="check"/></option>
                                         </t>
                                         <t t-set="check" t-value="check - 0.25"/>
                                     </t>
-                                    <option>0</option>
-                                    <t t-set="check" t-value="0.25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 6.25">
-                                            <option>+<t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.25"/>
-                                    </t>
+                                    <option t-attf-selected="selected">0</option>
                                 </select>
                             </td>
                             <td>
@@ -613,6 +609,7 @@
                             <td>
                                 <select name="os_prism_near">
                                     <t t-set="check" t-value="0.25"/>
+                                    <option t-attf-selected="selected">0</option>
                                     <t t-foreach="abc || []" t-as="i"  t-key="i">
                                         <t t-if="check &lt; 5.25">
                                             <option><t t-esc="check"/></option>
@@ -623,6 +620,7 @@
                             </td>
                             <td>
                                 <select name="os_base_near">
+                                    <option t-attf-selected="selected">0</option>
                                     <option>IN</option>
                                     <option>OUT</option>
                                     <option>UP</option>
@@ -631,65 +629,32 @@
                             </td>
                         </tr>
                         <tr class="nbsp">
-                            <th colspan="4" class="nbsp">&amp;nbsp;</th>
-                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
+                            <th colspan="5" class="nbsp">&#160;</th>
+                            <th colspan="2" class="nbsp">&#160;</th>
                         </tr>
                         <tr>
-                            <th class="pd">PD</th>
-                            <th class="dual_pd">&amp;nbsp</th>
-                            <td>
-                                <select class="pd" name="pd">
-                                    <t t-set="check" t-value="50"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 80.5">
-                                            <option><t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 1"/>
-                                    </t>
-                                </select>
-                            </td>
-                            <th>I have Dual PD</th>
-                            <td>
-                                <input name="dual_pd" class="coupon_question" onchange="valueChanged()" type="checkbox"  />
-                            </td>
-                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
+                            <th>iPD</th>
+                            <th>Cl Right</th>
+                            <th>Cl Left</th>
+                            <th>Base Curve</th>
+                            <th>Dim</th>
+                            <th colspan="2" class="nbsp">&#160;</th>
                         </tr>
-                        <tr class="dual_pd">
-                            <th class="dual_pd">PD Left</th>
-                            <th class="pd">&amp;nbsp</th>
-                            <td>
-                                <select class="dual_pd" name="pdl">
-                                    <t t-set="check" t-value="25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 40.5">
-                                            <option><t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.5"/>
-                                    </t>
-                                </select>
-                            </td>
-                            <th class="dual_pd">PD Right</th>
-                            <th class="pd">&amp;nbsp</th>
-                            <td>
-                                <select class="dual_pd" name="pdr">
-                                    <t t-set="check" t-value="25"/>
-                                    <t t-foreach="abc || []" t-as="i"  t-key="i">
-                                        <t t-if="check &lt; 40.5">
-                                            <option><t t-esc="check"/></option>
-                                        </t>
-                                        <t t-set="check" t-value="check + 0.5"/>
-                                    </t>
-                                </select>
-                            </td>
-                            <th colspan="3" class="nbsp">&amp;nbsp;</th>
+                        <tr>
+                            <td><input name="ipd" type="text"/></td>
+                            <td><input name="cl_right" type="text"/></td>
+                            <td><input name="cl_left" type="text"/></td>
+                            <td><input name="base_curve" type="text"/></td>
+                            <td><input name="dim" type="text"/></td>
+                            <th colspan="2" class="nbsp">&#160;</th>
                         </tr>
                     </table>
                     <table>
                         <tr>
-                            <td colspan="4"><![CDATA[&nbsp;]]></td>
+                            <td colspan="4">&#160;</td>
                         </tr>
                         <tr>
-                            <td colspan="4">&amp;</td>
+                            <td colspan="4">&#160;</td>
                         </tr>
                         <tr>
                             <th>Diagnosis for the client:</th>
@@ -711,20 +676,6 @@
                         </tr>
                     </table>
                 </form>
-                <script type="text/javascript">
-                    function valueChanged()
-                    {
-                        if($('.coupon_question').is(":checked"))
-                            $(".dual_pd").show(),
-                            $(".pd").hide();
-                        else
-                            $(".dual_pd").hide(),
-                            $(".pd").show();
-                    }
-                    $( document ).ready(function() {
-                        $(".dual_pd").hide();
-                    });
-                </script>
                 <div class="footer">
                     <div class="button cancel" t-on-click="click_confirm">
                         Create
@@ -759,7 +710,7 @@
                             </td>
                         </tr>
                         <tr class="nbsp">
-                            <th colspan="4" class="nbsp">&amp;nbsp;</th>
+                            <th colspan="4" class="nbsp">&#160;</th>
                         </tr>
                         <tr>
                             <td><input class="coupon_question" type="radio" name="far"/> Far</td>
@@ -768,7 +719,7 @@
                             <td><input class="coupon_question" type="checkbox" name="glass_left"/>Glass left</td>
                         </tr>
                         <tr class="nbsp">
-                            <th colspan="4" class="nbsp">&amp;nbsp;</th>
+                            <th colspan="4" class="nbsp">&#160;</th>
                         </tr>
                     </table>
                     <table class="properties">
@@ -934,9 +885,9 @@
                 <table>
                     <tr>
                         <th rowspan="2"></th>
-                        <th colspan="6">OD</th>
+                        <th colspan="6">Right</th>
                         <th rowspan="2"></th>
-                        <th colspan="6">OS</th>
+                        <th colspan="6">Left</th>
                     </tr>
                     <tr>
                         <th>SPH</th>
@@ -985,24 +936,22 @@
                         <td><t t-esc="optical_order.os_base_near"/></td>
                     </tr>
                     <tr class="nbsp">
-                        <th class="nbsp">&amp;nbsp;</th>
+                        <th class="nbsp">&#160;</th>
                     </tr>
-                    <t t-if="!optical_order.dual_pd">
-                        <tr class="nbsp">
-                            <th>PD</th>
-                            <td><t t-esc="optical_order.pd"/></td>
-                            <th class="nbsp" colspan="12">&amp;nbsp</th>
-                        </tr>
-                    </t>
-                    <t t-if="optical_order.dual_pd">
-                        <tr class="nbsp">
-                            <th class="dual_pd">PD Left</th>
-                            <td><t t-esc="optical_order.pdl"/></td>
-                            <th class="dual_pd">PD Right</th>
-                            <td><t t-esc="optical_order.pdr"/></td>
-                            <th class="nbsp" colspan="11">&amp;nbsp</th>
-                        </tr>
-                    </t>
+                    <tr>
+                        <th>iPD</th>
+                        <th colspan="2">Cl Right</th>
+                        <th colspan="2">Cl Left</th>
+                        <th colspan="2">Base Curve</th>
+                        <th>Dim</th>
+                    </tr>
+                    <tr>
+                        <td><t t-esc="optical_order.ipd"/></td>
+                        <td colspan="2"><t t-esc="optical_order.cl_right"/></td>
+                        <td colspan="2"><t t-esc="optical_order.cl_left"/></td>
+                        <td colspan="2"><t t-esc="optical_order.base_curve"/></td>
+                        <td><t t-esc="optical_order.dim"/></td>
+                    </tr>
                 </table>
             </div>
         </t>

@@ -8,10 +8,6 @@ class ProductFromPos(models.Model):
     def create_product_pos(self, vals):
         vals = json.loads(vals)
         vals["state"] = "Confirm"
-        if vals["dual_pd"] == "on":
-            vals["dual_pd"] =True
-        else:
-            vals["dual_pd"] = False
         rec = self.env['dr.prescription'].create(vals)
         new_vals = self.env['optical.dr'].search([('id', '=', vals["dr"])])
         vals["dr"] = {}
