@@ -1,8 +1,9 @@
 {
     "name": "Optical ERP",
-    "version": "13.0.0.0.1",
+    "version": "14.0.0.0.1",
     "category": "Optical",
-    "version": "13.0.0.0.1",
+    "version": "14.0.0.0.1",
+    'live_test_url': 'https://youtu.be/nqlsBJ4ZkL8',
     'summary': "Solution for Optical(EYE) shops and clinics",
     'description': """
     odoo Solution for Optical(EYE) shops and clinics.
