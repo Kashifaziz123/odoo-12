@@ -90,8 +90,18 @@
         <t t-if="receipt">
             <t t-set="optical_order" t-value="receipt.optical_order"/>
         </t>
-        <t t-if="optical_order !== 0 and optical_order !== undefined">
             <br/><br/>
+        <t t-if="receipt.client">
+            <div class="prescription_receipt_details">
+                <table class="left_align">
+                    <tr>
+                        <th>Customer Name:</th>
+                        <td><t t-esc="receipt.client.name"/></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+        <t t-if="optical_order !== 0 and optical_order !== undefined">
             <div class="prescription_receipt_details">
                 <table class="left_align">
                     <tr>
