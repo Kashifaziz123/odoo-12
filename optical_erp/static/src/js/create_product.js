@@ -65,7 +65,7 @@ odoo.define('pos_prescription_creation',function(require) {
 // =============================================
         model:  'product.template',
         fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
-        domain: [['available_in_pos','=','true']]
+        domain: [['available_in_pos','=','true']],
         loaded: function(self,product_templates){
             self.optical.glasses = [];
             self.optical.glasses_by_id = {};
@@ -387,6 +387,7 @@ odoo.define('pos_prescription_creation',function(require) {
                 optical_order = self.pos.optical.order_by_id[parseInt($(this).data('orderId'))];
                 $('.optical_prescription').text(optical_order.name);
                 order.set_optical_reference(optical_order);
+                order.set_client(self.pos.db.partner_by_id[optical_order.customer[0]]);
                 self.gui.back();
             });
             this.$('.pos_optical_print').click(function(event) {
