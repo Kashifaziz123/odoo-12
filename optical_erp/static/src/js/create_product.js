@@ -65,6 +65,7 @@ odoo.define('pos_prescription_creation',function(require) {
 // =============================================
         model:  'product.template',
         fields: ['id','name', 'attribute_line_ids','product_variant_count','product_variant_ids'],
+        domain: [['available_in_pos','=','true']]
         loaded: function(self,product_templates){
             self.optical.glasses = [];
             self.optical.glasses_by_id = {};
